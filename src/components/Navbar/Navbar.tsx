@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { unstable_getServerSession } from "next-auth/next";
 
-import { NormalNavbar, NormalButtons, MobileNavbar, MobileButton } from "./components";
+import { NormalNavbar, MobileNavbar, Login } from "./components";
 import { authOptions } from "../../pages/api/auth/[...nextauth]";
 
 export default async function Navbar() {
@@ -14,12 +14,11 @@ export default async function Navbar() {
       </Link>
       <div className='hidden lg:flex flex-row items-center gap-4'>
         <NormalNavbar />
-        <NormalButtons session={session} />
+        <Login session={session} />
       </div>
-      <div className='lg:hidden'>
-        <MobileNavbar>
-          <MobileButton session={session} />
-        </MobileNavbar>
+      <div className='lg:hidden flex flex-row items-center gap-4'>
+        <Login session={session} />
+        <MobileNavbar />
       </div>
     </div>
   );

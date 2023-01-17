@@ -8,7 +8,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 
 import navbarData from "../../config";
 
-export default function MobileNavbar({ children }: { children: React.ReactNode }) {
+export default function MobileNavbar() {
   const [isExpand, setIsExpand] = useState(false);
 
   return (
@@ -17,7 +17,7 @@ export default function MobileNavbar({ children }: { children: React.ReactNode }
         {isExpand ? <RxCross1 size={17} /> : <AiOutlineMenu size={17} />}
       </button>
       <div
-        className={`z-10 w-full flex flex-col items-start gap-4 py-5 px-5 md:px-48 absolute left-0 top-[69px] rounded-b-lg bg-gray-900 shadow-md duration-500 ${
+        className={`z-10 w-full flex flex-col items-start gap-4 py-5 px-5 md:px-48 absolute left-0 top-[73px] rounded-b-lg bg-gray-900 shadow-md duration-500 ${
           isExpand ? "translate-x-0" : "translate-x-[-100%]"
         }`}
       >
@@ -35,7 +35,6 @@ export default function MobileNavbar({ children }: { children: React.ReactNode }
             </Link>
           ))}
         </div>
-        {children}
       </div>
     </div>
   );

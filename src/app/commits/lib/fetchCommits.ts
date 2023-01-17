@@ -1,4 +1,4 @@
-interface commitType {
+export interface commitType {
   name: string;
   date: string;
   sha: string;
@@ -12,7 +12,7 @@ function formateDate(date: string) {
 
 async function fetchdata() {
   const repository = "MR-Addict/playground";
-  const res = await fetch(`https://api.github.com/repos/${repository}/commits`);
+  const res = await fetch(`https://api.github.com/repos/${repository}/commits`, { cache: "no-store" });
   if (!res.ok) throw new Error("Cannot fetch commits data");
   const data = await res.json();
 

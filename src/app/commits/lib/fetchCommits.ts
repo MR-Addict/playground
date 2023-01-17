@@ -7,11 +7,11 @@ interface commitType {
 
 function formateDate(date: string) {
   const newDate = new Date(date);
-  return newDate.toLocaleString("zh-CN").replaceAll("/", "-");
+  return newDate.toLocaleString("zh-cn", { timeZone: "Asia/Shanghai" }).replaceAll("/", "-");
 }
 
 async function fetchdata() {
-  const repository = "MR-Addict/linktree";
+  const repository = "MR-Addict/playground";
   const res = await fetch(`https://api.github.com/repos/${repository}/commits`);
   if (!res.ok) throw new Error("Cannot fetch commits data");
   const data = await res.json();

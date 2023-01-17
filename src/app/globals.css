@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.frame {
+  @apply py-10 md:py-16 px-5 md:px-48;
+}
+
+@tailwind utilities;

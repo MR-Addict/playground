@@ -7,13 +7,7 @@ interface commitType {
 
 function formateDate(date: string) {
   const newDate = new Date(date);
-  const year = newDate.toLocaleString("default", { year: "numeric" });
-  const month = newDate.toLocaleString("default", { month: "2-digit" });
-  const day = newDate.toLocaleString("default", { day: "2-digit" });
-  const hour = newDate.getHours() < 10 ? "0" + newDate.getHours() : newDate.getHours();
-  const minute = newDate.getMinutes() < 10 ? "0" + newDate.getMinutes() : newDate.getMinutes();
-  const second = newDate.getSeconds() < 10 ? "0" + newDate.getSeconds() : newDate.getSeconds();
-  return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+  return newDate.toLocaleString("zh-CN").replaceAll("/", "-");
 }
 
 async function fetchdata() {

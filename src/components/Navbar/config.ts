@@ -9,11 +9,11 @@ const navbarData = [
   },
   {
     title: "项目信息",
-    link: "/test",
+    link: "/",
   },
   {
     title: "开发日志",
-    link: "/",
+    link: "/commits",
   },
 ];
 

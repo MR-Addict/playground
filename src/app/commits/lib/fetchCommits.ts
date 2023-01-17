@@ -16,8 +16,7 @@ async function fetchdata() {
   if (!res.ok) throw new Error("Cannot fetch commits data");
   const data = await res.json();
 
-  // @ts-expect-error
-  const shrinkedData: commitType[] = data.map((item) => {
+  const shrinkedData: commitType[] = data.map((item: any) => {
     return {
       name: item.commit.committer.name,
       date: formateDate(item.commit.committer.date),
@@ -36,15 +35,17 @@ function groupData(data: commitType[]) {
     }, {} as { [key: string]: T[] });
 
   const groups = groupBy(data, (commit) => commit.date.split(" ")[0]);
+  let totalCount = 0;
 
   const groupArrays = Object.keys(groups).map((date) => {
+    totalCount += groups[date].length;
     return {
       date,
       count: groups[date].length,
       data: groups[date],
     };
   });
-  return groupArrays;
+  return { totalCount: totalCount, data: groupArrays };
 }
 
 export default async function fetchCommits() {

@@ -2,10 +2,16 @@ import { commitType } from "../lib/fetchCommits";
 import { FaDotCircle, FaRegClock } from "react-icons/fa";
 import { HiOutlineChatBubbleOvalLeftEllipsis } from "react-icons/hi2";
 
-export default function Timeline({ commits }: { commits: { date: string; count: number; data: commitType[] }[] }) {
+export default function Timeline({
+  totalCount,
+  commits,
+}: {
+  totalCount: number;
+  commits: { date: string; count: number; data: commitType[] }[];
+}) {
   return (
     <div className='flex flex-col gap-5'>
-      <h1 className='text-2xl font-bold text-slate-700'>所有日志</h1>
+      <h1 className='text-2xl font-bold text-slate-700'>开发日志({totalCount}条日志)</h1>
       <div className='flex flex-col gap-5'>
         {commits.map((item1, index1) => (
           <div key={index1} className='flex flex-col gap-1'>
@@ -27,7 +33,7 @@ export default function Timeline({ commits }: { commits: { date: string; count: 
                 >
                   <div className=' text-gray-700 flex flex-row items-center gap-1'>
                     <span>
-                      <FaRegClock size={15} />
+                      <FaRegClock size={14} />
                     </span>
                     <h1>{item2.date}</h1>
                   </div>

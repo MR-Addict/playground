@@ -1,4 +1,4 @@
-# Nextjs Custom Template
+# My Personal Nextjs Playground
 
 ## 1. Custom Packages
 

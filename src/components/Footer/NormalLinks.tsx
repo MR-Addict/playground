@@ -1,9 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { links } from "./config";
 import LinkCard from "./LinkCard";
-import logo from "../../../public/favicon.png";
 
 export default function NormalLinks() {
   return (
@@ -18,12 +16,7 @@ export default function NormalLinks() {
           </div>
         </div>
       ))}
-      <div className='flex flex-col gap-10 items-start'>
-        <Link href='/' className='flex flex-row items-end justify-center gap-2'>
-          <Image src={logo} width={40} height={40} alt='logo' />
-          <h1 className='dark:text-white text-2xl font-bold italic'>Nextjs Template</h1>
-        </Link>
-      </div>
+      <h1 className='dark:text-white text-2xl font-bold italic'>Playground</h1>
     </div>
   );
 }

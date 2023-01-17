@@ -1,7 +1,7 @@
-import { readCommits } from "../../lib/commits";
+import fetchCommits from "./lib/fetchCommits";
 
 export default async function Page() {
-  const commits = await readCommits();
+  const commits = await fetchCommits();
 
   return (
     <div className='frame w-full'>

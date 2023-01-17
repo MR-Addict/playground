@@ -53,7 +53,7 @@ export const links: {
       },
       {
         title: "Github Repository",
-        link: "https://github.com/MR-Addict/nextjs-template",
+        link: "https://github.com/MR-Addict/playground",
         isLocal: false,
       },
     ],

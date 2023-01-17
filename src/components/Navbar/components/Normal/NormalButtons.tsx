@@ -1,7 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { Session } from "next-auth";
-import { signIn, signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
+
+import Login from "../Login/Login";
 
 function Button({ title, callback }: { title: string; callback: Function }) {
   return (
@@ -16,6 +19,20 @@ function Button({ title, callback }: { title: string; callback: Function }) {
 }
 
 export default function NormalButtons({ session }: { session: Session | null }) {
+  const [isOpenForm, setIsOpenForm] = useState(false);
+
   if (session) return <Button title='Logout' callback={signOut} />;
-  else return <Button title='Login' callback={signIn} />;
+  else
+    return (
+      <>
+        <Button
+          title='Login'
+          callback={() => {
+            setIsOpenForm(true);
+            document.body.style.overflow = "hidden";
+          }}
+        />
+        <Login isOpenForm={isOpenForm} setIsOpenForm={setIsOpenForm} />
+      </>
+    );
 }

@@ -13,8 +13,8 @@ export default function NormalNavbar() {
           key={index}
           href={item.link}
           className={`${
-            usePathname() === item.link ? "text-green-600" : "text-black"
-          } font-semibold hover:text-green-600`}
+            usePathname() === item.link ? "text-green-600" : "text-white hover:text-green-600"
+          } font-semibold`}
         >
           {item.title}
         </Link>

@@ -27,13 +27,13 @@
 
 ## 4. Tailwindcss Rules
 
-| Key        | Value     |
-| :--------- | :-------- |
-| Theme      | green-600 |
-| Radius     | sm        |
-| Dark       | gray-900  |
-| Dark Light | gray-700  |
-| Duration   | 300       |
+| Key      | Value     |
+| :------- | :-------- |
+| Radius   | sm        |
+| Duration | 300       |
+| Theme    | green-600 |
+| Dark     | gray-900  |
+| Light    | gray-700  |
 
 ## 5. How to Deploy
 

@@ -13,7 +13,7 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
       <button type='button' onClick={() => reset()} className='text-green-600 shadow-md hover:shadow-xl rounded-full'>
         <IoMdRefresh size={40} />
       </button>
-      <p className='title text-xl'>Something went wrong!</p>
+      <p className='text-slate-700 font-semibold text-xl'>Something went wrong!</p>
     </div>
   );
 }

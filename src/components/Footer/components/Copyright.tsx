@@ -1,8 +1,6 @@
-import Darkmode from "./Darkmode";
-
 export default function Copyright() {
   return (
-    <div className='dark:text-white w-full flex flex-col md:flex-row justify-between gap-2'>
+    <div className='text-white w-full flex flex-col md:flex-row justify-between gap-2'>
       <div className='flex flex-col md:flex-row gap-1 md:gap-4'>
         <div>Copyright &copy; {new Date().getFullYear()}. All rights reserved.</div>
         <div className='flex flex-row gap-1'>
@@ -17,7 +15,6 @@ export default function Copyright() {
           <span>.</span>
         </div>
       </div>
-      <Darkmode />
     </div>
   );
 }

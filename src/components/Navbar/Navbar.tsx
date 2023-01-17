@@ -8,7 +8,7 @@ export default async function Navbar() {
   const session = await unstable_getServerSession(authOptions);
 
   return (
-    <div className='w-full flex flex-row items-center justify-between px-5 md:px-48 py-5 shadow-md relative'>
+    <div className='w-full flex flex-row items-center justify-between px-5 md:px-48 py-5 shadow-md relative bg-gray-900'>
       <Link href='/' className='text-green-600 text-xl md:text-2xl font-bold italic'>
         Playground
       </Link>

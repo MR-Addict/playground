@@ -1,6 +1,6 @@
 import { FaShare } from "react-icons/fa";
 
-import { linkItemType } from "./config";
+import { linkItemType } from "../config";
 
 export default function LinkCard({ item }: { item: linkItemType }) {
   return (

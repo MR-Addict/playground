@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import { IoIosArrowUp } from "react-icons/io";
 
 export default function ScrollToTop() {
-  const [isVisiable, setIsVisiable] = useState(true);
+  const [isVisiable, setIsVisiable] = useState(false);
 
   useEffect(() => {
     function handleScroll() {
-      if (window.scrollY > 300) setIsVisiable(true);
+      if (window.scrollY > 200) setIsVisiable(true);
       else setIsVisiable(false);
     }
 
@@ -18,8 +18,9 @@ export default function ScrollToTop() {
 
   return (
     <button
+      type='button'
       onClick={() => window.scroll({ top: 0, behavior: "smooth" })}
-      className={`fixed bottom-5 md:bottom-10 right-5 md:right-10 duration-300 shadow-md bg-blue-600 text-white rounded-full p-2 ${
+      className={`fixed bottom-5 md:bottom-10 right-5 md:right-10 duration-300 shadow-md bg-green-600 text-white rounded-full p-2 ${
         isVisiable ? "scale-100" : "scale-0"
       }`}
     >

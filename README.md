@@ -1,4 +1,4 @@
-# My Personal Nextjs Playground
+# Personal Nextjs Playground
 
 ## 1. Custom Packages
 
@@ -25,7 +25,17 @@
 - [x] Login
 - [x] Mongodb
 
-## 3. How to Use
+## 4. Tailwindcss Rules
+
+| Key        | Value     |
+| :--------- | :-------- |
+| Theme      | green-600 |
+| Radius     | sm        |
+| Dark       | gray-900  |
+| Dark Light | gray-700  |
+| Duration   | 300       |
+
+## 5. How to Deploy
 
 add `.env` file:
 

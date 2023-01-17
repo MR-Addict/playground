@@ -1,6 +1,4 @@
-import Copyright from "./Copyright";
-import NormalLinks from "./NormalLinks";
-import MobileLinks from "./MobileLinks";
+import { Copyright, NormalLinks, MobileLinks } from "./components";
 
 export default function Footer() {
   return (

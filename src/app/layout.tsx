@@ -4,11 +4,12 @@ import { NextauthProvider, ScrollToTop, PopupContextProvider, Footer, Navbar } f
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en'>
+    <html lang='zh'>
       <head />
       <body className='dark:bg-gray-900 min-h-screen flex flex-col items-center justify-between'>
         <NextauthProvider>
           <PopupContextProvider>
+            {/* @ts-expect-error */}
             <Navbar />
             {children}
             <Footer />

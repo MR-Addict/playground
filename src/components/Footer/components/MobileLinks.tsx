@@ -9,7 +9,7 @@ export default function MobileLinks() {
           <h1 className='text-white'>{item1.head}</h1>
           <div className='text-gray-400 hover:text-gray-200 grid gap-1 grid-cols-2'>
             {item1.data.map((item2, index2) => (
-              <LinkCard item={item2} key={index2} />
+              <LinkCard link={item2} key={index2} />
             ))}
           </div>
         </div>

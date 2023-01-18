@@ -9,7 +9,7 @@ export default function NormalLinks() {
           <h1 className='text-white'>{item1.head}</h1>
           <div className='flex flex-col gap-1'>
             {item1.data.map((item2, index2) => (
-              <LinkCard item={item2} key={index2} />
+              <LinkCard link={item2} key={index2} />
             ))}
           </div>
         </div>

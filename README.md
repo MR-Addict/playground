@@ -25,7 +25,12 @@
 - [x] Login
 - [x] Mongodb
 
-## 4. Tailwindcss Rules
+## 4. Bugs
+
+- [ ] 无法生成静态页面，如开发日志和版本信息页面
+- [x] 无法使用 bcrypt（取而代之使用 bcryptjs，仅在服务端使用）
+
+## 5. Tailwindcss Rules
 
 | Key      | Value     |
 | :------- | :-------- |
@@ -35,7 +40,7 @@
 | Dark     | gray-900  |
 | Light    | gray-700  |
 
-## 5. How to Deploy
+## 6. How to Deploy
 
 add `.env` file:
 

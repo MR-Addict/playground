@@ -1,4 +1,4 @@
-import { commitType } from "../lib/fetchCommits";
+import { commitType } from "../lib";
 import { FaDotCircle, FaRegClock } from "react-icons/fa";
 import { HiOutlineChatBubbleOvalLeftEllipsis } from "react-icons/hi2";
 
@@ -25,25 +25,27 @@ export default function Timeline({
             </div>
             <div className='flex flex-col border border-green-600 rounded-md'>
               {item1.data.map((item2, index2) => (
-                <div
+                <a
                   key={index2}
+                  href={item2.url}
+                  target='_blank'
                   className={`flex flex-col p-2 border-b-gray-400 hover:bg-gray-100 duration-100 ${
                     index2 === item1.count - 1 ? "border-b-0" : "border-b"
                   }`}
                 >
-                  <div className=' text-gray-700 flex flex-row items-center gap-1'>
-                    <span>
-                      <FaRegClock size={14} />
+                  <div className=' text-gray-700 flex flex-row items-center'>
+                    <span className='pr-1'>
+                      <FaRegClock size={15} />
                     </span>
                     <h1>{item2.date}</h1>
                   </div>
-                  <div className=' text-slate-800 flex flex-row items-center gap-1'>
-                    <span>
+                  <div className=' text-slate-800 flex flex-row items-center'>
+                    <span className='pr-[1.5px]'>
                       <HiOutlineChatBubbleOvalLeftEllipsis size={17} />
                     </span>
                     <span>{item2.message}</span>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </div>

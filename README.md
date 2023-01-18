@@ -8,7 +8,7 @@
 - [ ] Turbopack
 - [x] Tailwindcss
 - [x] Mongodb Altas
-- [x] Bcryptjs(Replacing bcrypt used on Server Side)
+- [x] Bcryptjs(Replaced with bcrypt, only used on server side)
 
 ## 2. Custom Components
 
@@ -27,8 +27,8 @@
 
 ## 4. Bugs
 
-- [ ] 无法生成静态页面，如开发日志和版本信息页面
-- [x] 无法使用 bcrypt（取而代之使用 bcryptjs，仅在服务端使用）
+- [ ] Cannot generate static pages using force-cache
+- [x] Cannot use bcrypt(Replaced with bcrypt, only used on server side)
 
 ## 5. Tailwindcss Rules
 
@@ -36,7 +36,7 @@
 | :------- | :-------- |
 | Radius   | sm        |
 | Duration | 300       |
-| Theme    | green-600 |
+| Theme    | green-500 |
 | Dark     | gray-900  |
 | Light    | gray-700  |
 

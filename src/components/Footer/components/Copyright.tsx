@@ -30,10 +30,10 @@ function Platform() {
 export default function Copyright() {
   return (
     <div className='text-white w-full flex flex-col md:flex-row justify-between gap-2'>
-      <div className='flex flex-col md:flex-row gap-1 md:gap-4'>
+      <div className='flex flex-col md:flex-row gap-1 md:gap-2'>
+        <div>Copyright &copy; {new Date().getFullYear()}.</div>
         <Platform />
         <Runtime />
-        <div>Copyright &copy; {new Date().getFullYear()}. All rights reserved.</div>
       </div>
     </div>
   );

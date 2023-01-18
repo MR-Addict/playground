@@ -85,7 +85,7 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
             </button>
             <button
               type='submit'
-              className='w-full py-2 rounded-sm border duration-300 border-black hover:bg-green-700 bg-green-600 text-white'
+              className='w-full py-2 rounded-sm border duration-300 border-black hover:bg-green-700 bg-green-500 text-white'
             >
               Login
             </button>

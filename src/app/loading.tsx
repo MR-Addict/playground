@@ -3,7 +3,7 @@ export default function Loading() {
     <div className='frame flex flex-col items-center w-full gap-1'>
       <svg
         aria-hidden='true'
-        className='w-8 h-8 animate-spin text-gray-400 fill-green-600'
+        className='w-8 h-8 animate-spin text-gray-400 fill-green-500'
         viewBox='0 0 100 101'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'

@@ -1,0 +1,16 @@
+.blinkcursor {
+  width: 0.25rem;
+  height: 80%;
+  background-color: rgb(243 244 246);
+
+  animation: blinkcursor 1s infinite alternate-reverse;
+}
+
+@keyframes blinkcursor {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}

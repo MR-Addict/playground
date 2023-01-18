@@ -1,9 +1,10 @@
-import { Welcome } from "./components";
+import { Welcome, Projects } from "./components";
 
 export default function Page() {
   return (
-    <div className='frame w-full flex flex-col'>
+    <div className='w-full flex flex-col mb-40'>
       <Welcome />
+      <Projects />
     </div>
   );
 }

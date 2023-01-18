@@ -1,17 +1,9 @@
-import { unstable_getServerSession } from "next-auth/next";
+import { Welcome } from "./components";
 
-import { Tooltip } from "../components";
-import { authOptions } from "../pages/api/auth/[...nextauth]";
-
-export default async function Page() {
-  const session = await unstable_getServerSession(authOptions);
-
-  if (!session) return <h1>Hello world!</h1>;
-
-  const user = session.user as any;
+export default function Page() {
   return (
-    <Tooltip title={user.email} position='top'>
-      <h1 className='cursor-pointer'>Hello, {user.username}.</h1>
-    </Tooltip>
+    <div className='frame w-full flex flex-col'>
+      <Welcome />
+    </div>
   );
 }

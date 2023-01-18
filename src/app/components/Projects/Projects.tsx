@@ -19,9 +19,9 @@ export default function Projects() {
           </div>
           <div className='w-full flex flex-col gap-1 py-3 px-5'>
             <h1 className='text-gray-100'>cael@nextjs:~$ npm run build</h1>
-            <div className='flex flex-row items-center gap-2'>
-              <h1 className='text-gray-100'>cael@nextjs:~$ npm run start</h1>
-              <div className={style.blinkcursor}></div>
+            <div className='flex flex-row items-center gap-1 w-fit'>
+              <h1 className='text-gray-100'>cael@nextjs:~$</h1>
+              <h1 className={style.blinkcursor}>npm run start</h1>
             </div>
           </div>
         </div>

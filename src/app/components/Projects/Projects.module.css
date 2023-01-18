@@ -1,16 +1,36 @@
 .blinkcursor {
-  width: 0.25rem;
-  height: 80%;
-  background-color: rgb(243 244 246);
+  color: rgb(243 244 246);
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.25rem solid rgb(243 244 246);
 
-  animation: blinkcursor 1s infinite alternate-reverse;
+  animation: typing 10s steps(30, end) infinite, blinkcursor 1s step-end infinite;
+}
+
+@keyframes typing {
+  0% {
+    width: 0%;
+  }
+  10% {
+    width: 100%;
+  }
+  80% {
+    width: 100%;
+  }
+  90% {
+    width: 0%;
+  }
+  100% {
+    width: 0%;
+  }
 }
 
 @keyframes blinkcursor {
-  from {
-    opacity: 0%;
-  }
+  from,
   to {
-    opacity: 100%;
+    border-color: transparent;
+  }
+  50% {
+    border-color: rgb(243 244 246);
   }
 }

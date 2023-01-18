@@ -59,12 +59,17 @@ export const links: {
     ],
   },
   {
-    head: "Contacts",
+    head: "About",
     data: [
       {
-        title: "Github",
-        link: "https://github.com/MR-Addict/",
-        isLocal: false,
+        title: "Commits",
+        link: "/commits",
+        isLocal: true,
+      },
+      {
+        title: "Packages",
+        link: "/packages",
+        isLocal: true,
       },
     ],
   },

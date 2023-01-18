@@ -45,8 +45,14 @@ NEXTAUTH_URL="https://your.domain.com/"
 MONGODB_URI="mongodb://username:password@mongodb0.example.com:27017/"
 ```
 
-Creat Next.js app with custom template:
+build project:
 
 ```bash
-npx create-next-app@latest -e https://github.com/MR-Addict/nextjs-template
+npm run build
+```
+
+start project:
+
+```bash
+npm start
 ```

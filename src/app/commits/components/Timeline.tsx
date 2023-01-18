@@ -39,7 +39,7 @@ export default function Timeline({
                     </span>
                     <h1>{item2.date}</h1>
                   </div>
-                  <div className=' text-slate-800 flex flex-row items-center'>
+                  <div className=' text-slate-700 flex flex-row items-center'>
                     <span className='pr-[1.5px]'>
                       <HiOutlineChatBubbleOvalLeftEllipsis size={17} />
                     </span>

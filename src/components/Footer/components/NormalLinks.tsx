@@ -14,7 +14,7 @@ export default function NormalLinks() {
           </div>
         </div>
       ))}
-      <h1 className='text-green-600 text-2xl font-bold italic'>Playground</h1>
+      <h1 className='text-green-400 text-2xl font-bold italic'>Playground</h1>
     </div>
   );
 }

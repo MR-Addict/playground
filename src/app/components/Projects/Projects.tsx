@@ -15,7 +15,7 @@ export default function Projects() {
               <span className='bg-green-600 rounded-full w-3 h-3'></span>
             </div>
             <h1 className='text-gray-300'>Bash</h1>
-            <span className='w-3 h-3'></span>
+            <div></div>
           </div>
           <div className='w-full flex flex-col gap-1 py-3 px-5'>
             <h1 className='text-gray-100'>cael@nextjs:~$ npm run build</h1>

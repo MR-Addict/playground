@@ -54,41 +54,28 @@ function TextCard({ project, isEven }: { project: projectType; isEven: boolean }
   );
 }
 
-function NormalProjectCard({ project, isEven }: { project: projectType; isEven: boolean }) {
-  return (
-    <div className='w-full hidden md:flex flex-col md:flex-row justify-center gap-10'>
-      {isEven ? (
-        <>
-          <ImageCard project={project} />
-          <SplitLine />
-          <TextCard project={project} isEven={isEven} />
-        </>
-      ) : (
-        <>
-          <TextCard project={project} isEven={isEven} />
-          <SplitLine />
-          <ImageCard project={project} />
-        </>
-      )}
-    </div>
-  );
-}
-
-function MobileProjectCard({ project, isEven }: { project: projectType; isEven: boolean }) {
-  return (
-    <div className='w-full md:hidden flex flex-col md:flex-row justify-center gap-10'>
-      <ImageCard project={project} />
-      <SplitLine />
-      <TextCard project={project} isEven={isEven} />
-    </div>
-  );
-}
-
 export default function ProjectCard({ project, isEven }: { project: projectType; isEven: boolean }) {
+  if (isEven) {
+    return (
+      <div className='w-full flex flex-col md:flex-row justify-center gap-10'>
+        <ImageCard project={project} />
+        <SplitLine />
+        <TextCard project={project} isEven={isEven} />
+      </div>
+    );
+  }
   return (
     <>
-      <NormalProjectCard project={project} isEven={isEven} />
-      <MobileProjectCard project={project} isEven={isEven} />
+      <div className='w-full hidden md:flex flex-col md:flex-row justify-center gap-10'>
+        <TextCard project={project} isEven={isEven} />
+        <SplitLine />
+        <ImageCard project={project} />
+      </div>
+      <div className='w-full md:hidden flex flex-col md:flex-row justify-center gap-10'>
+        <ImageCard project={project} />
+        <SplitLine />
+        <TextCard project={project} isEven={isEven} />
+      </div>
     </>
   );
 }

@@ -1,12 +1,12 @@
 function Runtime() {
-  const beginDay = "2023-01-17";
+  const beginDay = "2023-01-17T07:00:19Z";
   const oneDay = 1000 * 60 * 60 * 24;
   const oneYear = oneDay * 365;
   const pastDays = Math.round((new Date().getTime() - new Date(beginDay).getTime()) / oneDay);
   const pastYears = Math.round(pastDays / oneYear);
   return (
     <div>
-      Run over {pastYears !== 0 && `${pastYears} years and `} {pastDays} days, since {beginDay}.
+      Run over {pastYears !== 0 && `${pastYears} years and `} {pastDays} days, since {beginDay.split("T")[0]}.
     </div>
   );
 }

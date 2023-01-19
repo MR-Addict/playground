@@ -1,13 +1,15 @@
 import Image from "next/image";
 
-import packageVersion from "./config";
+import readPackages from "./readPackages";
 
-export default function Page() {
+export default async function Page() {
+  const packages = await readPackages();
+
   return (
     <div className='frame w-full flex flex-col gap-5'>
       <h1 className='text-slate-700 font-bold text-2xl'>版本信息</h1>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
-        {packageVersion.map((item, index) => (
+        {packages.map((item, index) => (
           <div key={index} className='w-full h-full flex flex-col items-center rounded-xl border-2 border-green-500'>
             <span className='text-green-900 text-3xl font-bold border-b-2 border-b-green-500 bg-green-500/30 w-full rounded-t-xl py-3 text-center duration-300'>
               {item.name}

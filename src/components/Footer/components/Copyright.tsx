@@ -1,17 +1,3 @@
-import { formatDate, calculateRuntime } from "@/lib/utils";
-
-function Runtime() {
-  const {
-    start,
-    runtime: { days },
-  } = calculateRuntime();
-  return (
-    <div>
-      Run over {days} days, since {formatDate(start).split(" ")[0]}.
-    </div>
-  );
-}
-
 function Platform() {
   return (
     <div className='flex flex-row gap-1'>
@@ -32,9 +18,8 @@ export default function Copyright() {
   return (
     <div className='text-white w-full flex flex-col md:flex-row justify-between gap-2'>
       <div className='flex flex-col md:flex-row gap-1 md:gap-2'>
-        <div>Copyright &copy; {new Date().getFullYear()}.</div>
+        <div>Copyright &copy; {new Date().getFullYear()}. All rights reversed.</div>
         <Platform />
-        <Runtime />
       </div>
     </div>
   );

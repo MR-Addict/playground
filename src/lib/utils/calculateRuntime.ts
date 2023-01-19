@@ -5,12 +5,16 @@ export default function calculateRuntime() {
   const oneMinute = oneSecond * 60;
   const oneHour = oneMinute * 60;
   const oneDay = oneHour * 24;
+  const oneMonth = oneDay * 30;
   const oneYear = oneDay * 365;
 
   let leftTime = new Date().getTime() - new Date(start).getTime();
 
   const years = Math.floor(leftTime / oneYear);
   leftTime = leftTime % oneYear;
+
+  const months = Math.floor(leftTime / oneMonth);
+  leftTime = leftTime % oneMonth;
 
   const days = Math.floor(leftTime / oneDay);
   leftTime = leftTime % oneDay;
@@ -23,5 +27,5 @@ export default function calculateRuntime() {
 
   const seconds = Math.floor(leftTime / oneSecond);
 
-  return { start, runtime: { years, days, hours, minutes, seconds } };
+  return { start, runtime: { years, months, days, hours, minutes, seconds } };
 }

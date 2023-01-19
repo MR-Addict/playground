@@ -4,9 +4,9 @@ import style from "./Projects.module.css";
 
 export default function Projects() {
   return (
-    <div className='frame w-full flex flex-col items-center justify-center gap-10 bg-gray-100'>
+    <div className='frame w-full flex flex-col items-center justify-center gap-10'>
       <h1 className='text-3xl md:text-5xl font-bold text-gray-700'>My Next.js Projects</h1>
-      <div className='flex flex-col items-center justify-center gap-10 md:gap-28 bg-gray-100'>
+      <div className='flex flex-col items-center justify-center gap-10 md:gap-28'>
         <div className='bg-gray-700 rounded-xl flex flex-col w-full max-w-lg h-40'>
           <div className='w-full flex flex-row items-center justify-between px-5 py-2 border-b border-b-gray-500'>
             <div className='flex flex-row gap-1 w-fit'>

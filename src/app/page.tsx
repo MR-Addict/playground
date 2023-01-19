@@ -1,9 +1,10 @@
-import { Welcome, Projects } from "./components";
+import { Welcome, Timer, Projects } from "./components";
 
 export default function Page() {
   return (
-    <div className='w-full flex flex-col mb-40'>
+    <div className='w-full flex flex-col'>
       <Welcome />
+      <Timer />
       <Projects />
     </div>
   );

@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-import { Mongodb } from "../../../lib/mongodb";
+import { Mongodb } from "@/lib/mongodb";
 
 export const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },

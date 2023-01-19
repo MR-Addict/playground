@@ -1,4 +1,6 @@
-export interface commitType {
+import { formatDate } from "@/lib/utils";
+
+interface commitType {
   name: string;
   date: string;
   sha: string;
@@ -6,21 +8,16 @@ export interface commitType {
   message: string;
 }
 
-function formateDate(date: string) {
-  const newDate = new Date(date);
-  return newDate.toLocaleString("zh-cn", { timeZone: "Asia/Shanghai" }).replaceAll("/", "-");
-}
-
 async function fetchdata() {
   const repository = "MR-Addict/playground";
   const res = await fetch(`https://api.github.com/repos/${repository}/commits`, { cache: "force-cache" });
-  if (!res.ok) throw new Error("Failed fetch data");
+  if (!res.ok) throw new Error("Failed to fetch data");
   const data = await res.json();
 
   const shrinkedData: commitType[] = data.map((item: any) => {
     return {
       name: item.commit.committer.name,
-      date: formateDate(item.commit.committer.date),
+      date: formatDate(item.commit.committer.date),
       sha: item.sha,
       url: item.html_url,
       message: item.commit.message,
@@ -52,6 +49,7 @@ function groupData(data: commitType[]) {
 
 export default async function fetchCommits() {
   const res = await fetchdata();
+  // console.log(res);
   const data = groupData(res);
   return data;
 }

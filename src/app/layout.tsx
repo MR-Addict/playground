@@ -1,6 +1,6 @@
 import "./globals.css";
 
-import { NextauthProvider, ScrollToTop, PopupContextProvider, Footer, Navbar } from "../components";
+import { NextauthProvider, ScrollToTop, PopupContextProvider, Footer, Navbar } from "@/components";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

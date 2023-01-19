@@ -27,8 +27,8 @@
 
 ## 4. Bugs
 
-- [ ] Cannot generate static pages using force-cache
 - [x] Cannot use bcrypt(Replaced with bcrypt, only used on server side)
+- [x] Cannot generate static pages using force-cache(Solved because of Nextauth unstabl_getServerSession at root navbar)
 
 ## 5. Tailwindcss Rules
 

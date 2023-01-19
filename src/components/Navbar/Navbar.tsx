@@ -1,12 +1,8 @@
 import Link from "next/link";
-import { unstable_getServerSession } from "next-auth/next";
 
 import { NormalNavbar, MobileNavbar, Login } from "./components";
-import { authOptions } from "../../pages/api/auth/[...nextauth]";
 
 export default async function Navbar() {
-  const session = await unstable_getServerSession(authOptions);
-
   return (
     <div className='w-full flex flex-row items-center justify-between px-5 md:px-48 py-5 relative bg-gray-900'>
       <Link href='/' className='text-green-400 text-xl md:text-2xl font-bold italic'>
@@ -14,10 +10,10 @@ export default async function Navbar() {
       </Link>
       <div className='hidden lg:flex flex-row items-center gap-7'>
         <NormalNavbar />
-        <Login session={session} />
+        <Login />
       </div>
       <div className='lg:hidden flex flex-row items-center gap-7'>
-        <Login session={session} />
+        <Login />
         <MobileNavbar />
       </div>
     </div>

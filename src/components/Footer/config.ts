@@ -71,6 +71,11 @@ export const links: {
         link: "/packages",
         isLocal: true,
       },
+      {
+        title: "Feedback",
+        link: "/feedback",
+        isLocal: true,
+      },
     ],
   },
 ];

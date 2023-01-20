@@ -5,7 +5,7 @@ async function insert(feedback: string) {
     const client = await clientPromise;
     const db = client.db("playground");
 
-    const result = await db.collection("feedback").insertOne({ feedback, create_time: new Date() });
+    const result = await db.collection("feedback").insertOne({ feedback, date: new Date().toISOString() });
     if (result.acknowledged) return { status: true, message: "Insert success!" };
     else return { status: false, message: "Insert failed!" };
   } catch (error) {
@@ -18,10 +18,10 @@ async function read() {
     const client = await clientPromise;
     const db = client.db("playground");
 
-    const result = await db
+    const result: any[] = await db
       .collection("feedback")
       .find({})
-      .sort({ create_time: -1 })
+      .sort({ date: -1 })
       .map((item) => ({ ...item, _id: item._id.toString() }))
       .toArray();
     return { status: true, data: result };

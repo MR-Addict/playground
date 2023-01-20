@@ -4,9 +4,9 @@ import { HiOutlineChatBubbleOvalLeftEllipsis } from "react-icons/hi2";
 import fetchCommits from "./fetchCommits";
 
 export default async function Page() {
-  const data = await fetchCommits();
-  const totalCount = data.totalCount;
-  const commits = data.data;
+  const result = await fetchCommits();
+  const totalCount = result.totalCount;
+  const commits = result.data;
 
   return (
     <div className='frame w-full'>

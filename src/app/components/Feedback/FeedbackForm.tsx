@@ -10,6 +10,19 @@ export default function FeedbackForm() {
 
   const [feedback, setFeedback] = useState("");
 
+  function revalidateFeedbackPage() {
+    fetch(`/api/app/revalidate`, {
+      method: "POST",
+      body: new URLSearchParams({ token: process.env.REVALIDATE_TOKEN || "", path: "/feedback" }),
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (!result.status) console.error(result.message);
+      })
+      .catch((error) => console.error(error));
+  }
+
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     fetch("/api/feedback/insert", {
@@ -22,6 +35,7 @@ export default function FeedbackForm() {
         if (result.status) {
           setFeedback("");
           popup({ status: true, message: "Thanks for your feedback!" });
+          revalidateFeedbackPage();
         } else {
           popup({ status: false, message: "Submit your feedback failed!" });
           console.error(result.message);

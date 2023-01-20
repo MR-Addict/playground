@@ -7,7 +7,10 @@ import { formatDate, calculateRuntime } from "@/lib/utils";
 function OneSegment({ count }: { count: number }) {
   return (
     <div className='relative w-8 md:w-11 h-12 md:h-20 overflow-hidden text-gray-700 font-extrabold text-center text-5xl md:text-7xl '>
-      <div className={`absolute top-0 left-0 flex flex-col translate-y-[-${count}0%] duration-500`}>
+      <div
+        style={{ transform: `translateY(-${count}0%)` }}
+        className={`absolute top-0 left-0 flex flex-col duration-500`}
+      >
         {Array.from(Array(10)).map((item, index) => (
           <span key={index} className='w-8 md:w-11 h-12 md:h-20'>
             {index}
@@ -25,7 +28,7 @@ function Segment({ title, number }: { title: string; number: number }) {
     <div className='flex flex-col w-fit'>
       <div className='flex flex-row justify-center gap-4 p-5 rounded-t-xl bg-white drop-shadow-lg'>
         {segments.map((item, index) => (
-          <OneSegment count={Number(item)} />
+          <OneSegment key={index} count={Number(item)} />
         ))}
       </div>
       <h1 className='bg-green-600 z-10 drop-shadow-lg text-center py-3 w-full rounded-b-xl text-white text-2xl md:text-3xl font-bold'>
@@ -43,8 +46,8 @@ function useInterval(callback: Function, delay: number) {
 }
 
 export default function Timer() {
-  const { start } = calculateRuntime();
-  const [runtime, setRuntime] = useState({ years: 0, months: 0, days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const initRuntime = calculateRuntime();
+  const [runtime, setRuntime] = useState(initRuntime.runtime);
 
   useInterval(() => setRuntime(calculateRuntime().runtime), 1000);
 
@@ -59,7 +62,7 @@ export default function Timer() {
         <Segment title='Minutes' number={runtime.minutes} />
         <Segment title='Seconds' number={runtime.seconds} />
       </div>
-      <h1 className='text-xl text-gray-500'>Since {formatDate(start)}</h1>
+      <h1 className='text-xl text-gray-500'>Since {formatDate(initRuntime.start)}</h1>
     </div>
   );
 }

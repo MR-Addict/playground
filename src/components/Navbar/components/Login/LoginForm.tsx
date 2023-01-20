@@ -4,7 +4,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
-import { usePopupContext } from "@/components/PopupProvider/PopupProvider";
+import { usePopupContext } from "@/components";
 
 export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: boolean; setIsOpenForm: Function }) {
   const { popup } = usePopupContext();
@@ -85,7 +85,8 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
             </button>
             <button
               type='submit'
-              className='w-full py-2 rounded-sm border duration-300 border-black hover:bg-green-700 bg-green-500 text-white'
+              disabled={formData.password === "" || formData.username === ""}
+              className='w-full py-2 rounded-sm border duration-300 border-black hover:bg-green-700 bg-green-500 text-white disabled:cursor-not-allowed'
             >
               Login
             </button>

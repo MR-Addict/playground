@@ -62,6 +62,11 @@ export const links: {
     head: "About",
     data: [
       {
+        title: "Feedback",
+        link: "/feedback",
+        isLocal: true,
+      },
+      {
         title: "Commits",
         link: "/commits",
         isLocal: true,
@@ -69,11 +74,6 @@ export const links: {
       {
         title: "Packages",
         link: "/packages",
-        isLocal: true,
-      },
-      {
-        title: "Feedback",
-        link: "/feedback",
         isLocal: true,
       },
     ],

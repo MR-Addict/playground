@@ -6,8 +6,8 @@ export default async function fetchFeedbacks() {
   if (!result.data) throw new Error("Fetch data failed!");
 
   const mapData = result.data.map((item) => ({
-    feedback: item.feedback,
     date: formatDate(item.date),
+    message: item.message,
   }));
 
   return groupBy(mapData, (feedback) => feedback.date.split(" ")[0]);

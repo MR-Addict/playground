@@ -18,7 +18,7 @@ export default function FeedbackForm() {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
     })
       .then((res) => res.json())
-      .then((result) => {
+      .then(async (result) => {
         if (result.status) {
           setFeedback("");
           popup({ status: true, message: "Thanks for your feedback!" });
@@ -27,10 +27,7 @@ export default function FeedbackForm() {
           console.error(result.message);
         }
       })
-      .catch((error) => {
-        popup({ status: false, message: "Submit your feedback failed!" });
-        console.error(error);
-      });
+      .catch((error) => console.error(error));
   }
 
   return (
@@ -40,13 +37,14 @@ export default function FeedbackForm() {
         name='feedback'
         maxLength={500}
         value={feedback}
-        placeholder="What's in your mind?"
+        placeholder='Got a good point?'
         onChange={(e) => setFeedback(e.target.value)}
         className='flex-1 outline-none border-2 border-green-600 rounded-l-md w-full p-3 peer'
       />
       <button
         type='submit'
-        className='bg-green-600 text-white rounded-r-md py-3 px-4 font-semibold text-lg flex flex-row items-center gap-1 hover:bg-green-700 group'
+        disabled={feedback === ""}
+        className='bg-green-600 text-white rounded-r-md py-3 px-4 font-semibold text-lg flex flex-row items-center gap-1 hover:bg-green-700 disabled:cursor-not-allowed group'
       >
         <span className='translate-x-2 group-hover:translate-x-0 duration-300'>Submit</span>
         <span className='opacity-0 translate-x-[100%] group-hover:opacity-100 group-hover:translate-x-0 duration-300'>

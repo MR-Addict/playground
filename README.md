@@ -45,7 +45,6 @@
 add `.env` file:
 
 ```env
-REVALIDATE_TOKEN="create_a_revalidate_token"
 NEXTAUTH_SECRET="create_a_nextauth_secret"
 NEXTAUTH_URL="https://your.domain.com/"
 MONGODB_URI="mongodb://username:password@mongodb0.example.com:27017/"

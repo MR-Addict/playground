@@ -11,11 +11,7 @@ export default function FeedbackForm() {
   const [feedback, setFeedback] = useState("");
 
   function revalidateFeedbackPage() {
-    fetch(`/api/app/revalidate`, {
-      method: "POST",
-      body: new URLSearchParams({ token: process.env.REVALIDATE_TOKEN || "", path: "/feedback" }),
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    })
+    fetch(`/api/feedback/revalidate`)
       .then((res) => res.json())
       .then((result) => {
         if (!result.status) console.error(result.message);

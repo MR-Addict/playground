@@ -14,11 +14,11 @@ export default function Popup({
   return (
     <div
       className={`w-full z-20 fixed flex flex-col items-center -top-20 left-[50%] translate-x-[-50%] duration-500 ${
-        isPopup ? "translate-y-32" : "translate-y-0"
+        isPopup ? "translate-y-28" : "translate-y-0"
       }`}
     >
       {popupData.status ? (
-        <div className='w-full max-w-xs flex flex-row items-center px-2 py-1 rounded-sm bg-green-100 border border-green-900 border-l-[5px] border-l-green-900'>
+        <div className='w-full max-w-md flex flex-row items-center px-2 py-1 rounded-sm bg-green-100 border border-green-900 border-l-[5px] border-l-green-900'>
           <div className='flex flex-col flex-1'>
             <h1 className='text-green-900 font-bold text-xl'>Success</h1>
             <div className='flex flex-row items-center justify-between gap-2'>
@@ -34,7 +34,7 @@ export default function Popup({
           </button>
         </div>
       ) : (
-        <div className='w-full max-w-xs flex flex-row items-center px-2 py-1 rounded-sm bg-red-100 border border-red-900 border-l-[5px] border-l-red-900'>
+        <div className='w-full max-w-md flex flex-row items-center px-2 py-1 rounded-sm bg-red-100 border border-red-900 border-l-[5px] border-l-red-900'>
           <div className='flex flex-col flex-1'>
             <h1 className='text-red-900 font-bold text-xl'>Error</h1>
             <div className='flex flex-row items-center justify-between gap-2'>

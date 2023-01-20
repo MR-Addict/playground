@@ -1,4 +1,4 @@
-import { Welcome, Timer, Projects } from "./components";
+import { Welcome, Timer, Projects, Feedback } from "./components";
 
 export default function Page() {
   return (
@@ -6,6 +6,7 @@ export default function Page() {
       <Welcome />
       <Timer />
       <Projects />
+      <Feedback />
     </div>
   );
 }

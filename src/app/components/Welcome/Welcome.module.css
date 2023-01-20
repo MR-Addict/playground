@@ -28,3 +28,9 @@
     font-size: 4rem;
   }
 }
+
+@media (max-width: 640px) {
+  .animatedtext {
+    font-size: 3.5rem;
+  }
+}

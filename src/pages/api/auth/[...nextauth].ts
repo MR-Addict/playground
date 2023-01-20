@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-import { Mongodb } from "@/lib/mongodb";
+import { user } from "@/lib/mongodb";
 
 export const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },
@@ -22,11 +22,10 @@ export const authOptions: NextAuthOptions = {
           password: string;
         };
 
-        const mongodb = new Mongodb();
-        const user = await mongodb.checkuser(username, password);
+        const result = await user.compare(username, password);
 
-        if (user.status && user.data) {
-          return user.data as any;
+        if (result.status && result.user) {
+          return result.user as any;
         } else return null;
       },
     }),

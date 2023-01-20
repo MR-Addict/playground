@@ -20,7 +20,7 @@ export default function Timer() {
 
   return (
     <div className='py-16 md:py-24 px-5 md:px-48 w-full flex flex-col items-center gap-10 md:gap-14 bg-gray-100'>
-      <h1 className='text-gray-700 text-3xl md:text-5xl font-bold text-center'>Playground Has Run</h1>
+      <h1 className='text-gray-700 text-3xl md:text-5xl font-bold text-center'>Playground has run</h1>
       <div className='grid grid-cols-2 md:grid-cols-6 gap-10'>
         <Segment title='Years' number={runtime.years} />
         <Segment title='Months' number={runtime.months} />

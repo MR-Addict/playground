@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { links } from "../config";
 import LinkCard from "./LinkCard";
 
@@ -14,7 +16,9 @@ export default function NormalLinks() {
           </div>
         </div>
       ))}
-      <h1 className='text-green-400 text-2xl font-bold italic'>Playground</h1>
+      <Link href='/' className='text-green-400 text-2xl font-bold italic'>
+        Playground
+      </Link>
     </div>
   );
 }

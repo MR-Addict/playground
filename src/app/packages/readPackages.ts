@@ -11,7 +11,6 @@ import tailwindcss from "./images/tailwindcss.png";
 const packages = [
   {
     name: "Next.js",
-    version: "13.1.2",
     package: {
       category: "dependencies",
       name: "next",
@@ -20,7 +19,6 @@ const packages = [
   },
   {
     name: "React.js",
-    version: "18.2.0",
     package: {
       category: "dependencies",
       name: "react",
@@ -29,7 +27,6 @@ const packages = [
   },
   {
     name: "NextAuth.js",
-    version: "4.18.8",
     package: {
       category: "dependencies",
       name: "next-auth",
@@ -38,7 +35,6 @@ const packages = [
   },
   {
     name: "Typescript",
-    version: "4.9.4",
     package: {
       category: "dependencies",
       name: "typescript",
@@ -47,7 +43,6 @@ const packages = [
   },
   {
     name: "Mongodb",
-    version: "4.13.0",
     package: {
       category: "dependencies",
       name: "mongodb",
@@ -56,7 +51,6 @@ const packages = [
   },
   {
     name: "Tailwindcss",
-    version: "3.2.4",
     package: {
       category: "devDependencies",
       name: "tailwindcss",

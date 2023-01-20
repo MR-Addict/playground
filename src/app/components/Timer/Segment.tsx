@@ -1,3 +1,5 @@
+"use client";
+
 function OneSegment({ count }: { count: number }) {
   return (
     <div className='relative w-8 md:w-11 h-12 md:h-20 overflow-hidden text-gray-700 font-extrabold text-center text-5xl md:text-7xl '>

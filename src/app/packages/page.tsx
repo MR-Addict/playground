@@ -10,7 +10,10 @@ export default async function Page() {
       <h1 className='text-slate-700 font-bold text-2xl'>版本信息</h1>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
         {packages.map((item, index) => (
-          <div key={index} className='w-full h-full flex flex-col items-center rounded-xl border-2 border-green-500'>
+          <div
+            key={index}
+            className='w-full h-full flex flex-col items-center rounded-xl shadow-xl border-2 border-green-500 duration-300 hover:scale-95 hover:-skew-y-1'
+          >
             <span className='text-green-900 text-3xl font-bold border-b-2 border-b-green-500 bg-green-500/30 w-full rounded-t-xl py-3 text-center duration-300'>
               {item.name}
             </span>

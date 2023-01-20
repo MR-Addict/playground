@@ -1,6 +1,6 @@
 const navbarData = [
   {
-    title: "首页",
+    title: "Home",
     link: "/",
   },
 ];

@@ -36,9 +36,9 @@
 | :------- | :-------- |
 | Radius   | sm        |
 | Duration | 300       |
-| Theme    | green-500 |
-| Dark     | gray-900  |
-| Light    | gray-700  |
+| Theme    | green-600 |
+| Dark     | gray-700  |
+| Light    | gray-500  |
 
 ## 6. How to Deploy
 

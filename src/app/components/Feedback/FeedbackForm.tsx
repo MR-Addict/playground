@@ -18,7 +18,7 @@ export default function FeedbackForm() {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
     })
       .then((res) => res.json())
-      .then(async (result) => {
+      .then((result) => {
         if (result.status) {
           setFeedback("");
           popup({ status: true, message: "Thanks for your feedback!" });

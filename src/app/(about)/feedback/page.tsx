@@ -1,8 +1,6 @@
 import fetchFeedbacks from "./fetchFeedbacks";
 import { RecordLists } from "../components";
 
-export const revalidate = 60;
-
 export default async function Page() {
   const result = await fetchFeedbacks();
   const totalCount = result.totalCount;

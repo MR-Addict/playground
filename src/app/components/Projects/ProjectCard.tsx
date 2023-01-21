@@ -1,7 +1,9 @@
 import Image from "next/image";
-import { projectType } from "./config";
 import { MdRefresh } from "react-icons/md";
 import { RiShareBoxLine } from "react-icons/ri";
+import { IoIosInformationCircleOutline } from "react-icons/io";
+
+import { projectType } from "./config";
 
 function ImageCard({ project }: { project: projectType }) {
   return (
@@ -10,9 +12,10 @@ function ImageCard({ project }: { project: projectType }) {
         <div className='flex flex-row gap-1 w-fit'>
           <span className='bg-red-600 rounded-full w-3 h-3'></span>
           <span className='bg-yellow-600 rounded-full w-3 h-3'></span>
-          <span className='bg-green-500 rounded-full w-3 h-3'></span>
+          <span className='bg-green-600 rounded-full w-3 h-3'></span>
         </div>
         <div className='flex flex-row items-center gap-2 text-gray-500 border border-gray-200 rounded-md px-2'>
+          <IoIosInformationCircleOutline />
           <h1>localhost:3000</h1>
           <MdRefresh />
         </div>

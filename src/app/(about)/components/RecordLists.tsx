@@ -16,14 +16,14 @@ export default function RecordLists({ records }: { records: recordsType[] }) {
       {records.map((item1, index1) => (
         <div key={index1} className='flex flex-col gap-1'>
           <div className='flex flex-row items-center gap-2'>
-            <span className='text-green-500'>
+            <span className='text-green-600'>
               <FaDotCircle size={15} />
             </span>
             <span className='text-gray-700 font-semibold'>
               {item1.date}({item1.count})
             </span>
           </div>
-          <div className='flex flex-col border border-green-500 rounded-md'>
+          <div className='flex flex-col border border-green-600 rounded-md'>
             {item1.data.map((item2, index2) => (
               <div
                 key={index2}

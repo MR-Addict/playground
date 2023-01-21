@@ -32,7 +32,7 @@ export default function Segment({ title, number }: { title: string; number: numb
           <OneSegment key={index} count={Number(item)} />
         ))}
       </div>
-      <h1 className='bg-green-500 text-center py-3 w-full rounded-b-xl text-white text-2xl md:text-3xl font-bold'>
+      <h1 className='bg-green-600 text-center py-3 w-full rounded-b-xl text-white text-2xl md:text-3xl font-bold'>
         {title}
       </h1>
     </div>

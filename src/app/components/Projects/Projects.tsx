@@ -12,7 +12,7 @@ export default function Projects() {
             <div className='flex flex-row gap-1 w-fit'>
               <span className='bg-red-600 rounded-full w-3 h-3'></span>
               <span className='bg-yellow-600 rounded-full w-3 h-3'></span>
-              <span className='bg-green-500 rounded-full w-3 h-3'></span>
+              <span className='bg-green-600 rounded-full w-3 h-3'></span>
             </div>
             <h1 className='text-gray-300'>Bash</h1>
             <div></div>

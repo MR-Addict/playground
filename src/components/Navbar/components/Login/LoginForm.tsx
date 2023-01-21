@@ -86,7 +86,7 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
             <button
               type='submit'
               disabled={formData.password === "" || formData.username === ""}
-              className='w-full py-2 rounded-sm border duration-300 border-black hover:bg-green-700 bg-green-500 text-white disabled:cursor-not-allowed'
+              className='w-full py-2 rounded-sm border duration-300 border-black hover:bg-green-700 bg-green-600 text-white disabled:cursor-not-allowed'
             >
               Login
             </button>

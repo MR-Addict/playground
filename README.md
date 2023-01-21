@@ -42,7 +42,7 @@
 | Duration | 300       |
 | Light    | gray-500  |
 | Dark     | gray-700  |
-| Theme    | green-600 |
+| Theme    | green-500 |
 
 ## 6. How to Deploy
 

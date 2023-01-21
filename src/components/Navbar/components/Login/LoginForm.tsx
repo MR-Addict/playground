@@ -12,7 +12,6 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    document.body.style.cursor = "wait";
     const res = await signIn("credentials", {
       username: formData.username,
       password: formData.password,
@@ -20,7 +19,6 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
     });
     if (res && !res.ok) {
       popup({ status: false, message: "Username or Password Incorrect!" });
-      document.body.style.cursor = "default";
     } else {
       location.reload();
     }

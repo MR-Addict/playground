@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 import Segment from "./Segment";
-import { formatDate, calculateRuntime } from "@/lib/utils";
+import { formatDate, timeAgo } from "@/lib/utils";
 
 function useInterval(callback: Function, delay: number) {
   useEffect(() => {
@@ -13,10 +13,12 @@ function useInterval(callback: Function, delay: number) {
 }
 
 export default function Timer() {
-  const initRuntime = calculateRuntime();
-  const [runtime, setRuntime] = useState(initRuntime.runtime);
+  const runtimeStart = process.env.RUNTIME_START || "";
+  const initRuntime = timeAgo(runtimeStart);
 
-  useInterval(() => setRuntime(calculateRuntime().runtime), 1000);
+  const [runtime, setRuntime] = useState(initRuntime);
+
+  useInterval(() => setRuntime(timeAgo(runtimeStart)), 1000);
 
   return (
     <div className='py-16 md:py-24 px-5 md:px-48 w-full flex flex-col items-center gap-10 md:gap-14 bg-gray-100'>
@@ -29,7 +31,7 @@ export default function Timer() {
         <Segment title='Minutes' number={runtime.minutes} />
         <Segment title='Seconds' number={runtime.seconds} />
       </div>
-      <h1 className='text-xl text-gray-500'>Since {formatDate(initRuntime.start)}</h1>
+      <h1 className='text-xl text-gray-500'>Since {formatDate(runtimeStart)}</h1>
     </div>
   );
 }

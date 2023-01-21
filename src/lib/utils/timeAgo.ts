@@ -1,6 +1,4 @@
-export default function calculateRuntime() {
-  const start = "2023-01-17T07:00:19Z";
-
+export default function timeAgo(date: string) {
   const oneSecond = 1000;
   const oneMinute = oneSecond * 60;
   const oneHour = oneMinute * 60;
@@ -8,7 +6,7 @@ export default function calculateRuntime() {
   const oneMonth = oneDay * 30;
   const oneYear = oneDay * 365;
 
-  let leftTime = new Date().getTime() - new Date(start).getTime();
+  let leftTime = new Date().getTime() - new Date(date).getTime();
 
   const years = Math.floor(leftTime / oneYear);
   leftTime = leftTime % oneYear;
@@ -27,5 +25,5 @@ export default function calculateRuntime() {
 
   const seconds = Math.floor(leftTime / oneSecond);
 
-  return { start, runtime: { years, months, days, hours, minutes, seconds } };
+  return { years, months, days, hours, minutes, seconds };
 }

@@ -21,6 +21,7 @@ export default function FeedbackForm() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    document.body.style.cursor = "wait";
     fetch("/api/feedback/insert", {
       method: "POST",
       body: new URLSearchParams({ feedback }),
@@ -36,8 +37,12 @@ export default function FeedbackForm() {
           popup({ status: false, message: "Submit your feedback failed!" });
           console.error(result.message);
         }
+        document.body.style.cursor = "default";
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        document.body.style.cursor = "default";
+      });
   }
 
   return (

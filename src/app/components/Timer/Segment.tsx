@@ -5,7 +5,7 @@ function OneSegment({ count }: { count: number }) {
     <div className='relative w-8 md:w-11 h-12 md:h-20 overflow-hidden text-gray-700 font-extrabold text-center text-5xl md:text-7xl '>
       <div
         style={{ transform: `translateY(${count}0%)` }}
-        className={`absolute bottom-0 left-0 flex flex-col duration-500`}
+        className={`transform-gpu absolute bottom-0 left-0 flex flex-col duration-500`}
       >
         {Array.from(Array(10)).map((item, index) => (
           <span key={index} className='w-8 md:w-11 h-12 md:h-20 text-white'>

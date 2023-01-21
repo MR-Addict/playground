@@ -30,15 +30,19 @@
 - [x] Cannot use bcrypt(Replaced with bcrypt, only used on server side)
 - [x] Cannot generate static pages using force-cache(Solved because of Nextauth unstabl_getServerSession at root navbar)
 
+## 5. Traps
+
+- [x] Server side cannot access client side api route
+- [x] Client side cannot access server side environment(env in next config accessable globally)
+
 ## 5. Tailwindcss Rules
 
 | Key      | Value     |
 | :------- | :-------- |
-| Radius   | sm        |
 | Duration | 300       |
-| Theme    | green-600 |
-| Dark     | gray-700  |
 | Light    | gray-500  |
+| Dark     | gray-700  |
+| Theme    | green-600 |
 
 ## 6. How to Deploy
 

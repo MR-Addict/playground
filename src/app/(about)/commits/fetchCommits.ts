@@ -2,7 +2,7 @@ import { formatDate, groupBy } from "@/lib/utils";
 
 async function fetchdata() {
   const repository = "MR-Addict/playground";
-  const res = await fetch(`https://api.github.com/repos/${repository}/commits`, { cache: "force-cache" });
+  const res = await fetch(`https://api.github.com/repos/${repository}/commits?per_page=100`, { cache: "force-cache" });
   if (!res.ok) throw new Error("Failed to fetch data");
   const result = await res.json();
 

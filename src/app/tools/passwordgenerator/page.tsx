@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ImArrowLeft2 } from "react-icons/im";
 
-import BcryptForm from "./BcryptForm";
+import Generator from "./Generator";
 
 export default function Page() {
   return (
@@ -9,7 +9,7 @@ export default function Page() {
       <Link href='/tools' className='hidden md:block h-fit duration-300 text-gray-700 hover:text-blue-600'>
         <ImArrowLeft2 size={20} />
       </Link>
-      <BcryptForm />
+      <Generator />
       <span></span>
     </div>
   );

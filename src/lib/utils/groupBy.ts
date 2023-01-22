@@ -4,10 +4,9 @@ export default function groupBy<T>(array: T[], predicate: (value: T, index: numb
     return acc;
   }, {} as { [key: string]: T[] });
 
-  let totalCount = 0;
+  const totalCount = array.length;
 
   const groupArrays = Object.keys(groups).map((date) => {
-    totalCount += groups[date].length;
     return {
       date,
       count: groups[date].length,

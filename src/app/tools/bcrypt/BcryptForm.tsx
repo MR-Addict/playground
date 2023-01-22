@@ -24,7 +24,7 @@ export default function BcryptForm() {
   }
 
   return (
-    <div className='w-full max-w-xl flex flex-col items-center gap-5 md:gap-10'>
+    <div className='w-full max-w-xl flex flex-col items-center gap-5 md:gap-7'>
       <div className='flex flex-row items-center gap-2'>
         <h1 className='text-3xl text-center text-gray-700 font-bold'>Bcrypt your password</h1>
         <Tooltip title="I won't collect your passwords. You can use it safely.">
@@ -33,8 +33,11 @@ export default function BcryptForm() {
           </div>
         </Tooltip>
       </div>
-      <form onSubmit={handleSubmit} className='w-full flex flex-col justify-between items-center gap-7'>
-        <div className='w-full flex flex-col gap-5 rounded-md p-5 border-t-4 border-purple-600 bg-white drop-shadow-lg'>
+      <form
+        onSubmit={handleSubmit}
+        className='w-full flex flex-col justify-between items-center rounded-md border-t-4 border-purple-600 bg-white drop-shadow-lg'
+      >
+        <div className='w-full flex flex-col gap-5 p-5'>
           <div className='flex flex-col w-full gap-1'>
             <label htmlFor='password' className='flex flex-row gap-2 items-center'>
               <span>Password</span>
@@ -83,7 +86,13 @@ export default function BcryptForm() {
           <ImArrowDown size={30} />
         </div>
 
-        <div className='flex-1 w-full flex flex-col items-center justify-center gap-3 border-t-4 border-t-purple-600 bg-white drop-shadow-lg p-5 rounded-md'>
+        <div className='flex-1 w-full flex flex-col items-center justify-center gap-3 p-5 '>
+          <input
+            readOnly={true}
+            value={hashData.result}
+            placeholder='Generated hash passowrd string will be here.'
+            className='w-full text-center p-1 rounded-md bg-gray-100 outline-none'
+          />
           <div className='w-full flex flex-row items-center justify-center gap-1'>
             <Tooltip title='Hash or Rehash'>
               <button
@@ -105,11 +114,6 @@ export default function BcryptForm() {
               </button>
             </Tooltip>
           </div>
-          <input
-            readOnly={true}
-            value={hashData.result}
-            className='w-full text-center p-1 rounded-md bg-gray-100 outline-none'
-          />
         </div>
       </form>
     </div>

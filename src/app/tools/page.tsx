@@ -24,7 +24,7 @@ export default function Page() {
               <Link
                 href={item.link}
                 style={{ backgroundColor: colorfulColors[index % colorfulColors.length] }}
-                className='rounded-md py-3 px-7 text-xl font-bold text-white shadow-lg md:translate-y-10 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 duration-500 transform-gpu'
+                className='rounded-md py-3 px-7 text-xl font-bold text-white shadow-lg md:translate-y-7 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 duration-500 transform-gpu'
               >
                 Have a try
               </Link>

@@ -10,23 +10,23 @@ import { Tooltip, usePopupContext } from "@/components";
 
 export default function BcryptForm() {
   const { popup } = usePopupContext();
-  const [hashData, setHashData] = useState({ password: "", saltRound: 10, result: "" });
+  const [formData, setFormData] = useState({ password: "", saltRound: 10, result: "" });
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const result = await hash(hashData.password, hashData.saltRound);
-    setHashData({ ...hashData, result });
+    const result = await hash(formData.password, formData.saltRound);
+    setFormData({ ...formData, result });
   }
 
   function handleCopy() {
-    navigator.clipboard.writeText(hashData.result);
+    navigator.clipboard.writeText(formData.result);
     popup({ status: true, message: "Copy success!" });
   }
 
   return (
-    <div className='w-full max-w-xl flex flex-col items-center gap-5 md:gap-7'>
+    <div className='w-full max-w-md flex flex-col items-center gap-5 md:gap-7'>
       <div className='flex flex-row items-center gap-2'>
-        <h1 className='text-3xl text-center text-gray-700 font-bold'>Bcrypt your password</h1>
+        <h1 className='text-3xl text-center text-gray-700 font-bold'>Bcrypt Password</h1>
         <Tooltip title="I won't collect your passwords. You can use it safely.">
           <div className='text-gray-500 cursor-pointer'>
             <ImInfo size={15} />
@@ -35,9 +35,9 @@ export default function BcryptForm() {
       </div>
       <form
         onSubmit={handleSubmit}
-        className='w-full flex flex-col justify-between items-center rounded-md border-t-4 border-purple-600 bg-white drop-shadow-lg'
+        className='w-full flex flex-col justify-between items-center rounded-md border-t-4 border-purple-600 bg-white drop-shadow-lg p-5 gap-5'
       >
-        <div className='w-full flex flex-col gap-5 p-5'>
+        <div className='w-full flex flex-col gap-5'>
           <div className='flex flex-col w-full gap-1'>
             <label htmlFor='password' className='flex flex-row gap-2 items-center'>
               <span>Password</span>
@@ -53,8 +53,8 @@ export default function BcryptForm() {
               name='password'
               maxLength={500}
               placeholder='passowrd'
-              value={hashData.password}
-              onChange={(e) => setHashData({ ...hashData, [e.target.name]: e.target.value })}
+              value={formData.password}
+              onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
               className='flex-1 p-3 outline-none bg-gray-100 rounded-md'
             />
           </div>
@@ -69,14 +69,14 @@ export default function BcryptForm() {
               </Tooltip>
             </label>
             <input
-              required
               min={8}
               max={16}
+              required
               type='number'
               name='saltRound'
-              value={hashData.saltRound}
+              value={formData.saltRound}
               placeholder='Salt round'
-              onChange={(e) => setHashData({ ...hashData, [e.target.name]: Number(e.target.value) })}
+              onChange={(e) => setFormData({ ...formData, [e.target.name]: Number(e.target.value) })}
               className='w-full p-3 outline-none bg-gray-100 rounded-md'
             />
           </div>
@@ -86,10 +86,10 @@ export default function BcryptForm() {
           <ImArrowDown size={30} />
         </div>
 
-        <div className='flex-1 w-full flex flex-col items-center justify-center gap-3 p-5 '>
+        <div className='flex-1 w-full flex flex-col items-center justify-center gap-3 '>
           <input
             readOnly={true}
-            value={hashData.result}
+            value={formData.result}
             placeholder='Generated hash passowrd string will be here.'
             className='w-full over text-center p-1 rounded-md bg-gray-100 outline-none'
           />
@@ -97,7 +97,7 @@ export default function BcryptForm() {
             <Tooltip title='Hash or Rehash'>
               <button
                 type='submit'
-                disabled={hashData.password === ""}
+                disabled={formData.password === ""}
                 className='disabled:cursor-not-allowed text-gray-700 duration-200 active:rotate-180'
               >
                 <BiRefresh size={27} />
@@ -107,7 +107,7 @@ export default function BcryptForm() {
               <button
                 type='button'
                 onClick={handleCopy}
-                disabled={hashData.result === ""}
+                disabled={formData.result === ""}
                 className='disabled:cursor-not-allowed text-gray-700'
               >
                 <MdContentCopy size={20} />

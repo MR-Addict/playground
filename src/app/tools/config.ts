@@ -15,14 +15,14 @@ const tools: {
     icon: FaUnlockAlt,
     link: "/tools/bcrypt",
     intro:
-      "Don't you think come up with a differect password is hard to think. As a tech gay, we should it automatic. This programme help you generate passwords eaisly but also with multi options.",
+      "Don't you think it hard to come up with a difficult password. As a tech gay, we should automatic it. This programme help you generate passwords eaisly but also with multi options.",
   },
   {
     name: "Bcrypt",
     icon: BsShieldLockFill,
     link: "/tools/bcrypt",
     intro:
-      "Bcrypt use the Blowfish cypher combined with random salt. It makes sure that your password is srcure. This programme helps you hash your password.",
+      "Bcrypt use the Blowfish cypher combined with random salt. It makes your password securely saved on your database. This programme helps you hash your password with bcrypt.",
   },
 ];
 

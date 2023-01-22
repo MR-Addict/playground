@@ -91,7 +91,7 @@ export default function BcryptForm() {
             readOnly={true}
             value={hashData.result}
             placeholder='Generated hash passowrd string will be here.'
-            className='w-full text-center p-1 rounded-md bg-gray-100 outline-none'
+            className='w-full over text-center p-1 rounded-md bg-gray-100 outline-none'
           />
           <div className='w-full flex flex-row items-center justify-center gap-1'>
             <Tooltip title='Hash or Rehash'>

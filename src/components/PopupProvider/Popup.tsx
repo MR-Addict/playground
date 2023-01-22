@@ -20,7 +20,7 @@ export default function Popup({
       }`}
     >
       {popupData.status ? (
-        <div className='w-full max-w-md flex flex-row items-center justify-between rounded-sm bg-green-100 pr-3'>
+        <div className='w-full max-w-md flex flex-row items-center justify-between rounded-md bg-green-100 pr-3'>
           <div className='py-3 px-3 text-white bg-green-700 rounded-l-md'>
             <BsCheckCircleFill size={18} />
           </div>
@@ -34,7 +34,7 @@ export default function Popup({
           </button>
         </div>
       ) : (
-        <div className='w-full max-w-md flex flex-row items-center justify-between rounded-sm bg-red-100 pr-3'>
+        <div className='w-full max-w-md flex flex-row items-center justify-between rounded-md bg-red-100 pr-3'>
           <div className='py-3 px-3 text-white bg-red-700 rounded-l-md'>
             <MdError size={18} />
           </div>

@@ -10,16 +10,17 @@ import { Tooltip, usePopupContext } from "@/components";
 
 export default function BcryptForm() {
   const { popup } = usePopupContext();
-  const [formData, setFormData] = useState({ password: "", saltRound: 10, result: "" });
+
+  const [input, setInput] = useState({ password: "", saltRound: 10 });
+  const [output, setOutput] = useState("");
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const result = await hash(formData.password, formData.saltRound);
-    setFormData({ ...formData, result });
+    setOutput(await hash(input.password, input.saltRound));
   }
 
   function handleCopy() {
-    navigator.clipboard.writeText(formData.result);
+    navigator.clipboard.writeText(output);
     popup({ status: true, message: "Copy success!" });
   }
 
@@ -53,8 +54,8 @@ export default function BcryptForm() {
               name='password'
               maxLength={500}
               placeholder='passowrd'
-              value={formData.password}
-              onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
+              value={input.password}
+              onChange={(e) => setInput({ ...input, [e.target.name]: e.target.value })}
               className='flex-1 p-3 outline-none bg-gray-100 rounded-md'
             />
           </div>
@@ -74,9 +75,9 @@ export default function BcryptForm() {
               required
               type='number'
               name='saltRound'
-              value={formData.saltRound}
+              value={input.saltRound}
               placeholder='Salt round'
-              onChange={(e) => setFormData({ ...formData, [e.target.name]: Number(e.target.value) })}
+              onChange={(e) => setInput({ ...input, [e.target.name]: Number(e.target.value) })}
               className='w-full p-3 outline-none bg-gray-100 rounded-md'
             />
           </div>
@@ -89,30 +90,22 @@ export default function BcryptForm() {
         <div className='flex-1 w-full flex flex-col items-center justify-center gap-3 '>
           <input
             readOnly={true}
-            value={formData.result}
+            value={output}
             placeholder='Generated hash passowrd string will be here.'
             className='w-full over text-center p-1 rounded-md bg-gray-100 outline-none'
           />
           <div className='w-full flex flex-row items-center justify-center gap-1'>
-            <Tooltip title='Hash or Rehash'>
-              <button
-                type='submit'
-                disabled={formData.password === ""}
-                className='disabled:cursor-not-allowed text-gray-700 duration-200 active:rotate-180'
-              >
-                <BiRefresh size={27} />
-              </button>
-            </Tooltip>
-            <Tooltip title='Copy'>
-              <button
-                type='button'
-                onClick={handleCopy}
-                disabled={formData.result === ""}
-                className='disabled:cursor-not-allowed text-gray-700'
-              >
-                <MdContentCopy size={20} />
-              </button>
-            </Tooltip>
+            <button type='submit' className='text-gray-700'>
+              <BiRefresh size={27} />
+            </button>
+            <button
+              type='button'
+              onClick={handleCopy}
+              disabled={output === ""}
+              className='disabled:cursor-not-allowed text-gray-700'
+            >
+              <MdContentCopy size={20} />
+            </button>
           </div>
         </div>
       </form>

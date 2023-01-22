@@ -51,7 +51,7 @@ export default function FeedbackForm() {
         name='feedback'
         maxLength={500}
         value={feedback}
-        placeholder='Got a good point?'
+        placeholder='Any words is ok!'
         onChange={(e) => setFeedback(e.target.value)}
         className='flex-1 outline-none border-2 border-green-600 rounded-l-md w-full p-3 peer'
       />

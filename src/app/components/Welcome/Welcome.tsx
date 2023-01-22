@@ -11,7 +11,7 @@ export default function Welcome() {
           Next.js 13
         </a>
         in one place which I think is fun and may also be useful in my daily life. I hope I can keep my enthusiasm for a
-        long time. So I put a counter below. I hope you can have the same thought like me as well after have a visit.
+        long time, so I put a counter below. Hope you will have the same thought like me as well after have a visit.
       </h1>
     </div>
   );

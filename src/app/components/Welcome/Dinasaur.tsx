@@ -1,25 +1,28 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import dinosaur from "./dinosaur.png";
 
 export default function Dinosaur() {
   const [angle, setAngle] = useState(0);
-  const dinoImg = document.getElementById("dinosaurImg");
+  const dinoRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
-      if (!dinoImg) return;
-      setAngle((Math.atan2(event.clientY - dinoImg.offsetTop, event.clientX - dinoImg.offsetLeft) * 180) / Math.PI);
+      if (!dinoRef.current) return;
+      setAngle(
+        (Math.atan2(event.clientY - dinoRef.current.offsetTop, event.clientX - dinoRef.current.offsetLeft) * 180) /
+          Math.PI
+      );
     };
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
-    <div id='dinosaurImg' className='relative'>
+    <div ref={dinoRef} className='relative'>
       <Image src={dinosaur} alt='dinosaur' className='w-full max-w-xs' />
       <span
         style={{ transform: `rotate(${angle}deg)` }}

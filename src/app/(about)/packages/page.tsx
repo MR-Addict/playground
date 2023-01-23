@@ -12,7 +12,7 @@ export default async function Page() {
         {packages.map((item, index) => (
           <div
             key={index}
-            className='w-full h-full flex flex-col items-center rounded-xl shadow-xl border-2 border-green-600 duration-300 hover:scale-95 hover:-skew-y-1 transform-gpu'
+            className='w-full h-full flex flex-col items-center rounded-xl shadow-md border-2 bg-white border-green-600 duration-300 hover:shadow-xl hover:scale-95 hover:-skew-y-1 transform-gpu'
           >
             <span className='text-green-900 text-3xl font-bold border-b-2 border-b-green-600 bg-green-600/30 w-full rounded-t-xl py-3 text-center duration-300'>
               {item.name}

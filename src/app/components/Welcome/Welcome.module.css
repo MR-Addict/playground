@@ -1,8 +1,7 @@
 .animatedtext {
-  font-weight: 800;
-  font-size: 8rem;
+  font-weight: 700;
+  font-size: 2.25rem;
   line-height: 1;
-  text-align: center;
   padding-bottom: 1.25rem;
 
   background-size: 300%;
@@ -25,12 +24,6 @@
 
 @media (max-width: 768px) {
   .animatedtext {
-    font-size: 4rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .animatedtext {
-    font-size: 3.5rem;
+    font-size: 1.875rem;
   }
 }

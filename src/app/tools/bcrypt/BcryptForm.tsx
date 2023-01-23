@@ -95,7 +95,11 @@ export default function BcryptForm() {
             className='w-full over text-center p-1 rounded-md bg-gray-100 outline-none'
           />
           <div className='w-full flex flex-row items-center justify-center gap-1'>
-            <button type='submit' className='text-gray-700'>
+            <button
+              type='submit'
+              disabled={input.password === ""}
+              className='text-gray-700 disabled:cursor-not-allowed'
+            >
               <BiRefresh size={27} />
             </button>
             <button

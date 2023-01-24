@@ -35,7 +35,7 @@
 - [x] Server side cannot access client side api route
 - [x] Client side cannot access server side environment(env in next config accessable globally)
 
-## 5. Tailwindcss Rules
+## 6. Tailwindcss Rules
 
 | Key      | Value     |
 | :------- | :-------- |
@@ -44,7 +44,7 @@
 | Dark     | gray-700  |
 | Theme    | green-600 |
 
-## 6. How to Deploy
+## 7. How to Deploy
 
 add `.env` file:
 

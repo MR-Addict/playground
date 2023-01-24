@@ -2,8 +2,7 @@ import Link from "next/link";
 import { FaRegClock } from "react-icons/fa";
 
 import { getAllPostsProps } from "@/lib/post";
-
-const colorfulColors = ["#39B5E0", "#A555EC", "#7DCE13", "#FFC93C", "#F49D1A", "#205295", "#439A97", "#68B984"];
+import { colorfulColors } from "./config";
 
 export default function Page() {
   const posts = getAllPostsProps();
@@ -20,7 +19,7 @@ export default function Page() {
         <h1 className='text-gray-700 font-bold text-3xl'>All blogs</h1>
         {posts.map((item, index) => (
           <div key={index} className='flex flex-col gap-2'>
-            <Link href={`/blog`} className='text-2xl text-blue-600 hover:underline'>
+            <Link href={`/blog/${item.id}`} className='text-2xl text-blue-600 hover:underline'>
               {item.title}
             </Link>
             <div className='flex flex-row items-center gap-2 text-gray-500 '>

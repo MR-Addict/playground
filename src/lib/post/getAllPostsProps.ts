@@ -12,7 +12,7 @@ interface blogType {
   intro: string;
 }
 
-export function getAllPostsProps() {
+export default function getAllPostsProps() {
   const postsNames = fs.readdirSync(postsDir);
 
   const allPostsProps = postsNames.map((fileName) => {

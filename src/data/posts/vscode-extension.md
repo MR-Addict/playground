@@ -5,8 +5,6 @@ tags: ["vscode", "extension"]
 intro: "Recommand all kinds of vscode extensin that help you improve your workflow."
 ---
 
-# Personal Nextjs Playground
-
 ## 1. Custom Packages
 
 - [x] Prettier

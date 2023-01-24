@@ -5,8 +5,6 @@ tags: ["nextjs", "tutorial"]
 intro: "This is a website I build all kinds of interesting web apps based onNext.js 13in one place."
 ---
 
-# Personal Nextjs Playground
-
 ## 1. Custom Packages
 
 - [x] Prettier

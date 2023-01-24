@@ -24,7 +24,7 @@ export default async function Page({ params: { postid } }: { params: { postid: s
           ))}
         </div>
       </div>
-      <div className='w-full max-w-4xl bg-white p-5 rounded-md'>
+      <div className='w-full max-w-3xl markdown'>
         <Post serializedMDX={result.serializedMDX} />
       </div>
     </div>

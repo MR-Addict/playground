@@ -24,9 +24,17 @@ function H3(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingEleme
 
 function H4(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
   return (
-    <h4 {...props} className='font-semibold my-5 text-gray-700'>
+    <h4 {...props} className='text-lg font-semibold my-5 text-gray-700'>
       {props.children}
     </h4>
+  );
+}
+
+function H5(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
+  return (
+    <h5 {...props} className='text-base font-semibold my-5 text-gray-700'>
+      {props.children}
+    </h5>
   );
 }
 
@@ -35,6 +43,7 @@ const Heading = {
   H2,
   H3,
   H4,
+  H5,
 };
 
 export default Heading;

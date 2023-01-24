@@ -1,0 +1,23 @@
+/* code title */
+.rehype-code-title {
+  background: #2e3134;
+  padding: 0.6em 1.4em;
+  color: #bdbdbd;
+  border-radius: 0.3em 0.3em 0 0;
+}
+
+/* table */
+.markdown table {
+  border-collapse: collapse;
+}
+
+.markdown table td,
+.markdown table th {
+  border: 1px solid #ddd;
+  padding: 0.5em 1em;
+  color: #494949;
+}
+
+.markdown table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

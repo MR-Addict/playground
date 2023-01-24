@@ -15,27 +15,29 @@ export default function Page() {
           This blog page includes posts I wrote about my stacks or my experience. Hope you like it.
         </p>
       </div>
-      <div className='flex flex-col w-full max-w-4xl gap-5'>
+      <div className='flex flex-col w-full max-w-3xl gap-5'>
         <h1 className='text-gray-700 font-bold text-3xl'>All blogs</h1>
-        {posts.map((item, index) => (
-          <div key={index} className='flex flex-col gap-2'>
-            <Link href={`/blog/${item.id}`} className='text-2xl text-blue-600 hover:underline'>
-              {item.title}
-            </Link>
-            <div className='flex flex-row items-center gap-2 text-gray-500 '>
-              <div className='flex flex-row items-center'>
-                <FaRegClock size={15} />
-                <p>{item.date}</p>
-              </div>
-              {item.tags.map((tag, index) => (
-                <div key={index} style={{ color: colorfulColors[index], fontWeight: "bold" }}>
-                  #{tag}
+        <div className='flex flex-col w-full gap-7'>
+          {posts.map((item, index) => (
+            <div key={index} className='flex flex-col items-start gap-2 bg-white drop-shadow-md p-3 rounded-md'>
+              <Link href={`/blog/${item.id}`} className='text-2xl font-semibold text-blue-600 hover:underline'>
+                {item.title}
+              </Link>
+              <div className='flex flex-row items-center gap-2 text-gray-500 '>
+                <div className='flex flex-row items-center gap-1'>
+                  <FaRegClock size={15} />
+                  <p>{item.date}</p>
                 </div>
-              ))}
+                {item.tags.map((tag, index) => (
+                  <div key={index} style={{ color: colorfulColors[index], fontWeight: "bold" }}>
+                    #{tag}
+                  </div>
+                ))}
+              </div>
+              <div className='flex flex-row items-center gap-1 text-gray-500 text-xl'>{item.intro}</div>
             </div>
-            <div className='flex flex-row items-center gap-1 text-gray-700 text-xl'>{item.intro}</div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

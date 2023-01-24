@@ -17,13 +17,10 @@ export default function getAllPostsProps() {
 
   const allPostsProps = postsNames.map((fileName) => {
     const filePath = path.join(postsDir, fileName);
-    const content = fs.readFileSync(filePath, "utf8");
-    const matterResult = matter(content).data;
+    const fileContent = fs.readFileSync(filePath, "utf8");
+    const { data } = matter(fileContent);
 
-    return {
-      id: fileName.replace(/\.md$/, ""),
-      ...matterResult,
-    } as blogType;
+    return { id: fileName.replace(/\.md$/, ""), ...data } as blogType;
   });
 
   return allPostsProps.sort(({ date: a }, { date: b }) => {

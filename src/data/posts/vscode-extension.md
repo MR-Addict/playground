@@ -53,7 +53,7 @@ intro: "Recommand all kinds of vscode extensin that help you improve your workfl
 
 add `.env` file:
 
-```env
+```text
 NEXTAUTH_SECRET="create_a_nextauth_secret"
 NEXTAUTH_URL="https://your.domain.com/"
 MONGODB_URI="mongodb://username:password@mongodb0.example.com:27017/"

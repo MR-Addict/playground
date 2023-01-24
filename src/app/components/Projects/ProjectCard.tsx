@@ -44,15 +44,16 @@ function SplitLine() {
 function TextCard({ project, isEven }: { project: projectType; isEven: boolean }) {
   return (
     <div className={`flex flex-col items-start ${isEven ? "md:items-start" : "md:items-end"} justify-center gap-4`}>
+      <h1 className='text-gray-700 font-bold text-3xl'>{project.title}</h1>
+      <p className='w-full max-w-md text-xl text-gray-500'>{project.intro}</p>
       <a
         href={project.link}
         target='_blank'
-        className='text-gray-500 border-gray-300 hover:text-gray-800 duration-300 border p-1 rounded-md'
+        className='text-white bg-green-600 text-xl duration-300 px-3 py-2 rounded-md flex flex-row items-center gap-1 shadow-md hover:shadow-lg'
       >
-        <RiShareBoxLine size={25} />
+        <span>Have a Look</span>
+        <RiShareBoxLine />
       </a>
-      <h1 className='text-gray-700 font-bold text-3xl'>{project.title}</h1>
-      <p className='w-full max-w-md text-xl text-gray-500'>{project.intro}</p>
     </div>
   );
 }

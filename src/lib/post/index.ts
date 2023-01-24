@@ -1,0 +1,1 @@
+export { getAllPostsProps } from "./getAllPostsProps";

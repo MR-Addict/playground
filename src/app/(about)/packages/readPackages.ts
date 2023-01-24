@@ -60,9 +60,8 @@ const packages = [
 ];
 
 export default async function readPackages() {
-  const jsonDir = path.join(process.cwd(), "/");
-  const fullPath = path.join(jsonDir, "package.json");
-  const rawPackageJson = await fsPromises.readFile(fullPath, "utf8");
+  const jsonPath = path.join(process.cwd(), "/package.json");
+  const rawPackageJson = await fsPromises.readFile(jsonPath, "utf8");
   const packageJson = JSON.parse(rawPackageJson);
 
   const result = packages.map((item) => {

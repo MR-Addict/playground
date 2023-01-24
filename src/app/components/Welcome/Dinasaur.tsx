@@ -23,7 +23,7 @@ export default function Dinosaur() {
 
   return (
     <div ref={dinoRef} className='relative'>
-      <Image src={dinosaur} alt='dinosaur' className='w-full max-w-xs' />
+      <Image priority src={dinosaur} alt='dinosaur' className='w-full max-w-xs' />
       <span
         style={{ transform: `rotate(${angle}deg)` }}
         className='w-[23px] h-[23px] absolute top-[20px] left-[102px] after:content-[""] after:absolute after:top-[8px] after:left-[15px] after:w-2 after:h-2 after:bg-[#4F4F5A] after:rounded-full rotate-45'

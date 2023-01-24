@@ -41,7 +41,7 @@ export default function Welcome() {
         <Image
           src={welcome}
           alt='welcome'
-          placeholder='blur'
+          placeholder='empty'
           priority={true}
           className='hidden md:block w-full max-w-2xl object-cover object-center'
         />

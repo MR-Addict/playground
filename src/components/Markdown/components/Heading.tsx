@@ -1,6 +1,6 @@
 function H1(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
   return (
-    <h1 {...props} className='text-3xl font-bold my-5 text-gray-900'>
+    <h1 {...props} className='text-3xl font-bold py-3 text-gray-900 border-b-2 border-gray-200'>
       {props.children}
     </h1>
   );
@@ -8,7 +8,7 @@ function H1(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingEleme
 
 function H2(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
   return (
-    <h2 {...props} className='text-2xl font-semibold my-5 text-gray-800'>
+    <h2 {...props} className='text-2xl font-semibold py-3 text-gray-800 border-b-2 border-gray-200'>
       {props.children}
     </h2>
   );
@@ -16,7 +16,7 @@ function H2(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingEleme
 
 function H3(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
   return (
-    <h3 {...props} className='text-xl font-semibold my-5 text-gray-700'>
+    <h3 {...props} className='text-xl font-semibold py-3 text-gray-700'>
       {props.children}
     </h3>
   );
@@ -24,7 +24,7 @@ function H3(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingEleme
 
 function H4(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
   return (
-    <h4 {...props} className='text-lg font-semibold my-5 text-gray-700'>
+    <h4 {...props} className='text-lg font-semibold py-3 text-gray-700'>
       {props.children}
     </h4>
   );
@@ -32,7 +32,7 @@ function H4(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingEleme
 
 function H5(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
   return (
-    <h5 {...props} className='text-base font-semibold my-5 text-gray-700'>
+    <h5 {...props} className='text-base font-semibold py-3 text-gray-700'>
       {props.children}
     </h5>
   );

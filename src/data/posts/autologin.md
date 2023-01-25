@@ -78,3 +78,7 @@ Your browser auto directed disabled
 ## 4. 说明
 
 了解本项目的其他分支情况可参考此[Wiki 页面](https://github.com/MR-Addict/Njtech-Home-Autologin/wiki)
+
+> Demo page
+>
+> - [blog](/blog)

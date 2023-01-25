@@ -8,6 +8,7 @@
 
 /* table */
 .markdown table {
+  margin: 12px 0;
   border-collapse: collapse;
 }
 

@@ -26,16 +26,18 @@ export default function Page() {
               <Link href={`/blog/${item.id}`} className='text-2xl font-semibold text-blue-600 hover:underline'>
                 {item.title}
               </Link>
-              <div className='flex flex-row items-center gap-2 text-gray-500 '>
+              <div className='flex flex-col md:flex-row md:items-center md:gap-2 text-gray-500'>
                 <div className='flex flex-row items-center gap-1'>
                   <FaRegClock size={15} />
                   <p>{item.date}</p>
                 </div>
-                {item.tags.map((tag, index) => (
-                  <div key={index} style={{ color: colorfulColors[index], fontWeight: "bold" }}>
-                    #{tag}
-                  </div>
-                ))}
+                <div className='flex flex-row gap-2'>
+                  {item.tags.map((tag, index) => (
+                    <div key={index} style={{ color: colorfulColors[index], fontWeight: "bold" }}>
+                      #{tag}
+                    </div>
+                  ))}
+                </div>
               </div>
               <div className='flex flex-row items-center gap-1 text-gray-500 text-xl'>{item.intro}</div>
             </div>

@@ -6,6 +6,7 @@ import { BiRefresh } from "react-icons/bi";
 import { MdContentCopy } from "react-icons/md";
 import { ImInfo, ImArrowDown } from "react-icons/im";
 
+import { copyToClipboard } from "@/lib/utils";
 import { Tooltip, usePopupContext } from "@/components";
 
 export default function BcryptForm() {
@@ -20,7 +21,7 @@ export default function BcryptForm() {
   }
 
   function handleCopy() {
-    navigator.clipboard.writeText(output);
+    copyToClipboard(output);
     popup({ status: true, message: "Copy success!" });
   }
 

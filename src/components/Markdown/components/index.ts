@@ -1,3 +1,4 @@
+export { default as Pre } from "./Pre";
 export { default as List } from "./List";
 export { default as Code } from "./Code";
 export { default as Anchor } from "./Anchor";

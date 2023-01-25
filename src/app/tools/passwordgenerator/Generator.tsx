@@ -5,9 +5,10 @@ import { BiRefresh } from "react-icons/bi";
 import { MdContentCopy } from "react-icons/md";
 import { ImInfo, ImArrowDown } from "react-icons/im";
 
-import { Tooltip, usePopupContext } from "@/components";
-import generatePasswords from "./generatePasswords";
 import characters from "./characters";
+import { copyToClipboard } from "@/lib/utils";
+import generatePasswords from "./generatePasswords";
+import { Tooltip, usePopupContext } from "@/components";
 
 export default function Generator() {
   const { popup } = usePopupContext();
@@ -21,7 +22,7 @@ export default function Generator() {
   }
 
   function handleCopy() {
-    navigator.clipboard.writeText(output);
+    copyToClipboard(output);
     popup({ status: true, message: "Copy success!" });
   }
 

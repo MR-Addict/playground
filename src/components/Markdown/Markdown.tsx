@@ -4,7 +4,7 @@ import "./style/customCss.css";
 import "./style/prism-atom-dark.css";
 import "./style/prism-line-numbers.css";
 
-import { Heading, Paragraph, List, Anchor, Code, Blockquote } from "./components";
+import { Heading, Paragraph, List, Anchor, Code, Blockquote, Pre } from "./components";
 
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 
@@ -20,6 +20,7 @@ export default function Markdown({ serializedMDX }: { serializedMDX: MDXRemoteSe
     a: Anchor,
     code: Code,
     blockquote: Blockquote,
+    pre: Pre,
   };
 
   return <MDXRemote {...serializedMDX} components={{ ...components }} />;

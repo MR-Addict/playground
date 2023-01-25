@@ -5,6 +5,7 @@
   padding: 0.6em 1.4em;
   color: #bdbdbd;
   border-radius: 0.3em 0.3em 0 0;
+  overflow: hidden;
 }
 
 /* table */

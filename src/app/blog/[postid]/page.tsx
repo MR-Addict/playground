@@ -11,7 +11,7 @@ export default async function Page({ params: { postid } }: { params: { postid: s
   return (
     <div className='frame w-full flex flex-col items-center gap-5'>
       <div className='flex flex-col items-center gap-5'>
-        <div className='text-3xl md:text-4xl font-bold text-gray-700'>{result.title}</div>
+        <div className='text-3xl md:text-4xl font-bold text-gray-700 text-center'>{result.title}</div>
         <div className='flex flex-col md:flex-row items-center gap-2 text-gray-500'>
           <div className='flex flex-row items-center gap-1'>
             <FaRegClock size={15} />

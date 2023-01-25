@@ -1,11 +1,9 @@
 ---
-title: "Njtech Home autologin"
+title: "南京工业大学校园网自动登录脚本"
 date: "2022-12-08 15:12"
-tags: ["autologin", "python"]
-intro: "This is a website I build all kinds of interesting web apps based onNext.js 13in one place."
+tags: ["autologin", "powershell"]
+intro: "南京工业大学校园网自动登录脚本，Powershell版，解放你的双手。"
 ---
-
-# 南京工业大学校园网自动登录脚本 Powershell 版
 
 ## 1. 主要功能
 
@@ -75,10 +73,6 @@ Your browser auto directed disabled
 
 如果你配置了开机自启和解锁自启，那么本脚本会在相应事件下自动执行。
 
-## 4. 说明
-
-了解本项目的其他分支情况可参考此[Wiki 页面](https://github.com/MR-Addict/Njtech-Home-Autologin/wiki)
-
-> Demo page
+> Github 地址：
 >
-> - [blog](/blog)
+> - [https://github.com/MR-Addict/Njtech-Home-Autologin](https://github.com/MR-Addict/Njtech-Home-Autologin)

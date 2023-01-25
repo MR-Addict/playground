@@ -23,12 +23,12 @@ export default function Page() {
               key={index}
               className='flex flex-col items-start gap-2 bg-white drop-shadow-md p-3 rounded-md md:hover:drop-shadow-xl cursor-pointer md:hover:translate-y-1 duration-300'
             >
-              <Link href={`/blog/${item.id}`} className='text-2xl font-semibold text-blue-600 hover:underline'>
+              <Link href={`/blog/${item.id}`} className='text-xl text-blue-600 hover:underline'>
                 {item.title}
               </Link>
-              <div className='flex flex-col md:flex-row md:items-center md:gap-2 text-gray-500'>
+              <div className='flex text-sm flex-col md:flex-row md:items-center md:gap-2 text-gray-500'>
                 <div className='flex flex-row items-center gap-1'>
-                  <FaRegClock size={15} />
+                  <FaRegClock size={13} />
                   <p>{item.date}</p>
                 </div>
                 <div className='flex flex-row gap-2'>
@@ -39,7 +39,7 @@ export default function Page() {
                   ))}
                 </div>
               </div>
-              <div className='flex flex-row items-center gap-1 text-gray-500 text-xl'>{item.intro}</div>
+              <div className='flex flex-row items-center gap-1 text-gray-500'>{item.intro}</div>
             </div>
           ))}
         </div>

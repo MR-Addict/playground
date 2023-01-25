@@ -19,7 +19,7 @@ export default function Pre(props: React.DetailedHTMLProps<React.HTMLAttributes<
   }
 
   return (
-    <div className='relative group'>
+    <div className='relative group mb-4'>
       <pre {...props} ref={preRef}>
         <button
           type='button'

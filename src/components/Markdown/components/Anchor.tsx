@@ -12,7 +12,7 @@ export default function Anchor(
     );
   } else if (props.href?.startsWith("/")) {
     return (
-      <Link href={props.href} className='m-1 text-base text-blue-600 hover:underline'>
+      <Link href={props.href} className='m-1 text-lg text-blue-600 hover:underline'>
         {props.children}
       </Link>
     );

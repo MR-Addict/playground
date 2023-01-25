@@ -1,8 +1,10 @@
 /* code title */
 .rehype-code-title {
+  margin-top: 16px;
   background: #2e3134;
   padding: 0.6em 1.4em;
   color: #bdbdbd;
+  border-radius: 0.3em 0.3em 0 0;
 }
 
 /* table */

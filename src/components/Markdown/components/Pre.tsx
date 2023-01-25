@@ -11,12 +11,12 @@ export default function Pre(props: React.DetailedHTMLProps<React.HTMLAttributes<
     return () => clearTimeout(timer);
   }, [copied]);
 
-  const hanleClickCopy = async () => {
+  function handleClick() {
     if (preRef.current?.innerText) {
       copyToClipboard(preRef.current.innerText);
       setCopied(true);
     }
-  };
+  }
 
   return (
     <div className='relative group'>
@@ -24,16 +24,16 @@ export default function Pre(props: React.DetailedHTMLProps<React.HTMLAttributes<
         <button
           type='button'
           disabled={copied}
-          onClick={hanleClickCopy}
+          onClick={handleClick}
           aria-label='Copy to Clipboard'
           className='absolute space-x-2 top-0 right-0 m-2 hidden transition bg-transparent border rounded-md p-2 focus:outline-none group-hover:flex disabled:flex fade-in'
         >
           <svg
-            xmlns='http://www.w3.org/2000/svg'
-            className='h-4 w-4 pointer-events-none'
             fill='none'
             viewBox='0 0 24 24'
             stroke='currentColor'
+            xmlns='http://www.w3.org/2000/svg'
+            className='h-4 w-4 pointer-events-none'
           >
             {copied ? (
               <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M5 13l4 4L19 7' />
@@ -47,7 +47,6 @@ export default function Pre(props: React.DetailedHTMLProps<React.HTMLAttributes<
             )}
           </svg>
         </button>
-
         {props.children}
       </pre>
     </div>

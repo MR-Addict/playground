@@ -6,7 +6,7 @@ export default function Code(props: React.DetailedHTMLProps<React.HTMLAttributes
 
   // inline code
   return (
-    <code {...props} className='p-1 mx-1 text-gray-700 bg-gray-200 rounded-md text-sm'>
+    <code {...props} className='px-1 text-gray-700 bg-gray-200 rounded-sm text-base'>
       {props.children}
     </code>
   );

@@ -38,12 +38,14 @@ function H5(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingEleme
   );
 }
 
-const Heading = {
-  H1,
-  H2,
-  H3,
-  H4,
-  H5,
-};
+function H6(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
+  return (
+    <h6 {...props} className='text-base font-semibold py-3 my-4 text-gray-700'>
+      {props.children}
+    </h6>
+  );
+}
+
+const Heading = { H1, H2, H3, H4, H5, H6 };
 
 export default Heading;

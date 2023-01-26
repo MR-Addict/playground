@@ -357,7 +357,7 @@ export default function copyToClipboard(text: string) {
 }
 ```
 
-## 10. Useful links
+## 10. Useful Links
 
 - [MDX blog with Next.js 13](https://blog.kfirfitousi.com/posts/web-dev/mdx-nextjs-13)
 - [Nexjs offical markdown tutorial](https://nextjs.org/blog/markdown)

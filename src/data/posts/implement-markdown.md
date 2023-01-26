@@ -7,13 +7,13 @@ intro: "Teach you how to implement markdown to your project."
 
 ## 1. Introduction
 
-After I finished two tools page of this webistes, I want to create a new blog page. In other way, when I first learn nextjs, [my first project](https://mr-addict.github.io/nextjs-blog/) was nextjs offical example about creating a personal blog.
+After I finished two tools pages of this website, I want to create a new blog page. In another way, when I first learn next.js, [my first project](https://mr-addict.github.io/nextjs-blog/) was next.js official example of creating a personal blog.
 
 So I think I could do it.
 
 ## 2. Blueprint
 
-Based on some research, I think there are five steps we need in order to create a blog using markdown.
+Based on some research, I think there are five steps we need to create a blog using markdown.
 
 - Get markdown `front matter` data(such as title, date, tags and other information).
 - Get `raw markdown` content(which we will used to convert to html).
@@ -25,7 +25,7 @@ Based on some research, I think there are five steps we need in order to create 
 
 I think the most popular front matter parser is [gray-matter](https://www.npmjs.com/package/gray-matter).
 
-Here is the code I get all posts front matter data in nextjs:
+Here is the code I get all posts front matter data in next.js:
 
 ```ts:lib/post/getAllPostsProps.ts
 import fs from "fs";
@@ -98,7 +98,7 @@ export default async function getPostContent(id: string) {
 }
 ```
 
-As you can see, I get markdown and and serialiedMDX which needed for [MDXRemote](https://www.npmjs.com/package/next-mdx-remote) in next step.
+As you can see, I get markdown and serialiedMDX which is needed for [MDXRemote](https://www.npmjs.com/package/next-mdx-remote) in the next step.
 
 ## 5. Compile and Plugins
 
@@ -112,9 +112,9 @@ You can use so many packages to compile your markdown component, such as:
 
 These compilers also support many remark or rehype plugins.
 
-Because I'm using Next.js, so I gonna use `next-mdx-remote`. But there is a problem that above compiler cannot convert `table`, `tasklist`, `footnote`, `autololink` and some other marks github features. So I need to use [remark-gfm](https://www.npmjs.com/package/remark-gfm) plugin to solve this problem.
+Because I'm using Next.js, I gonna use `next-mdx-remote`. But there is a problem that the above compiler cannot convert `table`, `tasklist`, `footnote`, `autololink`, and some other marks github features. So I need to use [remark-gfm](https://www.npmjs.com/package/remark-gfm) plugin to solve this problem.
 
-Except `remarkGfm`, I gonna use below plugins as well while compiling:
+Except `remarkGfm`, I gonna use the below plugins as well while compiling:
 
 - [remarkGfm](https://www.npmjs.com/package/remark-gfm)
 - [rehypeSlug](https://www.npmjs.com/package/rehype-slug)
@@ -149,7 +149,7 @@ export default async function serializeMDX(markdown: string) {
 
 ## 6. Display Compiled Markdown
 
-I'm using next-mdx-remote, so it's very easy to display compiled result after serializing markdown.
+I'm using next-mdx-remote, so it's very easy to display compiled results after serializing markdown.
 
 Here is the code:
 
@@ -163,15 +163,15 @@ export default function Markdown({ serializedMDX }: { serializedMDX: MDXRemoteSe
 }
 ```
 
-> Wraning:
+> Warning:
 >
-> Becase next-mdx-remote is a client side component, so you need to add `use client` at the top of the page if you are using Next.js 13.
+> Because next-mdx-remote is a client side component, so you need to add `use client` at the top of the page if you are using Next.js 13.
 
 ## 7. Styling
 
-Because I'm using next-mdx-remote, I can easily replace some component with custom component, such as `img` tag, `a` tag, `blockquote` and many other tags.
+Because I'm using next-mdx-remote, I can easily replace some components with custom components, such as `img` tag, `a` tag, `blockquote`, and many other tags.
 
-Here is the update code of above `Markdown.tsx`:
+Here is the updated code of the above `Markdown.tsx`:
 
 ```ts:components/Markdown/Markdown.tsx
 "use client";
@@ -221,9 +221,9 @@ export default function Blockquote(
 
 ## 8. Custom Styling and Syntax Highlight
 
-But there are still some components we cannot replace, such as table. So we need to style it with `css` manually. And we also need to highlight syntax that prism has generated for us.
+But there are still some components we cannot replace, such as the table. So we need to style it with `css` manually. And we also need to highlight the syntax that prism has generated for us.
 
-So we need to import below three css files to above `Markdown.tsx` component like this:
+So we need to import the below three css files to the above `Markdown.tsx` component like this:
 
 ```ts:components/Markdown/Markdown.tsx
 "use client";
@@ -256,17 +256,17 @@ export default function Markdown({ serializedMDX }: { serializedMDX: MDXRemoteSe
 }
 ```
 
-> Css file are too long, you can find source code of this project on my gihtub:
+> Css files are too long, you can find the source code of this project on my github:
 >
 > - [https://github.com/MR-Addict/playground](https://github.com/MR-Addict/playground)
 
 ## 9. Copy button
 
-It would be great if there's copy button on our code block, I found a solution on [this blog](https://ithelp.ithome.com.tw/articles/10302397).
+It would be great if there was copy button on our code block, I found a solution on [this blog](https://ithelp.ithome.com.tw/articles/10302397).
 
-The solution is we use `React useRef` hook to get block `innerText`, even if there are syntax highligh. We only need to replace `pre tag` with `custom Pre component`.
+The solution is we use `React useRef` hook to get block `innerText`, even if there are syntax highlights. We only need to replace `pre tag` with `custom Pre component`.
 
-We have done this before when we styling.
+We have done this before when we styled.
 
 And here is my custom Pre component:
 
@@ -359,16 +359,16 @@ export default function copyToClipboard(text: string) {
 
 ## 10. Youtube Video
 
-I find one usefule youtube video that may be helpful.
+I find one useful youtube video that may be helpful.
 
 <Youtube id="Hiabp1GY8fA" />
 
 ## 11. Useful Links
 
 - [MDX blog with Next.js 13](https://blog.kfirfitousi.com/posts/web-dev/mdx-nextjs-13)
-- [Nexjs offical markdown tutorial](https://nextjs.org/blog/markdown)
+- [Nexjs official markdown tutorial](https://nextjs.org/blog/markdown)
 - [EasonChang blog about adding copy button to markdown](https://ithelp.ithome.com.tw/articles/10302397)
-- [Philstainer blog about how add copy button to code block](https://philstainer.io/blog/copy-code-button-markdown)
-- [MDX-JS issue about how to add copy buttoon to code block](https://github.com/mdx-js/mdx/discussions/1948)
+- [Philstainer blog about how to add copy button to code block](https://philstainer.io/blog/copy-code-button-markdown)
+- [MDX-JS issue about how to add copy button to code block](https://github.com/mdx-js/mdx/discussions/1948)
 - [Prism Themes](https://github.com/PrismJS/prism-themes)
 - [Prism Code title](https://ithelp.ithome.com.tw/articles/10301271)

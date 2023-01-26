@@ -20,7 +20,7 @@ const tools: {
     icon: BsShieldLockFill,
     link: "/tools/bcrypt",
     intro:
-      "Bcrypt use the blowfish cypher combined with random salt to hash password. Make sure your password hard to crack. This programme helps you hash your password with bcrypt.",
+      "Bcrypt uses the blowfish cipher combined with random salt to hash the password. Make sure your password is hard to crack. This program helps you hash your password with bcrypt.",
   },
 ];
 

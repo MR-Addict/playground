@@ -17,7 +17,7 @@ const projects: projectType[] = [
     img: publicapi,
     link: "https://github.com/mr-addict/public-apis-frontend",
     intro:
-      "This is my first independent nextjs 13 project rather than learning or copy from Youtube videos or other platform. I spent a lot time debugging, especially css style. I should confess that I really lack innovation of design. Even though I still like it. I'm sure that you can find free and interesting public apis from this app.",
+      "This is my first independent nextjs 13 project rather than learning or copying from Youtube videos or other platforms. I spent a lot of time debugging, especially css style. I should confess that I lack innovation in design. Even though I still like it. I'm sure that you can find free and interesting public apis from this app.",
   },
   {
     title: "Vistalab",
@@ -31,7 +31,7 @@ const projects: projectType[] = [
     img: linktree,
     link: "https://github.com/MR-Addict/linktree",
     intro:
-      "In this project, I begin to use vercel to host my website, authenticate with next auth, and use mongodb as my database. Also this time, I begin to deeply love these stacks. I really appreciate vercel team create a so good, neaty, convenient but also powerfull framework. I love what nextjs featrues, sepecially giant break after version 13. I think its the best frontend framework ever.",
+      "In this project, I begin to use vercel to host my website, authenticate with next auth, and use mongodb as my database. Also this time, I begin to deeply love these stacks. I appreciate vercel team creates a so good, neat, convenient but also powerful framework. I love what next.js features, especially the giant break after version 13. I think it's the best frontend framework ever.",
   },
 ];
 

@@ -20,7 +20,7 @@ export default function Dinosaur() {
   }, []);
 
   return (
-    <div className='relative w-fit'>
+    <div className='relative w-fit hidden md:block'>
       <span ref={dinoRef} className='absolute top-7 left-32'></span>
       <Image priority src={dinosaur} alt='dinosaur' className='w-full max-w-xs' />
       <span

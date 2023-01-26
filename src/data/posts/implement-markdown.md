@@ -165,11 +165,11 @@ export default function Markdown({ serializedMDX }: { serializedMDX: MDXRemoteSe
 
 > Warning:
 >
-> Because next-mdx-remote is a client side component, so you need to add `use client` at the top of the page if you are using Next.js 13.
+> Because next-mdx-remote is a client side component, you need to add `use client` at the top of the page if you are using Next.js 13.
 
 ## 7. Styling
 
-Because I'm using next-mdx-remote, I can easily replace some components with custom components, such as `img` tag, `a` tag, `blockquote`, and many other tags.
+Because I'm using next-mdx-remote, I can easily replace some components with custom components, such as `img` tag, `a` tag, `blockquote` tag, and many other tags.
 
 Here is the updated code of the above `Markdown.tsx`:
 

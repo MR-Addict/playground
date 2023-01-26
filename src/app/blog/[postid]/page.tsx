@@ -1,7 +1,7 @@
 import { FaRegClock } from "react-icons/fa";
 
 import { Markdown } from "@/components";
-import { colorfulColors } from "../config";
+import { colorfulColors } from "@/lib/utils";
 import { getPostContent, getAllPostsProps } from "@/lib/post";
 
 export default async function Page({ params: { postid } }: { params: { postid: string } }) {

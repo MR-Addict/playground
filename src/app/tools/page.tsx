@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-import tools, { colorfulColors } from "./config";
+import tools from "./config";
+import { colorfulColors } from "@/lib/utils";
 
 export default function Page() {
   return (
@@ -18,7 +19,7 @@ export default function Page() {
           >
             <div className='flex flex-col gap-2'>
               <span className='text-2xl md:text-3xl font-bold text-gray-700'>{item.name}</span>
-              <span className='text-xl text-gray-500'>{item.intro}</span>
+              <span className='text-lg text-gray-500'>{item.intro}</span>
             </div>
             <div className='flex flex-row items-center justify-between'>
               <Link

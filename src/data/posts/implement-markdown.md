@@ -13,7 +13,7 @@ So I think I could do it.
 
 ## 2. Blueprint
 
-After doing some research, I think there are for steps we need to create a blog based on markdown.
+Based on some research, I think there are five steps we need in order to create a blog using markdown.
 
 - Get markdown `front matter` data(such as title, date, tags and other information).
 - Get `raw markdown` content(which we will used to convert to html).

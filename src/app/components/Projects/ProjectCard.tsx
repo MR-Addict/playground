@@ -49,7 +49,7 @@ function TextCard({ project, isEven }: { project: projectType; isEven: boolean }
       <a
         href={project.link}
         target='_blank'
-        className='text-gray-600 bg-gray-200 font-semibold border border-gray-500 text-xl duration-300 px-3 py-2 rounded-md flex flex-row items-center gap-1 shadow-md hover:shadow-lg'
+        className='text-indigo-600 bg-indigo-200 font-semibold border border-indigo-500 text-xl duration-300 px-3 py-2 rounded-md flex flex-row items-center gap-1 shadow-md hover:shadow-lg'
       >
         <span>Have a Look</span>
         <RiShareBoxLine />
@@ -68,6 +68,7 @@ export default function ProjectCard({ project, isEven }: { project: projectType;
       </div>
     );
   }
+
   return (
     <>
       <div className='w-full hidden md:flex flex-col md:flex-row justify-center gap-10'>

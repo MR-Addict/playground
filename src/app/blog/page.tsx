@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaRegClock } from "react-icons/fa";
 
 import { getAllPostsProps } from "@/lib/post";
-import { colorfulColors } from "./config";
+import { colorfulColors } from "@/lib/utils";
 
 export default function Page() {
   const posts = getAllPostsProps();

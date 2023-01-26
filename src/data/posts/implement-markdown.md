@@ -357,7 +357,13 @@ export default function copyToClipboard(text: string) {
 }
 ```
 
-## 10. Useful Links
+## 10. Youtube Video
+
+I find one usefule youtube video that may be helpful.
+
+<Youtube id="Hiabp1GY8fA" />
+
+## 11. Useful Links
 
 - [MDX blog with Next.js 13](https://blog.kfirfitousi.com/posts/web-dev/mdx-nextjs-13)
 - [Nexjs offical markdown tutorial](https://nextjs.org/blog/markdown)

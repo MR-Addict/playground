@@ -4,13 +4,14 @@ import "./style/customCss.css";
 import "./style/prism-atom-dark.css";
 import "./style/prism-line-numbers.css";
 
-import { CusKeyButton } from "./custom";
-import { Heading, Paragraph, List, Anchor, Code, Blockquote, Pre, Img } from "./components";
-
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 
+import { CusKeyButton } from "./custom";
+import { Youtube } from "@/components";
+import { Heading, Paragraph, List, Anchor, Code, Blockquote, Pre, Img } from "./components";
+
 export default function Markdown({ serializedMDX }: { serializedMDX: MDXRemoteSerializeResult }) {
-  const customComponents = { CusKeyButton };
+  const customComponents = { CusKeyButton, Youtube };
 
   const components = {
     h1: Heading.H1,

@@ -1,10 +1,6 @@
 @tailwind base;
 @tailwind components;
 
-html {
-  scroll-behavior: smooth;
-}
-
 .frame {
   @apply py-10 px-5 md:px-48;
 }

@@ -26,7 +26,7 @@ export default async function Page({ params: { postid } }: { params: { postid: s
           </div>
         </div>
       </div>
-      <div className='w-full max-w-3xl markdown'>
+      <div className='w-full max-w-3xl markdown' style={{ scrollBehavior: "smooth" }}>
         <Markdown serializedMDX={result.serializedMDX} />
       </div>
     </div>

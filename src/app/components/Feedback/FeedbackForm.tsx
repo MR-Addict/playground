@@ -44,7 +44,7 @@ export default function FeedbackForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className='w-full flex flex-row justify-center shadow-md'>
+    <form onSubmit={handleSubmit} className='w-full flex flex-row justify-center rounded-md shadow-md'>
       <input
         required
         type='text'

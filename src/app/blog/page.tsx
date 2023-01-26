@@ -15,8 +15,8 @@ export default function Page() {
           This blog page includes posts I wrote about my stacks or my experience. Hope you like it.
         </p>
       </div>
-      <div className='flex flex-col w-full max-w-3xl gap-5'>
-        <h1 className='text-gray-700 font-bold text-3xl'>All blogs</h1>
+      <div className='flex flex-col w-full max-w-3xl gap-3'>
+        <h1 className='text-gray-700 font-bold text-2xl ml-3'>All Blogs</h1>
         <div className='flex flex-col w-full gap-5'>
           {posts.map((item, index) => (
             <div

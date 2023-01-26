@@ -12,17 +12,16 @@ export default function Dinosaur() {
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       if (!dinoRef.current) return;
-      setAngle(
-        (Math.atan2(event.clientY - dinoRef.current.offsetTop, event.clientX - dinoRef.current.offsetLeft) * 180) /
-          Math.PI
-      );
+      const react = dinoRef.current.getBoundingClientRect();
+      setAngle((Math.atan2(event.clientY - react.top, event.clientX - react.left) * 180) / Math.PI);
     };
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
-    <div ref={dinoRef} className='relative'>
+    <div className='relative w-fit'>
+      <span ref={dinoRef} className='absolute top-7 left-32'></span>
       <Image priority src={dinosaur} alt='dinosaur' className='w-full max-w-xs' />
       <span
         style={{ transform: `rotate(${angle}deg)` }}

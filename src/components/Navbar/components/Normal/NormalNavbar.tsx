@@ -14,7 +14,7 @@ export default function NormalNavbar() {
           href={item.link}
           className={`${
             usePathname() === item.link ? "text-green-600" : "text-gray-700 hover:text-green-600"
-          } font-semibold text-lg`}
+          } font-semibold`}
         >
           {item.title}
         </Link>

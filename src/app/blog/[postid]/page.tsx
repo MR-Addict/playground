@@ -2,7 +2,7 @@ import { FaRegClock } from "react-icons/fa";
 
 import { Markdown } from "@/components";
 import { colorfulColors } from "@/lib/utils";
-import { getPostContent, getAllPostsProps } from "@/lib/post";
+import { getPostContent, getAllPostsProps } from "@/lib/blog";
 
 export default async function Page({ params: { postid } }: { params: { postid: string } }) {
   const decodedPostid = decodeURIComponent(postid);

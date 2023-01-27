@@ -1,5 +1,5 @@
 import { feedback } from "@/lib/mongodb";
-import { formatDate, groupBy } from "@/lib/utils";
+import { formatDate, groupByDate } from "@/lib/utils";
 
 export default async function fetchFeedbacks() {
   const result = await feedback.read();
@@ -10,5 +10,5 @@ export default async function fetchFeedbacks() {
     message: item.message,
   }));
 
-  return groupBy(mapData, (feedback) => feedback.date.split(" ")[0]);
+  return groupByDate(mapData, (feedback) => feedback.date.split(" ")[0]);
 }

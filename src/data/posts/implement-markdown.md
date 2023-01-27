@@ -27,7 +27,7 @@ I think the most popular front matter parser is [gray-matter](https://www.npmjs.
 
 Here is the code I get all posts front matter data in next.js:
 
-```ts:lib/post/getAllPostsProps.ts
+```ts:lib/blog/getAllPostsProps.ts
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -65,7 +65,7 @@ export default function getAllPostsProps() {
 
 Then we need to get markdown raw content, here I still using gray-matter.
 
-```ts:lib/post/getPostContent.ts
+```ts:lib/blog/getPostContent.ts
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";

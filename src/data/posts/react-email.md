@@ -42,18 +42,35 @@ They got a web UI with live preview after you start your project. You can direct
 You may wonder how to send built email yourself. Below is the python code I wrote that sends my example profile email.
 
 ```python:sendEmail.py
-import json
-import requests
+import smtplib
+from email.mime.text import MIMEText
+
+email_authcode = "XXXXXXXX"
+email_from = "MR-Addict@qq.com"
+email_to = "MR-Addict@qq.com"
 
 
-def decode_captcha(img_path):
-    files = {'captcha': open(img_path, 'rb')}
-    response = requests.post("http://localhost:8000", files=files)
-    return json.loads(response.text)
+def send_email():
+    with open("out/profile.html", "r") as file:
+        content = file.read()
+    try:
+        msg = MIMEText(content, 'html', 'utf-8')
+        msg['Subject'] = "MR.Addict's Profile"
+        msg['From'] = email_from
+        msg['To'] = email_to
+
+        service = smtplib.SMTP_SSL("smtp.qq.com", 465)
+        service.login(msg['From'], email_authcode)
+        service.sendmail(msg['From'], msg['To'], msg.as_string())
+        service.quit()
+        return True, "Sending email successed!"
+    except Exception:
+        return False, "Sending email failed!"
 
 
-if __name__ == '__main__':
-    print(decode_captcha("image/path.jpg"))
+if __name__ == "__main__":
+    success, message = send_email()
+    print(message)
 ```
 
 ## 5. Result
@@ -70,7 +87,9 @@ You can find source code on my github:
 
 ## 6. Have a Try
 
-<CusKeyButton title="Send me Email" />
+Input your email below and I will send you above example email.
+
+<SendProfileEmail />
 
 ## 7. Youtube Video
 

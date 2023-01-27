@@ -1,4 +1,4 @@
-import { formatDate, groupBy } from "@/lib/utils";
+import { formatDate, groupByDate } from "@/lib/utils";
 
 async function fetchdata() {
   const repository = "MR-Addict/playground";
@@ -15,6 +15,6 @@ async function fetchdata() {
 
 export default async function fetchCommits() {
   const res = await fetchdata();
-  const result = groupBy(res, (commit) => commit.date.split(" ")[0]);
+  const result = groupByDate(res, (commit) => commit.date.split(" ")[0]);
   return result;
 }

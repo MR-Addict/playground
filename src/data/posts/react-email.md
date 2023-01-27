@@ -45,9 +45,9 @@ You may wonder how to send built email yourself. Below is the python code I wrot
 import smtplib
 from email.mime.text import MIMEText
 
-email_authcode = "XXXXXXXX"
-email_from = "MR-Addict@qq.com"
-email_to = "MR-Addict@qq.com"
+email_to = "XXXXXXXX"
+email_from = "XXXXXXXX"
+email_pass = "XXXXXXXX"
 
 
 def send_email():
@@ -60,7 +60,7 @@ def send_email():
         msg['To'] = email_to
 
         service = smtplib.SMTP_SSL("smtp.qq.com", 465)
-        service.login(msg['From'], email_authcode)
+        service.login(msg['From'], email_pass)
         service.sendmail(msg['From'], msg['To'], msg.as_string())
         service.quit()
         return True, "Sending email successed!"

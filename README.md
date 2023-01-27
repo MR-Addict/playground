@@ -1,22 +1,27 @@
-# Personal Nextjs Playground
+# Next.js Playground
 
-## 1. Custom Packages
+## 1. Packages
 
 - [x] Prettier
 - [x] Nextauth
 - [x] Typescript
 - [ ] Turbopack
+- [x] Nodemailer
 - [x] Tailwindcss
+- [x] Gray Matter
 - [x] Mongodb Altas
-- [x] Bcryptjs(Replaced with bcrypt, only used on server side)
+- [x] Next MDX Remote
+- [x] Bcrypt(Replaced by bcryptjs, only used on server side)
 
-## 2. Custom Components
+## 2. Components
 
 - [x] Popup
 - [x] Error
 - [x] Footer
 - [x] Loading
 - [x] Tooltip
+- [x] Youtube
+- [x] Markdown
 - [x] ScrollToTop
 
 ## 3. Features
@@ -24,10 +29,13 @@
 - [x] `src` folder
 - [x] Login
 - [x] Mongodb
+- [x] Blog
+- [x] Tools
+- [x] Playground(Hidden interactive eggs)
 
 ## 4. Bugs
 
-- [x] Cannot use bcrypt(Replaced with bcrypt, only used on server side)
+- [x] Cannot use bcrypt(Replaced by bcryptjs, only used on server side)
 - [x] Cannot generate static pages using force-cache(Solved because of Nextauth unstabl_getServerSession at root navbar)
 
 ## 5. Traps
@@ -49,8 +57,10 @@
 add `.env` file:
 
 ```env
+MAILFROM="your_email"
+MAILPASS="your_email_pass"
 NEXTAUTH_SECRET="create_a_nextauth_secret"
-NEXTAUTH_URL="https://your.domain.com/"
+NEXTAUTH_URL="https://your.website.domain.com/"
 MONGODB_URI="mongodb://username:password@mongodb0.example.com:27017/"
 ```
 
@@ -65,3 +75,12 @@ start project:
 ```bash
 npm start
 ```
+
+## 8. Webpage
+
+Avaliable links:
+
+- [https://mraddict.one](https://mraddict.one/)
+- [https://caelplayground.vercel.app](https://caelplayground.vercel.app/)
+
+> Powered by [vercel](https://vercel.com/) and [mongodb](https://www.mongodb.com/atlas/database).

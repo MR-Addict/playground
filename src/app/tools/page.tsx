@@ -16,7 +16,7 @@ export default function Page() {
         {tools.map((item, index) => (
           <div
             key={index}
-            className='flex flex-col justify-between gap-5 px-7 py-5 bg-white rounded-md shadow-lg border-t-4 md:hover:translate-y-2 md:hover:shadow-2xl duration-300 group'
+            className='background flex flex-col justify-between gap-5 px-7 py-5 rounded-md shadow-lg border-t-4 md:hover:translate-y-2 md:hover:shadow-2xl duration-300 group'
             style={{ borderColor: colorfulColors[index % colorfulColors.length] }}
           >
             <div className='flex flex-col gap-2'>

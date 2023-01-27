@@ -34,7 +34,7 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
         onSubmit={handleSubmit}
         className={`${
           isOpenForm ? "scale-100" : "scale-0"
-        } duration-200 w-full md:max-w-xs flex flex-col gap-4 rounded-md bg-white p-5 md:p-10`}
+        } duration-200 w-full md:max-w-xs flex flex-col gap-4 rounded-md bg-white p-5 md:p-7`}
       >
         <h1 className='font-bold text-4xl text-center'>Login</h1>
         <div className='flex flex-col gap-6'>
@@ -51,7 +51,7 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
               placeholder='Username'
               value={formData.username}
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-              className='p-2 rounded-sm border border-black outline-none'
+              className='p-2 rounded-sm outline outline-1 focus:outline-blue-600'
             />
           </div>
 
@@ -68,7 +68,7 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
               placeholder='Password'
               value={formData.password}
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-              className='p-2 rounded-sm border border-black outline-none'
+              className='p-2 rounded-sm outline outline-1 focus:outline-blue-600'
             />
           </div>
 
@@ -79,14 +79,14 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
                 setIsOpenForm(false);
                 document.body.style.overflow = "auto";
               }}
-              className='w-full py-2 rounded-sm border bg-white border-black hover:shadow-md'
+              className='w-full py-2 rounded-sm bg-white outline outline-1 hover:shadow-md'
             >
               Cancel
             </button>
             <button
               type='submit'
               disabled={formData.password === "" || formData.username === ""}
-              className='w-full py-2 rounded-sm border duration-300 border-black hover:bg-green-700 bg-green-600 text-white disabled:cursor-not-allowed'
+              className='w-full py-2 rounded-sm duration-300 bg-green-600 hover:bg-green-700 text-white disabled:cursor-not-allowed'
             >
               Login
             </button>

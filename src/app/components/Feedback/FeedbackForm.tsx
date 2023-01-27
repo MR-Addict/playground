@@ -53,7 +53,7 @@ export default function FeedbackForm() {
         value={feedback}
         placeholder='Any words is ok!'
         onChange={(e) => setFeedback(e.target.value)}
-        className='flex-1 outline-none border-2 border-green-600 rounded-l-md w-full p-3 peer'
+        className='flex-1 background outline-none border-2 border-green-600 rounded-l-md w-full p-3 peer'
       />
       <button
         type='submit'

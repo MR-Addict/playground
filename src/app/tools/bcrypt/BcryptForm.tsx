@@ -37,7 +37,7 @@ export default function BcryptForm() {
       </div>
       <form
         onSubmit={handleSubmit}
-        className='w-full flex flex-col justify-between items-center rounded-md border-t-4 border-purple-600 bg-white drop-shadow-lg p-5 gap-5'
+        className='w-full background flex flex-col justify-between items-center rounded-md border-t-4 border-purple-600 drop-shadow-lg p-5 gap-5'
       >
         <div className='w-full flex flex-col gap-5'>
           <div className='flex flex-col w-full gap-1'>
@@ -57,7 +57,7 @@ export default function BcryptForm() {
               placeholder='passowrd'
               value={input.password}
               onChange={(e) => setInput({ ...input, [e.target.name]: e.target.value })}
-              className='flex-1 p-3 outline-none bg-gray-100 rounded-md'
+              className='flex-1 px-4 py-2 rounded-md background outline outline-1 focus:outline-blue-600'
             />
           </div>
 
@@ -79,7 +79,7 @@ export default function BcryptForm() {
               value={input.saltRound}
               placeholder='Salt round'
               onChange={(e) => setInput({ ...input, [e.target.name]: Number(e.target.value) })}
-              className='w-full p-3 outline-none bg-gray-100 rounded-md'
+              className='w-full px-4 py-2 rounded-md background outline outline-1 focus:outline-blue-600'
             />
           </div>
         </div>
@@ -92,8 +92,8 @@ export default function BcryptForm() {
           <input
             readOnly={true}
             value={output}
-            placeholder='Generated hash passowrd string will be here.'
-            className='w-full over text-center p-1 rounded-md bg-gray-100 outline-none'
+            placeholder='Generated hash string will be here'
+            className='w-full over text-center p-2 rounded-md background outline outline-1'
           />
           <div className='w-full flex flex-row items-center justify-center gap-1'>
             <button

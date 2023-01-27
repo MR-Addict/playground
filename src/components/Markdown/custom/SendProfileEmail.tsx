@@ -34,7 +34,7 @@ export default function SendProfileEmail() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder='Your email address'
-        className='w-full max-w-xs p-2 h-fit rounded-md outline outline-1 outline-gray-500 bg-gray-200 text-gray-700 peer focus:outline-blue-600'
+        className='w-full max-w-xs background p-2 h-fit rounded-md background outline outline-1 focus:outline-blue-600 peer'
       />
       <button
         type='submit'

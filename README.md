@@ -52,7 +52,7 @@
 | Dark     | gray-700  |
 | Theme    | green-600 |
 
-## 7. How to Deploy
+## 7. Deploy
 
 add `.env` file:
 

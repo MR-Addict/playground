@@ -5,4 +5,8 @@
   @apply py-10 px-5 md:px-48;
 }
 
+.background {
+  @apply bg-gradient-to-br from-blue-50 to-purple-50;
+}
+
 @tailwind utilities;

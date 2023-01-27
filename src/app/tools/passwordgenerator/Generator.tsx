@@ -43,7 +43,7 @@ export default function Generator() {
       </div>
       <form
         onSubmit={handleSubmit}
-        className='w-full bg-white drop-shadow-lg border-t-4 border-blue-600 rounded-md p-5 flex flex-col items-center gap-5'
+        className='w-full background drop-shadow-lg border-t-4 border-blue-600 rounded-md p-5 flex flex-col items-center gap-5'
       >
         <div className='w-full flex flex-col gap-3'>
           <div className='flex flex-col gap-2'>
@@ -124,7 +124,7 @@ export default function Generator() {
               value={input.length}
               placeholder='Password length'
               onChange={(e) => setInput({ ...input, [e.target.name]: Number(e.target.value) })}
-              className='w-full p-3 outline-none bg-gray-100 rounded-md'
+              className='w-full px-4 py-2 background outline outline-1 focus:outline-blue-600 rounded-md'
             />
           </div>
         </div>
@@ -137,8 +137,8 @@ export default function Generator() {
           <input
             readOnly={true}
             value={output}
-            placeholder='Generated passowrd string will be here.'
-            className='w-full over text-center p-1 rounded-md bg-gray-100 outline-none'
+            placeholder='Generated passowrd will be here'
+            className='w-full over text-center p-2 rounded-md background outline outline-1'
           />
           <div className='w-full flex flex-row items-center justify-center gap-1'>
             <button type='submit' className='text-gray-700'>

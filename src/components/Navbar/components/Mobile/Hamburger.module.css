@@ -1,0 +1,25 @@
+.hamburger rect {
+  transition: y 200ms ease-in 200ms, rotate 200ms ease-in, opacity 0ms 200ms;
+  transform-origin: center;
+}
+
+.hamburger[aria-expanded="true"] rect {
+  transition: y 200ms ease-in, rotate 200ms ease-in 200ms, opacity 0ms 200ms;
+}
+
+.hamburger[aria-expanded="true"] rect:nth-child(1),
+.hamburger[aria-expanded="true"] rect:nth-child(3) {
+  y: 45;
+}
+
+.hamburger[aria-expanded="true"] rect:nth-child(1) {
+  rotate: 45deg;
+}
+
+.hamburger[aria-expanded="true"] rect:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger[aria-expanded="true"] rect:nth-child(3) {
+  rotate: -45deg;
+}

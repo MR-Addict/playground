@@ -2,7 +2,7 @@
 @tailwind components;
 
 .frame {
-  @apply py-10 px-5 md:px-48;
+  @apply py-5 md:py-10 px-5 md:px-48;
 }
 
 .background {

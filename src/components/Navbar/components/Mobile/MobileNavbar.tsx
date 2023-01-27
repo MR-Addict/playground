@@ -1,27 +1,29 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
-import { RxCross1 } from "react-icons/rx";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { AiOutlineMenu } from "react-icons/ai";
 
 import navbarData from "../../config";
+import style from "./Hamburger.module.css";
 
 export default function MobileNavbar() {
   const [isExpand, setIsExpand] = useState(false);
 
   return (
     <div>
-      <button type='button' onClick={() => setIsExpand(!isExpand)}>
-        {isExpand ? <RxCross1 size={17} /> : <AiOutlineMenu size={17} />}
+      <button type='button' onClick={() => setIsExpand(!isExpand)} aria-expanded={isExpand} className={style.hamburger}>
+        <svg fill='currentcolor' viewBox='0 0 100 100' width={25}>
+          <rect width='80' height='5' x='10' y='25'></rect>
+          <rect width='80' height='5' x='10' y='45'></rect>
+          <rect width='80' height='5' x='10' y='65'></rect>
+        </svg>
       </button>
       <div
-        className={`z-10 w-full flex flex-col items-start gap-4 py-5 px-5 md:px-48 absolute left-0 top-[73px] rounded-b-lg bg-gray-100 shadow-md duration-500 ${
-          isExpand ? "translate-x-0" : "translate-x-[-100%]"
-        }`}
+        style={{ transform: `translateX(${isExpand ? "0" : "-100%"})` }}
+        className='w-full flex flex-col items-start gap-4 py-5 px-5 md:px-48 absolute left-0 top-16 rounded-b-lg background shadow-md duration-500'
       >
-        <div className='w-full flex flex-col gap-3'>
+        <div className='w-full flex flex-col gap-1'>
           {navbarData.map((item, index) => (
             <Link
               key={index}

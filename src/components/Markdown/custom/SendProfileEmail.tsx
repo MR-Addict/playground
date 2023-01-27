@@ -30,6 +30,7 @@ export default function SendProfileEmail() {
       <input
         required
         type='email'
+        name='email'
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder='Your email address'

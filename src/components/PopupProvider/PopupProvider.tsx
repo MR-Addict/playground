@@ -30,7 +30,7 @@ export const PopupContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ ch
 
   return (
     <PopupContext.Provider value={{ popup }}>
-      <Popup popupData={popupData} isPopup={isPopup} setIsPopup={setIsPopup} />
+      <Popup popupData={popupData} isPopup={isPopup} />
       {children}
     </PopupContext.Provider>
   );

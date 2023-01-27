@@ -27,7 +27,7 @@ export default function MobileNavbar() {
               key={index}
               href={item.link}
               onClick={() => setIsExpand(false)}
-              className={`w-full text-lg font-semibold flex flex-row gap-2 items-center justify-start border-b-2 p-2 rounded-md ${
+              className={`w-full font-semibold flex flex-row gap-2 items-center justify-start border-b-2 p-2 rounded-md ${
                 usePathname() === item.link ? "text-green-600" : "text-gray-700 hover:text-green-600"
               }`}
             >

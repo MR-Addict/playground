@@ -11,7 +11,7 @@ export default function MobileNavbar() {
   const [isExpand, setIsExpand] = useState(false);
 
   return (
-    <div>
+    <>
       <button type='button' onClick={() => setIsExpand(!isExpand)} aria-expanded={isExpand} className={style.hamburger}>
         <svg fill='currentcolor' viewBox='0 0 100 100' width={25}>
           <rect width='80' height='5' x='10' y='25'></rect>
@@ -21,7 +21,7 @@ export default function MobileNavbar() {
       </button>
       <div
         style={{ transform: `translateX(${isExpand ? "0" : "-100%"})` }}
-        className='w-full flex flex-col items-start gap-4 py-5 px-5 md:px-48 absolute left-0 top-16 rounded-b-lg background shadow-md duration-500'
+        className='z-10 w-full flex flex-col items-start gap-4 py-5 px-5 md:px-48 absolute left-0 top-16 rounded-b-lg background shadow-md duration-500'
       >
         <div className='w-full flex flex-col gap-1'>
           {navbarData.map((item, index) => (
@@ -38,6 +38,6 @@ export default function MobileNavbar() {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 }

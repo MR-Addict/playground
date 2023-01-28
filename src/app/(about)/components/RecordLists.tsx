@@ -27,9 +27,9 @@ export default function RecordLists({ records }: { records: recordsType[] }) {
             {item1.data.map((item2, index2) => (
               <div
                 key={index2}
-                className={`flex flex-col p-2 border-b-gray-400 hover:bg-blue-50 duration-100 ${
-                  index2 === 0 ? " hover:rounded-t-md" : ""
-                } ${index2 === item1.count - 1 ? "border-b-0 hover:rounded-b-md" : "border-b"}`}
+                className={`flex flex-col p-2 border-b-gray-400 ${
+                  index2 === item1.count - 1 ? "border-b-0" : "border-b"
+                }`}
               >
                 <div className=' text-gray-700 flex flex-row items-center'>
                   <span className='pr-1'>

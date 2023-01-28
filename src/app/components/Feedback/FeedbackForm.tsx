@@ -45,9 +45,11 @@ export default function FeedbackForm() {
 
   return (
     <form onSubmit={handleSubmit} className='w-full flex flex-row justify-center rounded-md shadow-md'>
+      <label htmlFor='feedback' style={{ display: "none" }}></label>
       <input
         required
         type='text'
+        id='feedback'
         name='feedback'
         maxLength={500}
         value={feedback}

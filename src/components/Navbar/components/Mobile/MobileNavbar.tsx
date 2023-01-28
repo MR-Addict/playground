@@ -12,7 +12,13 @@ export default function MobileNavbar() {
 
   return (
     <>
-      <button type='button' onClick={() => setIsExpand(!isExpand)} aria-expanded={isExpand} className={style.hamburger}>
+      <button
+        type='button'
+        aria-expanded={isExpand}
+        className={style.hamburger}
+        onClick={() => setIsExpand(!isExpand)}
+        aria-label='mobile nav button to toggle menu'
+      >
         <svg fill='currentcolor' viewBox='0 0 100 100' width={25}>
           <rect width='80' height='5' x='10' y='25'></rect>
           <rect width='80' height='5' x='10' y='45'></rect>

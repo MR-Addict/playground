@@ -19,6 +19,7 @@ export default function ScrollToTop() {
   return (
     <button
       type='button'
+      aria-label='scroll to top'
       onClick={() => window.scroll({ top: 0, behavior: "smooth" })}
       className={`fixed bottom-5 md:bottom-10 right-5 md:right-10 duration-300 shadow-md bg-green-600 hover:bg-green-700 text-white rounded-full p-2 ${
         isVisiable ? "scale-100" : "scale-0"

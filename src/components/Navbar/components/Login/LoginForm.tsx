@@ -56,7 +56,7 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
           </div>
 
           <div className='flex flex-col w-full gap-1'>
-            <label htmlFor='username' className='flex flex-row items-center gap-2 text-gray-700 font-semibold'>
+            <label htmlFor='password' className='flex flex-row items-center gap-2 text-gray-700 font-semibold'>
               <FaLock />
               <span>Password</span>
             </label>
@@ -86,7 +86,7 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
             <button
               type='submit'
               disabled={formData.password === "" || formData.username === ""}
-              className='w-full py-2 rounded-sm duration-300 bg-green-600 hover:bg-green-700 text-white disabled:cursor-not-allowed'
+              className='w-full py-2 rounded-sm outline outline-1 outline-black duration-300 bg-green-600 hover:bg-green-700 text-white disabled:cursor-not-allowed'
             >
               Login
             </button>

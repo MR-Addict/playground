@@ -21,16 +21,16 @@ export default function Welcome() {
             <a href='https://beta.nextjs.org/docs/' target='_blank' className='text-blue-500 mx-1 hover:underline'>
               Next.js 13
             </a>
-            in one place. Hope you will have the same thought like me as well after have a visit.
+            in one place. Hope you will like it after have a visit.
           </div>
           <div className='flex flex-row items-center gap-3'>
-            <a href='mailto:mr-addict@qq.com' target='_blank'>
+            <a href='mailto:mr-addict@qq.com' aria-label='email to me' target='_blank'>
               <MdEmail size={30} className='text-gray-700 drop-shadow-lg m-1 hover:drop-shadow-2xl' />
             </a>
-            <a href='http://t.me/owencael' target='_blank'>
+            <a href='http://t.me/owencael' aria-label='my github account' target='_blank'>
               <BsTelegram size={27} className='text-gray-700 drop-shadow-lg m-1 hover:drop-shadow-2xl' />
             </a>
-            <a href='http://github.com/mr-addict' target='_blank'>
+            <a href='http://github.com/mr-addict' aria-label='my github account' target='_blank'>
               <AiFillGithub size={30} className='text-gray-700 drop-shadow-lg m-1 hover:drop-shadow-2xl' />
             </a>
           </div>

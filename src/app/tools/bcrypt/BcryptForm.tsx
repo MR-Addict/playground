@@ -52,6 +52,7 @@ export default function BcryptForm() {
             <input
               required
               type='text'
+              id='password'
               name='password'
               maxLength={500}
               placeholder='passowrd'
@@ -75,6 +76,7 @@ export default function BcryptForm() {
               max={16}
               required
               type='number'
+              id='saltRound'
               name='saltRound'
               value={input.saltRound}
               placeholder='Salt round'
@@ -98,6 +100,7 @@ export default function BcryptForm() {
           <div className='w-full flex flex-row items-center justify-center gap-1'>
             <button
               type='submit'
+              aria-label='regenerate hashed password'
               disabled={input.password === ""}
               className='text-gray-700 disabled:cursor-not-allowed'
             >
@@ -105,6 +108,7 @@ export default function BcryptForm() {
             </button>
             <button
               type='button'
+              aria-label='copy hashed password'
               onClick={handleCopy}
               disabled={output === ""}
               className='disabled:cursor-not-allowed text-gray-700'

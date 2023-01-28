@@ -49,8 +49,15 @@ export default function Generator() {
           <div className='flex flex-col gap-2'>
             <h1 className='text-gray-700'>Requirements</h1>
 
-            <label className='relative flex flex-row items-center gap-4'>
-              <input type='checkbox' className='peer' name='symbols' checked={input.symbols} onChange={handleCheck} />
+            <label htmlFor='symbols' className='relative flex flex-row items-center gap-4'>
+              <input
+                type='checkbox'
+                className='peer'
+                id='symbols'
+                name='symbols'
+                checked={input.symbols}
+                onChange={handleCheck}
+              />
               <span className='absolute top-0 left-0 duration-100 w-6 h-6 bg-gray-300 rounded-sm peer-hover:cursor-pointer peer-checked:bg-blue-600 after:absolute after:hidden after:peer-checked:block after:content-[""] after:left-2 after:top-1 after:w-2 after:h-4 after:border-r-4 after:border-b-4 after:border-white after:rotate-[35deg]'></span>
               <h1>Symbols</h1>
               <Tooltip position='right' title={`Symbols are ${characters.symbols}`}>
@@ -60,8 +67,15 @@ export default function Generator() {
               </Tooltip>
             </label>
 
-            <label className='relative flex flex-row items-center gap-4'>
-              <input type='checkbox' className='peer' name='numbers' checked={input.numbers} onChange={handleCheck} />
+            <label htmlFor='number' className='relative flex flex-row items-center gap-4'>
+              <input
+                type='checkbox'
+                className='peer'
+                id='number'
+                name='numbers'
+                checked={input.numbers}
+                onChange={handleCheck}
+              />
               <span className='absolute top-0 left-0 duration-100 w-6 h-6 bg-gray-300 rounded-sm peer-hover:cursor-pointer peer-checked:bg-blue-600 after:absolute after:hidden after:peer-checked:block after:content-[""] after:left-2 after:top-1 after:w-2 after:h-4 after:border-r-4 after:border-b-4 after:border-white after:rotate-[35deg]'></span>
               <h1>Numbers</h1>
               <Tooltip position='right' title={`Numbers are ${characters.numbers}`}>
@@ -71,10 +85,11 @@ export default function Generator() {
               </Tooltip>
             </label>
 
-            <label className='relative flex flex-row items-center gap-4'>
+            <label htmlFor='lowercase' className='relative flex flex-row items-center gap-4'>
               <input
                 type='checkbox'
                 className='peer'
+                id='lowercase'
                 name='lowercase'
                 checked={input.lowercase}
                 onChange={handleCheck}
@@ -88,10 +103,11 @@ export default function Generator() {
               </Tooltip>
             </label>
 
-            <label className='relative flex flex-row items-center gap-4'>
+            <label htmlFor='uppercase' className='relative flex flex-row items-center gap-4'>
               <input
                 type='checkbox'
                 className='peer'
+                id='uppercase'
                 name='uppercase'
                 checked={input.uppercase}
                 onChange={handleCheck}
@@ -107,7 +123,7 @@ export default function Generator() {
           </div>
 
           <div className='flex flex-col w-full gap-1'>
-            <label htmlFor='saltRound' className='flex flex-row gap-2 items-center'>
+            <label htmlFor='length' className='flex flex-row gap-2 items-center'>
               <span>Password length</span>
               <Tooltip title='Your password should be 1-50 characters long.'>
                 <div className='text-gray-500 cursor-pointer'>
@@ -120,6 +136,7 @@ export default function Generator() {
               max={50}
               required
               type='number'
+              id='length'
               name='length'
               value={input.length}
               placeholder='Password length'
@@ -141,13 +158,14 @@ export default function Generator() {
             className='w-full over text-center p-2 rounded-md background outline outline-1'
           />
           <div className='w-full flex flex-row items-center justify-center gap-1'>
-            <button type='submit' className='text-gray-700'>
+            <button type='submit' aria-label='regenerate password' className='text-gray-700'>
               <BiRefresh size={27} />
             </button>
             <button
               type='button'
               onClick={handleCopy}
               disabled={output === ""}
+              aria-label='copy password'
               className='disabled:cursor-not-allowed text-gray-700'
             >
               <MdContentCopy size={20} />

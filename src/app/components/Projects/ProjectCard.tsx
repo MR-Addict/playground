@@ -7,7 +7,7 @@ import { projectType } from "./config";
 
 function ImageCard({ project }: { project: projectType }) {
   return (
-    <div className='bg-white drop-shadow-xl rounded-xl flex flex-col flex-1'>
+    <div className='bg-white shadow-md rounded-md flex flex-col flex-1'>
       <div className='w-full flex flex-row items-center justify-between px-5 py-2 border-b border-b-gray-300'>
         <div className='flex flex-row gap-1 w-fit'>
           <span className='bg-red-600 rounded-full w-3 h-3'></span>
@@ -49,7 +49,7 @@ function TextCard({ project, isEven }: { project: projectType; isEven: boolean }
       <a
         href={project.link}
         target='_blank'
-        className='font-semibold text-xl duration-300 flex flex-row items-center gap-1 text-gray-500 hover:text-gray-600'
+        className='font-semibold text-xl duration-300 flex flex-row items-center gap-1 text-gray-500 hover:text-gray-700'
       >
         <span>Have a Look</span>
         <RiShareBoxLine />

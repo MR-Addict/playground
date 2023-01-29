@@ -7,11 +7,11 @@ export default async function Page() {
   const commits = result.data;
 
   return (
-    <div className='frame w-full'>
+    <main aria-label='commits page' className='frame w-full'>
       <div className='flex flex-col gap-5'>
         <h1 className='text-2xl font-bold text-slate-700'>All Commits({totalCount})</h1>
         <RecordLists records={commits} />
       </div>
-    </div>
+    </main>
   );
 }

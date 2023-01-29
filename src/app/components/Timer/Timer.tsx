@@ -21,7 +21,10 @@ export default function Timer() {
   useInterval(() => setRuntime(timeAgo(runtimeStart)), 1000);
 
   return (
-    <div className='py-16 md:py-24 px-5 md:px-48 w-full flex flex-col items-center gap-10 md:gap-14'>
+    <section
+      aria-label='timer part'
+      className='py-16 md:py-24 px-5 md:px-48 w-full flex flex-col items-center gap-10 md:gap-14'
+    >
       <h1 className='text-gray-700 text-3xl md:text-5xl font-bold text-center'>Playground has run</h1>
       <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-10'>
         <Segment title='Years' number={runtime.years} />
@@ -32,6 +35,6 @@ export default function Timer() {
         <Segment title='Seconds' number={runtime.seconds} />
       </div>
       <h1 className='text-xl text-gray-500'>Since {formatDate(runtimeStart)}</h1>
-    </div>
+    </section>
   );
 }

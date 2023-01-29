@@ -9,8 +9,8 @@ export default async function Page({ params: { postid } }: { params: { postid: s
   const result = await getPostContent(decodedPostid);
 
   return (
-    <div className='frame w-full flex flex-col items-center gap-5'>
-      <div className='flex flex-col items-center gap-5'>
+    <main aria-label='blog content page' className='frame w-full flex flex-col items-center gap-5'>
+      <header aria-label='blog title' className='flex flex-col items-center gap-5'>
         <div className='text-3xl md:text-4xl font-bold text-gray-700 text-center'>{result.title}</div>
         <div className='flex flex-col md:flex-row items-center gap-2 text-gray-500'>
           <div className='flex flex-row items-center gap-1'>
@@ -25,11 +25,11 @@ export default async function Page({ params: { postid } }: { params: { postid: s
             ))}
           </div>
         </div>
-      </div>
-      <div className='w-full max-w-3xl markdown' style={{ scrollBehavior: "smooth" }}>
+      </header>
+      <article aria-label='markdown' className='w-full max-w-3xl markdown' style={{ scrollBehavior: "smooth" }}>
         <Markdown serializedMDX={result.serializedMDX} />
-      </div>
-    </div>
+      </article>
+    </main>
   );
 }
 

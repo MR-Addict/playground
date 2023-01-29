@@ -8,14 +8,14 @@ export default function Page() {
   const posts = getAllPostsProps();
 
   return (
-    <div className='frame w-full flex flex-col items-center gap-10'>
-      <div className='flex flex-col items-center gap-3'>
+    <main aria-label='blog page' className='frame w-full flex flex-col items-center gap-10'>
+      <header aria-label='title' className='flex flex-col items-center gap-3'>
         <h1 className='text-gray-700 font-bold text-3xl'>Blog</h1>
         <p className='w-full max-w-xl text-center text-xl text-gray-500'>
           This blog page includes posts I wrote about my stacks or my experience. Hope you like it.
         </p>
-      </div>
-      <div className='flex flex-col w-full max-w-3xl gap-3'>
+      </header>
+      <section aria-label='all blogs' className='flex flex-col w-full max-w-3xl gap-3'>
         <h1 className='text-gray-700 font-bold text-2xl ml-3'>All Blogs</h1>
         <div className='flex flex-col w-full gap-5'>
           {posts.map((item, index) => (
@@ -43,7 +43,7 @@ export default function Page() {
             </div>
           ))}
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

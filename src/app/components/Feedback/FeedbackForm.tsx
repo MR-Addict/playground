@@ -45,18 +45,19 @@ export default function FeedbackForm() {
 
   return (
     <form onSubmit={handleSubmit} className='w-full flex flex-row justify-center rounded-md shadow-md'>
-      <label htmlFor='feedback' style={{ display: "none" }}></label>
-      <input
-        required
-        type='text'
-        id='feedback'
-        name='feedback'
-        maxLength={500}
-        value={feedback}
-        placeholder='Any words is ok!'
-        onChange={(e) => setFeedback(e.target.value)}
-        className='flex-1 background outline-none border-2 border-green-600 rounded-l-md w-full p-3 peer'
-      />
+      <label htmlFor='feedback'>
+        <input
+          required
+          type='text'
+          id='feedback'
+          name='feedback'
+          maxLength={500}
+          value={feedback}
+          placeholder='Any words is ok!'
+          onChange={(e) => setFeedback(e.target.value)}
+          className='flex-1 background outline-none border-2 border-green-600 rounded-l-md w-full p-3 peer'
+        />
+      </label>
       <button
         type='submit'
         disabled={feedback === ""}

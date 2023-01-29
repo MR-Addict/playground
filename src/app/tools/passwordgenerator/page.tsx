@@ -5,7 +5,7 @@ import Generator from "./Generator";
 
 export default function Page() {
   return (
-    <div className='frame w-full flex flex-col md:flex-row items-center md:items-start justify-between gap-5 md:gap-10'>
+    <main className='frame w-full flex flex-col md:flex-row items-center md:items-start justify-between gap-5 md:gap-10'>
       <Link
         href='/tools'
         aria-label='go back to tools'
@@ -15,6 +15,6 @@ export default function Page() {
       </Link>
       <Generator />
       <span></span>
-    </div>
+    </main>
   );
 }

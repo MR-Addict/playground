@@ -11,7 +11,7 @@ export default function MobileNavbar() {
   const [isExpand, setIsExpand] = useState(false);
 
   return (
-    <>
+    <div className='block lg:hidden'>
       <button
         type='button'
         aria-expanded={isExpand}
@@ -44,6 +44,6 @@ export default function MobileNavbar() {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }

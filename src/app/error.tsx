@@ -9,11 +9,16 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
   }, [error]);
 
   return (
-    <div className='frame w-full flex flex-col items-center justify-center gap-3'>
-      <button type='button' onClick={() => reset()} className='text-green-600 shadow-md hover:shadow-xl rounded-full'>
+    <section aria-label='reset button' className='frame w-full flex flex-col items-center justify-center gap-3'>
+      <button
+        type='button'
+        aria-label='reset button'
+        onClick={() => reset()}
+        className='text-green-600 shadow-md hover:shadow-xl rounded-full'
+      >
         <IoMdRefresh size={40} />
       </button>
       <p className='text-slate-700 font-semibold text-xl'>Error occurred while communicate with mongodb!</p>
-    </div>
+    </section>
   );
 }

@@ -9,7 +9,10 @@ import Dinosaur from "./Dinasaur";
 
 export default function Welcome() {
   return (
-    <div className='py-5 md:py-24 px-5 md:px-48 w-full flex flex-col md:flex-row gap-5 md:gap-0'>
+    <section
+      aria-label='welcome part'
+      className='py-5 md:py-24 px-5 md:px-48 w-full flex flex-col md:flex-row gap-5 md:gap-0'
+    >
       <div className='flex flex-col justify-between gap-16'>
         <div className='flex flex-col gap-2'>
           <div className='flex flex-col md:flex-row gap-3'>
@@ -46,6 +49,6 @@ export default function Welcome() {
           className='w-full max-w-2xl object-cover object-center'
         />
       </div>
-    </div>
+    </section>
   );
 }

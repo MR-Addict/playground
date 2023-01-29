@@ -32,17 +32,18 @@ export default function Generator() {
   }
 
   return (
-    <div className='w-full max-w-md flex flex-col items-center gap-5 md:gap-7'>
-      <div className='flex flex-row items-center gap-2'>
+    <section aria-label='password generator page' className='w-full max-w-md flex flex-col items-center gap-5 md:gap-7'>
+      <header aria-label='title' className='flex flex-row items-center gap-2'>
         <h1 className='text-3xl text-center text-gray-700 font-bold'>Password Generator</h1>
         <Tooltip title="I won't collect your passwords. You can use it safely.">
           <div className='text-gray-500 cursor-pointer'>
             <ImInfo size={15} />
           </div>
         </Tooltip>
-      </div>
+      </header>
       <form
         onSubmit={handleSubmit}
+        aria-label='password generator part'
         className='w-full background drop-shadow-lg border-t-4 border-blue-600 rounded-md p-5 flex flex-col items-center gap-5'
       >
         <div className='w-full flex flex-col gap-3'>
@@ -173,6 +174,6 @@ export default function Generator() {
           </div>
         </div>
       </form>
-    </div>
+    </section>
   );
 }

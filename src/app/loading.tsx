@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <div className='frame flex flex-col items-center w-full gap-1'>
+    <section aria-label='loading animation' className='frame flex flex-col items-center w-full gap-1'>
       <svg
         aria-hidden='true'
         className='w-8 h-8 animate-spin text-gray-400 fill-green-600'
@@ -18,6 +18,6 @@ export default function Loading() {
         />
       </svg>
       <p className='font-semibold text-salte-700 text-xl'>Loading...</p>
-    </div>
+    </section>
   );
 }

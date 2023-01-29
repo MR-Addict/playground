@@ -11,7 +11,8 @@ export default function Popup({
   isPopup: boolean;
 }) {
   return (
-    <div
+    <section
+      aria-label='popup window'
       className={`w-full px-5 z-20 fixed flex flex-col items-center -top-20 left-[50%] translate-x-[-50%] duration-500 ${
         isPopup ? "translate-y-28" : "translate-y-0"
       }`}
@@ -37,6 +38,6 @@ export default function Popup({
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 }

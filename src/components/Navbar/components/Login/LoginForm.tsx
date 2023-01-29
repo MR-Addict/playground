@@ -46,6 +46,7 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
             <input
               required
               type='text'
+              id='username'
               name='username'
               maxLength={100}
               placeholder='Username'
@@ -62,6 +63,7 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
             </label>
             <input
               required
+              id='password'
               type='password'
               name='password'
               maxLength={100}

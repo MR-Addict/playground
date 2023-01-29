@@ -26,16 +26,17 @@ export default function BcryptForm() {
   }
 
   return (
-    <div className='w-full max-w-md flex flex-col items-center gap-5 md:gap-7'>
-      <div className='flex flex-row items-center gap-2'>
+    <section aria-label='bcrypt page' className='w-full max-w-md flex flex-col items-center gap-5 md:gap-7'>
+      <header aria-label='title' className='flex flex-row items-center gap-2'>
         <h1 className='text-3xl text-center text-gray-700 font-bold'>Bcrypt Password</h1>
         <Tooltip title="I won't collect your passwords. You can use it safely.">
           <div className='text-gray-500 cursor-pointer'>
             <ImInfo size={15} />
           </div>
         </Tooltip>
-      </div>
+      </header>
       <form
+        aria-label='bcrypt form part'
         onSubmit={handleSubmit}
         className='w-full background flex flex-col justify-between items-center rounded-md border-t-4 border-purple-600 drop-shadow-lg p-5 gap-5'
       >
@@ -118,6 +119,6 @@ export default function BcryptForm() {
           </div>
         </div>
       </form>
-    </div>
+    </section>
   );
 }

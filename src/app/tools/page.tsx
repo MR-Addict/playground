@@ -5,14 +5,14 @@ import { colorfulColors } from "@/lib/utils";
 
 export default function Page() {
   return (
-    <div className='frame w-full flex flex-col items-center gap-10'>
-      <div className='flex flex-col items-center gap-3'>
+    <main aria-label='tools page' className='frame w-full flex flex-col items-center gap-10'>
+      <header aria-label='title' className='flex flex-col items-center gap-3'>
         <h1 className='text-3xl text-center text-gray-700 font-bold'>Available Tools</h1>
         <p className='text-center w-full max-w-xl text-xl text-gray-500'>
           These are all kinds of tools that I may use in my daily life. Hope they can be helpful to you too.
         </p>
-      </div>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-16'>
+      </header>
+      <section aria-label='all blogs' className='grid grid-cols-1 md:grid-cols-2 gap-16'>
         {tools.map((item, index) => (
           <div
             key={index}
@@ -35,7 +35,7 @@ export default function Page() {
             </div>
           </div>
         ))}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

@@ -7,7 +7,7 @@ import navbarData from "../../config";
 
 export default function NormalNavbar() {
   return (
-    <div className='flex flex-row gap-4'>
+    <div className='hidden lg:flex flex-row gap-4'>
       {navbarData.map((item, index) => (
         <Link
           key={index}

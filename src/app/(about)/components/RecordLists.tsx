@@ -12,7 +12,7 @@ interface recordsType {
 
 export default function RecordLists({ records }: { records: recordsType[] }) {
   return (
-    <div className='flex flex-col gap-5'>
+    <section aria-label='record lists' className='flex flex-col gap-5'>
       {records.map((item1, index1) => (
         <div key={index1} className='flex flex-col gap-1'>
           <div className='flex flex-row items-center gap-2'>
@@ -48,6 +48,6 @@ export default function RecordLists({ records }: { records: recordsType[] }) {
           </div>
         </div>
       ))}
-    </div>
+    </section>
   );
 }

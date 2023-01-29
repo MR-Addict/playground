@@ -11,7 +11,7 @@ export default function MobileNavbar() {
   const [isExpand, setIsExpand] = useState(false);
 
   return (
-    <div className='block lg:hidden'>
+    <div className='lg:hidden flex flex-row items-center'>
       <button
         type='button'
         aria-expanded={isExpand}

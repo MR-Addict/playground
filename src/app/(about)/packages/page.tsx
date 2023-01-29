@@ -8,7 +8,7 @@ export default async function Page() {
   return (
     <main aria-label='packages page' className='frame w-full flex flex-col gap-5'>
       <h1 className='text-slate-700 font-bold text-2xl'>Packages</h1>
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
+      <section aria-label='packges body' className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
         {packages.map((item, index) => (
           <div
             key={index}
@@ -23,7 +23,7 @@ export default async function Page() {
             </div>
           </div>
         ))}
-      </div>
+      </section>
     </main>
   );
 }

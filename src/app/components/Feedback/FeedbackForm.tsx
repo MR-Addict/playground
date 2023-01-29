@@ -45,7 +45,7 @@ export default function FeedbackForm() {
 
   return (
     <form onSubmit={handleSubmit} className='w-full flex flex-row justify-center rounded-md shadow-md'>
-      <label htmlFor='feedback'>
+      <label htmlFor='feedback' className='flex-1 border-2 border-green-600 rounded-l-md'>
         <input
           required
           type='text'
@@ -55,7 +55,7 @@ export default function FeedbackForm() {
           value={feedback}
           placeholder='Any words is ok!'
           onChange={(e) => setFeedback(e.target.value)}
-          className='flex-1 background outline-none border-2 border-green-600 rounded-l-md w-full p-3 peer'
+          className='w-full background outline-none p-3 rounded-l-md peer'
         />
       </label>
       <button

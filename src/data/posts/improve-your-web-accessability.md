@@ -7,9 +7,11 @@ intro: "Keep your website accessibility in mind."
 
 ## 1. Introduction
 
-Most web developers, especially `React Developers, use `div`tags 90% of the time. They rarely touch other tags like`li`, `main`, `section`, `p`, and many others tags.
+Most web developers, especially `React Developers`, use `div`tags 90% of the time. They rarely touch other tags like`li`, `main`, `section`, `p`, and many others tags.
 
-The main reason could be that React is extremely flexible. Developers can easily use `onClick`, `onSubmit`, and many other events. They may write a button like this.
+The main reason could be that React is extremely flexible. Developers can easily use `onClick`, `onSubmit`, and many other events.
+
+They may write a button like this:
 
 ```js:Button.jsx
 export default function Button() {
@@ -109,7 +111,7 @@ Furthermore, if your interactive element is unclear for purpose, you should put 
 Such as a link only with a logo or icon inside it, it would be difficult for the blind to tell what this is the icon for. So you need to put an **aria-label** inside it like this:
 
 ```html:aria-label.html
-<a aria-label='github link' href='https://githb.com/'>
+<a aria-label='github link' href='https://github.com/'>
   <img src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png' alt='githb icon' />
 </a>
 ```

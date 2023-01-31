@@ -6,12 +6,12 @@ import "./style/prism-line-numbers.css";
 
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 
-import { Youtube } from "@/components";
+import { Youtube, Codepen } from "@/components";
 import { KeyButton, SendProfileEmail } from "./custom";
 import { Heading, Paragraph, List, Anchor, Code, Blockquote, Pre, Img } from "./components";
 
 export default function Markdown({ serializedMDX }: { serializedMDX: MDXRemoteSerializeResult }) {
-  const customComponents = { KeyButton, Youtube, SendProfileEmail };
+  const customComponents = { KeyButton, Youtube, SendProfileEmail, Codepen };
 
   const components = {
     h1: Heading.H1,

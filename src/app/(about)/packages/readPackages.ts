@@ -36,7 +36,7 @@ const packages = [
   {
     name: "Typescript",
     package: {
-      category: "dependencies",
+      category: "devDependencies",
       name: "typescript",
     },
     img: typescript,

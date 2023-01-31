@@ -5,7 +5,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='zh'>
       <head />
-      <body className='min-h-screen background flex flex-col justify-between'>
+      <body style={{ minHeight: "100dvh" }} className='background flex flex-col justify-between'>
         <NextauthProvider>
           <PopupContextProvider>
             {/* @ts-expect-error */}

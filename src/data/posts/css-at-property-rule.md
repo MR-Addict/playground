@@ -65,6 +65,6 @@ Or a swinging smile:
 
 <Codepen id="WNKaZWY" height="400px"/>
 
-Or even more, you can create a very cool card:
+Even more, you can create a very cool animated gradient border card:
 
 <Codepen id="NWBOqKw" height="600px"/>

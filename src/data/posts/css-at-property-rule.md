@@ -2,14 +2,14 @@
 title: "CSS New @property Rule"
 date: "2023-01-31 18:46"
 tags: ["css", "@property", "animation"]
-intro: "CSS new @property rule makes it more powerfull"
+intro: "CSS new @property rule makes it more powerful"
 ---
 
 ## 1. What's @property
 
-The **@property** is really really awwsome, with @property you can so many things easier without any javascript.
+The **@property** is awesome, with @property you can so many things easier without any javascript.
 
-Literally, you can define a css propert with type, value, and inherit. You may think it's just like normal css variable. Yes but no. Normal css variable is more like a constant in js, However the property is more like variable, which you can change its value.
+Literally, you can define a css property with type, value, and inherit. You may think it's just like a normal css variable. Yes but no. Normal css variable is more like a constant in js. However, the property is more like a variable, which you can change its value.
 
 ## 2. How to Use
 
@@ -32,11 +32,11 @@ Below is @property syntax, you need to define a property and then use it:
 }
 ```
 
-The **syntax** just like variable's type, you can specify with `color`, `length`, `percentage` or any type using `*`;
+The **syntax** is just like the variable's type, you can specify with `color`, `length`, `percentage`, or any type using `*`;
 
 The **inherits** control whether its value should be inheritable.
 
-And finally, you can specific a **initial value** for this property.
+And finally, you can specify a **initial value** for this property.
 
 You can change property like this:
 
@@ -47,7 +47,7 @@ You can change property like this:
 }
 ```
 
-The result looke like this:
+The result looks like this:
 
 <Codepen id="eYjPvvy" height="300px"/>
 
@@ -57,6 +57,14 @@ You can create an awesome button animation like this:
 
 <Codepen id="ZEjqKQm" height="300px"/>
 
-Or even more, you can create an animated gradient border:
+If you add keyframes to it, you got a bouncing smile:
+
+<Codepen id="zYLmdPa" height="400px"/>
+
+Or a swinging smile:
+
+<Codepen id="WNKaZWY" height="400px"/>
+
+Or even more, you can create a very cool card:
 
 <Codepen id="NWBOqKw" height="600px"/>

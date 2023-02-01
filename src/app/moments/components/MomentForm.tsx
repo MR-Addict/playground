@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
+import revalidatePage from "./revalidatePage";
 import { usePopupContext } from "@/components";
 import { allWeathers, MomentType } from "../config";
-import { revalidatePage } from "../lib";
 
 export default function MomentForm({
   isOpenForm,
@@ -15,6 +16,7 @@ export default function MomentForm({
   setIsOpenForm: Function;
   moment?: MomentType;
 }) {
+  const router = useRouter();
   const { popup } = usePopupContext();
   const [formData, setFormData] = useState(
     moment ? { _id: moment._id, weather: moment.weather, moment: moment.moment } : { weather: "", moment: "" }
@@ -33,7 +35,8 @@ export default function MomentForm({
       .then((res) => res.json())
       .then((result) => {
         popup(result);
-        if (!result.status) console.error(result.message);
+        if (result.status) revalidatePage();
+        else console.error(result.message);
       })
       .catch((error) => {
         console.error(error);

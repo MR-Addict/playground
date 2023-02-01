@@ -22,7 +22,7 @@ export default function BcryptForm() {
 
   function handleCopy() {
     copyToClipboard(output);
-    popup({ status: true, message: "Copy success!" });
+    popup({ status: true, message: "Copy succeeded!" });
   }
 
   return (

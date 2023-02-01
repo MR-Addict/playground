@@ -42,6 +42,7 @@
 
 - [x] Server side cannot access client side api route
 - [x] Client side cannot access server side environment(env in next config accessable globally)
+- [x] `dns not found` error mostly you put server in client component. They even cannot be in the same `index.ts`.
 
 ## 6. Tailwindcss Rules
 

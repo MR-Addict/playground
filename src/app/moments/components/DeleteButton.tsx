@@ -3,6 +3,7 @@
 import { useSession } from "next-auth/react";
 import { AiOutlineDelete } from "react-icons/ai";
 
+import revalidatePage from "./revalidatePage";
 import { Tooltip, usePopupContext } from "@/components";
 
 export default function DeleteButton({ _id }: { _id: string }) {
@@ -18,7 +19,8 @@ export default function DeleteButton({ _id }: { _id: string }) {
       .then((res) => res.json())
       .then((result) => {
         popup(result);
-        if (!result.status) console.error(result.message);
+        if (result.status) revalidatePage();
+        else console.error(result.message);
       })
       .catch((error) => {
         console.error(error);

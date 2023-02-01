@@ -50,8 +50,8 @@ async function remove(_id: string) {
     const client = await clientPromise;
     const db = client.db("playground");
     const result = await db.collection("moments").deleteOne({ _id: new ObjectId(_id) });
-    if (result.deletedCount > 0) return { status: true, message: "Link delete success!" };
-    else return { status: false, message: "Cannot delete link!" };
+    if (result.deletedCount > 0) return { status: true, message: "Delete succeeded!" };
+    else return { status: false, message: "Delete failed!" };
   } catch (error) {
     return { status: false, message: "Cannot establish connection with mongodb!" };
   }

@@ -1,11 +1,13 @@
 import { formatDate, groupBy } from "@/lib/utils";
 
 export interface MomentType {
-  date: string;
   id: string;
-  moment: string;
+  date: string;
   weather: string;
+  moment: string;
 }
+
+export const allWeathers = ["sunny", "partlySunny", "cloudy", "windy", "rainy", "stormy", "downpour"];
 
 const moments = [
   {

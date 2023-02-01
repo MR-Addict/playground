@@ -1,14 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { BiEditAlt } from "react-icons/bi";
 import { useSession } from "next-auth/react";
+import { IoMdAddCircle } from "react-icons/io";
 
 import MomentForm from "./MomentForm";
-import { Tooltip } from "@/components";
-import { MomentType } from "./fetchMoments";
 
-export default function EditButton({ moment }: { moment: MomentType }) {
+export default function AddButton() {
   const { data: session } = useSession();
   const [isOpenForm, setIsOpenForm] = useState(false);
 
@@ -22,13 +20,12 @@ export default function EditButton({ moment }: { moment: MomentType }) {
               setIsOpenForm(true);
               document.body.style.overflow = "hidden";
             }}
-            className='md:group-hover:opacity-100 md:opacity-0 duration-200'
+            className='flex flex-row items-center gap-[1px] md:text-gray-700 md:hover:text-gray-900'
           >
-            <Tooltip title='Edit'>
-              <BiEditAlt />
-            </Tooltip>
+            <IoMdAddCircle />
+            <p>Add</p>
           </button>
-          <MomentForm isOpenForm={isOpenForm} setIsOpenForm={setIsOpenForm} moment={moment} />
+          <MomentForm isOpenForm={isOpenForm} setIsOpenForm={setIsOpenForm} />
         </>
       )}
     </>

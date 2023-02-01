@@ -1,25 +1,28 @@
 import { FaRegClock } from "react-icons/fa";
 
-import { Tooltip } from "@/components";
 import fetchMoments from "./fetchMoments";
+
+import AddButton from "./AddButton";
 import EditButton from "./EditButton";
+import { Tooltip } from "@/components";
 import GetWeatherIcon from "./GetWeatherIcon";
 
 export default function Page() {
   const moments = fetchMoments();
 
   return (
-    <main aria-label='moments page' className='frame w-full flex flex-col items-center gap-5'>
+    <main aria-label='moments page' className='frame w-full flex flex-col items-center gap-7'>
       <header className='text-center flex flex-col items-center gap-3'>
         <h1 className='text-gray-700 font-bold text-3xl'>Moments</h1>
         <p className='text-xl text-gray-500'>I like to write daily moments of my life. Here is a collection of them.</p>
       </header>
       <section className='w-full flex flex-col gap-5'>
-        {moments.data.map((item1) => (
+        {moments.data.map((item1, index) => (
           <div key={item1.category} className='flex flex-col gap-1'>
             <div className='flex flex-row items-center gap-1'>
               <span className='block w-3 h-3 bg-purple-600 rounded-full'></span>
               <h1 className='text-lg'>{item1.category}</h1>
+              {index === 0 && <AddButton />}
             </div>
             <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5'>
               {item1.data.map((item2) => (

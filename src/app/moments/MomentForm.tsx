@@ -1,0 +1,98 @@
+"use client";
+
+import { useState } from "react";
+
+import { MomentType } from "./fetchMoments";
+import { allWeathers } from "./fetchMoments";
+
+export default function MomentForm({
+  isOpenForm,
+  setIsOpenForm,
+  moment,
+}: {
+  isOpenForm: boolean;
+  setIsOpenForm: Function;
+  moment?: MomentType;
+}) {
+  const [formData, setFormData] = useState(
+    moment ? { id: moment.id, weather: moment.weather, moment: moment.moment } : { weather: "", moment: "" }
+  );
+
+  return (
+    <section
+      aria-label='moment form'
+      className={`${
+        isOpenForm ? "scale-100" : "scale-0"
+      } z-10 fixed top-0 left-0 frame w-full h-full flex flex-col items-center justify-center bg-black/40`}
+    >
+      <form
+        className={`${
+          isOpenForm ? "scale-100" : "scale-0"
+        } duration-200 w-full md:max-w-md flex flex-col gap-4 rounded-md bg-white p-5 md:p-7`}
+      >
+        <h1 className='font-bold text-3xl text-center text-gray-700'>Moment</h1>
+
+        <div className='flex flex-col gap-3'>
+          <div className='flex flex-col w-full gap-1'>
+            <label htmlFor='weather' className='flex flex-row items-center gap-2 text-gray-700 font-semibold'>
+              Weather
+            </label>
+            <select
+              required
+              id='weather'
+              name='weather'
+              value={formData.weather}
+              onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
+              className='p-2 rounded-sm outline outline-1 text-gray-700'
+            >
+              <option disabled value=''>
+                -- select an option --
+              </option>
+              {allWeathers.map((item) => (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className='flex flex-col w-full gap-1'>
+            <label htmlFor='moment' className='flex flex-row items-center gap-2 text-gray-700 font-semibold'>
+              Moment
+            </label>
+            <textarea
+              required
+              id='moment'
+              name='moment'
+              maxLength={100}
+              placeholder='Moment'
+              value={formData.moment}
+              onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
+              className='p-2 rounded-sm outline outline-1 h-28 text-gray-700'
+            />
+          </div>
+        </div>
+
+        <div className='w-full flex flex-row gap-3 mt-3'>
+          <button
+            type='button'
+            onClick={() => {
+              setIsOpenForm(false);
+              document.body.style.overflow = "auto";
+            }}
+            className='w-full py-2 rounded-sm bg-white outline outline-1 hover:shadow-md'
+          >
+            Cancel
+          </button>
+          <button
+            type='submit'
+            disabled={formData.weather === "" || formData.moment === ""}
+            className='w-full py-2 rounded-sm outline outline-1 outline-black duration-300 bg-green-600 hover:bg-green-700 text-white disabled:cursor-not-allowed'
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </section>
+  );
+}

@@ -15,21 +15,20 @@ export default function EditButton({ moment }: { moment: MomentType }) {
   return (
     <>
       {session && (
-        <>
+        <Tooltip title='Edit moment'>
           <button
             type='button'
+            aria-label='edit moment button'
             onClick={() => {
               setIsOpenForm(true);
               document.body.style.overflow = "hidden";
             }}
             className='md:group-hover:opacity-100 md:opacity-0 duration-200'
           >
-            <Tooltip title='Edit'>
-              <BiEditAlt />
-            </Tooltip>
+            <BiEditAlt />
           </button>
           <MomentForm isOpenForm={isOpenForm} setIsOpenForm={setIsOpenForm} moment={moment} />
-        </>
+        </Tooltip>
       )}
     </>
   );

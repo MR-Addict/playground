@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { IoMdAddCircle } from "react-icons/io";
 
 import MomentForm from "./MomentForm";
+import { Tooltip } from "@/components";
 
 export default function AddButton() {
   const { data: session } = useSession();
@@ -13,20 +14,20 @@ export default function AddButton() {
   return (
     <>
       {session && (
-        <>
+        <Tooltip title='Add moment'>
           <button
             type='button'
+            aria-label='add moment button'
             onClick={() => {
               setIsOpenForm(true);
               document.body.style.overflow = "hidden";
             }}
-            className='flex flex-row items-center gap-[1px] md:text-gray-700 md:hover:text-gray-900'
+            className='flex flex-row items-center gap-[1px] md:text-gray-500 md:hover:text-gray-700'
           >
             <IoMdAddCircle />
-            <p>Add</p>
           </button>
           <MomentForm isOpenForm={isOpenForm} setIsOpenForm={setIsOpenForm} />
-        </>
+        </Tooltip>
       )}
     </>
   );

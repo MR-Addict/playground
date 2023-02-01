@@ -6,7 +6,7 @@ async function insert(feedback: string) {
     const db = client.db("playground");
 
     const result = await db.collection("feedback").insertOne({ date: new Date().toISOString(), message: feedback });
-    if (result.acknowledged) return { status: true, message: "Insert success!" };
+    if (result.acknowledged) return { status: true, message: "Insert succeeded!" };
     else return { status: false, message: "Insert failed!" };
   } catch (error) {
     return { status: false, message: "Error occurred while communicate with mongodb!" };

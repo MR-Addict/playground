@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { MomentType } from "./fetchMoments";
 import { allWeathers } from "./fetchMoments";
+import { usePopupContext } from "@/components";
 
 export default function MomentForm({
   isOpenForm,
@@ -14,9 +15,28 @@ export default function MomentForm({
   setIsOpenForm: Function;
   moment?: MomentType;
 }) {
+  const { popup } = usePopupContext();
   const [formData, setFormData] = useState(
-    moment ? { id: moment.id, weather: moment.weather, moment: moment.moment } : { weather: "", moment: "" }
+    moment ? { _id: moment._id, weather: moment.weather, moment: moment.moment } : { weather: "", moment: "" }
   );
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    fetch(moment ? "/api/moments/update" : "/api/moments/insert", {
+      method: "POST",
+      // @ts-expect-error
+      body: new URLSearchParams(formData),
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        popup(result);
+        if (!result.status) console.error(result.message);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   return (
     <section
@@ -26,6 +46,7 @@ export default function MomentForm({
       } z-10 fixed top-0 left-0 frame w-full h-full flex flex-col items-center justify-center bg-black/40`}
     >
       <form
+        onSubmit={handleSubmit}
         className={`${
           isOpenForm ? "scale-100" : "scale-0"
         } duration-200 w-full md:max-w-md flex flex-col gap-4 rounded-md bg-white p-5 md:p-7`}

@@ -90,7 +90,7 @@ export default function MomentForm({
               required
               id='moment'
               name='moment'
-              maxLength={100}
+              maxLength={500}
               placeholder='Moment'
               value={formData.moment}
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}

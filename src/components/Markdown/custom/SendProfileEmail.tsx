@@ -32,6 +32,7 @@ export default function SendProfileEmail() {
         type='email'
         name='email'
         value={email}
+        maxLength={500}
         onChange={(e) => setEmail(e.target.value)}
         placeholder='Your email address'
         className='w-full max-w-xs background p-2 h-fit rounded-md background outline outline-1 focus:outline-blue-600 peer'

@@ -48,7 +48,7 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
               type='text'
               id='username'
               name='username'
-              maxLength={100}
+              maxLength={500}
               placeholder='Username'
               value={formData.username}
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
@@ -66,7 +66,7 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
               id='password'
               type='password'
               name='password'
-              maxLength={100}
+              maxLength={500}
               placeholder='Password'
               value={formData.password}
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}

@@ -2,7 +2,7 @@ import { ObjectId } from "mongodb";
 
 import clientPromise from "./clientPromise";
 
-async function insert(moment: string, weather: string) {
+async function insert(weather: string, moment: string) {
   try {
     const client = await clientPromise;
     const db = client.db("playground");
@@ -15,7 +15,7 @@ async function insert(moment: string, weather: string) {
   }
 }
 
-async function update(_id: string, moment: string, weather: string) {
+async function update(_id: string, weather: string, moment: string) {
   try {
     const client = await clientPromise;
     const db = client.db("playground");
@@ -45,10 +45,23 @@ async function read() {
   }
 }
 
+async function remove(_id: string) {
+  try {
+    const client = await clientPromise;
+    const db = client.db("playground");
+    const result = await db.collection("moments").deleteOne({ _id: new ObjectId(_id) });
+    if (result.deletedCount > 0) return { status: true, message: "Link delete success!" };
+    else return { status: false, message: "Cannot delete link!" };
+  } catch (error) {
+    return { status: false, message: "Cannot establish connection with mongodb!" };
+  }
+}
+
 const moments = {
   insert,
   update,
   read,
+  remove,
 };
 
 export default moments;

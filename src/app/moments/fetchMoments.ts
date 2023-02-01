@@ -1,14 +1,6 @@
 import { moments } from "@/lib/mongodb";
 import { formatDate, groupBy } from "@/lib/utils";
-
-export const allWeathers = ["sunny", "partlySunny", "cloudy", "windy", "rainy", "stormy", "downpour"];
-
-export interface MomentType {
-  _id: string;
-  date: string;
-  weather: string;
-  moment: string;
-}
+import { MomentType } from "./config";
 
 export default async function fetchMoments() {
   const result = await moments.read();

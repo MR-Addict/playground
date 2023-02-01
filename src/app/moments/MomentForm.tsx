@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 
-import { MomentType } from "./fetchMoments";
-import { allWeathers } from "./fetchMoments";
 import { usePopupContext } from "@/components";
+import { allWeathers, MomentType } from "./config";
 
 export default function MomentForm({
   isOpenForm,
@@ -22,10 +21,12 @@ export default function MomentForm({
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const backupFormData = formData;
+    if (!moment) setFormData({ weather: "", moment: "" });
     fetch(moment ? "/api/moments/update" : "/api/moments/insert", {
-      method: "POST",
+      method: moment ? "PUT" : "POST",
       // @ts-expect-error
-      body: new URLSearchParams(formData),
+      body: new URLSearchParams(backupFormData),
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
     })
       .then((res) => res.json())

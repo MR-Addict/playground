@@ -1,33 +1,13 @@
 import { formatDate, groupBy } from "@/lib/utils";
 
-import {
-  TiWeatherSunny,
-  TiWeatherPartlySunny,
-  TiWeatherCloudy,
-  TiWeatherWindyCloudy,
-  TiWeatherShower,
-  TiWeatherDownpour,
-  TiWeatherStormy,
-  TiWeatherSnow,
-} from "react-icons/ti";
-
-export const weather = {
-  sunny: TiWeatherSunny,
-  partlySunny: TiWeatherPartlySunny,
-  cloudy: TiWeatherCloudy,
-  windy: TiWeatherWindyCloudy,
-  rainy: TiWeatherShower,
-  downPour: TiWeatherDownpour,
-  stormy: TiWeatherStormy,
-  snowy: TiWeatherSnow,
-};
-
-const moments: {
-  id: string;
+export interface MomentType {
   date: string;
+  id: string;
   moment: string;
-  weather: "sunny" | "partlySunny" | "cloudy" | "windy" | "rainy" | "downPour" | "stormy" | "snowy";
-}[] = [
+  weather: string;
+}
+
+const moments = [
   {
     id: "jbnkdksf",
     date: "2023-01-12 12:36:54",
@@ -86,6 +66,6 @@ const moments: {
 ];
 
 export default function fetchMoments() {
-  const result = moments.map((item) => ({ ...item, date: formatDate(item.date), icon: weather[item.weather] }));
+  const result = moments.map((item) => ({ ...item, date: formatDate(item.date) }));
   return groupBy(result, (moment) => moment.date.split("-").slice(0, -1).join("-"));
 }

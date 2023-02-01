@@ -1,10 +1,12 @@
 import { FaRegClock } from "react-icons/fa";
-import { Tooltip } from "@/components";
 
-import getMoments from "./fetchMoments";
+import { Tooltip } from "@/components";
+import fetchMoments from "./fetchMoments";
+import EditButton from "./EditButton";
+import GetWeatherIcon from "./GetWeatherIcon";
 
 export default function Page() {
-  const moments = getMoments();
+  const moments = fetchMoments();
 
   return (
     <main aria-label='moments page' className='frame w-full flex flex-col items-center gap-5'>
@@ -23,16 +25,17 @@ export default function Page() {
               {item1.data.map((item2) => (
                 <li
                   key={item2.id}
-                  className='background flex flex-col gap-2 p-5 rounded-md shadow-md outline outline-1 outline-green-600'
+                  className='background flex flex-col gap-2 p-5 rounded-md shadow-md outline outline-1 outline-green-600 group'
                 >
                   <div className='flex flex-row items-center gap-2'>
                     <div className='flex flex-row items-center gap-[1px]'>
                       <FaRegClock size={12} />
                       <span>{item2.date}</span>
                     </div>
-                    <Tooltip title={item2.weather}>
-                      <span className='md:hover:cursor-pointer'>{<item2.icon />}</span>
-                    </Tooltip>
+                    <span className='cursor-pointer'>
+                      <Tooltip title={item2.weather}>{<GetWeatherIcon weather={item2.weather} />}</Tooltip>
+                    </span>
+                    <EditButton moment={item2} />
                   </div>
                   <span>{item2.moment}</span>
                 </li>

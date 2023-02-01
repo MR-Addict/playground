@@ -15,7 +15,7 @@ export default function Codepen({
   editable?: boolean;
 }) {
   return (
-    <section aria-label='codepen iframe' style={{ height }} className={style.codepen}>
+    <section aria-label='codepen iframe' style={{ height }} className={style.container}>
       <p
         className='codepen'
         data-user={author}

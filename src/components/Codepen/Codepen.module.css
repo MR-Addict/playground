@@ -1,0 +1,7 @@
+.codepen {
+  @apply relative w-full my-4;
+}
+
+.codepen iframe:first-of-type {
+  @apply rounded-md;
+}

@@ -1,4 +1,5 @@
 import Script from "next/script";
+import style from "./Codepen.module.css";
 
 export default function Codepen({
   id,
@@ -14,7 +15,7 @@ export default function Codepen({
   editable?: boolean;
 }) {
   return (
-    <section aria-label='codepen iframe' style={{ height }} className='relative w-full my-4'>
+    <section aria-label='codepen iframe' style={{ height }} className={style.codepen}>
       <p
         className='codepen'
         data-user={author}

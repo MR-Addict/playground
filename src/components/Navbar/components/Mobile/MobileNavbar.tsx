@@ -9,6 +9,7 @@ import style from "./Hamburger.module.css";
 
 export default function MobileNavbar() {
   const [isExpand, setIsExpand] = useState(false);
+  const rootPath = (usePathname() || "/").split("/").slice(0, 2).join("/");
 
   return (
     <div className='lg:hidden flex flex-row items-center'>
@@ -36,7 +37,7 @@ export default function MobileNavbar() {
               href={item.link}
               onClick={() => setIsExpand(false)}
               className={`w-full font-semibold flex flex-row gap-2 items-center justify-start border-b-2 p-2 rounded-md ${
-                usePathname() === item.link ? "text-green-600" : "text-gray-700 hover:text-green-600"
+                rootPath === item.link ? "text-green-600" : "text-gray-700 hover:text-green-600"
               }`}
             >
               <span>{item.title}</span>

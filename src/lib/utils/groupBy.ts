@@ -1,4 +1,4 @@
-export default function groupByDate<T>(array: T[], predicate: (value: T, index: number, array: T[]) => string) {
+export default function groupBy<T>(array: T[], predicate: (value: T, index: number, array: T[]) => string) {
   const groups = array.reduce((acc, value, index, array) => {
     (acc[predicate(value, index, array)] ||= []).push(value);
     return acc;
@@ -6,11 +6,11 @@ export default function groupByDate<T>(array: T[], predicate: (value: T, index: 
 
   const totalCount = array.length;
 
-  const groupArrays = Object.keys(groups).map((date) => {
+  const groupArrays = Object.keys(groups).map((category) => {
     return {
-      date,
-      count: groups[date].length,
-      data: groups[date],
+      category,
+      count: groups[category].length,
+      data: groups[category],
     };
   });
   return { totalCount: totalCount, data: groupArrays };

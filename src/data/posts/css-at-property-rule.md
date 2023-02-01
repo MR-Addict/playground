@@ -7,13 +7,13 @@ intro: "CSS new @property rule makes it more powerful"
 
 ## 1. What's @property
 
-The **@property** is awesome, with @property you can so many things easier without any javascript.
+The **@property** is awesome, with @property you can do so many things easier without any javascript.
 
 Literally, you can define a css property with type, value, and inherit. You may think it's just like a normal css variable. Yes but no. Normal css variable is more like a constant in js. However, the property is more like a variable, which you can change its value.
 
 ## 2. How to Use
 
-Below is @property syntax, you need to define a property and then use it:
+Below is the @property syntax. You need to define a property and then use it:
 
 ```css:property.css
 @property --color {
@@ -34,11 +34,11 @@ Below is @property syntax, you need to define a property and then use it:
 
 The **syntax** is just like the variable's type, you can specify with `color`, `length`, `percentage`, or any type using `*`;
 
-The **inherits** control whether its value should be inheritable.
+The **inherits** controls whether its value should be inheritable.
 
 And finally, you can specify a **initial value** for this property.
 
-You can change property like this:
+You can change this property vlaue like this:
 
 ```css:property.css
 .container:hover {

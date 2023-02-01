@@ -2,7 +2,7 @@ import { FaDotCircle, FaRegClock } from "react-icons/fa";
 import { HiOutlineChatBubbleOvalLeftEllipsis } from "react-icons/hi2";
 
 interface recordsType {
-  date: string;
+  category: string;
   count: number;
   data: {
     date: string;
@@ -20,7 +20,7 @@ export default function RecordLists({ records }: { records: recordsType[] }) {
               <FaDotCircle size={15} />
             </span>
             <span className='text-gray-700 font-semibold'>
-              {item1.date}({item1.count})
+              {item1.category}({item1.count})
             </span>
           </div>
           <div className='flex flex-col border border-green-600 rounded-md'>

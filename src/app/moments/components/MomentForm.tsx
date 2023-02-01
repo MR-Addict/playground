@@ -35,7 +35,7 @@ export default function MomentForm({
       .then((res) => res.json())
       .then((result) => {
         popup(result);
-        if (result.status) revalidatePage();
+        if (result.status) revalidatePage(router);
         else console.error(result.message);
       })
       .catch((error) => {

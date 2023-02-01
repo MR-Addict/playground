@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { AiOutlineDelete } from "react-icons/ai";
 
@@ -7,6 +8,7 @@ import revalidatePage from "./revalidatePage";
 import { Tooltip, usePopupContext } from "@/components";
 
 export default function DeleteButton({ _id }: { _id: string }) {
+  const router = useRouter();
   const { popup } = usePopupContext();
   const { data: session } = useSession();
 
@@ -19,7 +21,7 @@ export default function DeleteButton({ _id }: { _id: string }) {
       .then((res) => res.json())
       .then((result) => {
         popup(result);
-        if (result.status) revalidatePage();
+        if (result.status) revalidatePage(router);
         else console.error(result.message);
       })
       .catch((error) => {

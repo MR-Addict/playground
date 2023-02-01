@@ -1,4 +1,3 @@
-import Script from "next/script";
 import style from "./Codepen.module.css";
 
 export default function Codepen({
@@ -16,16 +15,13 @@ export default function Codepen({
 }) {
   return (
     <section aria-label='codepen iframe' style={{ height }} className={style.container}>
-      <p
-        className='codepen'
-        data-user={author}
-        data-slug-hash={id}
-        data-height={height}
-        data-theme-id={theme}
-        data-editable={editable}
-        data-default-tab='result'
-      ></p>
-      <Script src='/assets/codepen-embed.js' />
+      <iframe
+        loading='lazy'
+        allowFullScreen
+        title='Codepen iframe'
+        className='absolute top-0 left-0 w-full h-full rounded-md'
+        src={`https://codepen.io/${author}/embed/${id}?default-tab=result&editable=${editable}&theme-id=${theme}`}
+      ></iframe>
     </section>
   );
 }

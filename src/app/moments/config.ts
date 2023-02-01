@@ -5,4 +5,4 @@ export interface MomentType {
   moment: string;
 }
 
-export const allWeathers = ["sunny", "partlySunny", "cloudy", "windy", "rainy", "stormy", "downpour"];
+export const allWeathers = ["sunny", "partlySunny", "cloudy", "windy", "rainy", "stormy", "downpour", "night"];

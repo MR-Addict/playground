@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react";
 
 import MomentForm from "./MomentForm";
 import { Tooltip } from "@/components";
-import { MomentType } from "./config";
+import { MomentType } from "../config";
 
 export default function EditButton({ moment }: { moment: MomentType }) {
   const { data: session } = useSession();

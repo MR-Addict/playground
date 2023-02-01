@@ -1,6 +1,6 @@
 import { moments } from "@/lib/mongodb";
 import { formatDate, groupBy } from "@/lib/utils";
-import { MomentType } from "./config";
+import { MomentType } from "../config";
 
 export default async function fetchMoments() {
   const result = await moments.read();

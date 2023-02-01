@@ -3,7 +3,8 @@
 import { useState } from "react";
 
 import { usePopupContext } from "@/components";
-import { allWeathers, MomentType } from "./config";
+import { allWeathers, MomentType } from "../config";
+import { revalidatePage } from "../lib";
 
 export default function MomentForm({
   isOpenForm,

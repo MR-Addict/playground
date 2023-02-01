@@ -1,11 +1,8 @@
 import { FaRegClock } from "react-icons/fa";
 
-import AddButton from "./AddButton";
-import EditButton from "./EditButton";
-import DeleteButton from "./DeleteButton";
+import { fetchMoments } from "./lib";
 import { Tooltip } from "@/components";
-import fetchMoments from "./fetchMoments";
-import GetWeatherIcon from "./GetWeatherIcon";
+import { AddButton, EditButton, DeleteButton, GetWeatherIcon } from "./components";
 
 export default async function Page() {
   const moments = await fetchMoments();

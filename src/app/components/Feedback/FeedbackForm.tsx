@@ -10,7 +10,7 @@ export default function FeedbackForm() {
 
   const [feedback, setFeedback] = useState("");
 
-  function revalidateFeedbackPage() {
+  function revalidatePage() {
     fetch(`/api/feedback/revalidate`)
       .then((res) => res.json())
       .then((result) => {
@@ -30,13 +30,9 @@ export default function FeedbackForm() {
     })
       .then((res) => res.json())
       .then((result) => {
-        if (result.status) {
-          popup({ status: true, message: "Thanks for your feedback!" });
-          revalidateFeedbackPage();
-        } else {
-          popup({ status: false, message: "Submit your feedback failed!" });
-          console.error(result.message);
-        }
+        popup(result);
+        if (result.status) revalidatePage();
+        else console.error(result.message);
       })
       .catch((error) => {
         console.error(error);

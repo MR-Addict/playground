@@ -36,6 +36,7 @@
 ## 4. Bugs
 
 - [x] Cannot use bcrypt(Replaced by bcryptjs, only used on server side)
+- [x] Only root `loading.tsx` usable(It seems that the bug has been fixed after 13.1.6)
 - [x] Cannot generate static pages using force-cache(Solved because of Nextauth unstabl_getServerSession at root navbar)
 
 ## 5. Traps

@@ -26,6 +26,7 @@ export default function DeleteButton({ _id }: { _id: string }) {
         if (result.status) router.refresh();
         else console.error(result.message);
         setIsOpenForm(false);
+        document.body.style.overflow = "auto";
       })
       .catch((error) => {
         console.error(error);

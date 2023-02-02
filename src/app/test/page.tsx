@@ -1,21 +1,29 @@
 function SkeletonCard() {
   return (
-    <div className='w-full px-4 pt-4 flex flex-col gap-2'>
-      <div className='h-4 w-20 bg-slate-200 rounded-md'></div>
-      <div className='h-7 w-full bg-slate-200 rounded-md'></div>
+    <div className='flex flex-col items-start gap-3 p-3 rounded-md border border-gray-300 animate-pulse'>
+      <div className='h-4 w-1/2 bg-slate-200 rounded-md'></div>
+      <div className='h-16 w-full bg-slate-200 rounded-md'></div>
     </div>
   );
 }
 
 export default function Page() {
   return (
-    <div className='frame w-full flex flex-col gap-5'>
-      <div className='h-5 w-28 bg-slate-200 rounded-md animate-pulse'></div>
-      <div className='rounded-md border border-gray-300 pb-4 animate-pulse'>
-        {Array.from(Array(10)).map((item, index) => (
-          <SkeletonCard key={index} />
-        ))}
-      </div>
+    <div className='frame w-full flex flex-col gap-7'>
+      <header className='text-center flex flex-col items-center gap-3'>
+        <h1 className='text-gray-700 font-bold text-3xl'>Moments</h1>
+        <p className='text-xl text-gray-500'>I like to write daily moments of my life. Here is a collection of them.</p>
+      </header>
+
+      <section className='flex flex-col gap-3'>
+        <div className='h-4 w-28 bg-slate-200 rounded-md animate-pulse'></div>
+
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+          {Array.from(Array(6)).map((item, index) => (
+            <SkeletonCard key={index} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

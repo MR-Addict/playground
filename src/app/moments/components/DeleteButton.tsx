@@ -25,6 +25,7 @@ export default function DeleteButton({ _id }: { _id: string }) {
         popup(result);
         if (result.status) router.refresh();
         else console.error(result.message);
+        setIsOpenForm(false);
       })
       .catch((error) => {
         console.error(error);

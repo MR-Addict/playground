@@ -36,6 +36,7 @@ export default function MomentForm({
         popup(result);
         if (result.status) router.refresh();
         else console.error(result.message);
+        setIsOpenForm(false);
       })
       .catch((error) => {
         console.error(error);

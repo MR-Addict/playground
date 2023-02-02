@@ -13,5 +13,5 @@
   left: 50%;
   z-index: -1;
   transform: translate(-50%, -50%);
-  @apply absolute text-3xl font-bold;
+  @apply absolute text-3xl font-bold text-center;
 }

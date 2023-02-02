@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import style from "./component.module.css";
 import { usePopupContext } from "@/components";
 import { allWeathers, MomentType } from "../config";
 
@@ -55,7 +56,7 @@ export default function MomentForm({
         onSubmit={handleSubmit}
         className={`${
           isOpenForm ? "scale-100" : "scale-0"
-        } duration-200 w-full md:max-w-md flex flex-col gap-4 rounded-md bg-white p-5 md:p-7`}
+        } duration-200 background w-full md:max-w-md flex flex-col gap-4 rounded-md p-5 md:p-7`}
       >
         <h1 className='font-bold text-3xl text-center text-gray-700'>Moment</h1>
 
@@ -70,7 +71,7 @@ export default function MomentForm({
               name='weather'
               value={formData.weather}
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-              className='p-2 rounded-sm outline outline-1 text-gray-700'
+              className={[style.input, "background"].join(" ")}
             >
               <option disabled value=''>
                 -- select an option --
@@ -95,7 +96,7 @@ export default function MomentForm({
               placeholder='Moment'
               value={formData.moment}
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-              className='p-2 rounded-sm outline outline-1 h-28 text-gray-700'
+              className={[style.input, "h-28", "background"].join(" ")}
             />
           </div>
         </div>
@@ -107,7 +108,7 @@ export default function MomentForm({
               setIsOpenForm(false);
               document.body.style.overflow = "auto";
             }}
-            className='w-full py-2 rounded-sm bg-white outline outline-1 hover:shadow-md'
+            className='w-full py-2 rounded-sm background outline outline-1 hover:shadow-md'
           >
             Cancel
           </button>

@@ -31,14 +31,14 @@ export default function RecordLists({ records }: { records: recordsType[] }) {
                   index2 === item1.count - 1 ? "border-b-0" : "border-b"
                 }`}
               >
-                <div className=' text-gray-700 flex flex-row items-center'>
-                  <span className='pr-1'>
-                    <FaRegClock size={15} />
+                <div className=' text-gray-700 flex flex-row'>
+                  <span className='pr-1 pt-[6px]'>
+                    <FaRegClock size={14} />
                   </span>
                   <h1>{item2.date}</h1>
                 </div>
-                <div className=' text-slate-700 flex flex-row items-center'>
-                  <span className='pr-[1.5px]'>
+                <div className=' text-slate-700 flex flex-row'>
+                  <span className='pr-[2px] pt-1'>
                     <HiOutlineChatBubbleOvalLeftEllipsis size={17} />
                   </span>
                   <span>{item2.message}</span>

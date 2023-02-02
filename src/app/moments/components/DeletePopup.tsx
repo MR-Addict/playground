@@ -1,5 +1,7 @@
 "use client";
 
+import style from "./component.module.css";
+
 export default function DeletePopup({
   isOpenForm,
   setIsOpenForm,
@@ -19,7 +21,7 @@ export default function DeletePopup({
       <div
         className={`${
           isOpenForm ? "scale-100" : "scale-0"
-        } duration-200 w-full md:max-w-sm flex flex-col gap-4 rounded-md bg-white p-5 md:p-7`}
+        } duration-200 w-full md:max-w-sm flex flex-col gap-4 rounded-md background p-5 md:p-7`}
       >
         <h1 className='font-bold text-3xl text-center text-gray-700'>Delete Moment?</h1>
 
@@ -30,7 +32,7 @@ export default function DeletePopup({
               setIsOpenForm(false);
               document.body.style.overflow = "auto";
             }}
-            className='w-full py-2 rounded-sm bg-white outline outline-1 hover:shadow-md'
+            className='w-full py-2 rounded-sm background outline outline-1 hover:shadow-md'
           >
             Cancel
           </button>

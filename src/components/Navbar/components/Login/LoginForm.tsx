@@ -4,6 +4,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
+import style from "./LoginForm.module.css";
 import { usePopupContext } from "@/components";
 
 export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: boolean; setIsOpenForm: Function }) {
@@ -34,7 +35,7 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
         onSubmit={handleSubmit}
         className={`${
           isOpenForm ? "scale-100" : "scale-0"
-        } duration-200 w-full md:max-w-xs flex flex-col gap-4 rounded-md bg-white p-5 md:p-7`}
+        } duration-200 w-full md:max-w-xs flex flex-col gap-4 rounded-md background p-5 md:p-7`}
       >
         <h1 className='font-bold text-4xl text-center'>Login</h1>
         <div className='flex flex-col gap-6'>
@@ -52,7 +53,7 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
               placeholder='Username'
               value={formData.username}
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-              className='p-2 rounded-sm outline outline-1 focus:outline-blue-600'
+              className={[style.input, "background"].join(" ")}
             />
           </div>
 
@@ -70,7 +71,7 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
               placeholder='Password'
               value={formData.password}
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-              className='p-2 rounded-sm outline outline-1 focus:outline-blue-600'
+              className={[style.input, "background"].join(" ")}
             />
           </div>
 
@@ -81,7 +82,7 @@ export default function LoginForm({ isOpenForm, setIsOpenForm }: { isOpenForm: b
                 setIsOpenForm(false);
                 document.body.style.overflow = "auto";
               }}
-              className='w-full py-2 rounded-sm bg-white outline outline-1 hover:shadow-md'
+              className='w-full py-2 rounded-sm background outline outline-1 hover:shadow-md'
             >
               Cancel
             </button>

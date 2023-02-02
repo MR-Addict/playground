@@ -4,6 +4,8 @@ import { Tooltip } from "@/components";
 import fetchMoments from "./fetchMoments";
 import { AddButton, EditButton, DeleteButton, GetWeatherIcon } from "./components";
 
+export const revalidate = 0;
+
 export default async function Page() {
   const moments = await fetchMoments();
 

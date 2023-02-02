@@ -6,7 +6,6 @@ import { useSession } from "next-auth/react";
 import { AiOutlineDelete } from "react-icons/ai";
 
 import DeletePopup from "./DeletePopup";
-import revalidatePage from "./revalidatePage";
 import { Tooltip, usePopupContext } from "@/components";
 
 export default function DeleteButton({ _id }: { _id: string }) {
@@ -24,7 +23,7 @@ export default function DeleteButton({ _id }: { _id: string }) {
       .then((res) => res.json())
       .then((result) => {
         popup(result);
-        if (result.status) revalidatePage(router);
+        if (result.status) router.refresh();
         else console.error(result.message);
       })
       .catch((error) => {

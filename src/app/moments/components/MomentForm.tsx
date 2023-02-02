@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import revalidatePage from "./revalidatePage";
 import { usePopupContext } from "@/components";
 import { allWeathers, MomentType } from "../config";
 
@@ -35,7 +34,7 @@ export default function MomentForm({
       .then((res) => res.json())
       .then((result) => {
         popup(result);
-        if (result.status) revalidatePage(router);
+        if (result.status) router.refresh();
         else console.error(result.message);
       })
       .catch((error) => {

@@ -21,7 +21,7 @@ export default function DeletePopup({
           isOpenForm ? "scale-100" : "scale-0"
         } duration-200 w-full md:max-w-sm flex flex-col gap-4 rounded-md bg-white p-5 md:p-7`}
       >
-        <h1 className='font-bold text-3xl text-center text-gray-700'>Delete moment?</h1>
+        <h1 className='font-bold text-3xl text-center text-gray-700'>Delete Moment?</h1>
 
         <div className='w-full flex flex-row gap-3 mt-3'>
           <button

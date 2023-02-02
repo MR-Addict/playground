@@ -23,17 +23,17 @@ export default async function Page({ searchParams: { page } }: { searchParams: {
     <main aria-label='commits page' className='frame w-full flex flex-col gap-5'>
       <h1 className='text-2xl font-bold text-slate-700'>Commits({totalCount})</h1>
       <RecordLists records={commits} />
-      <div className='flex flex-row justify-center text-gray-700'>
+      <div className='flex flex-row justify-center'>
         <Link
           style={{ cursor: res.isPrev ? "pointer" : "not-allowed" }}
-          className={[style.prev, res.isPrev ? style.active : null].join(" ")}
+          className={[style.link, style.prev, res.isPrev ? style.active : style.deactive].join(" ")}
           href={{ pathname: "/commits", query: { page: currentPage - (res.isPrev ? 1 : 0) } }}
         >
-          Pre
+          Prev
         </Link>
         <Link
           style={{ cursor: res.isNext ? "pointer" : "not-allowed" }}
-          className={[style.next, res.isNext ? style.active : null].join(" ")}
+          className={[style.link, style.next, res.isNext ? style.active : style.deactive].join(" ")}
           href={{ pathname: "/commits", query: { page: currentPage + (res.isNext ? 1 : 0) } }}
         >
           Next

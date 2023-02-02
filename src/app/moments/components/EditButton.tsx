@@ -25,7 +25,7 @@ export default function EditButton({ moment }: { moment: MomentType }) {
             }}
             className='md:group-hover:opacity-100 md:opacity-0 duration-200'
           >
-            <BiEditAlt />
+            <BiEditAlt size={15} />
           </button>
           <MomentForm isOpenForm={isOpenForm} setIsOpenForm={setIsOpenForm} moment={moment} />
         </Tooltip>

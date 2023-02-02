@@ -46,7 +46,7 @@ export default function DeleteButton({ _id }: { _id: string }) {
             }}
             className='md:group-hover:opacity-100 md:opacity-0 duration-200'
           >
-            <AiOutlineDelete />
+            <AiOutlineDelete size={15} />
           </button>
           <DeletePopup isOpenForm={isOpenForm} setIsOpenForm={setIsOpenForm} handleClick={handleClick} />
         </Tooltip>

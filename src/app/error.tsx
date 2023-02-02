@@ -18,7 +18,7 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
       >
         <IoMdRefresh size={40} />
       </button>
-      <p className='text-slate-700 font-semibold text-xl'>Error occurred while communicate with mongodb!</p>
+      <p className='text-slate-700 font-semibold text-xl'>Something went wrong!</p>
     </section>
   );
 }

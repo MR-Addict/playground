@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Page() {
+export default function NotFound() {
   return (
     <div className='flex flex-row items-center justify-center gap-1'>
       <h1 className='text-gray-700'>Post not found.</h1>

@@ -12,8 +12,8 @@ export default async function fetchPages(per_page: number) {
       return Number(
         headers
           .get(header.value)
-          .match(/&page=[0-9]+/g)[1]
-          .split("=")[1]
+          .match(/&page=[0-9]+/g)
+          [-1].split("=")[-1]
       );
     }
     header = keys.next();

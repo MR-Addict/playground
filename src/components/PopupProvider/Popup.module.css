@@ -1,5 +1,5 @@
 .popupwindow {
-  @apply px-5 md:px-0 w-full max-w-md z-20 fixed flex flex-col items-center -top-20 left-[50%] translate-x-[-50%] duration-500 translate-y-28;
+  @apply px-5 md:px-0 w-full max-w-md z-20 fixed flex flex-col items-center -top-20 left-[50%] translate-x-[-50%] duration-500 translate-y-0;
 }
 
 .popupwindow[popup-isactive="true"] {

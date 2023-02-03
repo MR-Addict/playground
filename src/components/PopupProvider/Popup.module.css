@@ -1,0 +1,15 @@
+.popupwindow {
+  @apply px-5 md:px-0 w-full max-w-md z-20 fixed flex flex-col items-center -top-20 left-[50%] translate-x-[-50%] duration-500 translate-y-28;
+}
+
+.popupwindow[popup-isactive="true"] {
+  @apply translate-y-28;
+}
+
+.popupbody {
+  @apply w-full max-w-md flex flex-row gap-3 rounded-r px-4 py-3 shadow-sm border-l-4 bg-red-100/50 border-red-500 text-red-900;
+}
+
+.popupbody[popup-status="true"] {
+  @apply bg-green-200/50 border-green-500 text-green-900;
+}

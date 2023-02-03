@@ -4,12 +4,12 @@ const navbarData = [
     link: "/",
   },
   {
-    title: "Tools",
-    link: "/tools",
-  },
-  {
     title: "Blog",
     link: "/blog",
+  },
+  {
+    title: "Tools",
+    link: "/tools",
   },
   {
     title: "Moments",

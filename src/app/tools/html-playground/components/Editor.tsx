@@ -19,7 +19,7 @@ export default function Editor({
 }) {
   let extensions = html();
   if (language === "css") extensions = css();
-  else if (language === "javascript") extensions = javascript({ jsx: true });
+  else if (language === "js") extensions = javascript({ jsx: true });
   return (
     <CodeMirror
       value={value}

@@ -26,7 +26,7 @@ const tools: {
   {
     name: "HTML Playground",
     icon: SiHtml5,
-    link: "/tools/html",
+    link: "/tools/html-playground",
     intro:
       "Simple HTML, CSS and Javascript playground. Live coding and reloading. This programme helps you learning HTML without creating any html files locally.",
   },

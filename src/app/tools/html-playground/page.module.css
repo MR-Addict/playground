@@ -1,0 +1,52 @@
+.header {
+  @apply w-full flex flex-row gap-2 md:gap-0 px-3 pt-3 rounded-t-md bg-[#222222];
+}
+
+.header > div {
+  @apply md:w-full flex flex-row gap-2;
+}
+
+.header button {
+  @apply flex flex-row items-center gap-1 text-white bg-[#514f4f] py-2 px-2 rounded-sm;
+}
+
+.header button[tab-active="true"] {
+  @apply bg-green-600;
+}
+
+.output {
+  @apply flex flex-row h-[70dvh] bg-black relative isolate;
+}
+
+.output > div {
+  @apply w-full;
+}
+
+.output > iframe {
+  @apply w-full bg-black;
+}
+
+.output::before {
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flow 2s infinite alternate-reverse;
+  background-image: linear-gradient(45deg, #7900ff, #28df99);
+
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  background-clip: text;
+  content: "HTML Playground";
+  transform: translate(-50%, -50%);
+  @apply absolute text-3xl font-bold text-center;
+}
+
+@keyframes flow {
+  from {
+    background-position: 0%;
+  }
+  to {
+    background-position: 100%;
+  }
+}

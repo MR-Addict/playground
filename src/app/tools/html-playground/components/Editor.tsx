@@ -23,7 +23,7 @@ export default function Editor({
   return (
     <CodeMirror
       value={value}
-      height='70dvh'
+      height='100%'
       theme={vscodeDark}
       onChange={onChange}
       extensions={[extensions, EditorView.lineWrapping]}

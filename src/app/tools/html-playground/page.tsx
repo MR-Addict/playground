@@ -7,6 +7,8 @@ import { SiHtml5, SiCss3, SiJavascript } from "react-icons/si";
 import style from "./page.module.css";
 import { Editor } from "./components";
 
+import "./style.css";
+
 export default function Page() {
   const [srcDoc, setSrcDoc] = useState("");
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -19,10 +21,10 @@ export default function Page() {
 
   function handleClickTab(tab: "html" | "css" | "js" | "result") {
     if (isSmallScreen) setActiveTab({ html: false, css: false, js: false, result: false, [tab]: !activeTab[tab] });
-    else if (tab === "html") setActiveTab({ html: !activeTab.html, css: false, js: false, result: activeTab.result });
-    else if (tab === "css") setActiveTab({ html: false, css: !activeTab.css, js: false, result: activeTab.result });
-    else if (tab === "js") setActiveTab({ html: false, css: false, js: !activeTab.js, result: activeTab.result });
-    else if (tab === "result") setActiveTab({ ...activeTab, result: !activeTab.result });
+    else {
+      if (tab === "result") setActiveTab({ ...activeTab, [tab]: !activeTab[tab] });
+      else setActiveTab({ html: false, css: false, js: false, [tab]: !activeTab[tab], result: activeTab.result });
+    }
   }
 
   useEffect(() => {
@@ -39,7 +41,9 @@ export default function Page() {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setSrcDoc(`<style>${input.css}</style>${input.html}<script>${input.js}</script>`);
+      setSrcDoc(
+        `<style>body::-webkit-scrollbar{width: 0.5em;height:0.5rem;}body::-webkit-scrollbar-thumb{background-color: gray;}${input.css}</style>${input.html}<span></span><script>${input.js}</script>`
+      );
     }, 250);
     return () => clearTimeout(timeout);
   }, [input]);
@@ -68,7 +72,7 @@ export default function Page() {
           </button>
         </div>
       </header>
-      <section className={style.output}>
+      <section id='html-playground' className={style.output}>
         <Editor
           value={input.html}
           language='html'
@@ -87,7 +91,7 @@ export default function Page() {
           isShowing={activeTab.js}
           onChange={(value) => setInput({ ...input, js: value })}
         />
-        <iframe style={{ display: activeTab.result ? "block" : "none" }} srcDoc={srcDoc} title='html playground' />
+        <iframe srcDoc={srcDoc} title='html playground' style={{ display: activeTab.result ? "block" : "none" }} />
       </section>
     </main>
   );

@@ -1,0 +1,8 @@
+#html-playground .cm-scroller::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5rem;
+}
+
+#html-playground .cm-scroller::-webkit-scrollbar-thumb {
+  background-color: gray;
+}

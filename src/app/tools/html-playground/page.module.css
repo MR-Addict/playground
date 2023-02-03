@@ -6,24 +6,21 @@
   @apply md:w-full flex flex-row gap-2;
 }
 
-.header button {
+.header > div > button {
   @apply flex flex-row items-center gap-1 text-white bg-[#514f4f] py-2 px-2 rounded-sm;
 }
 
-.header button[tab-active="true"] {
+.header > div > button[tab-active="true"] {
   @apply bg-green-600;
 }
 
 .output {
-  @apply flex flex-row h-[70dvh] bg-black relative isolate;
+  @apply w-full flex flex-row h-[70dvh] bg-black relative isolate;
 }
 
-.output > div {
-  @apply w-full;
-}
-
+.output > div,
 .output > iframe {
-  @apply w-full bg-black;
+  @apply w-full;
 }
 
 .output::before {

@@ -1,0 +1,31 @@
+.input {
+  @apply flex flex-col w-full;
+}
+
+.input > header {
+  @apply flex flex-row;
+}
+
+.input > header > button {
+  @apply w-full flex flex-row items-center gap-1 text-white bg-gray-600 rounded-t-md p-2;
+}
+
+.input > header > button[tab-active="true"] {
+  @apply bg-gray-800;
+}
+
+.input > div > textarea {
+  @apply bg-gray-900 rounded-b-md outline-none w-full h-[60dvh] resize-none py-2 px-3 text-base text-white;
+}
+
+.output {
+  @apply flex flex-col w-full shadow-md;
+}
+
+.output > h1 {
+  @apply flex flex-row items-center gap-1 text-white bg-gray-800 rounded-t-md p-2;
+}
+
+.output iframe {
+  @apply h-full bg-white rounded-b-md;
+}

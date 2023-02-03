@@ -1,24 +1,26 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import style from "./page.module.css";
-
 import { RiWindow2Fill } from "react-icons/ri";
+import { useState, useEffect } from "react";
 import { SiHtml5, SiCss3, SiJavascript } from "react-icons/si";
 
+import style from "./page.module.css";
+import { Editor } from "./components";
+
 export default function Page() {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [srcDoc, setSrcDoc] = useState("");
   const [activeTab, setActiveTab] = useState("html");
-  const [input, setInput] = useState({ html: "", css: "", js: "" });
+  const [input, setInput] = useState({
+    html: "<h1>Hello world!</h1>",
+    css: "body{color:white;font-family:monospace;}",
+    js: "document.body.style.background='black';",
+  });
 
   useEffect(() => {
-    if (iframeRef.current) {
-      console.log(input);
-      const iframe = iframeRef.current.contentDocument;
-      if (!iframe) return;
-      iframe.head.innerHTML = `<style>${input.css}</style>`;
-      iframe.body.innerHTML = input.html + `<script>${input.js}</script>`;
-    }
+    const timeout = setTimeout(() => {
+      setSrcDoc(`<style>${input.css}</style>${input.html}<script>${input.js}</script>`);
+    }, 250);
+    return () => clearTimeout(timeout);
   }, [input]);
 
   return (
@@ -39,17 +41,23 @@ export default function Page() {
           </button>
         </header>
         <div>
-          <textarea
-            style={{ display: activeTab === "html" ? "block" : "none" }}
-            onChange={(e) => setInput({ ...input, html: e.target.value })}
+          <Editor
+            value={input.html}
+            language='html'
+            isShowing={activeTab === "html"}
+            onChange={(value) => setInput({ ...input, html: value })}
           />
-          <textarea
-            style={{ display: activeTab === "css" ? "block" : "none" }}
-            onChange={(e) => setInput({ ...input, css: e.target.value })}
+          <Editor
+            value={input.css}
+            language='css'
+            isShowing={activeTab === "css"}
+            onChange={(value) => setInput({ ...input, css: value })}
           />
-          <textarea
-            style={{ display: activeTab === "js" ? "block" : "none" }}
-            onChange={(e) => setInput({ ...input, js: e.target.value })}
+          <Editor
+            value={input.js}
+            language='javascript'
+            isShowing={activeTab === "js"}
+            onChange={(value) => setInput({ ...input, js: value })}
           />
         </div>
       </section>
@@ -58,7 +66,7 @@ export default function Page() {
           <RiWindow2Fill />
           Output
         </h1>
-        <iframe title='html, css playground' ref={iframeRef} />
+        <iframe srcDoc={srcDoc} title='html playground' />
       </section>
     </main>
   );

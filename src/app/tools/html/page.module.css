@@ -3,29 +3,25 @@
 }
 
 .input > header {
-  @apply flex flex-row;
+  @apply flex flex-row w-full;
 }
 
 .input > header > button {
-  @apply w-full flex flex-row items-center gap-1 text-white bg-gray-600 rounded-t-md p-2;
+  @apply w-full flex flex-row items-center gap-1 text-white bg-[#514f4f] p-2;
 }
 
 .input > header > button[tab-active="true"] {
-  @apply bg-gray-800;
-}
-
-.input > div > textarea {
-  @apply bg-gray-900 rounded-b-md outline-none w-full h-[60dvh] resize-none py-2 px-3 text-base text-white;
+  @apply bg-[#1E1E1E];
 }
 
 .output {
-  @apply flex flex-col w-full shadow-md;
+  @apply flex flex-col w-full;
 }
 
 .output > h1 {
-  @apply flex flex-row items-center gap-1 text-white bg-gray-800 rounded-t-md p-2;
+  @apply w-full flex flex-row items-center gap-1 text-white bg-[#1E1E1E] p-2;
 }
 
-.output iframe {
-  @apply h-full bg-white rounded-b-md;
+.output > iframe {
+  @apply aspect-video md:h-full bg-white;
 }

@@ -6,6 +6,7 @@ import { SiHtml5, SiCss3, SiJavascript } from "react-icons/si";
 
 import style from "./page.module.css";
 import { Editor } from "./components";
+import { defaultIframeStyle, defaultInput } from "./config";
 
 import "./style.css";
 
@@ -13,11 +14,7 @@ export default function Page() {
   const [srcDoc, setSrcDoc] = useState("");
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [activeTab, setActiveTab] = useState({ html: true, css: false, js: false, result: true });
-  const [input, setInput] = useState({
-    html: "<h1>Hello world!</h1>",
-    css: "body{font-family:monospace;color:white;}",
-    js: "document.body.style.background='black';",
-  });
+  const [input, setInput] = useState(defaultInput);
 
   function handleClickTab(tab: "html" | "css" | "js" | "result") {
     if (isSmallScreen) setActiveTab({ html: false, css: false, js: false, result: false, [tab]: !activeTab[tab] });
@@ -42,8 +39,7 @@ export default function Page() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setSrcDoc(
-        `<style>body::-webkit-scrollbar{width:0.4em;height:0.4rem;}body::-webkit-scrollbar-thumb{background-color:gray;border-radius:0.15rem;}body::-webkit-scrollbar-corner{display:none;}
-        ${input.css}</style>${input.html}<span></span><script>${input.js}</script>`
+        `<style>${defaultIframeStyle}${input.css}</style>${input.html}<span></span><script>${input.js}</script>`
       );
     }, 250);
     return () => clearTimeout(timeout);

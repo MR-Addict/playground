@@ -20,30 +20,5 @@
 
 .output > div,
 .output > iframe {
-  @apply w-full h-full overflow-auto;
-}
-
-.output::before {
-  background-size: 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: flow 2s infinite alternate-reverse;
-  background-image: linear-gradient(45deg, #7900ff, #28df99);
-
-  top: 50%;
-  left: 50%;
-  z-index: -1;
-  background-clip: text;
-  content: "HTML Playground";
-  transform: translate(-50%, -50%);
-  @apply absolute text-3xl font-bold text-center;
-}
-
-@keyframes flow {
-  from {
-    background-position: 0%;
-  }
-  to {
-    background-position: 100%;
-  }
+  @apply w-full overflow-auto;
 }

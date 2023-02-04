@@ -2,7 +2,8 @@ import Link from "next/link";
 import { FaRegClock } from "react-icons/fa";
 
 import { getAllPostsProps } from "@/lib/blog";
-import { colorfulColors } from "@/lib/utils";
+import { colorfulColors, formatDate } from "@/lib/utils";
+import TimeAgo from "@/components/TimeAgo/TimeAgo";
 
 export default function Page() {
   const posts = getAllPostsProps();
@@ -27,10 +28,11 @@ export default function Page() {
                 {item.title}
               </Link>
               <div className='flex text-sm flex-col md:flex-row md:items-center md:gap-2 text-gray-500'>
-                <div className='flex flex-row items-center gap-1'>
+                <div className='flex flex-row items-center gap-[1px]'>
                   <FaRegClock size={13} />
-                  <p>{item.date}</p>
+                  <p>{formatDate(item.date).split(" ")[0]}</p>
                 </div>
+                <TimeAgo date={item.date} />
                 <div className='flex flex-row gap-2'>
                   {item.tags.map((tag, index) => (
                     <div key={index} style={{ color: colorfulColors[index], fontWeight: "bold" }}>

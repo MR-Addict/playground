@@ -1,7 +1,9 @@
 import { FaRegClock } from "react-icons/fa";
 
 import { Tooltip } from "@/components";
+import { timeAgo } from "@/lib/utils";
 import fetchMoments from "./fetchMoments";
+import TimeAgo from "@/components/TimeAgo/TimeAgo";
 import { AddButton, EditButton, DeleteButton, GetWeatherIcon } from "./components";
 
 export const revalidate = 0;
@@ -25,13 +27,18 @@ export default async function Page() {
                 className='background flex flex-col p-3 rounded-md shadow-md outline outline-1 outline-green-600 group'
               >
                 <div className='flex flex-row items-center gap-2'>
-                  <div className='flex flex-row items-center gap-[2px]'>
-                    <FaRegClock size={12} />
-                    <span>{item2.date}</span>
-                  </div>
-                  <span className='cursor-pointer'>
-                    <Tooltip title={item2.weather}>{<GetWeatherIcon weather={item2.weather} />}</Tooltip>
-                  </span>
+                  <Tooltip title={item2.date}>
+                    <div className='flex flex-row items-center gap-2 cursor-pointer'>
+                      <div className='flex flex-row items-center gap-[1px]'>
+                        <FaRegClock size={12} />
+                        <span>{item2.date.split(" ")[0]}</span>
+                      </div>
+                      <TimeAgo date={item2.date} />
+                    </div>
+                  </Tooltip>
+                  <Tooltip title={item2.weather}>
+                    <span className='cursor-pointer'>{<GetWeatherIcon weather={item2.weather} />}</span>
+                  </Tooltip>
                   <EditButton moment={item2} />
                   <DeleteButton _id={item2._id} />
                 </div>

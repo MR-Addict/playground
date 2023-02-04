@@ -2,7 +2,8 @@ import { notFound } from "next/navigation";
 import { FaRegClock } from "react-icons/fa";
 
 import { Markdown } from "@/components";
-import { colorfulColors } from "@/lib/utils";
+import TimeAgo from "@/components/TimeAgo/TimeAgo";
+import { colorfulColors, formatDate } from "@/lib/utils";
 import { getPostContent, getAllPostsProps } from "@/lib/blog";
 
 export default async function Page({ params: { postid } }: { params: { postid: string } }) {
@@ -19,8 +20,11 @@ export default async function Page({ params: { postid } }: { params: { postid: s
         <h1 className='text-3xl md:text-4xl font-bold text-gray-700 text-center'>{result.title}</h1>
         <div className='flex flex-col md:flex-row items-center gap-2 text-gray-500'>
           <div className='flex flex-row items-center gap-1'>
-            <FaRegClock size={15} />
-            <p>{result.date}</p>
+            <div className='flex flex-row items-center gap-[1px]'>
+              <FaRegClock size={13} />
+              <p>{formatDate(result.date).split(" ")[0]}</p>
+            </div>
+            <TimeAgo date={result.date} />
           </div>
           <div className='flex flex-row gap-2'>
             {result.tags.map((tag, index) => (

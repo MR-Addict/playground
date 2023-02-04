@@ -1,7 +1,7 @@
 import { SiHtml5 } from "react-icons/si";
 import { IconType } from "react-icons/lib";
 import { FaUnlockAlt } from "react-icons/fa";
-import { BsShieldLockFill } from "react-icons/bs";
+import { BsShieldLockFill, BsCameraFill } from "react-icons/bs";
 
 const tools: {
   name: string;
@@ -29,6 +29,13 @@ const tools: {
     link: "/tools/html-playground",
     intro:
       "Simple HTML, CSS and Javascript playground. Live coding, live reloading, syntax highlight and autocomplete. It helps you write HTML code without creating any html files locally.",
+  },
+  {
+    name: "Website Capture",
+    icon: BsCameraFill,
+    link: "/tools/website-capture",
+    intro:
+      "Capture a website from url. You can specific many options for your own needs, you can even you my api if you want to create an app yourself.",
   },
 ];
 

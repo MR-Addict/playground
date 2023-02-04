@@ -54,7 +54,7 @@ export default function MomentForm() {
 
         <div className='flex flex-col gap-3'>
           <div className='flex flex-col w-full gap-1'>
-            <label htmlFor='weather' className='flex flex-row items-center gap-2 text-gray-700 font-semibold'>
+            <label htmlFor='weather' className={style.label}>
               Weather
             </label>
             <select
@@ -77,7 +77,7 @@ export default function MomentForm() {
           </div>
 
           <div className='flex flex-col w-full gap-1'>
-            <label htmlFor='moment' className='flex flex-row items-center gap-2 text-gray-700 font-semibold'>
+            <label htmlFor='moment' className={style.label}>
               Moment
             </label>
             <textarea

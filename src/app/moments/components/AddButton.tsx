@@ -1,15 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { BiPlusCircle } from "react-icons/bi";
 
-import MomentForm from "./MomentForm";
 import { Tooltip } from "@/components";
+import { useMomentContext } from "./MomentContextProvider";
 
 export default function AddButton() {
   const { data: session } = useSession();
-  const [isOpenForm, setIsOpenForm] = useState(false);
+  const { setMoment, setIsOpenForm, setIsInsertMode } = useMomentContext();
 
   return (
     <>
@@ -20,13 +19,14 @@ export default function AddButton() {
             aria-label='add moment button'
             onClick={() => {
               setIsOpenForm(true);
+              setIsInsertMode(true);
+              setMoment({ _id: "", date: "", weather: "", moment: "" });
               document.body.style.overflow = "hidden";
             }}
             className='flex flex-row items-center gap-[1px] text-gray-700'
           >
             <BiPlusCircle />
           </button>
-          <MomentForm isOpenForm={isOpenForm} setIsOpenForm={setIsOpenForm} />
         </Tooltip>
       )}
     </>

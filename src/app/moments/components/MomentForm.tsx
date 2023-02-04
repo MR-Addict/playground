@@ -1,34 +1,26 @@
 "use client";
 
-import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { allWeathers } from "../config";
 import style from "./component.module.css";
 import { usePopupContext } from "@/components";
-import { allWeathers, MomentType } from "../config";
+import { useMomentContext } from "./MomentContextProvider";
 
-export default function MomentForm({
-  isOpenForm,
-  setIsOpenForm,
-  moment,
-}: {
-  isOpenForm: boolean;
-  setIsOpenForm: Function;
-  moment?: MomentType;
-}) {
+export default function MomentForm() {
   const router = useRouter();
   const { popup } = usePopupContext();
-  const [formData, setFormData] = useState(
-    moment ? { _id: moment._id, weather: moment.weather, moment: moment.moment } : { weather: "", moment: "" }
-  );
+  const { moment, isOpenForm, isInsertMode, setMoment, setIsOpenForm } = useMomentContext();
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const backupFormData = formData;
-    if (!moment) setFormData({ weather: "", moment: "" });
-    fetch(moment ? "/api/moments/update" : "/api/moments/insert", {
-      method: moment ? "PUT" : "POST",
-      // @ts-expect-error
+    const backupFormData = {
+      ...(isInsertMode ? {} : { _id: moment._id }),
+      ...{ weather: moment.weather, moment: moment.moment },
+    };
+    if (isInsertMode) setMoment({ _id: "", date: "", weather: "", moment: "" });
+    fetch(isInsertMode ? "/api/moments/insert" : "/api/moments/update", {
+      method: isInsertMode ? "POST" : "PUT",
       body: new URLSearchParams(backupFormData),
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
     })
@@ -69,8 +61,8 @@ export default function MomentForm({
               required
               id='weather'
               name='weather'
-              value={formData.weather}
-              onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
+              value={moment.weather}
+              onChange={(e) => setMoment({ ...moment, [e.target.name]: e.target.value })}
               className={[style.input, "background"].join(" ")}
             >
               <option disabled value=''>
@@ -94,8 +86,8 @@ export default function MomentForm({
               name='moment'
               maxLength={500}
               placeholder='Moment'
-              value={formData.moment}
-              onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
+              value={moment.moment}
+              onChange={(e) => setMoment({ ...moment, [e.target.name]: e.target.value })}
               className={[style.input, "h-28", "background"].join(" ")}
             />
           </div>
@@ -114,7 +106,7 @@ export default function MomentForm({
           </button>
           <button
             type='submit'
-            disabled={formData.weather === "" || formData.moment === ""}
+            disabled={moment.weather === "" || moment.moment === ""}
             className='w-full py-2 rounded-sm outline outline-1 outline-black duration-300 bg-green-600 hover:bg-green-700 text-white disabled:cursor-not-allowed'
           >
             Submit

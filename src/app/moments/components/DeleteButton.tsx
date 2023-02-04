@@ -44,7 +44,6 @@ export default function DeleteButton({ _id }: { _id: string }) {
               setIsOpenForm(true);
               document.body.style.overflow = "hidden";
             }}
-            className='md:group-hover:opacity-100 md:opacity-0 duration-200'
           >
             <AiOutlineDelete size={15} />
           </button>

@@ -1,7 +1,6 @@
 import { FaRegClock } from "react-icons/fa";
 
 import { Tooltip } from "@/components";
-import { timeAgo } from "@/lib/utils";
 import fetchMoments from "./fetchMoments";
 import TimeAgo from "@/components/TimeAgo/TimeAgo";
 import { AddButton, EditButton, DeleteButton, GetWeatherIcon } from "./components";

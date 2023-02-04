@@ -16,7 +16,7 @@ export default function Capture() {
     width: 1280,
     height: 1024,
     delay: 0,
-    timeout: 30,
+    timeout: 10,
     fullPage: false,
     disableAnimations: true,
   });
@@ -40,7 +40,10 @@ export default function Capture() {
       .then((res) => res.json())
       .then((result) => {
         if (result.status) setResult({ status: "success", type: result.type, base64: result.base64 });
-        else setResult({ ...result, status: "fail" });
+        else {
+          setResult({ ...result, status: "fail" });
+          console.error(result.message);
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -144,7 +147,7 @@ export default function Capture() {
         <div className={style.element}>
           <label htmlFor='timeout'>
             <p>Timeout</p>
-            <Tooltip title='Timeout for loading page, range from 10~60'>
+            <Tooltip title='Timeout for loading page, range from 10~30'>
               <span>
                 <ImInfo />
               </span>
@@ -153,7 +156,7 @@ export default function Capture() {
           <input
             required
             min={10}
-            max={60}
+            max={30}
             id='timeout'
             name='timeout'
             type='number'

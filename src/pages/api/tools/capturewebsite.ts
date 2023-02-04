@@ -1,16 +1,6 @@
 import captureWebsite from "capture-website";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-interface optionsType {
-  type: "png" | "jpeg" | "webp";
-  delay: number;
-  timeout: number;
-  width: number;
-  height: number;
-  disableAnimations: boolean;
-  fullPage: boolean;
-}
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") return res.setHeader("Allow", ["POST"]).end(`Method ${req.method} is not allowed!`);
 
@@ -25,8 +15,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     !req.body.disableAnimations
   )
     return res.json({ status: false, message: "Needed request body is empty!" });
-  try {
-    const base64 = await captureWebsite.base64(req.body.url, {
+
+  let response;
+
+  await captureWebsite
+    .base64(req.body.url, {
       type: req.body.type,
       width: Number(req.body.width),
       height: Number(req.body.height),
@@ -34,10 +27,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       timeout: Number(req.body.timeout),
       fullPage: Boolean(req.body.fullPage),
       disableAnimations: Boolean(req.body.disableAnimations),
-    });
-    return res.json({ status: true, base64, type: req.body.type });
-  } catch (error) {
-    console.error(error);
-    return { status: false };
-  }
+    })
+    .then((res) => (response = { status: true, base64: res, type: req.body.type }))
+    .catch(() => (response = { status: false, message: `Cannot capture ${req.body.url} page!` }));
+  return res.json(response);
 }

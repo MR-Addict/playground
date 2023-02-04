@@ -28,11 +28,13 @@ export default function Page() {
                 {item.title}
               </Link>
               <div className='flex text-sm flex-col md:flex-row md:items-center md:gap-2 text-gray-500'>
-                <div className='flex flex-row items-center gap-[1px]'>
-                  <FaRegClock size={13} />
-                  <p>{formatDate(item.date).split(" ")[0]}</p>
+                <div className='flex flex-row gap-2'>
+                  <div className='flex flex-row items-center gap-[1px]'>
+                    <FaRegClock size={13} />
+                    <p>{formatDate(item.date).split(" ")[0]}</p>
+                  </div>
+                  <TimeAgo date={item.date} />
                 </div>
-                <TimeAgo date={item.date} />
                 <div className='flex flex-row gap-2'>
                   {item.tags.map((tag, index) => (
                     <div key={index} style={{ color: colorfulColors[index], fontWeight: "bold" }}>

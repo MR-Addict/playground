@@ -4,6 +4,9 @@ import fsPromises from "fs/promises";
 import nextjs from "./images/nextjs.png";
 import mongodb from "./images/mongodb.png";
 import reactjs from "./images/reactjs.png";
+import bcryptjs from "./images/bcryptjs.png";
+import codemirror from "./images/codemirror.png";
+import nodemailer from "./images/nodemailer.png";
 import typescript from "./images/typescript.png";
 import nextauthjs from "./images/nextauthjs.png";
 import tailwindcss from "./images/tailwindcss.png";
@@ -56,6 +59,30 @@ const packages = [
       name: "tailwindcss",
     },
     img: tailwindcss,
+  },
+  {
+    name: "Bcryptjs",
+    package: {
+      category: "dependencies",
+      name: "bcryptjs",
+    },
+    img: bcryptjs,
+  },
+  {
+    name: "Nodemailer",
+    package: {
+      category: "dependencies",
+      name: "nodemailer",
+    },
+    img: nodemailer,
+  },
+  {
+    name: "Codemirror",
+    package: {
+      category: "dependencies",
+      name: "@uiw/react-codemirror",
+    },
+    img: codemirror,
   },
 ];
 

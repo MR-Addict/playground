@@ -6,6 +6,7 @@
 - [x] Nextauth
 - [x] Typescript
 - [ ] Turbopack
+- [x] Codemirror
 - [x] Nodemailer
 - [x] Tailwindcss
 - [x] Gray Matter
@@ -27,16 +28,20 @@
 ## 3. Features
 
 - [x] `src` folder
-- [x] Login
-- [x] Mongodb
 - [x] Blog
+- [x] Login
 - [x] Tools
+- [x] Mongodb
+- [x] Feedback
+- [x] Add Moments
+- [x] Live timeago
+- [x] Online HTMl playground
 - [x] Playground(Hidden interactive eggs)
 
 ## 4. Bugs
 
 - [x] Cannot use bcrypt(Replaced by bcryptjs, only used on server side)
-- [x] Only root `loading.tsx` usable(It seems that the bug has been fixed after 13.1.6)
+- [x] Only root `loading.tsx` usable(Seems that the bug has been fixed after 13.1.6)
 - [x] Cannot generate static pages using force-cache(Solved because of Nextauth unstabl_getServerSession at root navbar)
 
 ## 5. Traps
@@ -61,6 +66,7 @@ add `.env` file:
 ```env
 MAILFROM="your_email"
 MAILPASS="your_email_pass"
+GITHUB_TOKEN="create_a_github_token"
 NEXTAUTH_SECRET="create_a_nextauth_secret"
 NEXTAUTH_URL="https://your.website.domain.com/"
 MONGODB_URI="mongodb://username:password@mongodb0.example.com:27017/"

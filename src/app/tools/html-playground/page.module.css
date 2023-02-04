@@ -15,12 +15,12 @@
 }
 
 .output {
-  @apply w-full flex flex-row h-[70dvh] bg-black relative isolate;
+  @apply flex flex-row h-[70dvh] bg-black relative isolate;
 }
 
 .output > div,
 .output > iframe {
-  @apply w-full;
+  @apply w-full h-full overflow-auto;
 }
 
 .output::before {

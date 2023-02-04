@@ -2,7 +2,6 @@ import CodeMirror from "@uiw/react-codemirror";
 
 import { css } from "@codemirror/lang-css";
 import { html } from "@codemirror/lang-html";
-import { EditorView } from "@codemirror/view";
 import { javascript } from "@codemirror/lang-javascript";
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
 
@@ -26,7 +25,7 @@ export default function Editor({
       height='100%'
       theme={vscodeDark}
       onChange={onChange}
-      extensions={[extensions, EditorView.lineWrapping]}
+      extensions={[extensions]}
       style={{ display: isShowing ? "block" : "none" }}
     />
   );

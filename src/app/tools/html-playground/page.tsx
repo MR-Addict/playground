@@ -42,7 +42,8 @@ export default function Page() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setSrcDoc(
-        `<style>body::-webkit-scrollbar{width: 0.5em;height:0.5rem;}body::-webkit-scrollbar-thumb{background-color: gray;}${input.css}</style>${input.html}<span></span><script>${input.js}</script>`
+        `<style>body::-webkit-scrollbar{width:0.4em;height:0.4rem;}body::-webkit-scrollbar-thumb{background-color:gray;border-radius:0.15rem;}body::-webkit-scrollbar-corner{display:none;}
+        ${input.css}</style>${input.html}<span></span><script>${input.js}</script>`
       );
     }, 250);
     return () => clearTimeout(timeout);

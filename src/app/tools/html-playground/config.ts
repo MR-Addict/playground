@@ -3,6 +3,6 @@ export const defaultIframeStyle =
 
 export const defaultInput = {
   html: "<h1>Hello world!</h1>",
-  css: "*{\n  margin:0;\n  padding:0;\n  box-sizing:border-box;\n}\n\nh1{\n  color:white;\n}",
-  js: "document.body.style.background='black';",
+  css: "body{\n  color:white;\n  background:black;\n}",
+  js: "document.body.style.fontFamily='monospace';",
 };

@@ -1,12 +1,10 @@
 import puppeteer from "puppeteer-core";
 import chromium from "chrome-aws-lambda";
 
-import { Buffer } from "buffer";
-
 export default async function takeScreenshot(
   url: string,
   options: {
-    type: "png" | "jpeg" | "webp";
+    type: "png" | "jpeg";
     width: number;
     height: number;
     delay: number;

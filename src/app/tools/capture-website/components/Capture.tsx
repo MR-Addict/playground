@@ -26,7 +26,7 @@ export default function Capture() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setResult({ ...result, status: "processing" });
-    fetch("/api/tools/capturewebsite", {
+    fetch("https://capturewebsite.vercel.app/api/capturewebsite", {
       method: "POST",
       //@ts-expect-error
       body: new URLSearchParams(formData),

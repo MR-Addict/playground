@@ -1,15 +1,7 @@
 import captureWebsite from "capture-website";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-async function checkWebsiteAvailability(url: string) {
-  try {
-    const res = await fetch(url);
-    if (res.status == 200) return true;
-    else return false;
-  } catch (error) {
-    return false;
-  }
-}
+export const config = { runtime: "edge" };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const start = Date.now();
@@ -27,9 +19,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   )
     return res.json({ status: false, message: "Needed request body is empty!" });
 
-  const availability = await checkWebsiteAvailability(req.body.url);
-  if (!availability) return res.json({ status: false, message: `Website ${req.body.url} inavailable!` });
-
   try {
     const base64 = await captureWebsite.base64(req.body.url, {
       type: req.body.type,
@@ -41,11 +30,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       disableAnimations: JSON.parse(req.body.disableAnimations),
     });
     const end = Date.now();
-    return res.json({
-      status: true,
-      data: { base64, url: req.body.url, type: req.body.type, runtime: (end - start) / 1000 },
-    });
+
+    return new Response(
+      JSON.stringify({
+        status: true,
+        data: { base64, url: req.body.url, type: req.body.type, runtime: (end - start) / 1000 },
+      }),
+      { status: 200, headers: { "content-type": "application/json" } }
+    );
   } catch (error) {
-    return res.json({ status: false, message: `Website ${req.body.url} inavailable!` });
+    return new Response(JSON.stringify({ status: false, message: `Website ${req.body.url} unaccessible!` }), {
+      status: 200,
+      headers: { "content-type": "application/json" },
+    });
   }
 }

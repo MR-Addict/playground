@@ -1,6 +1,7 @@
 import puppeteer from "puppeteer-core";
-
 import chromium from "chrome-aws-lambda";
+
+import { Buffer } from "buffer";
 
 export default async function takeScreenshot(
   url: string,
@@ -43,8 +44,7 @@ export default async function takeScreenshot(
   let base64;
   try {
     await page.goto(url, { waitUntil: "load" });
-    const buffer = await page.screenshot({ type: options.type, fullPage: options.fullPage });
-    base64 = buffer.toString("base64");
+    base64 = await page.screenshot({ type: options.type, fullPage: options.fullPage, encoding: "base64" });
   } catch (error) {
     console.error(error);
   } finally {

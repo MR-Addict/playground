@@ -6,7 +6,7 @@ export interface ResultType {
   url: string;
   runtime: number;
   base64: string;
-  type: "png" | "jpeg" | "webp";
+  type: "png" | "jpeg";
   status: "idle" | "success" | "fail" | "processing";
 }
 

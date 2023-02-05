@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import takeScreenshot from "@/lib/utils/takeScreenshot";
+import { takeScreenshot } from "@/lib/tools";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const start = Date.now();

@@ -215,7 +215,6 @@ export default function Capture() {
           >
             <option value='png'>png</option>
             <option value='jpeg'>jpeg</option>
-            <option value='webp'>webp</option>
           </select>
         </div>
       </div>

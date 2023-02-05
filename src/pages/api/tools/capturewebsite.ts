@@ -1,8 +1,6 @@
 import captureWebsite from "capture-website";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-export const config = { runtime: "edge" };
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const start = Date.now();
   if (req.method !== "POST") return res.setHeader("Allow", ["POST"]).end(`Method ${req.method} is not allowed!`);
@@ -31,17 +29,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
     const end = Date.now();
 
-    return new Response(
-      JSON.stringify({
-        status: true,
-        data: { base64, url: req.body.url, type: req.body.type, runtime: (end - start) / 1000 },
-      }),
-      { status: 200, headers: { "content-type": "application/json" } }
-    );
-  } catch (error) {
-    return new Response(JSON.stringify({ status: false, message: `Website ${req.body.url} unaccessible!` }), {
-      status: 200,
-      headers: { "content-type": "application/json" },
+    return res.json({
+      status: true,
+      data: { base64, url: req.body.url, type: req.body.type, runtime: (end - start) / 1000 },
     });
+  } catch (error) {
+    return res.json({ status: false, message: `Website ${req.body.url} unaccessible!` });
   }
 }

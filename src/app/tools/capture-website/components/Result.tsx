@@ -55,7 +55,7 @@ function Output({ result }: { result: ResultType }) {
 
 function Attention() {
   return (
-    <div className='w-full flex flex-col gap-1'>
+    <div className='flex flex-col gap-1'>
       <h1 className='font-bold text-xl flex flex-row items-center gap-1'>
         Attention
         <ImInfo size={18} />
@@ -82,7 +82,7 @@ function Attention() {
         </li>
         <li>
           <strong>Image type</strong>, make sure choose it before capturing. You cannot change it after capturing
-          website, downloaded image will not change its type.
+          website.
         </li>
       </ul>
     </div>

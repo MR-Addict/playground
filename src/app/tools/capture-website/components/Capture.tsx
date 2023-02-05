@@ -70,7 +70,7 @@ export default function Capture() {
         />
       </div>
 
-      <div className='w-full grid grid-cols-2 md:grid-cols-4 gap-3'>
+      <div className='w-full grid grid-cols-2 md:grid-cols-4 gap-5'>
         <div className={style.element}>
           <label htmlFor='width'>
             <p>Width</p>
@@ -143,7 +143,7 @@ export default function Capture() {
         <div className={style.element}>
           <label htmlFor='timeout'>
             <p>Timeout</p>
-            <Tooltip title='Timeout for loading page, range from 10~30'>
+            <Tooltip title='Timeout for loading page, range from 10~60'>
               <span>
                 <ImInfo />
               </span>
@@ -152,7 +152,7 @@ export default function Capture() {
           <input
             required
             min={10}
-            max={30}
+            max={60}
             id='timeout'
             name='timeout'
             type='number'
@@ -164,16 +164,16 @@ export default function Capture() {
         </div>
       </div>
 
-      <div className='w-full flex flex-col md:flex-row items-center gap-4 mt-2'>
-        <div className='flex flex-row gap-3'>
+      <div className='w-full flex flex-col md:flex-row items-center gap-5 mt-2'>
+        <div className='flex flex-row gap-5'>
           <div className={style.select}>
             <label htmlFor='fullescreen'>
+              <p>Full Page</p>
               <Tooltip title='Capture full screen page'>
                 <span>
                   <ImInfo />
                 </span>
               </Tooltip>
-              <p>Full Page</p>
             </label>
             <input
               type='checkbox'
@@ -186,12 +186,12 @@ export default function Capture() {
 
           <div className={style.select}>
             <label htmlFor='disableAnimations'>
-              <Tooltip title='Disable CSS Animation'>
+              <p>Disable Animation</p>
+              <Tooltip title='Disable Any CSS Animation'>
                 <span>
                   <ImInfo />
                 </span>
               </Tooltip>
-              <p>Disable Animation</p>
             </label>
             <input
               type='checkbox'
@@ -204,7 +204,14 @@ export default function Capture() {
         </div>
 
         <div className={style.select}>
-          <label htmlFor='type'>Image Type</label>
+          <label htmlFor='type'>
+            <p>Image Type</p>
+            <Tooltip title='Only support png and jpeg'>
+              <span>
+                <ImInfo />
+              </span>
+            </Tooltip>
+          </label>
           <select
             required
             id='type'

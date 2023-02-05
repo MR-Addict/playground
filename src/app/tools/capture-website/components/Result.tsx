@@ -11,7 +11,7 @@ export default function Result() {
   return (
     <section aria-label='website capture result' className='w-full mt-10 flex flex-col items-center gap-10'>
       {result.status === "fail" && (
-        <h1 className={style.fail}>Woop! Failed to capture! Make sure your webiste is accessible.</h1>
+        <h1 className={style.fail}>Woop! Something went wrong while capturing your website.</h1>
       )}
       {result.status === "processing" && <div className={style.loader}>Capturing</div>}
       {result.status === "success" && <Output result={result} />}
@@ -55,7 +55,7 @@ function Output({ result }: { result: ResultType }) {
 
 function Attention() {
   return (
-    <div className='flex flex-col gap-1'>
+    <div className='w-full flex flex-col gap-1'>
       <h1 className='font-bold text-xl flex flex-row items-center gap-1'>
         Attention
         <ImInfo size={18} />

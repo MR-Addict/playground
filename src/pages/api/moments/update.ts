@@ -7,7 +7,7 @@ import { authOptions } from "../auth/[...nextauth]";
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "PUT") return res.setHeader("Allow", ["PUT"]).end(`Method ${req.method} is not allowed!`);
 
-  if (!req.body._id || !req.body.moment || !req.body.weather)
+  if (!req.body || !req.body._id || !req.body.moment || !req.body.weather)
     return res.json({ status: false, message: "Needed request body is empty!" });
 
   const session = await unstable_getServerSession(req, res, authOptions);

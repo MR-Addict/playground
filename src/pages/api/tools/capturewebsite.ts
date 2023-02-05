@@ -1,5 +1,6 @@
-import captureWebsite from "capture-website";
 import type { NextApiRequest, NextApiResponse } from "next";
+
+import takeScreenshot from "@/lib/utils/takeScreenshot";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const start = Date.now();
@@ -18,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.json({ status: false, message: "Needed request body is empty!" });
 
   try {
-    const base64 = await captureWebsite.base64(req.body.url, {
+    const base64 = await takeScreenshot(req.body.url, {
       type: req.body.type,
       width: JSON.parse(req.body.width),
       height: JSON.parse(req.body.height),
@@ -28,6 +29,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       disableAnimations: JSON.parse(req.body.disableAnimations),
     });
     const end = Date.now();
+
+    if (base64 === undefined) return res.json({ status: false, message: `Website ${req.body.url} unaccessible!` });
 
     return res.json({
       status: true,

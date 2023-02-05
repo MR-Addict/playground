@@ -16,7 +16,7 @@ export default function Capture() {
     width: 1280,
     height: 800,
     delay: 0,
-    timeout: 10,
+    timeout: 30,
     fullPage: false,
     disableAnimations: false,
   };

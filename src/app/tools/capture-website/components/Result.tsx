@@ -21,13 +21,6 @@ export default function Result() {
 }
 
 function Output({ result }: { result: ResultType }) {
-  function handleDowloadImage() {
-    const download = document.createElement("a");
-    download.href = `data:image/${result.type};base64,${result.base64}`;
-    download.download = `website.${result.type}`;
-    download.click();
-  }
-
   return (
     <div className='w-full max-w-2xl flex flex-col gap-1'>
       <div className='flex flex-col gap-1'>

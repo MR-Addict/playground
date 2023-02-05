@@ -1,7 +1,18 @@
 import captureWebsite from "capture-website";
 import type { NextApiRequest, NextApiResponse } from "next";
 
+async function checkWebsiteAvailability(url: string) {
+  try {
+    const res = await fetch(url);
+    if (res.status == 200) return true;
+    else return false;
+  } catch (error) {
+    return false;
+  }
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const start = Date.now();
   if (req.method !== "POST") return res.setHeader("Allow", ["POST"]).end(`Method ${req.method} is not allowed!`);
 
   if (
@@ -16,19 +27,25 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   )
     return res.json({ status: false, message: "Needed request body is empty!" });
 
-  let response;
+  const availability = await checkWebsiteAvailability(req.body.url);
+  if (!availability) return res.json({ status: false, message: `Website ${req.body.url} inavailable!` });
 
-  await captureWebsite
-    .base64(req.body.url, {
+  try {
+    const base64 = await captureWebsite.base64(req.body.url, {
       type: req.body.type,
-      width: Number(req.body.width),
-      height: Number(req.body.height),
-      delay: Number(req.body.delay),
-      timeout: Number(req.body.timeout),
-      fullPage: Boolean(req.body.fullPage),
-      disableAnimations: Boolean(req.body.disableAnimations),
-    })
-    .then((res) => (response = { status: true, base64: res, type: req.body.type }))
-    .catch(() => (response = { status: false, message: `Cannot capture ${req.body.url} page!` }));
-  return res.json(response);
+      width: JSON.parse(req.body.width),
+      height: JSON.parse(req.body.height),
+      delay: JSON.parse(req.body.delay),
+      timeout: JSON.parse(req.body.timeout),
+      fullPage: JSON.parse(req.body.fullPage),
+      disableAnimations: JSON.parse(req.body.disableAnimations),
+    });
+    const end = Date.now();
+    return res.json({
+      status: true,
+      data: { base64, url: req.body.url, type: req.body.type, runtime: (end - start) / 1000 },
+    });
+  } catch (error) {
+    return res.json({ status: false, message: `Website ${req.body.url} inavailable!` });
+  }
 }

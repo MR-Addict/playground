@@ -36,6 +36,7 @@
 - [x] Add Moments
 - [x] Live timeago
 - [x] Online HTMl playground
+- [x] Capture website from url
 - [x] Playground(Hidden interactive eggs)
 
 ## 4. Bugs

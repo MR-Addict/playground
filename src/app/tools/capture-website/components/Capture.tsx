@@ -10,23 +10,18 @@ import { useCaptureContext } from "./CaptureContextProvider";
 export default function Capture() {
   const { result, setResult } = useCaptureContext();
 
-  const [formData, setFormData] = useState({
+  const defaultFormData = {
     url: "",
     type: "png",
     width: 1280,
-    height: 1024,
+    height: 800,
     delay: 0,
     timeout: 10,
     fullPage: false,
-    disableAnimations: true,
-  });
+    disableAnimations: false,
+  };
 
-  function handleDowloadImage() {
-    const download = document.createElement("a");
-    download.href = `data:image/${result.type};base64,${result.base64}`;
-    download.download = `website.${result.type}`;
-    download.click();
-  }
+  const [formData, setFormData] = useState(defaultFormData);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -39,15 +34,16 @@ export default function Capture() {
     })
       .then((res) => res.json())
       .then((result) => {
-        if (result.status) setResult({ status: "success", type: result.type, base64: result.base64 });
-        else {
-          setResult({ ...result, status: "fail" });
+        if (result.status) {
+          setResult({ status: "success", ...result.data });
+        } else {
           console.error(result.message);
+          setResult({ base64: "", type: "png", url: "", runtime: 0, status: "fail" });
         }
       })
       .catch((error) => {
         console.error(error);
-        setResult({ ...result, status: "fail" });
+        setResult({ base64: "", type: "png", url: "", runtime: 0, status: "fail" });
       });
   }
 
@@ -234,11 +230,14 @@ export default function Capture() {
         </button>
         <button
           type='button'
-          onClick={handleDowloadImage}
-          disabled={result.base64 === ""}
           className={[style.button].join(" ")}
+          disabled={result.status === "processing"}
+          onClick={() => {
+            setFormData(defaultFormData);
+            setResult({ base64: "", type: "png", url: "", runtime: 0, status: "idle" });
+          }}
         >
-          Download
+          Reset
         </button>
       </div>
     </form>

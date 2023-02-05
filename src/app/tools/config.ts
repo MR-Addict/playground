@@ -31,11 +31,11 @@ const tools: {
       "Simple HTML, CSS and Javascript playground. Live coding, live reloading, syntax highlight and autocomplete. It helps you write HTML code without creating any html files locally.",
   },
   {
-    name: "Website Capture",
+    name: "Capture Website",
     icon: BsCameraFill,
-    link: "/tools/website-capture",
+    link: "/tools/capture-website",
     intro:
-      "Capture a website from url. You can specific many options for your own needs, you can even you my api if you want to create an app yourself.",
+      "Capture any websites from url. You can specific many options for your own needs, you can even use my api if you want to implement it into your own app.",
   },
 ];
 

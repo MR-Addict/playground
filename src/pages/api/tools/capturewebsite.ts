@@ -34,6 +34,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       data: { base64, url: req.body.url, type: req.body.type, runtime: (end - start) / 1000 },
     });
   } catch (error) {
+    console.error(error);
     return res.json({ status: false, message: `Website ${req.body.url} unaccessible!` });
   }
 }

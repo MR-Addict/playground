@@ -29,11 +29,7 @@ function Output({ result }: { result: ResultType }) {
         </span>
         <span>
           <strong>Download image</strong>:{" "}
-          <a
-            href={`data:image/${result.type};base64,${result.base64}`}
-            download={`website.${result.type}`}
-            className='text-blue-600 hover:underline'
-          >
+          <a href={result.base64} download={`website.${result.type}`} className='text-blue-600 hover:underline'>
             website.{result.type}
           </a>
         </span>
@@ -44,11 +40,7 @@ function Output({ result }: { result: ResultType }) {
           </a>
         </span>
       </div>
-      <img
-        src={`data:image/${result.type};base64,${result.base64}`}
-        alt='capture website image'
-        className='w-full rounded-md shadow-lg'
-      />
+      <img src={result.base64} alt='capture website image' className='w-full rounded-md shadow-lg' />
     </div>
   );
 }

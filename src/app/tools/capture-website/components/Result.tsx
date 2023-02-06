@@ -25,7 +25,7 @@ function Output({ result }: { result: ResultType }) {
     <div className='w-full max-w-2xl flex flex-col gap-1'>
       <div className='flex flex-col gap-1'>
         <span>
-          <strong>Capture time</strong>: {result.runtime}s
+          <strong>Capture time</strong>: {result.runtime}
         </span>
         <span>
           <strong>Download image</strong>:{" "}

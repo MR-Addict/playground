@@ -3,6 +3,7 @@
 import { ImInfo } from "react-icons/im";
 
 import style from "./Capture.module.css";
+import { SpinLoader } from "@/components";
 import { ResultType, useCaptureContext } from "./CaptureContextProvider";
 
 export default function Result() {
@@ -13,7 +14,12 @@ export default function Result() {
       {result.status === "fail" && (
         <h1 className={style.fail}>Woop! Something went wrong while capturing your website.</h1>
       )}
-      {result.status === "processing" && <div className={style.loader}>Capturing</div>}
+      {result.status === "processing" && (
+        <div className='flex flex-row items-center gap-2'>
+          <SpinLoader size='1.4rem' />
+          <p className='text-2xl font-semibold text-gray-700'>Capturing...</p>
+        </div>
+      )}
       {result.status === "success" && <Output result={result} />}
       <Attention />
     </section>

@@ -57,27 +57,3 @@
 .fail {
   @apply text-lg text-red-600 text-center;
 }
-
-.loader {
-  font-family: "ZCOOL KuaiLe", cursive;
-  font-size: 1.5rem;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.loader::after {
-  content: "••••••••";
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: bottom;
-  font-size: 10.5475px;
-  animation: dots steps(8, end) 4s infinite;
-  width: 0;
-  @apply text-gray-600;
-}
-
-@keyframes dots {
-  to {
-    width: 84.38px;
-  }
-}

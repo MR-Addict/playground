@@ -61,22 +61,23 @@
 .loader {
   font-family: "ZCOOL KuaiLe", cursive;
   font-size: 1.5rem;
-  width: 100%;
   text-align: center;
+  white-space: nowrap;
 }
 
 .loader::after {
-  content: "\2026\2026";
+  content: "••••••••";
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
-  font-size: 1.5rem;
+  font-size: 10.5475px;
   animation: dots steps(8, end) 4s infinite;
   width: 0;
+  @apply text-gray-600;
 }
 
 @keyframes dots {
   to {
-    width: 2.5em;
+    width: 84.38px;
   }
 }

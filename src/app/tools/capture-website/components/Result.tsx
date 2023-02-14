@@ -79,8 +79,8 @@ function Attention() {
           website got animation, result could be bluring.
         </li>
         <li>
-          <strong>Image type</strong>, make sure choose it before capturing. You cannot change it after capturing
-          website.
+          <strong>Image type</strong>, make sure choose it before capturing. Webp smallest size one and also faster,
+          then jepg and png.
         </li>
       </ul>
     </div>

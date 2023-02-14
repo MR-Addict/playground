@@ -12,9 +12,9 @@ export default function Capture() {
 
   const defaultFormData = {
     url: "",
-    type: "png",
-    width: 1280,
-    height: 800,
+    type: "webp",
+    width: 1920,
+    height: 1080,
     delay: 0,
     timeout: 30,
     fullPage: false,
@@ -38,12 +38,12 @@ export default function Capture() {
           setResult({ status: "success", ...result.data });
         } else {
           console.error(result.message);
-          setResult({ base64: "", type: "png", url: "", runtime: 0, status: "fail" });
+          setResult({ base64: "", type: "webp", url: "", runtime: 0, status: "fail" });
         }
       })
       .catch((error) => {
         console.error(error);
-        setResult({ base64: "", type: "png", url: "", runtime: 0, status: "fail" });
+        setResult({ base64: "", type: "webp", url: "", runtime: 0, status: "fail" });
       });
   }
 
@@ -206,7 +206,7 @@ export default function Capture() {
         <div className={style.select}>
           <label htmlFor='type'>
             <p>Image Type</p>
-            <Tooltip title='Only support png and jpeg'>
+            <Tooltip title='Only support png, jpeg and webp'>
               <span>
                 <ImInfo />
               </span>
@@ -241,7 +241,7 @@ export default function Capture() {
           disabled={result.status === "processing"}
           onClick={() => {
             setFormData(defaultFormData);
-            setResult({ base64: "", type: "png", url: "", runtime: 0, status: "idle" });
+            setResult({ base64: "", type: "webp", url: "", runtime: 0, status: "idle" });
           }}
         >
           Reset

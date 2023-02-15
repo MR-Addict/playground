@@ -60,27 +60,27 @@ function Attention() {
       </h1>
       <ul className='list-disc ml-5'>
         <li>
-          <strong>Website URL</strong>, make sure you put valid URL, and your website is accessible.
+          <strong>Website URL</strong>, make sure you put a valid URL, and that your website is accessible.
         </li>
         <li>
-          <strong>Full page</strong> will capture full page of your site, make sure your site is not infinitely
+          <strong>Full page</strong> will capture the full page of your site, make sure your site is not infinitely
           scrollable like <strong>youtube</strong> or <strong>tiktok</strong>.
         </li>
         <li>
-          <strong>Delay</strong> means seconds before capture website after finished loading your website. Such as your
-          website got a animation when loading.
+          <strong>Delay</strong> means seconds before capturing after finishing loading your website. For example, your
+          website got an animation when loading.
         </li>
         <li>
-          <strong>Timeout</strong> means seconds trying to access your website. Don't set it too long, otherwise you may
+          <strong>Timeout</strong> means seconds trying to access your website. Don't set it too big, otherwise, you may
           wait for a long time.
         </li>
         <li>
-          <strong>Disable animation</strong>, specially for disabling CSS animation, recommand to check it. If your
-          website got animation, result could be bluring.
+          <strong>Disable animation</strong>, especially for disabling CSS animation, recommend checking it. If your
+          website got animation, the result could be blurring.
         </li>
         <li>
-          <strong>Image type</strong>, make sure choose it before capturing. Webp smallest size one and also faster,
-          then jepg and png.
+          <strong>Image type</strong>, make sure to choose it before capturing. Webp is the smallest size and also
+          faster, and then jpeg and png following.
         </li>
       </ul>
     </div>

@@ -90,7 +90,7 @@ npm start
 
 Avaliable links:
 
-- [https://mraddict.one](https://mraddict.one/)
-- [https://caelplayground.vercel.app](https://caelplayground.vercel.app/)
+- [https://mraddict.one](https://mraddict.one)
+- [playground.mraddict.vercel.app](playground.mraddict.vercel.app)
 
 > Powered by [vercel](https://vercel.com/) and [mongodb](https://www.mongodb.com/atlas/database).

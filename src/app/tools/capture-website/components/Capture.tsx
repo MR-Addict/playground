@@ -26,7 +26,7 @@ export default function Capture() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setResult({ ...result, status: "processing" });
-    fetch("https://chromeawslambdaapi.mraddict.one/screenshot", {
+    fetch("https://api.mraddict.one/screenshot", {
       method: "POST",
       //@ts-expect-error
       body: new URLSearchParams(formData),

@@ -1,9 +1,7 @@
+import { getMetadata } from "@/lib/utils";
 import { Welcome, Timer, Projects, Feedback } from "./components";
 
-export const metadata = {
-  title: "Home • Playground",
-  icons: { icon: "/favicon.ico" },
-};
+export const metadata = getMetadata("Tools");
 
 export default function Page() {
   return (

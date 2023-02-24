@@ -1,10 +1,8 @@
-import fetchFeedbacks from "./fetchFeedbacks";
+import { getMetadata } from "@/lib/utils";
 import { RecordLists } from "../components";
+import fetchFeedbacks from "./fetchFeedbacks";
 
-export const metadata = {
-  title: "Feedback • Playground",
-  icons: { icon: "/favicon.ico" },
-};
+export const metadata = getMetadata("Feedback");
 
 export default async function Page() {
   const result = await fetchFeedbacks();

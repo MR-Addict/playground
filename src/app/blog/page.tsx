@@ -1,14 +1,11 @@
 import Link from "next/link";
 import { FaRegClock } from "react-icons/fa";
 
+import { TimeAgo } from "@/components";
 import { getAllPostsProps } from "@/lib/blog";
-import { colorfulColors, formatDate } from "@/lib/utils";
-import TimeAgo from "@/components/TimeAgo/TimeAgo";
+import { colorfulColors, formatDate, getMetadata } from "@/lib/utils";
 
-export const metadata = {
-  title: "Blog • Playground",
-  icons: { icon: "/favicon.ico" },
-};
+export const metadata = getMetadata("Blog");
 
 export default function Page() {
   const posts = getAllPostsProps();

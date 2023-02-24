@@ -1,11 +1,9 @@
 import Image from "next/image";
 
 import readPackages from "./readPackages";
+import { getMetadata } from "@/lib/utils";
 
-export const metadata = {
-  title: "Packages • Playground",
-  icons: { icon: "/favicon.ico" },
-};
+export const metadata = getMetadata("Packages");
 
 export default async function Page() {
   const packages = await readPackages();

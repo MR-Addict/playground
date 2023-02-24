@@ -1,16 +1,13 @@
 import { FaRegClock } from "react-icons/fa";
 
-import { Tooltip } from "@/components";
 import fetchMoments from "./fetchMoments";
-import TimeAgo from "@/components/TimeAgo/TimeAgo";
+import { getMetadata } from "@/lib/utils";
+import { Tooltip, TimeAgo } from "@/components";
 import { AddButton, EditButton, DeleteButton, GetWeatherIcon } from "./components";
 
 export const revalidate = 0;
 
-export const metadata = {
-  title: "Moments • Playground",
-  icons: { icon: "/favicon.ico" },
-};
+export const metadata = getMetadata("Moments");
 
 export default async function Page() {
   const moments = await fetchMoments();

@@ -1,12 +1,9 @@
 import Link from "next/link";
 
 import tools from "./config";
-import { colorfulColors } from "@/lib/utils";
+import { colorfulColors, getMetadata } from "@/lib/utils";
 
-export const metadata = {
-  title: "Tools • Playground",
-  icons: { icon: "/favicon.ico" },
-};
+export const metadata = getMetadata("Tools");
 
 export default function Page() {
   return (

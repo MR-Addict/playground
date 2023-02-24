@@ -7,6 +7,11 @@ import { AddButton, EditButton, DeleteButton, GetWeatherIcon } from "./component
 
 export const revalidate = 0;
 
+export const metadata = {
+  title: "Moments • Playground",
+  icons: { icon: "/favicon.ico" },
+};
+
 export default async function Page() {
   const moments = await fetchMoments();
 

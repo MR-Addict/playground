@@ -3,6 +3,11 @@ import Link from "next/link";
 import tools from "./config";
 import { colorfulColors } from "@/lib/utils";
 
+export const metadata = {
+  title: "Tools • Playground",
+  icons: { icon: "/favicon.ico" },
+};
+
 export default function Page() {
   return (
     <main aria-label='tools page' className='frame w-full flex flex-col items-center gap-10'>

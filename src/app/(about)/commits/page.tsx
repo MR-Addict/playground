@@ -9,6 +9,11 @@ import style from "./page.module.css";
 
 export const revalidate = 0;
 
+export const metadata = {
+  title: "Commits • Playground",
+  icons: { icon: "/favicon.ico" },
+};
+
 export default async function Page({ searchParams: { page } }: { searchParams: { page: string | undefined } }) {
   const currentPage = Number(page || "1");
   if (!Number.isInteger(currentPage) || isNaN(currentPage) || currentPage < 1) notFound();

@@ -5,6 +5,11 @@ import { getAllPostsProps } from "@/lib/blog";
 import { colorfulColors, formatDate } from "@/lib/utils";
 import TimeAgo from "@/components/TimeAgo/TimeAgo";
 
+export const metadata = {
+  title: "Blog • Playground",
+  icons: { icon: "/favicon.ico" },
+};
+
 export default function Page() {
   const posts = getAllPostsProps();
 

@@ -22,7 +22,7 @@ function pairHeader(headers: Headers) {
 }
 
 export default async function fetchOnePage(page: number) {
-  const res = await fetch(`https://api.github.com/repos/MR-Addict/playground/commits?per_page=50&page=${page}`, {
+  const res = await fetch(`https://api.github.com/repos/MR-Addict/playground/commits?per_page=30&page=${page}`, {
     headers: { Authorization: "Basic " + Buffer.from(`MR-Addict:${process.env.GITHUB_TOKEN}`).toString("base64") },
   });
   if (!res.ok) throw new Error("Failed to fetch data");

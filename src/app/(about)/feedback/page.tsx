@@ -1,6 +1,11 @@
 import fetchFeedbacks from "./fetchFeedbacks";
 import { RecordLists } from "../components";
 
+export const metadata = {
+  title: "Feedback • Playground",
+  icons: { icon: "/favicon.ico" },
+};
+
 export default async function Page() {
   const result = await fetchFeedbacks();
   const totalCount = result.totalCount;

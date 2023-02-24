@@ -2,6 +2,11 @@ import Image from "next/image";
 
 import readPackages from "./readPackages";
 
+export const metadata = {
+  title: "Packages • Playground",
+  icons: { icon: "/favicon.ico" },
+};
+
 export default async function Page() {
   const packages = await readPackages();
 

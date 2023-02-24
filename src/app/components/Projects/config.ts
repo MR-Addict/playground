@@ -1,5 +1,6 @@
 import { StaticImageData } from "next/image";
 
+import quote from "./images/quote.png";
 import vistalab from "./images/vistalab.png";
 import linktree from "./images/linktree.png";
 import publicapi from "./images/publicapi.png";
@@ -13,7 +14,7 @@ export interface projectType {
 
 const projects: projectType[] = [
   {
-    title: "Public APIs",
+    title: "Public APIs frontend",
     img: publicapi,
     link: "https://github.com/mr-addict/public-apis-frontend",
     intro:
@@ -32,6 +33,13 @@ const projects: projectType[] = [
     link: "https://github.com/MR-Addict/linktree",
     intro:
       "In this project, I begin to use vercel to host my website, authenticate with next auth, and use mongodb as my database. Also this time, I begin to deeply love these stacks. I appreciate vercel team creates a so good, neat, convenient but also powerful framework. I love what next.js features, especially the giant break after version 13. I think it's the best frontend framework ever.",
+  },
+  {
+    title: "Daily quotes",
+    img: quote,
+    link: "https://github.com/MR-Addict/quotes",
+    intro:
+      "Awesome astro learning and demo project. Learning poetic quotes and sayings every day. I got to say, astro is also a cool frontend framework too. It's server static files and no javascript default making it as blazing fast pure html. Its isloated framework island let you use major framework in one project, such as React, Solid, Svelte, Vue, etc. It's a perfect choice if you want to build a static content project.",
   },
 ];
 

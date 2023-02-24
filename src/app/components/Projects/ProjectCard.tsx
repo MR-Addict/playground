@@ -25,7 +25,7 @@ function ImageCard({ project }: { project: projectType }) {
         src={project.img}
         alt='project'
         placeholder='blur'
-        className='w-full object-left-top aspect-video object-cover rounded-b-xl'
+        className='w-full object-left-top aspect-video object-cover rounded-b-md'
       />
     </div>
   );

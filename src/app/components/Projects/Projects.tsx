@@ -8,7 +8,7 @@ export default function Projects() {
       aria-label='projects part'
       className='py-16 md:py-24 px-5 md:px-48 w-full flex flex-col items-center justify-center gap-10'
     >
-      <h1 className='text-3xl md:text-5xl font-bold text-gray-700'>My Next.js projects</h1>
+      <h1 className='text-3xl md:text-5xl font-bold text-gray-700'>My projects</h1>
       <div className='flex flex-col items-center justify-center gap-10 md:gap-28'>
         <div className='bg-gray-700 rounded-xl flex flex-col w-full max-w-lg h-40'>
           <div className='w-full flex flex-row items-center justify-between px-5 py-2 border-b border-b-gray-500'>

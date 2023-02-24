@@ -9,7 +9,7 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
   }, [error]);
 
   return (
-    <section aria-label='reset button' className='frame w-full flex flex-col items-center justify-center gap-3'>
+    <main aria-label='error page' className='frame w-full flex flex-col items-center justify-center gap-3'>
       <button
         type='button'
         aria-label='reset button'
@@ -19,6 +19,6 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
         <IoMdRefresh size={40} />
       </button>
       <p className='text-slate-700 font-semibold text-xl'>Something went wrong!</p>
-    </section>
+    </main>
   );
 }

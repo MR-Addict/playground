@@ -3,9 +3,9 @@ import { NextauthProvider, ScrollToTop, PopupContextProvider, Footer, Navbar } f
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='zh'>
+    <html lang='en'>
       <head />
-      <body style={{ minHeight: "100dvh" }} className='background flex flex-col justify-between'>
+      <body style={{ minHeight: "100vh" }} className='background flex flex-col justify-between'>
         <NextauthProvider>
           <PopupContextProvider>
             {/* @ts-expect-error */}

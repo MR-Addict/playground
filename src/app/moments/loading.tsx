@@ -7,7 +7,7 @@ function SkeletonCard() {
   );
 }
 
-export default function Page() {
+export default function Loading() {
   return (
     <section className='flex flex-col gap-3'>
       <div className='h-4 w-28 bg-slate-200 rounded-md animate-pulse'></div>

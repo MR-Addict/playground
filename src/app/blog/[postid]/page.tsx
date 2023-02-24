@@ -1,8 +1,7 @@
 import { notFound } from "next/navigation";
 import { FaRegClock } from "react-icons/fa";
 
-import { Markdown } from "@/components";
-import TimeAgo from "@/components/TimeAgo/TimeAgo";
+import { Markdown, TimeAgo } from "@/components";
 import { colorfulColors, formatDate } from "@/lib/utils";
 import { getPostContent, getAllPostsProps } from "@/lib/blog";
 

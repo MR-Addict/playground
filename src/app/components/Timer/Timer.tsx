@@ -13,7 +13,7 @@ function useInterval(callback: Function, delay: number) {
 }
 
 export default function Timer() {
-  const runtimeStart = process.env.RUNTIME_START || "";
+  const runtimeStart = "2023-01-17T07:00:19Z";
   const initRuntime = timeAgo(runtimeStart);
 
   const [runtime, setRuntime] = useState(initRuntime);

@@ -5,8 +5,6 @@ import { getMetadata } from "@/lib/utils";
 import { Tooltip, TimeAgo } from "@/components";
 import { AddButton, EditButton, DeleteButton, GetWeatherIcon } from "./components";
 
-export const revalidate = 0;
-
 export const metadata = getMetadata("Moments");
 
 export default async function Page() {

@@ -1,7 +1,7 @@
 import { getMetadata } from "@/lib/utils";
 import { Welcome, Timer, Projects, Feedback } from "./components";
 
-export const metadata = getMetadata("Tools");
+export const metadata = getMetadata("Home");
 
 export default function Page() {
   return (

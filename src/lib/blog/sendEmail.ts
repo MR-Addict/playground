@@ -4,8 +4,8 @@ interface mailOptionsType {
   from: string;
   to: string;
   subject: string;
-  text: string | undefined;
-  html: string | undefined;
+  text?: string;
+  html?: string;
 }
 
 const mailTransport = nodemailer.createTransport({

@@ -11,9 +11,9 @@ export default async function Page() {
   const moments = await fetchMoments();
 
   return (
-    <section className='w-full flex flex-col gap-5'>
+    <ul className='w-full flex flex-col gap-5'>
       {moments.data.map((item1, index) => (
-        <div key={item1.category} className='flex flex-col gap-1'>
+        <li key={item1.category} className='flex flex-col gap-1'>
           <div className='flex flex-row items-center gap-1'>
             <span className='block w-3 h-3 bg-purple-600 rounded-full'></span>
             <h1 className='text-lg'>{item1.category}</h1>
@@ -45,8 +45,8 @@ export default async function Page() {
               </li>
             ))}
           </ul>
-        </div>
+        </li>
       ))}
-    </section>
+    </ul>
   );
 }

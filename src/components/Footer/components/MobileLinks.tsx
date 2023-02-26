@@ -3,17 +3,17 @@ import { links } from "../config";
 
 export default function MobileLinks() {
   return (
-    <div className='md:hidden flex w-full flex-col items-start justify-between gap-5'>
+    <ul className='md:hidden flex w-full flex-col items-start justify-between gap-5'>
       {links.map((item1, index1) => (
-        <div key={index1} className='flex flex-col gap-2 w-full'>
+        <li key={index1} className='flex flex-col gap-2 w-full'>
           <h1 className='text-gray-700'>{item1.head}</h1>
           <div className='grid gap-1 grid-cols-2'>
             {item1.data.map((item2, index2) => (
               <LinkCard link={item2} key={index2} />
             ))}
           </div>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

@@ -32,22 +32,23 @@ export default function MobileNavbar() {
         style={{ transform: `translateX(${isExpand ? "0" : "-100%"})` }}
         className='z-10 w-full flex flex-col items-start gap-4 py-5 px-5 md:px-48 absolute left-0 top-16 rounded-b-lg background shadow-md duration-500'
       >
-        <div className='w-full flex flex-col gap-1'>
+        <ul className='w-full flex flex-col gap-1'>
           {navbarData
             .filter((item) => item.public || session)
             .map((item, index) => (
-              <Link
-                key={index}
-                href={item.link}
-                onClick={() => setIsExpand(false)}
-                className={`w-full font-semibold flex flex-row gap-2 items-center justify-start border-b-2 p-2 rounded-md ${
-                  rootPath === item.link ? "text-green-600" : "text-gray-700 hover:text-green-600"
-                }`}
-              >
-                <span>{item.title}</span>
-              </Link>
+              <li key={index}>
+                <Link
+                  href={item.link}
+                  onClick={() => setIsExpand(false)}
+                  className={`w-full font-semibold flex flex-row gap-2 items-center justify-start border-b-2 p-2 rounded-md ${
+                    rootPath === item.link ? "text-green-600" : "text-gray-700 hover:text-green-600"
+                  }`}
+                >
+                  {item.title}
+                </Link>
+              </li>
             ))}
-        </div>
+        </ul>
       </div>
     </div>
   );

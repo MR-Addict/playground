@@ -14,9 +14,9 @@ interface recordsType {
 
 export default function RecordLists({ records }: { records: recordsType[] }) {
   return (
-    <section aria-label='record lists' className='flex flex-col gap-5'>
+    <ul aria-label='record lists' className='flex flex-col gap-5'>
       {records.map((item1, index1) => (
-        <div key={index1} className='flex flex-col gap-1'>
+        <li key={index1} className='flex flex-col gap-1'>
           <div className='flex flex-row items-center gap-2'>
             <span className='text-green-600'>
               <FaDotCircle size={15} />
@@ -25,9 +25,9 @@ export default function RecordLists({ records }: { records: recordsType[] }) {
               {item1.category}({item1.count})
             </span>
           </div>
-          <div className='flex flex-col border border-green-600 rounded-md'>
+          <ul className='flex flex-col border border-green-600 rounded-md'>
             {item1.data.map((item2, index2) => (
-              <div
+              <li
                 key={index2}
                 className={`flex flex-col items-start p-2 border-b-gray-400 ${
                   index2 === item1.count - 1 ? "border-b-0" : "border-b"
@@ -48,11 +48,11 @@ export default function RecordLists({ records }: { records: recordsType[] }) {
                   </span>
                   <span>{item2.message}</span>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
-        </div>
+          </ul>
+        </li>
       ))}
-    </section>
+    </ul>
   );
 }

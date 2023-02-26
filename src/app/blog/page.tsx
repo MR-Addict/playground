@@ -20,9 +20,9 @@ export default function Page() {
       </header>
       <section aria-label='all blogs' className='flex flex-col w-full max-w-3xl gap-3'>
         <h1 className='text-gray-700 font-bold text-2xl ml-3'>All Blogs</h1>
-        <div className='flex flex-col w-full gap-5'>
+        <ul className='flex flex-col w-full gap-5'>
           {posts.map((item, index) => (
-            <div
+            <li
               key={index}
               className='flex flex-col items-start gap-2 background drop-shadow-md p-3 rounded-md md:hover:drop-shadow-xl cursor-pointer md:hover:translate-y-1 duration-300'
             >
@@ -46,9 +46,9 @@ export default function Page() {
                 </div>
               </div>
               <div className='flex flex-row items-center gap-1 text-gray-500'>{item.intro}</div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
     </main>
   );

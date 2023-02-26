@@ -14,9 +14,9 @@ export default function Page() {
           These are all kinds of tools that I may use in my daily life. Hope they can be helpful to you too.
         </p>
       </header>
-      <section aria-label='all blogs' className='grid grid-cols-1 md:grid-cols-2 gap-16'>
+      <ul className='grid grid-cols-1 md:grid-cols-2 gap-16'>
         {tools.map((item, index) => (
-          <div
+          <li
             key={index}
             className='background flex flex-col justify-between gap-5 px-7 py-5 rounded-md shadow-lg border-t-4 md:hover:translate-y-2 md:hover:shadow-2xl duration-300 group'
             style={{ borderColor: colorfulColors[index % colorfulColors.length] }}
@@ -35,9 +35,9 @@ export default function Page() {
               </Link>
               <span style={{ color: colorfulColors[index % colorfulColors.length] }}>{<item.icon size={70} />}</span>
             </div>
-          </div>
+          </li>
         ))}
-      </section>
+      </ul>
     </main>
   );
 }

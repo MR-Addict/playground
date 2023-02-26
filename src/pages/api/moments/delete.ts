@@ -1,4 +1,4 @@
-import { unstable_getServerSession } from "next-auth/next";
+import { getServerSession } from "next-auth/next";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import { moments } from "@/lib/mongodb";
@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   if (!req.body || !req.body._id) return res.json({ status: false, message: "Needed request body is empty!" });
 
-  const session = await unstable_getServerSession(req, res, authOptions);
+  const session = await getServerSession(req, res, authOptions);
   if (!session) return res.json({ status: false, message: "You have no access!" });
 
   const response = await moments.remove(req.body._id);

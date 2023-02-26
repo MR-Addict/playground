@@ -1,7 +1,5 @@
 "use client";
 
-import style from "./component.module.css";
-
 export default function DeletePopup({
   isOpenForm,
   setIsOpenForm,

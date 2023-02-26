@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
 import { AiOutlineDelete } from "react-icons/ai";
 
 import DeletePopup from "./DeletePopup";
@@ -11,7 +10,6 @@ import { Tooltip, usePopupContext } from "@/components";
 export default function DeleteButton({ _id }: { _id: string }) {
   const router = useRouter();
   const { popup } = usePopupContext();
-  const { data: session } = useSession();
   const [isOpenForm, setIsOpenForm] = useState(false);
 
   function handleClick() {
@@ -34,22 +32,18 @@ export default function DeleteButton({ _id }: { _id: string }) {
   }
 
   return (
-    <>
-      {session && (
-        <Tooltip title='Delete moment'>
-          <button
-            type='button'
-            aria-label='delete moment button'
-            onClick={() => {
-              setIsOpenForm(true);
-              document.body.style.overflow = "hidden";
-            }}
-          >
-            <AiOutlineDelete size={15} />
-          </button>
-          <DeletePopup isOpenForm={isOpenForm} setIsOpenForm={setIsOpenForm} handleClick={handleClick} />
-        </Tooltip>
-      )}
-    </>
+    <Tooltip title='Delete moment'>
+      <button
+        type='button'
+        aria-label='delete moment button'
+        onClick={() => {
+          setIsOpenForm(true);
+          document.body.style.overflow = "hidden";
+        }}
+      >
+        <AiOutlineDelete size={15} />
+      </button>
+      <DeletePopup isOpenForm={isOpenForm} setIsOpenForm={setIsOpenForm} handleClick={handleClick} />
+    </Tooltip>
   );
 }

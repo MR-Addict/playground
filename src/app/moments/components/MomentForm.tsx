@@ -33,6 +33,7 @@ export default function MomentForm() {
         document.body.style.overflow = "auto";
       })
       .catch((error) => {
+        popup({ status: false, message: "Failed to insert moments!" });
         console.error(error);
       });
   }

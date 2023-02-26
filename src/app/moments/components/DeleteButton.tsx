@@ -27,6 +27,7 @@ export default function DeleteButton({ _id }: { _id: string }) {
         document.body.style.overflow = "auto";
       })
       .catch((error) => {
+        popup({ status: false, message: "Failed to delete moment!" });
         console.error(error);
       });
   }

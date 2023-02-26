@@ -35,6 +35,7 @@ export default function FeedbackForm() {
         else console.error(result.message);
       })
       .catch((error) => {
+        popup({ status: false, message: "Failed to send feedback!" });
         console.error(error);
       });
   }

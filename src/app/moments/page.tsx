@@ -1,5 +1,6 @@
 import { FaRegClock } from "react-icons/fa";
 
+import style from "./page.module.css";
 import fetchMoments from "./fetchMoments";
 import { getMetadata } from "@/lib/utils";
 import { Tooltip, TimeAgo } from "@/components";
@@ -41,7 +42,10 @@ export default async function Page() {
                   <EditButton moment={item2} />
                   <DeleteButton _id={item2._id} />
                 </div>
-                <span>{item2.moment}</span>
+                <div className={style.spand}>
+                  <input type='checkbox' id={item2._id} style={{ display: "none" }} />
+                  <label htmlFor={item2._id}>{item2.moment}</label>
+                </div>
               </li>
             ))}
           </ul>

@@ -85,7 +85,7 @@ export default function MomentForm() {
               required
               id='moment'
               name='moment'
-              maxLength={500}
+              maxLength={5000}
               placeholder='Moment'
               value={moment.moment}
               onChange={(e) => setMoment({ ...moment, [e.target.name]: e.target.value })}

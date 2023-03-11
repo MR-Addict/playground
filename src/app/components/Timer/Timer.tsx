@@ -27,12 +27,12 @@ export default function Timer() {
     >
       <h1 className='text-gray-700 text-3xl md:text-5xl font-bold text-center'>Playground has run</h1>
       <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-10'>
-        <Segment title='Years' number={runtime.years} />
-        <Segment title='Months' number={runtime.months} />
-        <Segment title='Days' number={runtime.days} />
-        <Segment title='Hours' number={runtime.hours} />
-        <Segment title='Minutes' number={runtime.minutes} />
-        <Segment title='Seconds' number={runtime.seconds} />
+        <Segment title='Years' number={runtime.year} />
+        <Segment title='Months' number={runtime.mon} />
+        <Segment title='Days' number={runtime.day} />
+        <Segment title='Hours' number={runtime.hour} />
+        <Segment title='Minutes' number={runtime.min} />
+        <Segment title='Seconds' number={runtime.sec} />
       </div>
       <h1 className='text-xl text-gray-500'>Since {formatDate(runtimeStart)}</h1>
     </section>

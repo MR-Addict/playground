@@ -49,7 +49,7 @@ function TextCard({ project, isEven }: { project: projectType; isEven: boolean }
       <a
         href={project.link}
         target='_blank'
-        className='font-semibold text-xl duration-300 flex flex-row items-center gap-1 text-gray-500 hover:text-gray-700'
+        className='font-semibold text-xl duration-300 flex flex-row items-center gap-1 text-gray-700 hover:text-green-600'
       >
         <span>Have a Look</span>
         <RiShareBoxLine />

@@ -12,9 +12,9 @@ function useInterval(callback: Function, delay: number) {
 }
 
 export default function TimeAgo({ date }: { date: string }) {
-  const [result, setResult] = useState(timeAgo(date).firstNoneZero);
+  const [result, setResult] = useState(timeAgo(date).timeago);
 
-  useInterval(() => setResult(timeAgo(date).firstNoneZero), 1000);
+  useInterval(() => setResult(timeAgo(date).timeago), 1000);
 
   return (
     <span>

@@ -46,6 +46,6 @@ function calculateTimeAgo(date: string) {
 
 export default function timeAgo(date: string) {
   const result = calculateTimeAgo(date);
-  const firstNoneZero = findFirstNoneZero(result);
-  return { ...result, firstNoneZero };
+  const timeago = findFirstNoneZero(result);
+  return { ...result, timeago };
 }

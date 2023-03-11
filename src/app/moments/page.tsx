@@ -28,12 +28,12 @@ export default async function Page() {
               >
                 <div className='flex flex-row items-center gap-2'>
                   <Tooltip title={item2.date}>
-                    <div className='flex flex-row items-center gap-2 cursor-pointer'>
-                      <div className='flex flex-row items-center gap-[1px]'>
-                        <FaRegClock size={12} />
-                        <span>{item2.date.split(" ")[0]}</span>
-                      </div>
-                      <TimeAgo date={item2.date} />
+                    <div className='flex flex-row items-center gap-0.5 cursor-pointer'>
+                      <FaRegClock size={12} />
+                      <span>
+                        {item2.date.split(" ")[0]}
+                        (<TimeAgo date={item2.date} />)
+                      </span>
                     </div>
                   </Tooltip>
                   <Tooltip title={item2.weather}>

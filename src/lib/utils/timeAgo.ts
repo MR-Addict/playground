@@ -1,20 +1,13 @@
-function findFirstNoneZero(data: { year: number; mon: number; day: number; hour: number; min: number; sec: number }) {
-  let result = { key: "sec", value: data.sec };
+const timeagoMap = {
+  year: "y",
+  month: "m",
+  day: "d",
+  hour: "h",
+  minute: "min",
+  second: "s",
+};
 
-  Object.keys(data).every((key) => {
-    let typeChangedKey = key as "year" | "mon" | "day" | "hour" | "min" | "sec";
-    const firstNoneZero = data[typeChangedKey];
-    if (firstNoneZero !== 0) {
-      result = { key, value: firstNoneZero };
-      return false;
-    }
-    return true;
-  });
-
-  return result;
-}
-
-function calculateTimeAgo(date: string) {
+export default function timeAgo(date: string) {
   const oneSecond = 1000;
   const oneMinute = oneSecond * 60;
   const oneHour = oneMinute * 60;
@@ -22,30 +15,56 @@ function calculateTimeAgo(date: string) {
   const oneMonth = oneDay * 30;
   const oneYear = oneDay * 365;
 
+  let isNeedCheck = true;
+  let timeago = { key: "year", value: 0 };
   let leftTime = new Date().getTime() - new Date(date).getTime();
 
   const year = Math.floor(leftTime / oneYear);
   leftTime = leftTime % oneYear;
+  if (year !== 0 && isNeedCheck) {
+    timeago.key = timeagoMap.year;
+    timeago.value = year;
+    isNeedCheck = false;
+  }
 
-  const mon = Math.floor(leftTime / oneMonth);
+  const month = Math.floor(leftTime / oneMonth);
   leftTime = leftTime % oneMonth;
+  if (month !== 0 && isNeedCheck) {
+    timeago.key = timeagoMap.month;
+    timeago.value = month;
+    isNeedCheck = false;
+  }
 
   const day = Math.floor(leftTime / oneDay);
   leftTime = leftTime % oneDay;
+  if (day !== 0 && isNeedCheck) {
+    timeago.key = timeagoMap.day;
+    timeago.value = day;
+    isNeedCheck = false;
+  }
 
   const hour = Math.floor(leftTime / oneHour);
   leftTime = leftTime % oneHour;
+  if (hour !== 0 && isNeedCheck) {
+    timeago.key = timeagoMap.hour;
+    timeago.value = hour;
+    isNeedCheck = false;
+  }
 
-  const min = Math.floor(leftTime / oneMinute);
+  const minute = Math.floor(leftTime / oneMinute);
   leftTime = leftTime % oneMinute;
+  if (minute !== 0 && isNeedCheck) {
+    timeago.key = timeagoMap.minute;
+    timeago.value = minute;
+    isNeedCheck = false;
+  }
 
-  const sec = Math.floor(leftTime / oneSecond);
+  const second = Math.floor(leftTime / oneSecond);
+  if (second !== 0 && isNeedCheck) {
+    timeago.key = timeagoMap.second;
+    timeago.value = second;
+    isNeedCheck = false;
+  }
 
-  return { year, mon, day, hour, min, sec };
-}
-
-export default function timeAgo(date: string) {
-  const result = calculateTimeAgo(date);
-  const timeago = findFirstNoneZero(result);
-  return { ...result, timeago };
+  return { year, month, day, hour, minute, second, timeago };
 }

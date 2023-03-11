@@ -33,14 +33,14 @@ export default function RecordLists({ records }: { records: recordsType[] }) {
                   index2 === item1.count - 1 ? "border-b-0" : "border-b"
                 }`}
               >
-                <div className=' text-gray-700 flex flex-row gap-1'>
-                  <div className='flex flex-row'>
-                    <span className='pr-1 pt-[6px]'>
-                      <FaRegClock size={14} />
-                    </span>
-                    <p>{item2.date}</p>
-                  </div>
-                  <TimeAgo date={item2.date} />
+                <div className='flex flex-row'>
+                  <span className='pr-1 pt-[6px]'>
+                    <FaRegClock size={14} />
+                  </span>
+                  <p>
+                    {item2.date}
+                    (<TimeAgo date={item2.date} />)
+                  </p>
                 </div>
                 <div className=' text-slate-700 flex flex-row'>
                   <span className='pr-[2px] pt-1'>

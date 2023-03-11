@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { MdSend } from "react-icons/md";
 
+import style from "./FeedbackForm.module.css";
 import { usePopupContext } from "@/components";
 
 export default function FeedbackForm() {
@@ -46,17 +47,13 @@ export default function FeedbackForm() {
         required
         type='text'
         name='feedback'
-        maxLength={500}
+        maxLength={5000}
         value={feedback}
-        placeholder='Any words is ok!'
+        placeholder='Thanks for your feedback'
         onChange={(e) => setFeedback(e.target.value)}
-        className='w-full background outline-none p-3 flex-1 border-2 border-green-600 rounded-l-md peer'
+        className='w-full background outline outline-1 p-3 flex-1 outline-green-600 focus:outline-blue-600 rounded-l-md'
       />
-      <button
-        type='submit'
-        disabled={feedback === ""}
-        className='bg-green-600 text-white rounded-r-md py-3 px-4 font-semibold text-lg flex flex-row items-center gap-1 hover:bg-green-700 disabled:cursor-not-allowed group'
-      >
+      <button type='submit' disabled={feedback === ""} className={[style.btn, "bg-green-600 group"].join(" ")}>
         <span className='translate-x-2 group-hover:translate-x-0 duration-300'>Submit</span>
         <span className='opacity-0 translate-x-[100%] group-hover:opacity-100 group-hover:translate-x-0 duration-300'>
           <MdSend size={15} />

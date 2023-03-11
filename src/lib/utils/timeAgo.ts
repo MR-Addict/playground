@@ -1,15 +1,8 @@
-function findFirstNoneZero(data: {
-  years: number;
-  months: number;
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-}) {
-  let result = { key: "seconds", value: data.seconds };
+function findFirstNoneZero(data: { year: number; mon: number; day: number; hour: number; min: number; sec: number }) {
+  let result = { key: "sec", value: data.sec };
 
   Object.keys(data).every((key) => {
-    let typeChangedKey = key as "years" | "months" | "days" | "hours" | "minutes" | "seconds";
+    let typeChangedKey = key as "year" | "mon" | "day" | "hour" | "min" | "sec";
     const firstNoneZero = data[typeChangedKey];
     if (firstNoneZero !== 0) {
       result = { key, value: firstNoneZero };
@@ -31,24 +24,24 @@ function calculateTimeAgo(date: string) {
 
   let leftTime = new Date().getTime() - new Date(date).getTime();
 
-  const years = Math.floor(leftTime / oneYear);
+  const year = Math.floor(leftTime / oneYear);
   leftTime = leftTime % oneYear;
 
-  const months = Math.floor(leftTime / oneMonth);
+  const mon = Math.floor(leftTime / oneMonth);
   leftTime = leftTime % oneMonth;
 
-  const days = Math.floor(leftTime / oneDay);
+  const day = Math.floor(leftTime / oneDay);
   leftTime = leftTime % oneDay;
 
-  const hours = Math.floor(leftTime / oneHour);
+  const hour = Math.floor(leftTime / oneHour);
   leftTime = leftTime % oneHour;
 
-  const minutes = Math.floor(leftTime / oneMinute);
+  const min = Math.floor(leftTime / oneMinute);
   leftTime = leftTime % oneMinute;
 
-  const seconds = Math.floor(leftTime / oneSecond);
+  const sec = Math.floor(leftTime / oneSecond);
 
-  return { years, months, days, hours, minutes, seconds };
+  return { year, mon, day, hour, min, sec };
 }
 
 export default function timeAgo(date: string) {

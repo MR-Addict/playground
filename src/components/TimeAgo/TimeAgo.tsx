@@ -18,7 +18,8 @@ export default function TimeAgo({ date }: { date: string }) {
 
   return (
     <span>
-      {result.value} {result.key} ago
+      {result.value}
+      {result.key} ago
     </span>
   );
 }

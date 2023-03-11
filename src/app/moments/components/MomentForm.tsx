@@ -49,11 +49,11 @@ export default function MomentForm() {
         onSubmit={handleSubmit}
         className={`${
           isOpenForm ? "scale-100" : "scale-0"
-        } duration-200 background w-full md:max-w-md flex flex-col gap-4 rounded-md p-5 md:p-7`}
+        } duration-200 background w-full md:max-w-md flex flex-col items-center gap-4 rounded-md p-5 md:p-7`}
       >
-        <h1 className='font-bold text-3xl text-center text-gray-700'>Moment</h1>
+        <h1 className='font-bold text-3xl text-gray-700 border-b-4 border-b-green-600'>Moment</h1>
 
-        <div className='flex flex-col gap-3'>
+        <div className='w-full flex flex-col gap-3'>
           <div className='flex flex-col w-full gap-1'>
             <label htmlFor='weather' className={style.label}>
               Weather
@@ -86,7 +86,7 @@ export default function MomentForm() {
               id='moment'
               name='moment'
               maxLength={5000}
-              placeholder='Moment'
+              placeholder='Write something'
               value={moment.moment}
               onChange={(e) => setMoment({ ...moment, [e.target.name]: e.target.value })}
               className={[style.input, "h-28", "background"].join(" ")}
@@ -110,7 +110,7 @@ export default function MomentForm() {
             disabled={moment.weather === "" || moment.moment === ""}
             className='w-full py-2 rounded-sm outline outline-1 outline-black duration-300 bg-green-600 hover:bg-green-700 text-white disabled:cursor-not-allowed'
           >
-            Submit
+            {isInsertMode ? "Submit" : "Update"}
           </button>
         </div>
       </form>

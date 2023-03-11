@@ -44,7 +44,9 @@ export default async function Page() {
                 </div>
                 <div className={style.spand}>
                   <input type='checkbox' id={item2._id} style={{ display: "none" }} />
-                  <label htmlFor={item2._id}>{item2.moment}</label>
+                  <label htmlFor={item2._id} className='whitespace-pre-wrap'>
+                    {item2.moment}
+                  </label>
                 </div>
               </li>
             ))}

@@ -1,3 +1,5 @@
+"use client";
+
 function Platform() {
   return (
     <div className='flex flex-row gap-1'>

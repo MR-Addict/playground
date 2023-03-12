@@ -16,8 +16,8 @@ export default function EditButton({ moment }: { moment: MomentType }) {
         aria-label='edit moment button'
         onClick={() => {
           setMoment(moment);
-          setIsOpenForm(true);
           setIsInsertMode(false);
+          setIsOpenForm(true);
           document.body.style.overflow = "hidden";
         }}
       >

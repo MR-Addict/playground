@@ -3,7 +3,7 @@
 import { BiPlusCircle } from "react-icons/bi";
 
 import { Tooltip } from "@/components";
-import { useMomentContext } from "./MomentContextProvider";
+import { useMomentContext, defaultMoment } from "./MomentContextProvider";
 
 export default function AddButton() {
   const { setMoment, setIsOpenForm, setIsInsertMode } = useMomentContext();
@@ -16,7 +16,7 @@ export default function AddButton() {
         onClick={() => {
           setIsOpenForm(true);
           setIsInsertMode(true);
-          setMoment({ _id: "", date: "", weather: "", moment: "" });
+          setMoment(defaultMoment);
           document.body.style.overflow = "hidden";
         }}
         className='flex flex-row items-center text-gray-700'

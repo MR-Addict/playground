@@ -4,6 +4,8 @@ import MomentForm from "./MomentForm";
 import { MomentType } from "../config";
 import { createContext, useContext, useState } from "react";
 
+export const defaultMoment = { _id: "", date: "", weather: "", moment: "" };
+
 interface MomentContextProps {
   moment: MomentType;
   isOpenForm: boolean;
@@ -16,14 +18,14 @@ interface MomentContextProps {
 const MomentContext = createContext<MomentContextProps>({
   isOpenForm: false,
   isInsertMode: false,
-  moment: { _id: "", date: "", weather: "", moment: "" },
+  moment: defaultMoment,
   setMoment: (moment: MomentType) => {},
   setIsOpenForm: (value: boolean) => {},
   setIsInsertMode: (value: boolean) => {},
 });
 
 export const MomentContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
-  const [moment, setMoment] = useState<MomentType>({ _id: "", date: "", weather: "", moment: "" });
+  const [moment, setMoment] = useState<MomentType>(defaultMoment);
   const [isOpenForm, setIsOpenForm] = useState(false);
   const [isInsertMode, setIsInsertMode] = useState(false);
 

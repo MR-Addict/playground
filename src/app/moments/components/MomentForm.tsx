@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { allWeathers } from "../config";
 import style from "./component.module.css";
 import { usePopupContext } from "@/components";
-import { useMomentContext } from "./MomentContextProvider";
+import { useMomentContext, defaultMoment } from "./MomentContextProvider";
 
 export default function MomentForm() {
   const router = useRouter();
@@ -18,7 +18,7 @@ export default function MomentForm() {
       ...(isInsertMode ? {} : { _id: moment._id }),
       ...{ weather: moment.weather, moment: moment.moment },
     };
-    if (isInsertMode) setMoment({ _id: "", date: "", weather: "", moment: "" });
+    if (isInsertMode) setMoment(defaultMoment);
     fetch(isInsertMode ? "/api/moments/insert" : "/api/moments/update", {
       method: isInsertMode ? "POST" : "PUT",
       body: new URLSearchParams(backupFormData),

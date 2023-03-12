@@ -1,9 +1,9 @@
-import { FaDotCircle, FaRegClock } from "react-icons/fa";
+import { FaRegClock } from "react-icons/fa";
 import { HiOutlineChatBubbleOvalLeftEllipsis } from "react-icons/hi2";
 
 import { TimeAgo } from "@/components";
 
-interface recordsType {
+interface RecordsType {
   category: string;
   count: number;
   data: {
@@ -12,15 +12,13 @@ interface recordsType {
   }[];
 }
 
-export default function RecordLists({ records }: { records: recordsType[] }) {
+export default function RecordLists({ records }: { records: RecordsType[] }) {
   return (
     <ul aria-label='record lists' className='flex flex-col gap-5'>
       {records.map((item1, index1) => (
         <li key={index1} className='flex flex-col gap-1'>
           <div className='flex flex-row items-center gap-2'>
-            <span className='text-green-600'>
-              <FaDotCircle size={15} />
-            </span>
+            <span className='block w-1 h-1 outline outline-4 outline-green-600 rounded-full'></span>
             <span className='text-gray-700 font-semibold'>
               {item1.category}({item1.count})
             </span>

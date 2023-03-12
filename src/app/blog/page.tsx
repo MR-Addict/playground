@@ -24,7 +24,7 @@ export default function Page() {
           {posts.map((item, index) => (
             <li
               key={index}
-              className='flex flex-col items-start gap-2 background drop-shadow-md p-3 rounded-md md:hover:drop-shadow-xl cursor-pointer md:hover:translate-y-1 duration-300'
+              className='flex flex-col items-start gap-2 background drop-shadow-md outline outline-1 outline-gray-300 p-3 rounded-md md:hover:drop-shadow-xl cursor-pointer md:hover:translate-y-1 duration-300'
             >
               <Link href={`/blog/${item.id}`} className='text-xl text-blue-600 hover:underline'>
                 {item.title}

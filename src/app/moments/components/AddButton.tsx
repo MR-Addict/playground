@@ -19,7 +19,7 @@ export default function AddButton() {
           setMoment({ _id: "", date: "", weather: "", moment: "" });
           document.body.style.overflow = "hidden";
         }}
-        className='flex flex-row items-center gap-[1px] text-gray-700'
+        className='flex flex-row items-center text-gray-700'
       >
         <BiPlusCircle />
       </button>

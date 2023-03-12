@@ -4,7 +4,7 @@ import style from "./page.module.css";
 import fetchMoments from "./fetchMoments";
 import { getMetadata } from "@/lib/utils";
 import { Tooltip, TimeAgo } from "@/components";
-import { AddButton, EditButton, DeleteButton, GetWeatherIcon } from "./components";
+import { AddButton, CopyButton, EditButton, DeleteButton, GetWeatherIcon } from "./components";
 
 export const metadata = getMetadata("Moments");
 
@@ -15,8 +15,8 @@ export default async function Page() {
     <ul className='w-full flex flex-col gap-5'>
       {moments.data.map((item1, index) => (
         <li key={item1.category} className='flex flex-col gap-1'>
-          <div className='flex flex-row items-center gap-1'>
-            <span className='block w-3 h-3 bg-purple-600 rounded-full'></span>
+          <div className='flex flex-row items-center gap-2'>
+            <span className='block w-1 h-1 outline outline-4 outline-green-600 rounded-full'></span>
             <h1 className='text-lg'>{item1.category}</h1>
             {index === 0 && <AddButton />}
           </div>
@@ -24,7 +24,7 @@ export default async function Page() {
             {item1.data.map((item2) => (
               <li
                 key={item2._id}
-                className='background flex flex-col p-3 rounded-md shadow-md outline outline-1 outline-green-600 group'
+                className='background flex flex-col gap-1 p-3 rounded-md shadow-md outline outline-1 outline-green-600 group'
               >
                 <div className='flex flex-row items-center gap-2'>
                   <Tooltip title={item2.date}>
@@ -36,9 +36,12 @@ export default async function Page() {
                       </span>
                     </div>
                   </Tooltip>
-                  <Tooltip title={item2.weather}>
-                    <span className='cursor-pointer'>{<GetWeatherIcon weather={item2.weather} />}</span>
+                  <Tooltip title={`Today is ${item2.weather}`}>
+                    <span className='cursor-pointer'>
+                      <GetWeatherIcon weather={item2.weather} />
+                    </span>
                   </Tooltip>
+                  <CopyButton moment={item2.moment} />
                   <EditButton moment={item2} />
                   <DeleteButton _id={item2._id} />
                 </div>

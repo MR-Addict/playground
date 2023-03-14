@@ -2,7 +2,7 @@ function SkeletonCard() {
   return (
     <div className='flex flex-col items-start gap-3 p-3 rounded-md border border-gray-300 animate-pulse'>
       <div className='h-4 w-1/2 bg-slate-200 rounded-md'></div>
-      <div className='h-16 w-full bg-slate-200 rounded-md'></div>
+      <div className='h-24 w-full bg-slate-200 rounded-md'></div>
     </div>
   );
 }

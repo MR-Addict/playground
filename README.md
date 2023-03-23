@@ -2,7 +2,6 @@
 
 ## 1. Packages
 
-- [x] Prettier
 - [x] Nextauth
 - [x] Typescript
 - [ ] Turbopack

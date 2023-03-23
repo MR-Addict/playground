@@ -14,14 +14,10 @@ export const authOptions: NextAuthOptions = {
       name: "credentials",
       credentials: {
         username: { label: "Username", type: "text", placeholder: "Username" },
-        password: { label: "Password", type: "password", placeholder: "Passwrod" },
+        password: { label: "Password", type: "password", placeholder: "Password" },
       },
       async authorize(credentials, req) {
-        const { username, password } = credentials as {
-          username: string;
-          password: string;
-        };
-
+        const { username, password } = credentials as { username: string; password: string };
         const result = await user.compare(username, password);
 
         if (result.status && result.user) {
@@ -31,11 +27,11 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    jwt: async ({ token, user }) => {
+    async jwt({ token, user }) {
       user && (token.user = user);
       return token;
     },
-    session: async ({ session, token }) => {
+    session({ session, token }) {
       // @ts-expect-error
       session.user = token.user;
       return session;

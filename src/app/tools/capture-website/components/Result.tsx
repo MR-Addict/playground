@@ -55,8 +55,8 @@ function Attention() {
   return (
     <div className='flex flex-col gap-1'>
       <h1 className='font-bold text-xl flex flex-row items-center gap-1'>
-        Attention
         <ImInfo size={18} />
+        Attention
       </h1>
       <ul className='list-disc ml-5'>
         <li>

@@ -16,6 +16,7 @@ export default function NormalLinks() {
           </div>
         </li>
       ))}
+
       <Link href='/' className='text-green-600 text-2xl font-bold italic'>
         Playground
       </Link>

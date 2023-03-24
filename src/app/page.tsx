@@ -1,5 +1,11 @@
+import dynamic from "next/dynamic";
+
+import { Welcome } from "./components";
 import { getMetadata } from "@/lib/utils";
-import { Welcome, Timer, Projects, Feedback } from "./components";
+
+const Timer = dynamic(() => import("./components/Timer/Timer"));
+const Projects = dynamic(() => import("./components/Projects/Projects"));
+const Feedback = dynamic(() => import("./components/Feedback/Feedback"));
 
 export const metadata = getMetadata("Home");
 

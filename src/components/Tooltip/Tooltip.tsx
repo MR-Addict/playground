@@ -1,16 +1,12 @@
-"use client";
-
 import style from "./Tooltip.module.css";
 
-export default function Tooltip({
-  title,
-  children,
-  position = "top",
-}: {
+interface Props {
   title: string;
   position?: string;
   children: React.ReactNode;
-}) {
+}
+
+export default function Tooltip({ title, children, position = "top" }: Props) {
   if (position === "top")
     return (
       <div className={[style.tip, style.top].join(" ")} tip-data={title}>

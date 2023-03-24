@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { usePopupContext } from "@/components";
+import { usePopupContext } from "@/contexts";
 
 export default function SendProfileEmail() {
   const { popup } = usePopupContext();

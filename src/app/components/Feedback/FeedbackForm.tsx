@@ -4,7 +4,7 @@ import { useState } from "react";
 import { MdSend } from "react-icons/md";
 
 import style from "./FeedbackForm.module.css";
-import { usePopupContext } from "@/components";
+import { usePopupContext } from "@/contexts";
 
 export default function FeedbackForm() {
   const { popup } = usePopupContext();
@@ -36,26 +36,26 @@ export default function FeedbackForm() {
         else console.error(result.message);
       })
       .catch((error) => {
-        popup({ status: false, message: "Failed to send feedback!" });
         console.error(error);
+        popup({ status: false, message: "Failed to send your feedback!" });
       });
   }
 
   return (
-    <form onSubmit={handleSubmit} className='w-full flex flex-row justify-center rounded-md shadow-md'>
+    <form onSubmit={handleSubmit} className={style.form}>
       <input
         required
         type='text'
         name='feedback'
-        maxLength={5000}
+        maxLength={1000}
         value={feedback}
         placeholder='Thanks for your feedback'
         onChange={(e) => setFeedback(e.target.value)}
-        className='w-full background outline outline-1 p-3 flex-1 outline-green-600 focus:outline-blue-600 rounded-l-md'
+        className='w-full background outline outline-1 p-3 flex-1 outline-green-600 rounded-l-md'
       />
-      <button type='submit' disabled={feedback === ""} className={[style.btn, "bg-green-600 group"].join(" ")}>
-        <span className='translate-x-2 group-hover:translate-x-0 duration-300'>Submit</span>
-        <span className='opacity-0 translate-x-[100%] group-hover:opacity-100 group-hover:translate-x-0 duration-300'>
+      <button type='submit' disabled={feedback === ""} className={[style.btn, "bg-green-600"].join(" ")}>
+        <span className={style.btntext}>Submit</span>
+        <span className={style.btnicon}>
           <MdSend size={15} />
         </span>
       </button>

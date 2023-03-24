@@ -1,3 +1,9 @@
+/* form */
+.form {
+  @apply w-full flex flex-row justify-center rounded-md shadow-md;
+}
+
+/* submit button */
 .btn {
   @apply outline outline-1 outline-green-600 rounded-r-md py-2 px-5 font-semibold text-lg flex flex-row items-center gap-1 duration-300 text-white;
 }
@@ -8,4 +14,21 @@
 
 .btn:not(:disabled):hover {
   @apply bg-green-700;
+}
+
+/* send icon */
+.btn .btntext {
+  @apply translate-x-2 duration-300;
+}
+
+.btn .btnicon {
+  @apply opacity-0 translate-x-[100%] duration-300;
+}
+
+.form:valid .btn:hover .btntext {
+  @apply translate-x-0;
+}
+
+.form:valid .btn:hover .btnicon {
+  @apply opacity-100 translate-x-0;
 }

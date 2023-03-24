@@ -2,6 +2,9 @@ import Link from "next/link";
 import { ImArrowLeft2 } from "react-icons/im";
 
 import BcryptForm from "./BcryptForm";
+import { getMetadata } from "@/lib/utils";
+
+export const metadata = getMetadata("Bcrypt • Tools");
 
 export default function Page() {
   return (

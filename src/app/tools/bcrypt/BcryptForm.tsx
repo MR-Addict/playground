@@ -6,8 +6,9 @@ import { BiRefresh } from "react-icons/bi";
 import { MdContentCopy } from "react-icons/md";
 import { ImInfo, ImArrowDown } from "react-icons/im";
 
+import { Tooltip } from "@/components";
 import { copyToClipboard } from "@/lib/utils";
-import { Tooltip, usePopupContext } from "@/components";
+import { usePopupContext } from "@/contexts";
 
 export default function BcryptForm() {
   const { popup } = usePopupContext();

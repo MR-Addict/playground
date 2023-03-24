@@ -2,8 +2,9 @@
 
 import { MdContentCopy } from "react-icons/md";
 
+import { Tooltip } from "@/components";
 import { copyToClipboard } from "@/lib/utils";
-import { Tooltip, usePopupContext } from "@/components";
+import { usePopupContext } from "@/contexts";
 
 export default function CopyButton({ moment }: { moment: string }) {
   const { popup } = usePopupContext();

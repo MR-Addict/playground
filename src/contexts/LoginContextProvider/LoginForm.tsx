@@ -5,7 +5,7 @@ import { signIn } from "next-auth/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
 import style from "./LoginForm.module.css";
-import { usePopupContext, useLoginContext } from "@/components";
+import { usePopupContext, useLoginContext } from "@/contexts";
 
 export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
   const { popup } = usePopupContext();
@@ -30,16 +30,10 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
   };
 
   return (
-    <div
-      className={`${
-        isOpenForm ? "scale-100" : "scale-0"
-      } z-10 fixed top-0 left-0 frame w-full h-full flex flex-col items-center justify-center bg-black/40`}
-    >
+    <div className={[isOpenForm ? "scale-100" : "scale-0", "frame", style.frame].join(" ")}>
       <form
         onSubmit={handleSubmit}
-        className={`${
-          isOpenForm ? "scale-100" : "scale-0"
-        } duration-200 w-full md:max-w-xs flex flex-col gap-4 rounded-md background p-5 md:p-7`}
+        className={[style.form, "background", isOpenForm ? "scale-100" : "scale-0"].join(" ")}
       >
         <h1 className='font-bold text-4xl text-center'>Login</h1>
         <div className='flex flex-col gap-6'>
@@ -88,7 +82,7 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
             <button
               type='submit'
               disabled={formData.password === "" || formData.username === ""}
-              className='w-full py-2 rounded-sm outline outline-1 outline-black duration-300 bg-green-600 hover:bg-green-700 text-white disabled:cursor-not-allowed'
+              className={[style.submitbtn, "bg-green-600"].join(" ")}
             >
               Login
             </button>

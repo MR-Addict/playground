@@ -1,7 +1,7 @@
 export interface linkItemType {
   title: string;
   link: string;
-  isLocal: boolean;
+  external: boolean;
 }
 
 export const links: {
@@ -14,22 +14,22 @@ export const links: {
       {
         title: "Next.js 13",
         link: "https://beta.nextjs.org/docs/",
-        isLocal: false,
+        external: true,
       },
       {
         title: "Typescript",
         link: "https://www.typescriptlang.org/",
-        isLocal: false,
+        external: true,
       },
       {
         title: "Tailwindcss",
         link: "https://tailwindcss.com/",
-        isLocal: false,
+        external: true,
       },
       {
         title: "NextAuth.js",
         link: "https://next-auth.js.org/",
-        isLocal: false,
+        external: true,
       },
     ],
   },
@@ -39,22 +39,22 @@ export const links: {
       {
         title: "Vercel",
         link: "https://vercel.com/",
-        isLocal: false,
+        external: true,
       },
       {
         title: "Turbopack",
         link: "https://turbo.build/",
-        isLocal: false,
+        external: true,
       },
       {
         title: "Mongodb Atlas",
         link: "https://www.mongodb.com/atlas/database",
-        isLocal: false,
+        external: true,
       },
       {
         title: "Github Repository",
         link: "https://github.com/MR-Addict/playground",
-        isLocal: false,
+        external: true,
       },
     ],
   },
@@ -64,17 +64,17 @@ export const links: {
       {
         title: "Feedback",
         link: "/feedback",
-        isLocal: true,
+        external: false,
       },
       {
         title: "Commits",
         link: "/commits",
-        isLocal: true,
+        external: false,
       },
       {
         title: "Packages",
         link: "/packages",
-        isLocal: true,
+        external: false,
       },
     ],
   },

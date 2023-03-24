@@ -16,7 +16,7 @@ export default function Result() {
       )}
       {result.status === "processing" && (
         <div className='flex flex-row items-center gap-2'>
-          <SpinLoader size='1.4rem' />
+          <SpinLoader size='35' color='#16a34a' />
           <p className='text-2xl font-semibold text-gray-700'>Capturing...</p>
         </div>
       )}

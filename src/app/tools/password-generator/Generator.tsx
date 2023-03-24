@@ -6,9 +6,10 @@ import { MdContentCopy } from "react-icons/md";
 import { ImInfo, ImArrowDown } from "react-icons/im";
 
 import characters from "./characters";
+import { Tooltip } from "@/components";
+import { usePopupContext } from "@/contexts";
 import { copyToClipboard } from "@/lib/utils";
 import generatePasswords from "./generatePasswords";
-import { Tooltip, usePopupContext } from "@/components";
 
 export default function Generator() {
   const { popup } = usePopupContext();

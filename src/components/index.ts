@@ -7,6 +7,3 @@ export { default as TimeAgo } from "./TimeAgo/TimeAgo";
 export { default as Markdown } from "./Markdown/Markdown";
 export { default as SpinLoader } from "./SpinLoader/SpinLoader";
 export { default as ScrollToTop } from "./ScrollToTop/ScrollToTop";
-export { NextauthProvider } from "./NextauthProvider/NextauthProvider";
-export { usePopupContext, PopupContextProvider } from "./PopupProvider/PopupProvider";
-export { useLoginContext, LoginContextProvider } from "./LoginContextProvider/LoginContextProvider";

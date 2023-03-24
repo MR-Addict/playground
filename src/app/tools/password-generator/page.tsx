@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { ImArrowLeft2 } from "react-icons/im";
 
+import { getMetadata } from "@/lib/utils";
+
 import Generator from "./Generator";
+
+export const metadata = getMetadata("Password Gernerator • Tools");
 
 export default function Page() {
   return (

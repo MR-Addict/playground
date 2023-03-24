@@ -12,7 +12,7 @@ const tools: {
   {
     name: "Password Generator",
     icon: FaUnlockAlt,
-    link: "/tools/passwordgenerator",
+    link: "/tools/password-generator",
     intro:
       "Don't you think it hard to come up with a difficult password. As a tech gay, we should automatic it. This programme help you generate passwords eaisly but also with multi options.",
   },

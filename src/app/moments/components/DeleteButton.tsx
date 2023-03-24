@@ -4,8 +4,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { AiOutlineDelete } from "react-icons/ai";
 
+import { Tooltip } from "@/components";
 import DeletePopup from "./DeletePopup";
-import { Tooltip, usePopupContext } from "@/components";
+import { usePopupContext } from "@/contexts";
 
 export default function DeleteButton({ _id }: { _id: string }) {
   const router = useRouter();

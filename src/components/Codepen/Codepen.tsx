@@ -1,18 +1,14 @@
 import style from "./Codepen.module.css";
 
-export default function Codepen({
-  id,
-  height,
-  theme = "dark",
-  editable = false,
-  author = "MR-Addict",
-}: {
+interface Props {
   id: string;
   height: string;
   theme?: string;
   author?: string;
   editable?: boolean;
-}) {
+}
+
+export default function Codepen({ id, height, theme = "dark", editable = false, author = "MR-Addict" }: Props) {
   return (
     <section aria-label='codepen iframe' style={{ height }} className={style.container}>
       <iframe

@@ -50,7 +50,7 @@ function TextCard({ project, isEven }: { project: projectType; isEven: boolean }
         <a
           href={project.link}
           target='_blank'
-          className='text-lg py-2 px-4 rounded-md bg-green-600 text-white hover:text-gray-700 hover:bg-white outline outline-1 outline-green-600 duration-300'
+          className='text-lg py-2 px-4 rounded-md bg-green-600 text-white hover:bg-green-700 duration-300'
         >
           Have a Look
         </a>

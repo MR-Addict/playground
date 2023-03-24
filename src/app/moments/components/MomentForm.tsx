@@ -39,17 +39,10 @@ export default function MomentForm() {
   }
 
   return (
-    <section
-      aria-label='moment form'
-      className={`${
-        isOpenForm ? "scale-100" : "scale-0"
-      } z-10 fixed top-0 left-0 frame w-full h-full flex flex-col items-center justify-center bg-black/40`}
-    >
+    <section aria-label='moment form' className={[style.frame, isOpenForm ? "scale-100" : "scale-0"].join(" ")}>
       <form
         onSubmit={handleSubmit}
-        className={`${
-          isOpenForm ? "scale-100" : "scale-0"
-        } duration-200 background w-full md:max-w-md flex flex-col items-center gap-4 rounded-md p-5 md:p-7`}
+        className={[style.form, "background", isOpenForm ? "scale-100" : "scale-0"].join(" ")}
       >
         <h1 className='font-bold text-3xl text-gray-700 border-b-4 border-b-green-600'>Moment</h1>
 
@@ -107,8 +100,8 @@ export default function MomentForm() {
           </button>
           <button
             type='submit'
-            disabled={moment.weather === "" || moment.moment === ""}
-            className='w-full py-2 rounded-sm outline outline-1 outline-black duration-300 bg-green-600 hover:bg-green-700 text-white disabled:cursor-not-allowed'
+            disabled={Object.values(moment).find((item) => item === "") !== undefined}
+            className={[style.submitbtn, "bg-green-600"].join(" ")}
           >
             {isInsertMode ? "Submit" : "Update"}
           </button>

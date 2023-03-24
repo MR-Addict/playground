@@ -81,7 +81,7 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
             </button>
             <button
               type='submit'
-              disabled={formData.password === "" || formData.username === ""}
+              disabled={Object.values(formData).find((item) => item === "") !== undefined}
               className={[style.submitbtn, "bg-green-600"].join(" ")}
             >
               Login

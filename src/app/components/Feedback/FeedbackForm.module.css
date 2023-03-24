@@ -5,7 +5,7 @@
 
 /* submit button */
 .btn {
-  @apply outline outline-1 outline-green-600 rounded-r-md w-28 font-semibold text-lg flex flex-row items-center justify-center gap-1 duration-300 text-white;
+  @apply rounded-r-md w-28 font-semibold text-lg flex flex-row items-center justify-center gap-1 duration-300 text-white;
 }
 
 .form:invalid .btn:hover,

@@ -6,6 +6,7 @@ import { BiRefresh } from "react-icons/bi";
 import { MdContentCopy } from "react-icons/md";
 import { ImInfo, ImArrowDown } from "react-icons/im";
 
+import style from "./BcryptForm.module.css";
 import { Tooltip } from "@/components";
 import { copyToClipboard } from "@/lib/utils";
 import { usePopupContext } from "@/contexts";
@@ -60,7 +61,7 @@ export default function BcryptForm() {
               placeholder='passowrd'
               value={input.password}
               onChange={(e) => setInput({ ...input, [e.target.name]: e.target.value })}
-              className='flex-1 px-4 py-2 rounded-md background outline outline-1 focus:outline-blue-600'
+              className={[style.input, "background"].join(" ")}
             />
           </div>
 
@@ -83,7 +84,7 @@ export default function BcryptForm() {
               value={input.saltRound}
               placeholder='Salt round'
               onChange={(e) => setInput({ ...input, [e.target.name]: Number(e.target.value) })}
-              className='w-full px-4 py-2 rounded-md background outline outline-1 focus:outline-blue-600'
+              className={[style.input, "background"].join(" ")}
             />
           </div>
         </div>
@@ -97,7 +98,7 @@ export default function BcryptForm() {
             readOnly={true}
             value={output}
             placeholder='Generated hash string will be here'
-            className='w-full over text-center p-2 rounded-md background outline outline-1'
+            className='w-full over text-center p-2 rounded-md background outline-none border border-black'
           />
           <div className='w-full flex flex-row items-center justify-center gap-1'>
             <button

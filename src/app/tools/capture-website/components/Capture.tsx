@@ -216,7 +216,7 @@ export default function Capture() {
             required
             id='type'
             name='type'
-            className='background px-2 pb-1 rounded-[0.3rem] outline outline-1'
+            className='background px-2 pb-1 rounded-[0.3rem] outline-none border border-black'
             value={formData.type}
             onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
           >

@@ -23,14 +23,14 @@ export default function DeletePopup({
               setIsOpenForm(false);
               document.body.style.overflow = "auto";
             }}
-            className='w-full py-2 rounded-sm background outline outline-1 outline-black duration-300 hover:shadow-md'
+            className='w-full py-2 rounded-sm background border border-black duration-300 hover:shadow-md'
           >
             Cancel
           </button>
           <button
             type='button'
             onClick={() => handleClick()}
-            className='w-full py-2 rounded-sm outline outline-1 outline-black duration-300 bg-green-600 hover:bg-green-700 text-white'
+            className='w-full py-2 rounded-sm border border-black duration-300 bg-green-600 hover:bg-green-700 text-white'
           >
             Delete
           </button>

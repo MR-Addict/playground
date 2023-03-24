@@ -10,16 +10,16 @@
 
 /* input */
 .input {
-  @apply p-2 rounded-sm outline outline-1 outline-black text-gray-700;
+  @apply p-2 rounded-sm outline-none border border-black text-gray-700;
 }
 
 .input:focus {
-  @apply outline-blue-600;
+  @apply border-blue-600;
 }
 
 /* submit button */
 .submitbtn {
-  @apply w-full py-2 rounded-sm flex flex-col items-center justify-center outline outline-1 outline-black duration-300 text-white;
+  @apply w-full py-2 rounded-sm flex flex-col items-center justify-center border border-black duration-300 text-white;
 }
 
 .form:valid .submitbtn:enabled:hover {

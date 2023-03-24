@@ -8,7 +8,7 @@ async function compare(username: string, password: string) {
     const db = client.db("user");
 
     const user = await db
-      .collection("user")
+      .collection("home")
       .aggregate([{ $match: { username } }, { $addFields: { _id: { $convert: { input: "$_id", to: "string" } } } }])
       .next();
 

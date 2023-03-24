@@ -1,0 +1,7 @@
+.input {
+  @apply flex-1 px-4 py-2 rounded-md outline-none border border-black;
+}
+
+.input:focus {
+  @apply border-blue-600;
+}

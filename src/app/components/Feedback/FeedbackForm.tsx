@@ -56,7 +56,7 @@ export default function FeedbackForm() {
         value={feedback}
         placeholder='Thanks for your feedback'
         onChange={(e) => setFeedback(e.target.value)}
-        className='w-full background outline outline-1 p-3 flex-1 outline-green-600 rounded-l-md'
+        className='w-full background outline-none border p-3 flex-1 border-green-600 rounded-l-md'
       />
       <button
         type='submit'

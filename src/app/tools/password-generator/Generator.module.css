@@ -1,0 +1,7 @@
+.input {
+  @apply w-full px-4 py-2 outline-none border border-black rounded-md;
+}
+
+.input:focus {
+  @apply border-blue-600;
+}

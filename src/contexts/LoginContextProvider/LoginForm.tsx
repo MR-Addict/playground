@@ -80,7 +80,7 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
             <button
               type='button'
               onClick={() => openLoginForm(false)}
-              className='w-full py-2 rounded-sm outline outline-1 outline-black duration-300 hover:shadow-md'
+              className='w-full py-2 rounded-sm border border-black duration-300 hover:shadow-md'
             >
               Cancel
             </button>

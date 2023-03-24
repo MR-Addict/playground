@@ -7,6 +7,7 @@ import { ImInfo, ImArrowDown } from "react-icons/im";
 
 import characters from "./characters";
 import { Tooltip } from "@/components";
+import style from "./Generator.module.css";
 import { usePopupContext } from "@/contexts";
 import { copyToClipboard } from "@/lib/utils";
 import generatePasswords from "./generatePasswords";
@@ -143,7 +144,7 @@ export default function Generator() {
               value={input.length}
               placeholder='Password length'
               onChange={(e) => setInput({ ...input, [e.target.name]: Number(e.target.value) })}
-              className='w-full px-4 py-2 background outline outline-1 focus:outline-blue-600 rounded-md'
+              className={[style.input, "background"].join(" ")}
             />
           </div>
         </div>
@@ -157,7 +158,7 @@ export default function Generator() {
             readOnly={true}
             value={output}
             placeholder='Generated passowrd will be here'
-            className='w-full over text-center p-2 rounded-md background outline outline-1'
+            className='w-full over text-center p-2 rounded-md background outline-none border border-black'
           />
           <div className='w-full flex flex-row items-center justify-center gap-1'>
             <button type='submit' aria-label='regenerate password' className='text-gray-700'>

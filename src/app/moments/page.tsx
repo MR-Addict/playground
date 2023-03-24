@@ -16,7 +16,7 @@ export default async function Page() {
       {moments.data.map((item1, index) => (
         <li key={item1.category} className='flex flex-col gap-1'>
           <div className='flex flex-row items-center gap-2'>
-            <span className='block w-1 h-1 outline outline-4 outline-green-600 rounded-full'></span>
+            <span className='block w-3 h-3 border-4 border-green-600 rounded-full'></span>
             <h1 className='text-lg'>{item1.category}</h1>
             {index === 0 && <AddButton />}
           </div>
@@ -24,7 +24,7 @@ export default async function Page() {
             {item1.data.map((item2) => (
               <li
                 key={item2._id}
-                className='background flex flex-col gap-1 p-3 rounded-md shadow-md outline outline-1 outline-green-600 group'
+                className='background flex flex-col gap-1 p-3 rounded-md shadow-md border border-green-600 group'
               >
                 <div className='flex flex-row items-center gap-2'>
                   <Tooltip title={item2.date}>

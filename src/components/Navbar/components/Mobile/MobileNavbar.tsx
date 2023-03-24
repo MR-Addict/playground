@@ -17,16 +17,12 @@ export default function MobileNavbar() {
     <div className='lg:hidden flex flex-row items-center'>
       <button
         type='button'
-        aria-expanded={isExpand}
-        className={style.hamburger}
+        className={[style.hamburger, isExpand ? style.active : ""].join(" ")}
         onClick={() => setIsExpand(!isExpand)}
         aria-label='mobile nav button to toggle menu'
       >
-        <svg fill='currentcolor' viewBox='0 0 100 100' width={25}>
-          <rect width='80' height='5' x='10' y='25'></rect>
-          <rect width='80' height='5' x='10' y='45'></rect>
-          <rect width='80' height='5' x='10' y='65'></rect>
-        </svg>
+        <div></div>
+        <div></div>
       </button>
       <div
         style={{ transform: `translateX(${isExpand ? "0" : "-100%"})` }}
@@ -40,7 +36,7 @@ export default function MobileNavbar() {
                 <Link
                   href={item.link}
                   onClick={() => setIsExpand(false)}
-                  className={`w-full font-semibold flex flex-row gap-2 items-center justify-start border-b-2 p-2 rounded-md ${
+                  className={`w-full flex flex-row gap-2 items-center justify-start border-b-2 p-2 rounded-md ${
                     rootPath === item.link ? "text-green-600" : "text-gray-700 hover:text-green-600"
                   }`}
                 >

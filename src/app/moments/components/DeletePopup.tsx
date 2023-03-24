@@ -12,7 +12,10 @@ export default function DeletePopup({
   handleClick: Function;
 }) {
   return (
-    <section aria-label='moment form' className={[style.frame, isOpenForm ? "scale-100" : "scale-0"].join(" ")}>
+    <section
+      aria-label='moment form'
+      className={[style.frame, "frame", isOpenForm ? "scale-100" : "scale-0"].join(" ")}
+    >
       <div className={[style.popup, "background", isOpenForm ? "scale-100" : "scale-0"].join(" ")}>
         <h1 className='font-bold text-3xl text-center text-gray-700'>Delete Moment?</h1>
 

@@ -13,7 +13,7 @@
   @apply cursor-not-allowed;
 }
 
-.btn:not(:disabled):hover {
+.form:valid .submitbtn:enabled:hover {
   @apply bg-green-700;
 }
 
@@ -26,10 +26,10 @@
   @apply opacity-0 translate-x-[100%] duration-300;
 }
 
-.form:valid .btn:hover .btntext {
+.form:valid .btn:enabled:hover .btntext {
   @apply translate-x-0;
 }
 
-.form:valid .btn:hover .btnicon {
+.form:valid .btn:enabled:hover .btnicon {
   @apply opacity-100 translate-x-0;
 }

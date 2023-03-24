@@ -7,7 +7,7 @@
   @apply cursor-not-allowed;
 }
 
-.form:valid .submitbtn:hover {
+.form:valid .submitbtn:enabled:hover {
   @apply shadow-xl;
 }
 

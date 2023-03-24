@@ -22,7 +22,7 @@
   @apply w-full py-2 rounded-sm flex flex-col items-center justify-center outline outline-1 outline-black duration-300 text-white;
 }
 
-.form:valid .submitbtn:hover {
+.form:valid .submitbtn:enabled:hover {
   @apply bg-green-700;
 }
 

@@ -22,7 +22,7 @@ async function update(_id: string, weather: string, moment: string) {
 
     const result = await db.collection("moments").updateOne({ _id: new ObjectId(_id) }, { $set: { moment, weather } });
     if (result.modifiedCount) return { status: true, message: "Update succeeded!" };
-    else return { status: false, message: "Update failed!" };
+    else return { status: true, message: "Nothing changed!" };
   } catch (error) {
     return { status: false, message: "Error occurred while communicate with mongodb!" };
   }

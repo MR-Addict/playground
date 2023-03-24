@@ -1,0 +1,16 @@
+.form {
+  @apply flex flex-col md:flex-row items-start md:items-center gap-2;
+}
+
+.form:invalid .submitbtn:hover,
+.submitbtn:disabled {
+  @apply cursor-not-allowed;
+}
+
+.form:valid .submitbtn:hover {
+  @apply shadow-xl;
+}
+
+.submitbtn {
+  @apply font-semibold text-lg border-b-4 border-r-4 border-l-4 border-t-2 shadow-md h-11 flex flex-col items-center justify-center w-36 rounded-md duration-300;
+}

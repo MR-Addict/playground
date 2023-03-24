@@ -1,12 +1,18 @@
 import React, { useState } from "react";
+
+import style from "./custom.module.css";
+import { LoadingDots } from "@/components";
 import { usePopupContext } from "@/contexts";
 
 export default function SendProfileEmail() {
   const { popup } = usePopupContext();
   const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setIsSubmitting(true);
+
     const backupEmail = email;
     setEmail("");
     fetch("/api/blog/sendprofileemail", {
@@ -22,27 +28,28 @@ export default function SendProfileEmail() {
       .catch((error) => {
         console.error(error);
         popup({ status: false, message: "Failed to send email!" });
-      });
+      })
+      .finally(() => setIsSubmitting(false));
   }
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col md:flex-row items-start md:items-center gap-2'>
+    <form onSubmit={handleSubmit} className={style.form}>
       <input
         required
         type='email'
         name='email'
         value={email}
-        maxLength={500}
+        maxLength={100}
         onChange={(e) => setEmail(e.target.value)}
         placeholder='Your email address'
-        className='w-full max-w-xs background p-2 h-fit rounded-md background outline outline-1 focus:outline-blue-600 peer'
+        className='w-full max-w-xs background p-2 h-fit rounded-md background outline outline-1 focus:outline-blue-600'
       />
       <button
         type='submit'
-        disabled={email === ""}
-        className='bg-green-600 text-white font-semibold text-lg border-b-4 border-r-4 border-l-4 border-t-2 shadow-md border-green-700 py-1 px-2 rounded-md my-3 peer-invalid:cursor-not-allowed disabled:cursor-not-allowed hover:shadow-lg duration-300'
+        disabled={email === "" || isSubmitting}
+        className={[style.submitbtn, "bg-green-600 border-green-700 text-white"].join(" ")}
       >
-        Send Me Email
+        {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Send Me Email</span>}
       </button>
     </form>
   );

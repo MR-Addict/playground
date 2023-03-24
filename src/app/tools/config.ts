@@ -24,18 +24,18 @@ const tools: {
       "Bcrypt uses the blowfish cipher combined with random salt to hash the password. Make sure your password is hard to crack. This program helps you hash your password with bcrypt.",
   },
   {
-    name: "HTML Playground",
-    icon: SiHtml5,
-    link: "/tools/html-playground",
-    intro:
-      "Simple HTML, CSS and Javascript playground. Live coding, live reloading, syntax highlight and autocomplete. It helps you write HTML code without creating any html files locally.",
-  },
-  {
     name: "Capture Website",
     icon: BsCameraFill,
     link: "/tools/capture-website",
     intro:
       "Capture any websites from url. You can specific many options for your own needs, you can even use my api if you want to implement it into your own app.",
+  },
+  {
+    name: "HTML Playground",
+    icon: SiHtml5,
+    link: "/tools/html-playground",
+    intro:
+      "Simple HTML, CSS and Javascript playground. Live coding, live reloading, syntax highlight and autocomplete. It helps you write HTML code without creating any html files locally.",
   },
 ];
 

@@ -4,16 +4,21 @@ import { useRouter } from "next/navigation";
 
 import { allWeathers } from "../config";
 import style from "./component.module.css";
+import { LoadingDots } from "@/components";
 import { usePopupContext } from "@/contexts";
 import { useMomentContext, defaultMoment } from "./MomentContextProvider";
+import { useState } from "react";
 
 export default function MomentForm() {
   const router = useRouter();
   const { popup } = usePopupContext();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { moment, isOpenForm, isInsertMode, setMoment, setIsOpenForm } = useMomentContext();
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setIsSubmitting(true);
+
     const backupFormData = {
       ...(isInsertMode ? {} : { _id: moment._id }),
       ...{ weather: moment.weather, moment: moment.moment },
@@ -29,17 +34,19 @@ export default function MomentForm() {
         popup(result);
         if (result.status) router.refresh();
         else console.error(result.message);
-        setIsOpenForm(false);
-        document.body.style.overflow = "auto";
       })
       .catch((error) => {
         popup({ status: false, message: "Failed to insert moments!" });
         console.error(error);
-      });
+      })
+      .finally(() => setIsSubmitting(false));
   }
 
   return (
-    <section aria-label='moment form' className={[style.frame, isOpenForm ? "scale-100" : "scale-0"].join(" ")}>
+    <section
+      aria-label='moment form'
+      className={[style.frame, "frame", isOpenForm ? "scale-100" : "scale-0"].join(" ")}
+    >
       <form
         onSubmit={handleSubmit}
         className={[style.form, "background", isOpenForm ? "scale-100" : "scale-0"].join(" ")}
@@ -94,16 +101,16 @@ export default function MomentForm() {
               setIsOpenForm(false);
               document.body.style.overflow = "auto";
             }}
-            className='w-full py-2 rounded-sm background outline outline-1 hover:shadow-md'
+            className='w-full py-2 rounded-sm background outline outline-1 outline-black duration-300 hover:shadow-md'
           >
             Cancel
           </button>
           <button
             type='submit'
-            disabled={Object.values(moment).find((item) => item === "") !== undefined}
+            disabled={Object.values(moment).find((item) => item === "") !== undefined || isSubmitting}
             className={[style.submitbtn, "bg-green-600"].join(" ")}
           >
-            {isInsertMode ? "Submit" : "Update"}
+            {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>{isInsertMode ? "Submit" : "Update"}</span>}
           </button>
         </div>
       </form>

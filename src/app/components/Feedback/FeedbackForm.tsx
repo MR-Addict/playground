@@ -3,13 +3,15 @@
 import { useState } from "react";
 import { MdSend } from "react-icons/md";
 
-import style from "./FeedbackForm.module.css";
+import { LoadingDots } from "@/components";
 import { usePopupContext } from "@/contexts";
+import style from "./FeedbackForm.module.css";
 
 export default function FeedbackForm() {
   const { popup } = usePopupContext();
 
   const [feedback, setFeedback] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function revalidatePage() {
     fetch(`/api/feedback/revalidate`)
@@ -22,6 +24,8 @@ export default function FeedbackForm() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setIsSubmitting(true);
+
     const backupFeedback = feedback;
     setFeedback("");
     fetch("/api/feedback/insert", {
@@ -38,7 +42,8 @@ export default function FeedbackForm() {
       .catch((error) => {
         console.error(error);
         popup({ status: false, message: "Failed to send your feedback!" });
-      });
+      })
+      .finally(() => setIsSubmitting(false));
   }
 
   return (
@@ -53,11 +58,21 @@ export default function FeedbackForm() {
         onChange={(e) => setFeedback(e.target.value)}
         className='w-full background outline outline-1 p-3 flex-1 outline-green-600 rounded-l-md'
       />
-      <button type='submit' disabled={feedback === ""} className={[style.btn, "bg-green-600"].join(" ")}>
-        <span className={style.btntext}>Submit</span>
-        <span className={style.btnicon}>
-          <MdSend size={15} />
-        </span>
+      <button
+        type='submit'
+        disabled={feedback === "" || isSubmitting}
+        className={[style.btn, "bg-green-600"].join(" ")}
+      >
+        {isSubmitting ? (
+          <LoadingDots color='white' size={5} />
+        ) : (
+          <>
+            <span className={style.btntext}>Submit</span>
+            <span className={style.btnicon}>
+              <MdSend size={15} />
+            </span>
+          </>
+        )}
       </button>
     </form>
   );

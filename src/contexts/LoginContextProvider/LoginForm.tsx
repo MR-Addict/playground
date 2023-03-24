@@ -5,28 +5,33 @@ import { signIn } from "next-auth/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
 import style from "./LoginForm.module.css";
+import { LoadingDots } from "@/components";
 import { usePopupContext, useLoginContext } from "@/contexts";
 
 export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
   const { popup } = usePopupContext();
   const { openLoginForm } = useLoginContext();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({ username: "", password: "" });
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsSubmitting(true);
 
     await signIn("credentials", {
       username: formData.username,
       password: formData.password,
       redirect: false,
+    })
       // @ts-expect-error
-    }).then(({ ok, error }) => {
-      if (ok) location.reload();
-      else {
-        console.log(error, "Error");
-        popup({ status: false, message: "Username or Password Incorrect!" });
-      }
-    });
+      .then(({ ok, error }) => {
+        if (ok) location.reload();
+        else {
+          console.log(error);
+          setIsSubmitting(false);
+          popup({ status: false, message: "Username or Password Incorrect!" });
+        }
+      });
   };
 
   return (
@@ -50,7 +55,7 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
               maxLength={10}
               value={formData.username}
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-              className={style.input}
+              className={[style.input, "background"].join(" ")}
             />
           </div>
 
@@ -67,7 +72,7 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
               maxLength={100}
               value={formData.password}
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-              className={style.input}
+              className={[style.input, "background"].join(" ")}
             />
           </div>
 
@@ -75,16 +80,16 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
             <button
               type='button'
               onClick={() => openLoginForm(false)}
-              className='w-full py-2 rounded-sm outline outline-1 hover:shadow-md'
+              className='w-full py-2 rounded-sm outline outline-1 outline-black duration-300 hover:shadow-md'
             >
               Cancel
             </button>
             <button
               type='submit'
-              disabled={Object.values(formData).find((item) => item === "") !== undefined}
               className={[style.submitbtn, "bg-green-600"].join(" ")}
+              disabled={Object.values(formData).find((item) => item === "") !== undefined || isSubmitting}
             >
-              Login
+              {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Login</span>}
             </button>
           </div>
         </div>

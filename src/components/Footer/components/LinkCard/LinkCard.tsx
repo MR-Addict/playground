@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FaShare } from "react-icons/fa";
 
-import { linkItemType } from "../config";
+import { linkItemType } from "../../config";
 
 export default function LinkCard({ link }: { link: linkItemType }) {
   if (link.external) {

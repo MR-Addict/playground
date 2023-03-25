@@ -18,9 +18,7 @@ export default function NormalNavbar() {
           <li key={index}>
             <Link
               href={item.link}
-              className={`${
-                rootPath === item.link ? "text-green-600" : "text-gray-700 hover:text-green-600"
-              } font-semibold`}
+              className={`${rootPath === item.link ? "text-green-600" : "text-gray-700 hover:text-green-600"}`}
             >
               {item.title}
             </Link>

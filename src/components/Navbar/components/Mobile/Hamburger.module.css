@@ -3,14 +3,14 @@
 }
 
 .hamburger div {
-  height: 1.5px;
+  height: 1px;
   @apply w-6 bg-gray-700 duration-300 origin-left;
 }
 
 .hamburger.active div:first-of-type {
-  rotate: 21deg;
+  rotate: 18deg;
 }
 
 .hamburger.active div:last-of-type {
-  rotate: -21deg;
+  rotate: -17deg;
 }

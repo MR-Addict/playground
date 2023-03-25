@@ -10,13 +10,12 @@ import { usePopupContext, useLoginContext } from "@/contexts";
 
 export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
   const { popup } = usePopupContext();
-  const { openLoginForm } = useLoginContext();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { openLoginForm, isLoggingIn, setIsLoggingIn } = useLoginContext();
   const [formData, setFormData] = useState({ username: "", password: "" });
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setIsSubmitting(true);
+    setIsLoggingIn(true);
 
     await signIn("credentials", {
       username: formData.username,
@@ -28,7 +27,7 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
         if (ok) location.reload();
         else {
           console.log(error);
-          setIsSubmitting(false);
+          setIsLoggingIn(false);
           popup({ status: false, message: "Username or Password Incorrect!" });
         }
       });
@@ -87,9 +86,9 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
             <button
               type='submit'
               className={[style.submitbtn, "bg-green-600"].join(" ")}
-              disabled={Object.values(formData).find((item) => item === "") !== undefined || isSubmitting}
+              disabled={Object.values(formData).find((item) => item === "") !== undefined || isLoggingIn}
             >
-              {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Login</span>}
+              {isLoggingIn ? <LoadingDots color='white' size={5} /> : <span>Login</span>}
             </button>
           </div>
         </div>

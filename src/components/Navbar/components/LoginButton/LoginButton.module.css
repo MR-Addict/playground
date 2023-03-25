@@ -1,5 +1,5 @@
 .btn {
-  @apply h-8 w-20 flex flex-col items-center justify-center rounded-sm duration-300 text-white bg-green-600;
+  @apply h-8 w-20 flex flex-col items-center justify-center rounded-sm duration-300 text-white;
 }
 
 .btn:hover {

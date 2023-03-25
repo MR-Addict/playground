@@ -1,5 +1,5 @@
-import LinkCard from "./LinkCard";
-import { links } from "../config";
+import { links } from "../../config";
+import LinkCard from "../LinkCard/LinkCard";
 
 export default function MobileLinks() {
   return (

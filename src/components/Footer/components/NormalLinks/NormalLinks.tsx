@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import { links } from "../config";
-import LinkCard from "./LinkCard";
+import { links } from "../../config";
+import LinkCard from "../LinkCard/LinkCard";
 
 export default function NormalLinks() {
   return (

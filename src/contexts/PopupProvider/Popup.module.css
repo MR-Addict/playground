@@ -1,15 +1,17 @@
+/* windows */
 .popupwindow {
   @apply px-5 md:px-0 w-full max-w-md z-20 fixed flex flex-col items-center -top-20 left-[50%] translate-x-[-50%] duration-500 translate-y-0;
 }
 
-.popupwindow[popup-isactive="true"] {
+.popupwindow.active {
   @apply translate-y-28;
 }
 
+/* body */
 .popupbody {
-  @apply w-full max-w-md flex flex-row gap-3 rounded-r px-4 py-3 shadow-sm border-l-4 bg-red-100 border-red-500 text-red-900;
+  @apply w-full max-w-md flex flex-row items-center gap-3 shadow-lg rounded-md px-4 py-3 bg-[#f9461c] text-white;
 }
 
-.popupbody[popup-status="true"] {
-  @apply bg-green-100 border-green-500 text-green-900;
+.popupbody.active {
+  @apply bg-green-600;
 }

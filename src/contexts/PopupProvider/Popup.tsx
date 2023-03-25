@@ -5,17 +5,16 @@ import { MdErrorOutline } from "react-icons/md";
 
 import style from "./Popup.module.css";
 
-export default function Popup({
-  popupData,
-  isPopup,
-}: {
-  popupData: { status: boolean; message: string };
+interface Props {
   isPopup: boolean;
-}) {
+  popupData: { status: boolean; message: string };
+}
+
+export default function Popup({ popupData, isPopup }: Props) {
   return (
-    <section aria-label='popup window' popup-isactive={String(isPopup)} className={style.popupwindow}>
-      <div popup-status={String(popupData.status)} className={style.popupbody}>
-        <div className='mt-2'>{popupData.status ? <BsCheckCircle size={23} /> : <MdErrorOutline size={23} />}</div>
+    <section aria-label='popup window' className={[style.popupwindow, isPopup ? style.active : ""].join(" ")}>
+      <div className={[style.popupbody, popupData.status ? style.active : ""].join(" ")}>
+        <div>{popupData.status ? <BsCheckCircle size={30} /> : <MdErrorOutline size={30} />}</div>
         <div className='flex flex-col'>
           <p className='font-bold'>{popupData.status ? "Success" : "Error"}</p>
           <p>{popupData.message}</p>

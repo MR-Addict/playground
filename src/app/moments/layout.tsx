@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth/next";
 
 import { MomentContextProvider } from "./components";
@@ -5,7 +6,7 @@ import authOptions from "@/pages/api/auth/[...nextauth]";
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(authOptions);
-  if (!session) return <main className='w-fit'>You have no access to this page!</main>;
+  if (!session) redirect("/");
 
   return (
     <main aria-label='moments page' className='frame w-full flex flex-col gap-7'>

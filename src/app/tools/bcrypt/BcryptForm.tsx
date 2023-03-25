@@ -14,12 +14,15 @@ import { usePopupContext } from "@/contexts";
 export default function BcryptForm() {
   const { popup } = usePopupContext();
 
-  const [input, setInput] = useState({ password: "", saltRound: 10 });
   const [output, setOutput] = useState("");
+  const [isHashing, setIsHashing] = useState(false);
+  const [input, setInput] = useState({ password: "", saltRound: 10 });
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setIsHashing(true);
     setOutput(await hash(input.password, input.saltRound));
+    setIsHashing(false);
   }
 
   function handleCopy() {
@@ -104,7 +107,7 @@ export default function BcryptForm() {
             <button
               type='submit'
               aria-label='regenerate hashed password'
-              disabled={input.password === ""}
+              disabled={input.password === "" || isHashing}
               className='text-gray-700 disabled:cursor-not-allowed'
             >
               <BiRefresh size={27} />

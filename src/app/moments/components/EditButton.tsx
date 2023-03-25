@@ -7,12 +7,13 @@ import { MomentType } from "../config";
 import { useMomentContext } from "./MomentContextProvider";
 
 export default function EditButton({ moment }: { moment: MomentType }) {
-  const { setMoment, setIsOpenForm, setIsInsertMode } = useMomentContext();
+  const { setMoment, isOpenForm, setIsOpenForm, setIsInsertMode } = useMomentContext();
 
   return (
     <Tooltip title='Edit moment'>
       <button
         type='button'
+        disabled={isOpenForm}
         aria-label='edit moment button'
         onClick={() => {
           setMoment(moment);

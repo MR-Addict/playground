@@ -37,6 +37,7 @@ export default function DeleteButton({ _id }: { _id: string }) {
     <Tooltip title='Delete moment'>
       <button
         type='button'
+        disabled={isOpenForm}
         aria-label='delete moment button'
         onClick={() => {
           setIsOpenForm(true);

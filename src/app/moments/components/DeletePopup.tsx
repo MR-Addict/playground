@@ -2,15 +2,13 @@
 
 import style from "./component.module.css";
 
-export default function DeletePopup({
-  isOpenForm,
-  setIsOpenForm,
-  handleClick,
-}: {
+interface Props {
   isOpenForm: boolean;
   setIsOpenForm: Function;
   handleClick: Function;
-}) {
+}
+
+export default function DeletePopup({ isOpenForm, setIsOpenForm, handleClick }: Props) {
   return (
     <section
       aria-label='moment form'

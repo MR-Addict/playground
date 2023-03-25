@@ -6,12 +6,13 @@ import { Tooltip } from "@/components";
 import { useMomentContext, defaultMoment } from "./MomentContextProvider";
 
 export default function AddButton() {
-  const { setMoment, setIsOpenForm, setIsInsertMode } = useMomentContext();
+  const { setMoment, isOpenForm, setIsOpenForm, setIsInsertMode } = useMomentContext();
 
   return (
     <Tooltip title='Add moment'>
       <button
         type='button'
+        disabled={isOpenForm}
         aria-label='add moment button'
         onClick={() => {
           setIsOpenForm(true);

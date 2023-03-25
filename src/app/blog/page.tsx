@@ -3,9 +3,9 @@ import { FaRegClock } from "react-icons/fa";
 
 import { TimeAgo } from "@/components";
 import { getAllPostsProps } from "@/lib/blog";
-import { colorfulColors, formatDate, getMetadata } from "@/lib/utils";
+import { colorfulColors, formatDate, setMetadata } from "@/lib/utils";
 
-export const metadata = getMetadata("Blog");
+export const metadata = setMetadata("Blog");
 
 export default function Page() {
   const posts = getAllPostsProps();

@@ -1,8 +1,8 @@
 import Generator from "./Generator";
 import { Back } from "../components";
-import { getMetadata } from "@/lib/utils";
+import { setMetadata } from "@/lib/utils";
 
-export const metadata = getMetadata("Password Gernerator • Tools");
+export const metadata = setMetadata("Tools • Password Gernerator");
 
 export default function Page() {
   return (

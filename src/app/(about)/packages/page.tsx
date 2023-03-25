@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 import readPackages from "./readPackages";
-import { getMetadata } from "@/lib/utils";
+import { setMetadata } from "@/lib/utils";
 
-export const metadata = getMetadata("Packages");
+export const metadata = setMetadata("Packages");
 
 export default async function Page() {
   const packages = await readPackages();

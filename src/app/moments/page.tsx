@@ -2,11 +2,11 @@ import { FaRegClock } from "react-icons/fa";
 
 import style from "./page.module.css";
 import fetchMoments from "./fetchMoments";
-import { getMetadata } from "@/lib/utils";
+import { setMetadata } from "@/lib/utils";
 import { Tooltip, TimeAgo } from "@/components";
 import { AddButton, CopyButton, EditButton, DeleteButton, GetWeatherIcon } from "./components";
 
-export const metadata = getMetadata("Moments");
+export const metadata = setMetadata("Moments");
 
 export default async function Page() {
   const moments = await fetchMoments();

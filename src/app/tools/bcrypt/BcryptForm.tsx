@@ -44,7 +44,7 @@ export default function BcryptForm() {
       >
         <div className='w-full flex flex-col gap-5'>
           <div className='flex flex-col w-full gap-1'>
-            <label htmlFor='password' className='flex flex-row gap-2 items-center'>
+            <label htmlFor='bcryptPassword' className='flex flex-row gap-2 items-center'>
               <span>Password</span>
               <Tooltip title='Password needed to hashed'>
                 <div className='text-gray-500 cursor-pointer'>
@@ -55,9 +55,9 @@ export default function BcryptForm() {
             <input
               required
               type='text'
-              id='password'
+              id='bcryptPassword'
               name='password'
-              maxLength={500}
+              maxLength={100}
               placeholder='passowrd'
               value={input.password}
               onChange={(e) => setInput({ ...input, [e.target.name]: e.target.value })}

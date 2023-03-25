@@ -1,7 +1,7 @@
 import Client from "./Client";
-import { getMetadata } from "@/lib/utils";
+import { setMetadata } from "@/lib/utils";
 
-export const metadata = getMetadata("HTML Playground • Tools");
+export const metadata = setMetadata("Tools • HTML Playground");
 
 export default function Page() {
   return <Client />;

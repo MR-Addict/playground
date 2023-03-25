@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { FaRegClock } from "react-icons/fa";
 
+import { setMetadata } from "@/lib/utils";
 import { Markdown, TimeAgo } from "@/components";
 import { colorfulColors, formatDate } from "@/lib/utils";
 import { getPostContent, getAllPostsProps } from "@/lib/blog";
@@ -43,4 +44,8 @@ export default async function Page({ params: { postid } }: { params: { postid: s
 
 export function generateStaticParams() {
   return getAllPostsProps().map((post) => ({ postid: post.id }));
+}
+
+export async function generateMetadata({ params: { postid } }: { params: { postid: string } }) {
+  return setMetadata(`Blog • ${postid}`);
 }

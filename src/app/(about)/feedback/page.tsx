@@ -1,8 +1,8 @@
-import { getMetadata } from "@/lib/utils";
+import { setMetadata } from "@/lib/utils";
 import { RecordLists } from "../components";
 import fetchFeedbacks from "./fetchFeedbacks";
 
-export const metadata = getMetadata("Feedback");
+export const metadata = setMetadata("Feedback");
 
 export default async function Page() {
   const result = await fetchFeedbacks();

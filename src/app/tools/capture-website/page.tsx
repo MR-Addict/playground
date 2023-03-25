@@ -1,8 +1,8 @@
 import { Back } from "../components";
-import { getMetadata } from "@/lib/utils";
+import { setMetadata } from "@/lib/utils";
 import { Capture, Result, CaptureContextProvider } from "./components";
 
-export const metadata = getMetadata("Capture Website • Tools");
+export const metadata = setMetadata("Tools • Capture Website");
 
 export default function Page() {
   return (

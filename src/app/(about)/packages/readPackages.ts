@@ -61,7 +61,7 @@ const packages = [
     img: tailwindcss,
   },
   {
-    name: "Bcryptjs",
+    name: "Bcrypt.js",
     package: {
       category: "dependencies",
       name: "bcryptjs",

@@ -43,14 +43,14 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
         <h1 className='font-bold text-4xl text-center'>Login</h1>
         <div className='flex flex-col gap-6'>
           <div className='flex flex-col w-full gap-1'>
-            <label htmlFor='username' className='flex flex-row items-center gap-2 text-gray-700'>
+            <label htmlFor='loginUsername' className='flex flex-row items-center gap-2 text-gray-700'>
               <FaUserAlt />
               <span>Username</span>
             </label>
             <input
               required
               type='text'
-              id='username'
+              id='loginUsername'
               name='username'
               maxLength={10}
               value={formData.username}
@@ -60,13 +60,13 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
           </div>
 
           <div className='flex flex-col w-full gap-1'>
-            <label htmlFor='password' className='flex flex-row items-center gap-2 text-gray-700'>
+            <label htmlFor='loginPassword' className='flex flex-row items-center gap-2 text-gray-700'>
               <FaLock />
               <span>Password</span>
             </label>
             <input
               required
-              id='password'
+              id='loginPassword'
               type='password'
               name='password'
               maxLength={100}

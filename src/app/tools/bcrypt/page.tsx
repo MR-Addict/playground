@@ -1,8 +1,8 @@
 import { Back } from "../components";
 import BcryptForm from "./BcryptForm";
-import { getMetadata } from "@/lib/utils";
+import { setMetadata } from "@/lib/utils";
 
-export const metadata = getMetadata("Bcrypt • Tools");
+export const metadata = setMetadata("Tools • Bcrypt");
 
 export default function Page() {
   return (

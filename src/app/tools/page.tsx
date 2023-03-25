@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 import tools from "./config";
-import { colorfulColors, getMetadata } from "@/lib/utils";
+import { colorfulColors, setMetadata } from "@/lib/utils";
 
-export const metadata = getMetadata("Tools");
+export const metadata = setMetadata("Tools");
 
 export default function Page() {
   return (

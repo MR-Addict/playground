@@ -167,7 +167,7 @@ export default function Capture() {
       <div className='w-full flex flex-col md:flex-row items-center gap-5 mt-2'>
         <div className='flex flex-row gap-5'>
           <div className={style.select}>
-            <label htmlFor='fullescreen'>
+            <label htmlFor='fullPage'>
               <p>Full Page</p>
               <Tooltip title='Capture full screen page'>
                 <span>

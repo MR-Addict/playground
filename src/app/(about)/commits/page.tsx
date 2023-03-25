@@ -3,13 +3,13 @@ import { notFound } from "next/navigation";
 
 import fetchOnePage from "./fetchOnePage";
 import { RecordLists } from "../components";
-import { getMetadata, groupBy } from "@/lib/utils";
+import { setMetadata, groupBy } from "@/lib/utils";
 
 import style from "./page.module.css";
 
 export const revalidate = 0;
 
-export const metadata = getMetadata("Commits");
+export const metadata = setMetadata("Commits");
 
 export default async function Page({ searchParams: { page } }: { searchParams: { page: string | undefined } }) {
   const currentPage = Number(page || "1");

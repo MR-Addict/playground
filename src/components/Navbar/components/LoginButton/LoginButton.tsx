@@ -1,25 +1,35 @@
 "use client";
 
+import { useState } from "react";
 import { useSession, signOut } from "next-auth/react";
 
+import style from "./LoginButton.module.css";
+import { LoadingDots } from "@/components";
 import { useLoginContext } from "@/contexts";
-
-function Button({ title, callback }: { title: string; callback: Function }) {
-  return (
-    <button
-      type='button'
-      onClick={() => callback()}
-      className='py-1 px-4 rounded-sm duration-300 text-white bg-green-600 hover:bg-green-700'
-    >
-      {title}
-    </button>
-  );
-}
 
 export default function LoginButton() {
   const { data: session } = useSession();
   const { openLoginForm } = useLoginContext();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
-  if (session) return <Button title='Logout' callback={signOut} />;
-  else return <Button title='Login' callback={() => openLoginForm(true)} />;
+  if (session) {
+    return (
+      <button
+        type='button'
+        onClick={() => {
+          signOut();
+          setIsLoggingOut(true);
+        }}
+        className={style.btn}
+      >
+        {isLoggingOut ? <LoadingDots color='white' size={5} /> : <span>Logout</span>}
+      </button>
+    );
+  } else {
+    return (
+      <button type='button' onClick={() => openLoginForm(true)} className={style.btn}>
+        Login
+      </button>
+    );
+  }
 }

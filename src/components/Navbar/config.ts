@@ -5,6 +5,11 @@ const navbarData = [
     public: true,
   },
   {
+    title: "Chat",
+    link: "/chat",
+    public: false,
+  },
+  {
     title: "Blog",
     link: "/blog",
     public: true,

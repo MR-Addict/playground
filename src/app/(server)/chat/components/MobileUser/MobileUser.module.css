@@ -1,0 +1,21 @@
+.user {
+  @apply md:hidden w-full bg-slate-600 text-white rounded-t-md p-4 flex flex-row justify-end items-center;
+}
+
+/* hamburger */
+.hamburger {
+  @apply flex flex-col gap-1.5;
+}
+
+.hamburger div {
+  height: 1px;
+  @apply w-6 duration-300 origin-left bg-white;
+}
+
+.hamburger.active div:first-of-type {
+  rotate: 18deg;
+}
+
+.hamburger.active div:last-of-type {
+  rotate: -17deg;
+}

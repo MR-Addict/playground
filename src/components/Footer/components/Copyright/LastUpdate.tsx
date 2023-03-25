@@ -1,13 +1,15 @@
 import { formatDate } from "@/lib/utils";
 
 export default async function LastUpdate() {
-  const res = await fetch("https://api.github.com/repos/MR-Addict/Playground/commits/main", {
-    headers: { Authorization: `token ${process.env.GITHUB_TOKEN}`, Accept: "application/vnd.github.v3+json" },
+  const res = await fetch(`https://api.github.com/repos/MR-Addict/playground/commits`, {
+    headers: { Authorization: "Basic " + Buffer.from(`MR-Addict:${process.env.GITHUB_TOKEN}`).toString("base64") },
   });
-  if (!res.ok) throw new Error("Cannot fetch lastest github commit");
 
+  if (!res.ok) throw new Error("Failed to fetch data");
   const result = await res.json();
-  const lastUpdate = formatDate(result.commit.committer.date);
+
+  if (result.length === 0) throw new Error("Failed to fetch data");
+  const lastUpdate = formatDate(result[0].commit.committer.date);
 
   return <span>Last update {lastUpdate}.</span>;
 }

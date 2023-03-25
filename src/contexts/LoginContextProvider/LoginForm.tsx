@@ -86,7 +86,7 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
             <button
               type='submit'
               className={[style.submitbtn, "bg-green-600"].join(" ")}
-              disabled={Object.values(formData).find((item) => item === "") !== undefined || isLoggingIn}
+              disabled={formData.username === "" || formData.password === "" || isLoggingIn}
             >
               {isLoggingIn ? <LoadingDots color='white' size={5} /> : <span>Login</span>}
             </button>

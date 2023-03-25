@@ -34,8 +34,3 @@
 .submitbtn:disabled:hover {
   @apply cursor-not-allowed;
 }
-
-/* delete popup size */
-.popup {
-  @apply duration-200 w-full md:max-w-sm flex flex-col items-center gap-4 rounded-md p-5 md:p-7;
-}

@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth/next";
 
-import { MomentContextProvider } from "./components";
+import { MomentContextProvider, DeletePopupContextProvider } from "./components";
 import authOptions from "@/pages/api/auth/[...nextauth]";
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
@@ -14,7 +14,9 @@ export default async function Layout({ children }: { children: React.ReactNode }
         <h1 className='text-gray-700 font-bold text-3xl'>Moments</h1>
         <p className='text-xl text-gray-500'>I like to write daily moments of my life. Here is a collection of them.</p>
       </header>
-      <MomentContextProvider>{children}</MomentContextProvider>
+      <MomentContextProvider>
+        <DeletePopupContextProvider>{children}</DeletePopupContextProvider>
+      </MomentContextProvider>
     </main>
   );
 }

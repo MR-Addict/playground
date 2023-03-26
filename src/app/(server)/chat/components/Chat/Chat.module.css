@@ -1,15 +1,15 @@
 /* chat part */
 .chatwindow {
-  @apply flex-1 flex flex-col justify-between gap-4 p-4;
+  @apply flex-1 flex flex-col justify-between gap-1 overflow-hidden p-1;
 }
 
 .chatwindowframe {
-  @apply w-full h-full overflow-auto;
+  @apply w-full h-full overflow-auto p-4;
 }
 
 /* message */
 .messages {
-  @apply w-full flex flex-col gap-2;
+  @apply w-full flex flex-col gap-3;
 }
 
 /* form */
@@ -18,19 +18,26 @@
 }
 
 .input {
-  @apply w-full rounded-lg outline-none border border-gray-200 py-2.5 px-4 h-12 resize-none shadow-lg;
+  @apply w-full rounded-lg outline-none border border-gray-200 py-2.5 pl-4 pr-12 h-12 resize-none shadow-lg;
 }
 
 .input:focus {
   @apply border-blue-600;
 }
 
-.form button[type="submit"] {
-  @apply absolute right-1.5 bottom-3 text-gray-600 duration-300 p-1.5 rounded-full;
+.form button {
+  @apply absolute bottom-3 text-gray-600 duration-300 p-1.5 rounded-full;
 }
 
-.form:invalid button[type="submit"]:hover,
-.form button[type="submit"]:disabled:hover {
+.form button[type="submit"] {
+  @apply right-1.5;
+}
+
+.form button:disabled:hover {
+  @apply cursor-not-allowed;
+}
+
+.form:invalid button[type="submit"]:hover {
   @apply cursor-not-allowed;
 }
 
@@ -40,8 +47,8 @@
 
 /* scroll bar */
 .chatwindowframe::-webkit-scrollbar {
-  width: 0.4em;
-  height: 0.4rem;
+  width: 0.3em;
+  height: 0.3rem;
 }
 
 .chatwindowframe::-webkit-scrollbar-thumb {

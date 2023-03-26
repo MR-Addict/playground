@@ -40,7 +40,7 @@ export const ChatContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ chi
   function generateResponse(messages: MessageType[]) {
     setChatgptStatus("thinking");
 
-    fetch("/api/openai/proxy", {
+    fetch("/api/openai/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ model: "gpt-3.5-turbo", messages }),

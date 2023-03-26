@@ -1,5 +1,4 @@
 import { MdSend } from "react-icons/md";
-import { BiRefresh } from "react-icons/bi";
 import { MdErrorOutline } from "react-icons/md";
 
 import style from "./Chat.module.css";
@@ -48,23 +47,6 @@ export default function Chat() {
       </div>
 
       <form onSubmit={handleSubmit} className={style.form}>
-        {messages.length !== 0 && chatgptStatus !== "thinking" && (
-          <div className='w-full flex flex-row justify-center items-center'>
-            <button
-              type='button'
-              onClick={() => {
-                const slicedMessages = messages.slice(0, -1);
-                setMessages(slicedMessages);
-                generateResponse(slicedMessages);
-              }}
-              className='flex flex-row items-center gap-1 px-4 py-2 background border border-gray-300 rounded-md text-gray-700'
-            >
-              <BiRefresh size={20} />
-              <p>Regenerate response</p>
-            </button>
-          </div>
-        )}
-
         <div className='w-full relative'>
           <textarea
             required
@@ -82,7 +64,7 @@ export default function Chat() {
             onClick={() => {
               setMessages([...messages, { role: "user", content: userInput }]);
             }}
-            disabled={userInput === "" || chatgptStatus !== "idle"}
+            disabled={userInput === "" || chatgptStatus === "thinking"}
             type='submit'
           >
             <MdSend size={23} />

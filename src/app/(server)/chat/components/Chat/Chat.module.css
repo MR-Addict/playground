@@ -26,7 +26,7 @@
 }
 
 .form button {
-  @apply absolute bottom-3 text-gray-600 duration-300 p-1.5 rounded-full;
+  @apply absolute bottom-[50%] -translate-y-[-50%] text-gray-600 duration-300 p-1.5 rounded-full;
 }
 
 .form button[type="submit"] {

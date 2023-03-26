@@ -25,10 +25,11 @@ export default function Chat() {
               </div>
             ) : (
               <div key={index} className='flex flex-row justify-start'>
-                <p className='bg-gray-300 w-fit px-4 py-2 rounded-lg'>{item.content}</p>
+                <article className='whitespace-pre-wrap'>{item.content}</article>
               </div>
             )
           )}
+
           {chatgptStatus === "thinking" && (
             <div className='ml-2'>
               <LoadingDots color='gray' size={5} />
@@ -48,12 +49,14 @@ export default function Chat() {
 
       <form onSubmit={handleSubmit} className={style.form}>
         <div className='w-full relative'>
-          <textarea
+          <input
             required
+            type='text'
             id='weather'
             name='weather'
             value={userInput}
             maxLength={2000}
+            autoComplete='off'
             placeholder='Ask anything!'
             onChange={(e) => setUserInput(e.target.value)}
             className={[style.input, "background"].join(" ")}

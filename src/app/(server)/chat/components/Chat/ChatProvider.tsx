@@ -9,8 +9,8 @@ interface ChatContextProps {
   userInput: string;
   messages: MessageType[];
   chatgptStatus: "idle" | "thinking" | "error";
-  setUserInput: (value: string) => void;
   resetMessages: () => void;
+  setUserInput: (value: string) => void;
   setMessages: (messages: MessageType[]) => void;
   generateResponse: (messages: MessageType[]) => void;
   setChatgptStatus: (status: "idle" | "thinking" | "error") => void;
@@ -27,7 +27,10 @@ const ChatContext = createContext<ChatContextProps>({
   setChatgptStatus: (status: "idle" | "thinking" | "error") => {},
 });
 
-export const ChatContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
+export const ChatContextProvider: React.FC<{ openAIApiKey: string; children: React.ReactNode }> = ({
+  openAIApiKey,
+  children,
+}) => {
   const [userInput, setUserInput] = useState("");
   const [messages, setMessages] = useState(defaultMessages);
   const [chatgptStatus, setChatgptStatus] = useState<"idle" | "thinking" | "error">("idle");
@@ -40,9 +43,9 @@ export const ChatContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ chi
   function generateResponse(messages: MessageType[]) {
     setChatgptStatus("thinking");
 
-    fetch("/api/openai/chat", {
+    fetch("https://api.mraddict.one/openai/chat", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", Authorization: openAIApiKey },
       body: JSON.stringify({ model: "gpt-3.5-turbo", messages }),
     })
       .then((res) => res.json())

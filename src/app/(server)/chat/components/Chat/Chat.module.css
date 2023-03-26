@@ -12,10 +12,14 @@
   @apply w-full rounded-lg outline-none border border-gray-200 py-2.5 px-4 h-12 resize-none shadow-lg;
 }
 
+.sendbox textarea:focus {
+  @apply border-blue-600;
+}
+
 .sendbox button {
   @apply absolute right-1.5 bottom-3 text-gray-600 duration-300 p-1.5 rounded-full;
 }
 
-.sendbox button:hover {
+.sendbox:valid button:enabled:hover {
   @apply text-gray-700 bg-gray-200;
 }

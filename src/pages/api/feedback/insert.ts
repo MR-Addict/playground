@@ -14,6 +14,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     subject: "New feedback",
     text: req.body.feedback,
   });
-  const response = await feedback.insert(req.body.feedback);
-  return res.json(response);
+  const result = await feedback.insert(req.body.feedback);
+  return res.status(result.status ? 200 : 500).json(result);
 }

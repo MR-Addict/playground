@@ -28,7 +28,7 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
         else {
           console.log(error);
           setIsLoggingIn(false);
-          popup({ status: false, message: "Username or Password Incorrect!" });
+          popup({ status: false, message: "Username or Password Incorrect" });
         }
       });
   };

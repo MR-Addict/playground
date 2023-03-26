@@ -15,7 +15,7 @@ They may write a button like this:
 
 ```js:Button.jsx
 export default function Button() {
-  const handleClick = () => console.log("Button Clicked!");
+  const handleClick = () => console.log("Button Clicked");
 
   return (
     <div onClick={handleClick} className='py-2 px-3 rounded-md bg-indigo-600 text-white'>
@@ -48,7 +48,7 @@ We can update the above Button component like this:
 
 ```js:Button.jsx
 export default function Button() {
-  const handleClick = () => console.log("Button Clicked!");
+  const handleClick = () => console.log("Button Clicked");
 
   return (
     <button type="button" onClick={handleClick} className='py-2 px-3 rounded-md bg-indigo-600 text-white'>

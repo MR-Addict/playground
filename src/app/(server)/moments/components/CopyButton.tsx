@@ -16,7 +16,7 @@ export default function CopyButton({ moment }: { moment: string }) {
         aria-label='copy moment button'
         onClick={() => {
           copyToClipboard(moment);
-          popup({ status: true, message: "Moment copied!" });
+          popup({ status: true, message: "Moment copied" });
         }}
         className='flex flex-row items-center text-gray-800'
       >

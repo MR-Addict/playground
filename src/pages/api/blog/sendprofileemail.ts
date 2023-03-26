@@ -11,9 +11,9 @@ function readProfileHtml() {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== "POST") return res.setHeader("Allow", ["POST"]).end(`Method ${req.method} is not allowed!`);
+  if (req.method !== "POST") return res.setHeader("Allow", ["POST"]).end(`Method ${req.method} is not allowed`);
 
-  if (!req.body || !req.body.email) return res.status(400).json({ status: false, message: "Bad request!" });
+  if (!req.body || !req.body.email) return res.status(400).json({ status: false, message: "Bad request" });
 
   const mailOptions = {
     from: process.env.MAILFROM || "",

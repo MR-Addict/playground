@@ -31,7 +31,7 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
       })
       .catch((error) => {
         console.error(error);
-        popup({ status: false, message: "Failed to delete moment!" });
+        popup({ status: false, message: "Failed to delete moment" });
       })
       .finally(() => setIsSubmitting(false));
   }

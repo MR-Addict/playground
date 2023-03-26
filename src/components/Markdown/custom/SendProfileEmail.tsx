@@ -27,7 +27,7 @@ export default function SendProfileEmail() {
       })
       .catch((error) => {
         console.error(error);
-        popup({ status: false, message: "Failed to send email!" });
+        popup({ status: false, message: "Failed to send email" });
       })
       .finally(() => setIsSubmitting(false));
   }

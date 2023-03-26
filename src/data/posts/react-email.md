@@ -63,9 +63,9 @@ def send_email():
         service.login(msg['From'], email_pass)
         service.sendmail(msg['From'], msg['To'], msg.as_string())
         service.quit()
-        return True, "Sending email successed!"
+        return True, "Sending email successed"
     except Exception:
-        return False, "Sending email failed!"
+        return False, "Sending email failed"
 
 
 if __name__ == "__main__":

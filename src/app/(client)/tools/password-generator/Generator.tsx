@@ -25,7 +25,7 @@ export default function Generator() {
 
   function handleCopy() {
     copyToClipboard(output);
-    popup({ status: true, message: "Copy succeeded!" });
+    popup({ status: true, message: "Copy succeeded" });
   }
 
   function handleCheck(event: React.ChangeEvent<HTMLInputElement>) {

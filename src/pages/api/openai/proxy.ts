@@ -5,13 +5,13 @@ import { ChatRequest } from "@/types/chatgpt";
 import { authOptions } from "../auth/[...nextauth]";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== "POST") return res.setHeader("Allow", ["POST"]).end(`Method ${req.method} is not allowed!`);
+  if (req.method !== "POST") return res.setHeader("Allow", ["POST"]).end(`Method ${req.method} is not allowed`);
 
   const request = ChatRequest.safeParse(req.body);
-  if (!request.success) return res.send("Bad Request!");
+  if (!request.success) return res.send("Bad Request");
 
   const session = await getServerSession(req, res, authOptions);
-  if (!session) return res.status(401).json({ status: false, message: "Not authorized!" });
+  if (!session) return res.status(401).json({ status: false, message: "Not authorized" });
 
   try {
     const url = "https://nextjstemplate.mraddict.one/api/openai/chat";

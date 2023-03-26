@@ -15,13 +15,13 @@ async function compare(username: string, password: string) {
     if (!user) return { status: false, message: "User not exists" };
 
     const isMatched = await bcryptjsCompare(password, user.password);
-    if (!isMatched) return { status: false, message: "Password incorrect!" };
+    if (!isMatched) return { status: false, message: "Password incorrect" };
 
     delete user.password;
     return { status: true, user };
   } catch (error) {
     console.error(error);
-    return { status: false, message: "Error occurred while communicate with mongodb!" };
+    return { status: false, message: "Error occurred while communicate with mongodb" };
   }
 }
 const user = {

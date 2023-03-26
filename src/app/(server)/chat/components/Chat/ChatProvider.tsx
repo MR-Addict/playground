@@ -12,7 +12,7 @@ interface ChatContextProps {
   setUserInput: (value: string) => void;
   resetMessages: () => void;
   setMessages: (messages: MessageType[]) => void;
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  generateResponse: (messages: MessageType[]) => void;
   setChatgptStatus: (status: "idle" | "thinking" | "error") => void;
 }
 
@@ -23,7 +23,7 @@ const ChatContext = createContext<ChatContextProps>({
   resetMessages: () => {},
   setUserInput: (value: string) => {},
   setMessages: (messages: MessageType[]) => {},
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => {},
+  generateResponse: (messages: MessageType[]) => {},
   setChatgptStatus: (status: "idle" | "thinking" | "error") => {},
 });
 
@@ -33,17 +33,14 @@ export const ChatContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ chi
   const [chatgptStatus, setChatgptStatus] = useState<"idle" | "thinking" | "error">("idle");
 
   function resetMessages() {
+    setChatgptStatus("idle");
     setMessages(defaultMessages);
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    console.log(messages);
-
-    setUserInput("");
+  function generateResponse(messages: MessageType[]) {
     setChatgptStatus("thinking");
 
-    fetch("/api/openai/chat", {
+    fetch("/api/openai/proxy", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ model: "gpt-3.5-turbo", messages }),
@@ -71,7 +68,7 @@ export const ChatContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ chi
         messages,
         userInput,
         setUserInput,
-        handleSubmit,
+        generateResponse,
         chatgptStatus,
         resetMessages,
         setChatgptStatus,

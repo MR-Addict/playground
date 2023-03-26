@@ -26,7 +26,7 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
       .then(({ ok, error }) => {
         if (ok) location.reload();
         else {
-          console.log(error);
+          console.error(error);
           setIsLoggingIn(false);
           popup({ status: false, message: "Username or Password Incorrect" });
         }

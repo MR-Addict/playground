@@ -11,7 +11,7 @@ export default function NormalUser() {
       <div className='w-full flex flex-col'>
         <button
           onClick={resetMessages}
-          disabled={chatgptStatus !== "idle"}
+          disabled={chatgptStatus === "thinking"}
           className={[style.btn, "border border-gray-500"].join(" ")}
         >
           <AiOutlineClear size={20} />

@@ -14,7 +14,7 @@
 
 /* form */
 .form {
-  @apply w-full relative;
+  @apply w-full flex flex-col items-center justify-center gap-3;
 }
 
 .input {
@@ -25,11 +25,16 @@
   @apply border-blue-600;
 }
 
-.form button {
+.form button[type="submit"] {
   @apply absolute right-1.5 bottom-3 text-gray-600 duration-300 p-1.5 rounded-full;
 }
 
-.form:valid button:enabled:hover {
+.form:invalid button[type="submit"]:hover,
+.form button[type="submit"]:disabled:hover {
+  @apply cursor-not-allowed;
+}
+
+.form:valid button[type="submit"]:enabled:hover {
   @apply text-gray-700 bg-gray-200;
 }
 

@@ -25,7 +25,9 @@ export default function Chat() {
               </div>
             ) : (
               <div key={index} className='flex flex-row justify-start'>
-                <article className='whitespace-pre-wrap'>{item.content}</article>
+                <article className='bg-green-600 text-white w-fit px-4 py-2 rounded-lg whitespace-pre-wrap'>
+                  {item.content}
+                </article>
               </div>
             )
           )}

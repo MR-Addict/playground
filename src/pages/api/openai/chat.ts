@@ -1,7 +1,9 @@
+import { getServerSession } from "next-auth/next";
 import { Configuration, OpenAIApi } from "openai";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import { ChatRequest } from "@/types/chatgpt";
+import { authOptions } from "../auth/[...nextauth]";
 
 const configuration = new Configuration({ apiKey: process.env.OPENAI_TOKEN });
 const openai = new OpenAIApi(configuration);
@@ -9,7 +11,8 @@ const openai = new OpenAIApi(configuration);
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") return res.setHeader("Allow", ["POST"]).end(`Method ${req.method} is not allowed`);
 
-  if (req.headers.authorization !== process.env.OPENAI_TOKEN) {
+  const session = await getServerSession(req, res, authOptions);
+  if (!session && req.headers.authorization !== process.env.OPENAI_TOKEN) {
     return res.status(401).json({ status: false, message: "Not authorized" });
   }
 

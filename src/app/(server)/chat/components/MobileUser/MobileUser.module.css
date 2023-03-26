@@ -1,5 +1,13 @@
 .user {
-  @apply md:hidden w-full bg-slate-600 text-white rounded-t-md p-4 flex flex-row justify-end items-center;
+  @apply md:hidden w-full border-b border-b-gray-300 text-gray-700 rounded-t-md py-1 px-4 flex flex-row justify-between items-center;
+}
+
+.btn {
+  @apply p-2 rounded-full duration-300;
+}
+
+.btn:enabled:hover {
+  @apply md:bg-gray-200;
 }
 
 /* hamburger */
@@ -8,8 +16,8 @@
 }
 
 .hamburger div {
-  height: 1px;
-  @apply w-6 duration-300 origin-left bg-white;
+  height: 0.9px;
+  @apply w-6 duration-300 origin-left bg-gray-700;
 }
 
 .hamburger.active div:first-of-type {

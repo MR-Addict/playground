@@ -14,11 +14,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (!session) return res.status(401).json({ status: false, message: "Not authorized" });
 
   try {
-    const url = "https://nextjstemplate.mraddict.one/api/openai/chat";
+    const url = "https://mraddict.one/api/openai/chat";
     const result = await fetch(url, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ token: process.env.OPENAI_TOKEN, ...request.data }),
+      headers: { "Content-Type": "application/json", Authorization: process.env.OPENAI_TOKEN || "" },
+      body: JSON.stringify(request.data),
     }).then((res) => res.json());
 
     return res.status(result.status ? 200 : 500).json(result);

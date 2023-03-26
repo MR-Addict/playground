@@ -1,13 +1,5 @@
 .user {
-  @apply md:hidden w-full border-b border-b-gray-300 text-gray-700 rounded-t-md py-1 px-4 flex flex-row justify-between items-center;
-}
-
-.btn {
-  @apply p-2 rounded-full duration-300;
-}
-
-.btn:enabled:hover {
-  @apply md:bg-gray-200;
+  @apply md:hidden w-full border-b border-b-gray-300 text-gray-700 rounded-t-md py-3 px-4 flex flex-row justify-between items-center relative;
 }
 
 /* hamburger */

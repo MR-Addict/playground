@@ -1,25 +1,54 @@
 /* chat part */
-.chat {
-  @apply flex-1 flex flex-col justify-between gap-4 p-3;
+.chatwindow {
+  @apply flex-1 flex flex-col justify-between gap-4 p-4;
 }
 
-/* sendbox */
-.sendbox {
+.chatwindowframe {
+  @apply w-full h-full overflow-auto;
+}
+
+/* message */
+.messages {
+  @apply w-full flex flex-col gap-2;
+}
+
+/* form */
+.form {
   @apply w-full relative;
 }
 
-.sendbox textarea {
+.input {
   @apply w-full rounded-lg outline-none border border-gray-200 py-2.5 px-4 h-12 resize-none shadow-lg;
 }
 
-.sendbox textarea:focus {
+.input:focus {
   @apply border-blue-600;
 }
 
-.sendbox button {
+.form button {
   @apply absolute right-1.5 bottom-3 text-gray-600 duration-300 p-1.5 rounded-full;
 }
 
-.sendbox:valid button:enabled:hover {
+.form:valid button:enabled:hover {
   @apply text-gray-700 bg-gray-200;
+}
+
+/* scroll bar */
+.chatwindowframe::-webkit-scrollbar {
+  width: 0.4em;
+  height: 0.4rem;
+}
+
+.chatwindowframe::-webkit-scrollbar-thumb {
+  background-color: #d9d9db;
+  border-radius: 0.2rem;
+}
+
+.chatwindowframe::-webkit-scrollbar-corner {
+  display: none;
+}
+
+.input::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }

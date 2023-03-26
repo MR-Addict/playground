@@ -6,6 +6,10 @@
   @apply w-full flex flex-row items-center gap-1 p-2 rounded-md duration-300;
 }
 
-.btn:hover {
+.btn:disabled {
+  @apply cursor-not-allowed;
+}
+
+.btn:enabled:hover {
   @apply bg-slate-600;
 }

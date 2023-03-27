@@ -1,4 +1,4 @@
-# Next.js Playground
+# Next.js Playground ![Website](https://cronitor.io/badges/lpgpAc/production/psXmQTVKv7rYLXnKsHcevoF8H6c.svg)
 
 ## 1. Packages
 

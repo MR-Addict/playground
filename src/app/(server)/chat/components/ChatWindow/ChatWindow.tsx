@@ -1,11 +1,11 @@
 import { MdSend } from "react-icons/md";
 import { MdErrorOutline } from "react-icons/md";
 
-import style from "./Chat.module.css";
+import style from "./ChatWindow.module.css";
 import { LoadingDots } from "@/components";
 import { useChatContext } from "./ChatProvider";
 
-export default function Chat() {
+export default function ChatWindow() {
   const { userInput, setUserInput, messages, setMessages, chatgptStatus, generateResponse } = useChatContext();
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -15,7 +15,7 @@ export default function Chat() {
   }
 
   return (
-    <div aria-label='chat' className={style.chatwindow}>
+    <section aria-label='chat window' className={style.chatwindow}>
       <div className={style.chatwindowframe}>
         <div className={style.messages}>
           {messages.map((item, index) =>
@@ -76,6 +76,6 @@ export default function Chat() {
           </button>
         </div>
       </form>
-    </div>
+    </section>
   );
 }

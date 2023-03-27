@@ -2,18 +2,17 @@
 
 import { useState } from "react";
 import { AiOutlineClear } from "react-icons/ai";
-import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 
-import style from "./MobileUser.module.css";
 import Settings from "../Settings/Settings";
-import { useChatContext } from "../Chat/ChatProvider";
+import style from "./MobileSettings.module.css";
+import { useChatContext } from "../ChatWindow/ChatProvider";
 
-export default function MobileUser() {
+export default function MobileSettings() {
   const { resetMessages, chatgptStatus } = useChatContext();
   const [openSettings, setOpenSettings] = useState(false);
 
   return (
-    <div aria-label='user setting' className={style.user}>
+    <section aria-label='mobile setting' className={style.user}>
       <button
         onClick={resetMessages}
         aria-label='clear history'
@@ -34,10 +33,10 @@ export default function MobileUser() {
       </button>
 
       {openSettings && (
-        <div className='absolute left-0 w-full -bottom-[27rem] z-10 text-white'>
+        <div className='absolute left-0 w-full -bottom-[28.5rem] z-10 text-white'>
           <Settings />
         </div>
       )}
-    </div>
+    </section>
   );
 }

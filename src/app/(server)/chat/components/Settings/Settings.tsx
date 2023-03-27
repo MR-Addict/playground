@@ -1,40 +1,15 @@
-import style from "./Settings.module.css";
-
 import { AiOutlineClear } from "react-icons/ai";
-import { useChatContext } from "../Chat/ChatProvider";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
+
+import style from "./Settings.module.css";
+import { useChatContext } from "../ChatWindow/ChatProvider";
 
 export default function Settings() {
   const { messages, setMessages, generateResponse, options, setOptions, resetMessages, chatgptStatus } =
     useChatContext();
 
   return (
-    <div className='w-full h-full flex flex-col gap-4 bg-slate-700 px-3 py-4 rounded-b-md md:rounded-b-none md:p-0'>
-      <div className='flex flex-col gap-3'>
-        <button
-          aria-label='regenerate button'
-          type='button'
-          onClick={() => {
-            const slicedMessages = messages.slice(0, -1);
-            setMessages(slicedMessages);
-            generateResponse(slicedMessages);
-          }}
-          className={[style.btn, "border border-gray-500"].join(" ")}
-        >
-          <IoChatbubbleEllipsesOutline size={18} />
-          <span>Regnerate</span>
-        </button>
-
-        <button
-          onClick={resetMessages}
-          disabled={chatgptStatus === "thinking"}
-          className={[style.btn, "border border-gray-500"].join(" ")}
-        >
-          <AiOutlineClear size={20} />
-          <span>Clear histroy</span>
-        </button>
-      </div>
-
+    <div className='w-full h-full flex flex-col justify-between gap-4 bg-slate-700 px-3 py-4 rounded-b-md md:rounded-b-none md:p-0'>
       <div className='flex flex-col gpa-0.5'>
         <h1>Settings</h1>
 
@@ -97,6 +72,35 @@ export default function Settings() {
               required
             />
           </div>
+        </div>
+      </div>
+
+      <div className='flex flex-col gap-0.5'>
+        <h1>Operations</h1>
+
+        <div className='flex flex-col gap-3'>
+          <button
+            aria-label='regenerate button'
+            type='button'
+            onClick={() => {
+              const slicedMessages = messages.slice(0, -1);
+              setMessages(slicedMessages);
+              generateResponse(slicedMessages);
+            }}
+            className={[style.btn, "border border-gray-500"].join(" ")}
+          >
+            <IoChatbubbleEllipsesOutline size={18} />
+            <span>Regnerate</span>
+          </button>
+
+          <button
+            onClick={resetMessages}
+            disabled={chatgptStatus === "thinking"}
+            className={[style.btn, "border border-gray-500"].join(" ")}
+          >
+            <AiOutlineClear size={20} />
+            <span>Clear histroy</span>
+          </button>
         </div>
       </div>
     </div>

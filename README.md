@@ -85,7 +85,7 @@ start project:
 npm start
 ```
 
-## 8. Webpage
+## 8. Links
 
 Avaliable links:
 

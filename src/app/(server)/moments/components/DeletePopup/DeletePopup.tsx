@@ -38,7 +38,7 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
 
   return (
     <section
-      aria-label='moment form'
+      aria-label='delete moment popup'
       className={[style.frame, "frame", isOpenForm ? "scale-100" : "scale-0"].join(" ")}
     >
       <div className={[style.popup, "background", isOpenForm ? "scale-100" : "scale-0"].join(" ")}>

@@ -28,13 +28,13 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
         else {
           console.error(error);
           setIsLoggingIn(false);
-          popup({ status: false, message: "Username or Password Incorrect" });
+          popup({ status: false, message: "Username or password incorrect" });
         }
       });
   };
 
   return (
-    <div className={[isOpenForm ? "scale-100" : "scale-0", "frame", style.frame].join(" ")}>
+    <section aria-label='login form' className={[isOpenForm ? "scale-100" : "scale-0", "frame", style.frame].join(" ")}>
       <form
         onSubmit={handleSubmit}
         className={[style.form, "background", isOpenForm ? "scale-100" : "scale-0"].join(" ")}
@@ -93,6 +93,6 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
           </div>
         </div>
       </form>
-    </div>
+    </section>
   );
 }

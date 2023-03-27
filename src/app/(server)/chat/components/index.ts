@@ -1,5 +1,5 @@
-export { default as Chat } from "./Chat/Chat";
-export { default as MobileUser } from "./MobileUser/MobileUser";
-export { default as NormalUser } from "./NormalUser/NormalUser";
+export { default as ChatWindow } from "./ChatWindow/ChatWindow";
+export { default as MobileSettings } from "./MobileSettings/MobileSettings";
+export { default as NormalSettings } from "./NormalSettings/NormalSettings";
 
-export { ChatContextProvider, useChatContext } from "./Chat/ChatProvider";
+export { ChatContextProvider, useChatContext } from "./ChatWindow/ChatProvider";

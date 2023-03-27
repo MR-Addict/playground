@@ -5,7 +5,7 @@ import { signIn } from "next-auth/react";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
 import style from "./LoginForm.module.css";
-import { LoadingDots } from "@/components";
+import { LoadingDots, OperationWindow } from "@/components";
 import { usePopupContext, useLoginContext } from "@/contexts";
 
 export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
@@ -34,7 +34,7 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
   };
 
   return (
-    <section aria-label='login form' className={[isOpenForm ? "scale-100" : "scale-0", "frame", style.frame].join(" ")}>
+    <OperationWindow isOpenWindow={isOpenForm}>
       <form
         onSubmit={handleSubmit}
         className={[style.form, "background", isOpenForm ? "scale-100" : "scale-0"].join(" ")}
@@ -93,6 +93,6 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
           </div>
         </div>
       </form>
-    </section>
+    </OperationWindow>
   );
 }

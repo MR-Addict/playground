@@ -1,13 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { allWeathers } from "../../config";
 import style from "./MomentForm.module.css";
-import { LoadingDots } from "@/components";
+import { allWeathers } from "../../config";
+import { LoadingDots, OperationWindow } from "@/components";
 import { usePopupContext } from "@/contexts";
-import { useMomentContext, defaultMoment } from "./MomentContextProvider";
-import { useState } from "react";
+import { useMomentContext } from "./MomentContextProvider";
 
 export default function MomentForm({ isOpenForm }: { isOpenForm: boolean }) {
   const router = useRouter();
@@ -44,10 +44,7 @@ export default function MomentForm({ isOpenForm }: { isOpenForm: boolean }) {
   }
 
   return (
-    <section
-      aria-label='moment form'
-      className={[style.frame, "frame", isOpenForm ? "scale-100" : "scale-0"].join(" ")}
-    >
+    <OperationWindow isOpenWindow={isOpenForm}>
       <form
         onSubmit={handleSubmit}
         className={[style.form, "background", isOpenForm ? "scale-100" : "scale-0"].join(" ")}
@@ -112,6 +109,6 @@ export default function MomentForm({ isOpenForm }: { isOpenForm: boolean }) {
           </button>
         </div>
       </form>
-    </section>
+    </OperationWindow>
   );
 }

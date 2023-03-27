@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import style from "./DeletePopup.module.css";
-import { LoadingDots } from "@/components";
 import { usePopupContext } from "@/contexts";
+import { LoadingDots, OperationWindow } from "@/components";
 import { useDeletePopupContext } from "./DeletePopupContextProvider";
 
 export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
@@ -37,10 +37,7 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
   }
 
   return (
-    <section
-      aria-label='delete moment popup'
-      className={[style.frame, "frame", isOpenForm ? "scale-100" : "scale-0"].join(" ")}
-    >
+    <OperationWindow isOpenWindow={isOpenForm}>
       <div className={[style.popup, "background", isOpenForm ? "scale-100" : "scale-0"].join(" ")}>
         <h1 className='font-bold text-3xl text-center text-gray-700'>Delete Moment?</h1>
 
@@ -57,6 +54,6 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
           </button>
         </div>
       </div>
-    </section>
+    </OperationWindow>
   );
 }

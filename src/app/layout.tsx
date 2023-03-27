@@ -11,7 +11,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <NextauthProvider>
           <PopupContextProvider>
             <LoginContextProvider>
-              {/* @ts-expect-error */}
               <Navbar />
               {children}
               <Footer />

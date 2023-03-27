@@ -8,3 +8,4 @@ export { default as Markdown } from "./Markdown/Markdown";
 export { default as SpinLoader } from "./SpinLoader/SpinLoader";
 export { default as LoadingDots } from "./LoadingDots/LoadingDots";
 export { default as ScrollToTop } from "./ScrollToTop/ScrollToTop";
+export { default as OperationWindow } from "./OperationWindow/OperationWindow";

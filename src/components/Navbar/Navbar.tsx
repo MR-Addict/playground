@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { NormalNavbar, MobileNavbar, LoginButton } from "./components";
 
-export default async function Navbar() {
+export default function Navbar() {
   return (
     <nav aria-label='navbar' className='py-5 px-5 md:px-48 w-full flex flex-row items-center justify-between'>
       <Link href='/' className='text-green-600 text-xl md:text-2xl font-bold'>

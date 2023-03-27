@@ -63,7 +63,7 @@ export default function Generator() {
               />
               <span className='absolute top-0 left-0 duration-100 w-6 h-6 bg-gray-300 rounded-sm peer-hover:cursor-pointer peer-checked:bg-blue-600 after:absolute after:hidden after:peer-checked:block after:content-[""] after:left-2 after:top-1 after:w-2 after:h-4 after:border-r-4 after:border-b-4 after:border-white after:rotate-[35deg]'></span>
               <h1>Symbols</h1>
-              <Tooltip position='right' title={`Symbols are ${characters.symbols}`}>
+              <Tooltip title={`Symbols are ${characters.symbols}`}>
                 <div className='text-gray-500 cursor-pointer'>
                   <ImInfo size={15} />
                 </div>
@@ -81,7 +81,7 @@ export default function Generator() {
               />
               <span className='absolute top-0 left-0 duration-100 w-6 h-6 bg-gray-300 rounded-sm peer-hover:cursor-pointer peer-checked:bg-blue-600 after:absolute after:hidden after:peer-checked:block after:content-[""] after:left-2 after:top-1 after:w-2 after:h-4 after:border-r-4 after:border-b-4 after:border-white after:rotate-[35deg]'></span>
               <h1>Numbers</h1>
-              <Tooltip position='right' title={`Numbers are ${characters.numbers}`}>
+              <Tooltip title={`Numbers are ${characters.numbers}`}>
                 <div className='text-gray-500 cursor-pointer'>
                   <ImInfo size={15} />
                 </div>
@@ -99,7 +99,7 @@ export default function Generator() {
               />
               <span className='absolute top-0 left-0 duration-100 w-6 h-6 bg-gray-300 rounded-sm peer-hover:cursor-pointer peer-checked:bg-blue-600 after:absolute after:hidden after:peer-checked:block after:content-[""] after:left-2 after:top-1 after:w-2 after:h-4 after:border-r-4 after:border-b-4 after:border-white after:rotate-[35deg]'></span>
               <h1>Lowercase</h1>
-              <Tooltip position='right' title={`Lowercase are ${characters.lowercase}`}>
+              <Tooltip title={`Lowercase are ${characters.lowercase}`}>
                 <div className='text-gray-500 cursor-pointer'>
                   <ImInfo size={15} />
                 </div>
@@ -117,7 +117,7 @@ export default function Generator() {
               />
               <span className='absolute top-0 left-0 duration-100 w-6 h-6 bg-gray-300 rounded-sm peer-hover:cursor-pointer peer-checked:bg-blue-600 after:absolute after:hidden after:peer-checked:block after:content-[""] after:left-2 after:top-1 after:w-2 after:h-4 after:border-r-4 after:border-b-4 after:border-white after:rotate-[35deg]'></span>
               <h1>Uppercase</h1>
-              <Tooltip position='right' title={`Uppercase are ${characters.uppercase}`}>
+              <Tooltip title={`Uppercase are ${characters.uppercase}`}>
                 <div className='text-gray-500 cursor-pointer'>
                   <ImInfo size={15} />
                 </div>

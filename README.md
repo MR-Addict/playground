@@ -68,6 +68,7 @@ add `.env` file:
 MAILFROM="your_email"
 MAILPASS="your_email_pass"
 GITHUB_TOKEN="create_a_github_token"
+CRONITOR_TOKEN="create_a_cronitor_token"
 NEXTAUTH_SECRET="create_a_nextauth_secret"
 NEXTAUTH_URL="https://your.website.domain.com/"
 MONGODB_URI="mongodb://username:password@mongodb0.example.com:27017/"

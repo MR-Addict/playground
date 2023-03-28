@@ -30,7 +30,9 @@ export default function ChatWindow() {
           {messages.map((item, index) =>
             item.role === "user" ? (
               <div key={index} className='flex flex-row justify-end'>
-                <p className='bg-indigo-600 text-white w-fit px-4 py-2 rounded-lg'>{item.content}</p>
+                <p className='bg-indigo-600 text-white w-fit px-4 py-2 rounded-lg whitespace-pre-wrap'>
+                  {item.content}
+                </p>
               </div>
             ) : (
               <div key={index} className='flex flex-row justify-start'>

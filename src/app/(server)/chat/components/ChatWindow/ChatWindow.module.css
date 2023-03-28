@@ -18,11 +18,11 @@
 }
 
 .input {
-  @apply w-full rounded-lg outline-none border border-gray-200 py-2.5 pl-4 pr-12 h-12 resize-none shadow-lg;
+  @apply w-full outline-none resize-none pr-7;
 }
 
 .form button {
-  @apply absolute bottom-[50%] -translate-y-[-50%] text-gray-600 duration-300 p-1.5 rounded-full;
+  @apply absolute bottom-9 mr-0.5 -translate-y-[-50%] text-gray-600 duration-300 p-1.5 rounded-full;
 }
 
 .form button[type="submit"] {
@@ -42,21 +42,19 @@
 }
 
 /* scroll bar */
+.input::-webkit-scrollbar,
 .chatwindowframe::-webkit-scrollbar {
   width: 0.3em;
   height: 0.3rem;
 }
 
+.input::-webkit-scrollbar-thumb,
 .chatwindowframe::-webkit-scrollbar-thumb {
   background-color: #d9d9db;
   border-radius: 0.2rem;
 }
 
+.input::-webkit-scrollbar-corner,
 .chatwindowframe::-webkit-scrollbar-corner {
   display: none;
-}
-
-.input::-webkit-scrollbar {
-  width: 0;
-  height: 0;
 }

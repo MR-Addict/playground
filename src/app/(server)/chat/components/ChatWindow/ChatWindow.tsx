@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { MdSend } from "react-icons/md";
 import { MdErrorOutline } from "react-icons/md";
 
@@ -11,7 +14,14 @@ export default function ChatWindow() {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setUserInput("");
-    generateResponse();
+    generateResponse(messages);
+  }
+
+  function handleInput(e: React.ChangeEvent<HTMLTextAreaElement>) {
+    setUserInput(e.target.value);
+
+    e.target.style.height = "auto";
+    e.target.style.height = `${e.target.scrollHeight}px`;
   }
 
   return (
@@ -51,24 +61,20 @@ export default function ChatWindow() {
 
       <form onSubmit={handleSubmit} className={style.form}>
         <div className='w-full relative'>
-          <input
-            required
-            type='text'
-            id='weather'
-            name='weather'
-            value={userInput}
-            maxLength={2000}
-            autoComplete='off'
-            placeholder='Ask anything!'
-            onChange={(e) => setUserInput(e.target.value)}
-            className={[style.input, "background"].join(" ")}
-          />
+          <div className='w-full py-2.5 pl-4 border border-gray-200 rounded-md shadow-lg'>
+            <textarea
+              required
+              value={userInput}
+              maxLength={2000}
+              onChange={handleInput}
+              placeholder='Ask anything!'
+              className={[style.input, "background"].join(" ")}
+            />
+          </div>
 
           <button
             aria-label='send message button'
-            onClick={() => {
-              setMessages([...messages, { role: "user", content: userInput }]);
-            }}
+            onClick={() => setMessages([...messages, { role: "user", content: userInput }])}
             disabled={userInput === "" || chatgptStatus === "thinking"}
             type='submit'
           >

@@ -5,7 +5,8 @@ import style from "./Settings.module.css";
 import { useChatContext } from "../ChatWindow/ChatProvider";
 
 export default function Settings() {
-  const { generateResponse, options, messages, setOptions, resetMessages, chatgptStatus } = useChatContext();
+  const { generateResponse, setMessages, options, messages, setOptions, resetMessages, chatgptStatus } =
+    useChatContext();
 
   return (
     <div className='w-full h-full flex flex-col justify-between gap-4 bg-slate-700 px-3 py-4 rounded-b-md md:rounded-b-none md:p-0'>
@@ -81,8 +82,16 @@ export default function Settings() {
           <button
             aria-label='regenerate button'
             type='button'
-            onClick={generateResponse}
-            disabled={chatgptStatus !== "error"}
+            onClick={() => {
+              if ((messages[messages.length - 1].role = "assistant")) {
+                const slicedMessages = messages.slice(0, -1);
+                setMessages(slicedMessages);
+                generateResponse(slicedMessages);
+              } else {
+                generateResponse(messages);
+              }
+            }}
+            disabled={chatgptStatus === "thinking"}
             className={[style.btn, "border border-gray-500"].join(" ")}
           >
             <IoChatbubbleEllipsesOutline size={18} />
@@ -91,11 +100,11 @@ export default function Settings() {
 
           <button
             onClick={resetMessages}
-            disabled={chatgptStatus === "thinking" || !messages.length}
+            disabled={chatgptStatus === "thinking"}
             className={[style.btn, "border border-gray-500"].join(" ")}
           >
             <AiOutlineClear size={20} />
-            <span>Clear histroy</span>
+            <span>Clear prompts</span>
           </button>
         </div>
       </div>

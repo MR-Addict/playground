@@ -12,10 +12,10 @@ interface ChatContextProps {
   messages: MessageType[];
   chatgptStatus: "idle" | "thinking" | "error";
   resetMessages: () => void;
-  generateResponse: () => void;
   setUserInput: (value: string) => void;
   setOptions: (options: OptionsType) => void;
   setMessages: (messages: MessageType[]) => void;
+  generateResponse: (messages: MessageType[]) => void;
   setChatgptStatus: (status: "idle" | "thinking" | "error") => void;
 }
 
@@ -25,10 +25,10 @@ const ChatContext = createContext<ChatContextProps>({
   options: defaultOptions,
   messages: defaultMessages,
   resetMessages: () => {},
-  generateResponse: () => {},
   setUserInput: (value: string) => {},
   setOptions: (options: OptionsType) => {},
   setMessages: (messages: MessageType[]) => {},
+  generateResponse: (messages: MessageType[]) => {},
   setChatgptStatus: (status: "idle" | "thinking" | "error") => {},
 });
 
@@ -46,7 +46,7 @@ export const ChatContextProvider: React.FC<{ openAIApiKey: string; children: Rea
     setMessages(defaultMessages);
   }
 
-  function generateResponse() {
+  function generateResponse(messages: MessageType[]) {
     if (!messages.length) return;
     setChatgptStatus("thinking");
 

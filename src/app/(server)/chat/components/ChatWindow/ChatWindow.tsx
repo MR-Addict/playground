@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { MdSend } from "react-icons/md";
 import { MdErrorOutline } from "react-icons/md";
 

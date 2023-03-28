@@ -5,8 +5,7 @@ import style from "./Settings.module.css";
 import { useChatContext } from "../ChatWindow/ChatProvider";
 
 export default function Settings() {
-  const { generateResponse, setMessages, options, messages, setOptions, resetMessages, chatgptStatus } =
-    useChatContext();
+  const { regenerateResponse, options, setOptions, resetMessages, chatgptStatus } = useChatContext();
 
   return (
     <div className='w-full h-full flex flex-col justify-between gap-4 bg-slate-700 px-3 py-4 rounded-b-md md:rounded-b-none md:p-0'>
@@ -82,15 +81,7 @@ export default function Settings() {
           <button
             aria-label='regenerate button'
             type='button'
-            onClick={() => {
-              if ((messages[messages.length - 1].role = "assistant")) {
-                const slicedMessages = messages.slice(0, -1);
-                setMessages(slicedMessages);
-                generateResponse(slicedMessages);
-              } else {
-                generateResponse(messages);
-              }
-            }}
+            onClick={regenerateResponse}
             disabled={chatgptStatus === "thinking"}
             className={[style.btn, "border border-gray-500"].join(" ")}
           >

@@ -6,8 +6,8 @@ function pageSession() {
   return getServerSession(authOptions);
 }
 
-function apiSession(req: NextApiRequest, res: NextApiResponse) {
+function routerSession(req: NextApiRequest, res: NextApiResponse) {
   return getServerSession(req, res, authOptions);
 }
 
-export { pageSession, apiSession };
+export { pageSession, routerSession };

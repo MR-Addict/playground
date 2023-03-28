@@ -1,11 +1,13 @@
 import { redirect } from "next/navigation";
 
-import { pageSession } from "@/lib/auth";
+import { pageSession } from "@/lib/auth/serverSession";
+import { checkUserPermission } from "@/lib/auth/checkUserPermission";
 import { MomentContextProvider, DeletePopupContextProvider } from "./components";
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
   const session = await pageSession();
-  if (!session) redirect("/");
+  const userPermission = checkUserPermission(session?.user.role || "vistor", "admin");
+  if (!userPermission) redirect("/");
 
   return (
     <main aria-label='moments page' className='frame w-full flex flex-col gap-7'>

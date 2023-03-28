@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 
 import navbarData from "../../config";
+import { checkUserPermission } from "@/lib/auth/checkUserPermission";
 
 export default function NormalNavbar() {
   const { data: session } = useSession();
@@ -13,7 +14,7 @@ export default function NormalNavbar() {
   return (
     <ul className='hidden lg:flex flex-row gap-4'>
       {navbarData
-        .filter((item) => item.public || session)
+        .filter((item) => checkUserPermission(session?.user.role || "vistor", item.visibility))
         .map((item, index) => (
           <li key={index}>
             <Link

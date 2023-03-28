@@ -4,13 +4,15 @@ import Chat from "./Chat";
 import { env } from "@/types/env";
 import { setMetadata } from "@/lib/utils";
 import { ChatContextProvider } from "./components";
-import { pageSession } from "@/lib/auth";
+import { pageSession } from "@/lib/auth/serverSession";
+import { checkUserPermission } from "@/lib/auth/checkUserPermission";
 
 export const metadata = setMetadata("Chat");
 
 export default async function Page() {
   const session = await pageSession();
-  if (!session) redirect("/");
+  const userPermission = checkUserPermission(session?.user.role || "vistor", "contributor");
+  if (!userPermission) redirect("/");
 
   return (
     <main className='w-full frame flex-1 flex flex-col'>

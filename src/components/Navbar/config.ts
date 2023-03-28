@@ -1,28 +1,36 @@
-const navbarData = [
+import { UserRoleType } from "@/types/user";
+
+interface Props {
+  title: string;
+  link: string;
+  visibility: UserRoleType;
+}
+
+const navbarData: Props[] = [
   {
     title: "Home",
     link: "/",
-    public: true,
-  },
-  {
-    title: "Chat",
-    link: "/chat",
-    public: false,
+    visibility: "vistor",
   },
   {
     title: "Blog",
     link: "/blog",
-    public: true,
+    visibility: "vistor",
   },
   {
     title: "Tools",
     link: "/tools",
-    public: true,
+    visibility: "vistor",
+  },
+  {
+    title: "Chat",
+    link: "/chat",
+    visibility: "contributor",
   },
   {
     title: "Moments",
     link: "/moments",
-    public: false,
+    visibility: "admin",
   },
 ];
 

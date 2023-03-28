@@ -5,7 +5,8 @@ import { routerSession } from "@/lib/auth/serverSession";
 import { checkUserPermission } from "@/lib/auth/checkUserPermission";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== "POST") return res.setHeader("Allow", ["POST"]).end(`Method ${req.method} is not allowed`);
+  if (req.method !== "POST")
+    return res.status(405).setHeader("Allow", ["POST"]).end(`Method ${req.method} is not allowed`);
 
   const session = await routerSession(req, res);
   if (!session) return res.status(401).json({ status: false, message: "Unauthorized" });

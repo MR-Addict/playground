@@ -2,12 +2,13 @@ import NextAuth from "next-auth";
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
+import { env } from "@/types/env";
 import { user } from "@/lib/mongodb";
 
 export const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },
-  secret: process.env.NEXTAUTH_SECRET,
-  jwt: { secret: process.env.NEXTAUTH_SECRET },
+  secret: env.NEXTAUTH_SECRET,
+  jwt: { secret: env.NEXTAUTH_SECRET },
 
   providers: [
     CredentialsProvider({

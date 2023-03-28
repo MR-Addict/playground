@@ -1,5 +1,6 @@
 import "./globals.css";
 
+import { env } from "@/types/env";
 import { ScrollToTop, Footer, Navbar } from "@/components";
 import { NextauthProvider, PopupContextProvider, LoginContextProvider, CronitorContext } from "@/contexts";
 
@@ -8,7 +9,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='en'>
       <head />
       <body style={{ minHeight: "100vh" }} className='background flex flex-col items-center justify-between'>
-        <CronitorContext cronitorToken={process.env.CRONITOR_TOKEN}>
+        <CronitorContext cronitorToken={env.CRONITOR_TOKEN}>
           <NextauthProvider>
             <PopupContextProvider>
               <LoginContextProvider>

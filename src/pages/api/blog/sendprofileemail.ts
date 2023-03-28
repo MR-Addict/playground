@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import type { NextApiRequest, NextApiResponse } from "next";
 
+import { env } from "@/types/env";
 import { sendEmail } from "@/lib/blog";
 
 function readProfileHtml() {
@@ -16,7 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (!req.body || !req.body.email) return res.status(400).json({ status: false, message: "Bad request" });
 
   const mailOptions = {
-    from: process.env.MAILFROM || "",
+    from: env.MAILFROM,
     to: req.body.email,
     subject: "MR-Addict's Profile",
     text: "MR-Addict's Profile",

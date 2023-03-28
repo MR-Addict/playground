@@ -1,5 +1,7 @@
 import nodemailer from "nodemailer";
 
+import { env } from "@/types/env";
+
 interface mailOptionsType {
   from: string;
   to: string;
@@ -13,8 +15,8 @@ const mailTransport = nodemailer.createTransport({
   service: "qq",
   secure: true,
   auth: {
-    user: process.env.MAILFROM,
-    pass: process.env.MAILPASS,
+    user: env.MAILFROM,
+    pass: env.MAILPASS,
   },
 });
 

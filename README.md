@@ -1,4 +1,4 @@
-# Next.js Playground ![Website](https://cronitor.io/badges/lpgpAc/production/psXmQTVKv7rYLXnKsHcevoF8H6c.svg)
+# Next.js Playground [![Website](https://cronitor.io/badges/lpgpAc/production/psXmQTVKv7rYLXnKsHcevoF8H6c.svg)](https://playground.cronitorstatus.com/)
 
 ## 1. Packages
 
@@ -67,6 +67,7 @@ add `.env` file:
 ```env
 MAILFROM="your_email"
 MAILPASS="your_email_pass"
+OPENAI_TOKEN="create_a_openai_token
 GITHUB_TOKEN="create_a_github_token"
 CRONITOR_TOKEN="create_a_cronitor_token"
 NEXTAUTH_SECRET="create_a_nextauth_secret"

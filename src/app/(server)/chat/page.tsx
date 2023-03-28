@@ -1,16 +1,15 @@
 import { redirect } from "next/navigation";
-import { getServerSession } from "next-auth/next";
 
 import Chat from "./Chat";
 import { env } from "@/types/env";
 import { setMetadata } from "@/lib/utils";
 import { ChatContextProvider } from "./components";
-import authOptions from "@/pages/api/auth/[...nextauth]";
+import { pageSession } from "@/lib/auth";
 
 export const metadata = setMetadata("Chat");
 
 export default async function Page() {
-  const session = await getServerSession(authOptions);
+  const session = await pageSession();
   if (!session) redirect("/");
 
   return (

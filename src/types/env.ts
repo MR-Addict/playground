@@ -1,6 +1,6 @@
 import z from "zod";
 
-const NodeEnv = z.enum(["development", "production", "test", "preview", "preview-production"]);
+const NodeEnv = z.enum(["development", "production", "test", "preview"]);
 
 const Env = z.object({
   MAILPASS: z.string(),

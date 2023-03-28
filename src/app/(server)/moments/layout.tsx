@@ -1,11 +1,10 @@
 import { redirect } from "next/navigation";
-import { getServerSession } from "next-auth/next";
 
-import authOptions from "@/pages/api/auth/[...nextauth]";
+import { pageSession } from "@/lib/auth";
 import { MomentContextProvider, DeletePopupContextProvider } from "./components";
 
 export default async function Layout({ children }: { children: React.ReactNode }) {
-  const session = await getServerSession(authOptions);
+  const session = await pageSession();
   if (!session) redirect("/");
 
   return (

@@ -8,7 +8,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <head />
-      <body style={{ minHeight: "100vh" }} className='background flex flex-col items-center justify-between'>
+      <body className='background min-h-screen flex flex-col items-center justify-between'>
         <CronitorContext cronitorToken={env.CRONITOR_TOKEN}>
           <NextauthProvider>
             <PopupContextProvider>

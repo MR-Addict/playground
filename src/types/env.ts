@@ -1,5 +1,7 @@
 import z from "zod";
 
+const NodeEnv = z.enum(["development", "production", "test", "preview", "preview-production"]);
+
 const Env = z.object({
   MAILPASS: z.string(),
   MAILFROM: z.string(),
@@ -8,7 +10,7 @@ const Env = z.object({
   GITHUB_TOKEN: z.string(),
   CRONITOR_TOKEN: z.string(),
   NEXTAUTH_SECRET: z.string(),
-  NODE_ENV: z.enum(["development", "production", "test", "preview", "preview-production"]),
+  NODE_ENV: NodeEnv,
 });
 
 type EnvType = z.TypeOf<typeof Env>;

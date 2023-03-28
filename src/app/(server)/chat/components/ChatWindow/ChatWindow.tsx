@@ -11,7 +11,7 @@ export default function ChatWindow() {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setUserInput("");
-    generateResponse(messages);
+    generateResponse();
   }
 
   return (

@@ -5,8 +5,7 @@ import style from "./Settings.module.css";
 import { useChatContext } from "../ChatWindow/ChatProvider";
 
 export default function Settings() {
-  const { messages, setMessages, generateResponse, options, setOptions, resetMessages, chatgptStatus } =
-    useChatContext();
+  const { generateResponse, options, messages, setOptions, resetMessages, chatgptStatus } = useChatContext();
 
   return (
     <div className='w-full h-full flex flex-col justify-between gap-4 bg-slate-700 px-3 py-4 rounded-b-md md:rounded-b-none md:p-0'>
@@ -82,11 +81,8 @@ export default function Settings() {
           <button
             aria-label='regenerate button'
             type='button'
-            onClick={() => {
-              const slicedMessages = messages.slice(0, -1);
-              setMessages(slicedMessages);
-              generateResponse(slicedMessages);
-            }}
+            onClick={generateResponse}
+            disabled={chatgptStatus !== "error"}
             className={[style.btn, "border border-gray-500"].join(" ")}
           >
             <IoChatbubbleEllipsesOutline size={18} />
@@ -95,7 +91,7 @@ export default function Settings() {
 
           <button
             onClick={resetMessages}
-            disabled={chatgptStatus === "thinking"}
+            disabled={chatgptStatus === "thinking" || !messages.length}
             className={[style.btn, "border border-gray-500"].join(" ")}
           >
             <AiOutlineClear size={20} />

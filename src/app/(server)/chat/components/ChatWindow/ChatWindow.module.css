@@ -18,6 +18,7 @@
 }
 
 .input {
+  max-height: 240px;
   @apply w-full outline-none resize-none pr-7;
 }
 

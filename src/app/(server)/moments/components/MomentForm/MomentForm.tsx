@@ -24,7 +24,7 @@ export default function MomentForm({ isOpenForm }: { isOpenForm: boolean }) {
       ...{ weather: moment.weather, moment: moment.moment },
     };
 
-    fetch(isInsertMode ? "/api/moments/insert" : "/api/moments/update", {
+    fetch(isInsertMode ? "/api/moment/insert" : "/api/moment/update", {
       method: isInsertMode ? "POST" : "PUT",
       body: new URLSearchParams(backupFormData),
       headers: { "Content-Type": "application/x-www-form-urlencoded" },

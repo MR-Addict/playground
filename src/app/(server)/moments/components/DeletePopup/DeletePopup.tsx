@@ -17,7 +17,7 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
   function handleClick() {
     setIsSubmitting(true);
 
-    fetch("/api/moments/delete", {
+    fetch("/api/moment/delete", {
       method: "DELETE",
       body: new URLSearchParams({ _id: momentId }),
       headers: { "Content-Type": "application/x-www-form-urlencoded" },

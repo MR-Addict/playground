@@ -8,7 +8,7 @@ interface RecordsType {
   count: number;
   data: {
     date: string;
-    message: any;
+    message: string;
   }[];
 }
 

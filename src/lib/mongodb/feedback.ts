@@ -1,11 +1,14 @@
-import clientPromise from "./clientPromise";
+import z from "zod";
 
-async function insert(message: string) {
+import clientPromise from "./clientPromise";
+import { Feedback } from "@/types/feedback";
+
+async function insert(feedback: string) {
   try {
     const client = await clientPromise;
     const db = client.db("playground");
 
-    const result = await db.collection("feedback").insertOne({ date: new Date().toISOString(), message });
+    const result = await db.collection("feedback").insertOne({ date: new Date(), feedback });
     if (result.acknowledged) return { status: true, message: "Insert succeeded" };
     else return { status: false, message: "Insert failed" };
   } catch (error) {
@@ -18,13 +21,10 @@ async function read() {
     const client = await clientPromise;
     const db = client.db("playground");
 
-    const result: any[] = await db
-      .collection("feedback")
-      .find({})
-      .sort({ date: -1 })
-      .map((item) => ({ ...item, _id: item._id.toString() }))
-      .toArray();
-    return { status: true, data: result };
+    const result = await db.collection("feedback").find({}).sort({ date: -1 }).toArray();
+    const feedbacks = z.array(Feedback).parse(result);
+
+    return { status: true, data: feedbacks };
   } catch (error) {
     return { status: false, message: "Error occurred while communicate with mongodb" };
   }

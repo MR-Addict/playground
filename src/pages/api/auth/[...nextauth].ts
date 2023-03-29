@@ -3,7 +3,6 @@ import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 import { env } from "@/types/env";
-import { User } from "@/types/user";
 import { user } from "@/lib/mongodb";
 
 export const authOptions: NextAuthOptions = {
@@ -23,8 +22,8 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials, req) {
         const { username, password } = credentials as { username: string; password: string };
         const result = await user.compare(username, password);
-        const parsedUser = User.parse(result.user);
-        return parsedUser as any;
+        if (!result.status) return null;
+        else return result.user as any;
       },
     }),
   ],

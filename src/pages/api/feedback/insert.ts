@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
+import { env } from "@/types/env";
 import { sendEmail } from "@/lib/blog";
 import { feedback } from "@/lib/mongodb";
 
@@ -7,11 +8,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method !== "POST")
     return res.status(405).setHeader("Allow", ["POST"]).end(`Method ${req.method} is not allowed`);
 
-  if (!req.body || !req.body.feedback) return res.status(400).json({ status: false, message: "Bad request" });
+  if (!req.body.feedback) return res.status(400).json({ status: false, message: "Bad request" });
 
   sendEmail({
-    from: "MR-Addict@qq.com",
-    to: "MR-Addict@qq.com",
+    from: env.MAILFROM,
+    to: env.MAILFROM,
     subject: "New feedback",
     text: req.body.feedback,
   });

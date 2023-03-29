@@ -87,7 +87,7 @@ export default function MomentForm({ isOpenForm }: { isOpenForm: boolean }) {
               placeholder='Write something'
               value={moment.moment}
               onChange={(e) => setMoment({ ...moment, [e.target.name]: e.target.value })}
-              className={[style.input, "h-28", "background"].join(" ")}
+              className={[style.input, "h-48", "background"].join(" ")}
             />
           </div>
         </div>

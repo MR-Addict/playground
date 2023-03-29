@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { moments } from "@/lib/mongodb";
+import { moment } from "@/lib/mongodb";
 import { routerSession } from "@/lib/auth/serverSession";
 import { checkUserPermission } from "@/lib/auth/checkUserPermission";
 
@@ -14,9 +14,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (!checkUserPermission(session.user.role, "admin"))
     return res.status(403).json({ status: false, message: "Forbidden" });
 
-  if (!req.body || !req.body._id || !req.body.moment || !req.body.weather)
+  if (!req.body._id || !req.body.moment || !req.body.weather)
     return res.status(400).json({ status: false, message: "Bad request" });
 
-  const result = await moments.update(req.body._id, req.body.weather, req.body.moment);
+  const result = await moment.update(req.body._id, req.body.moment, req.body.weather);
   return res.status(result.status ? 200 : 500).json(result);
 }

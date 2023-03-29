@@ -22,7 +22,7 @@ export default async function Page({ searchParams: { page } }: { searchParams: {
   const commits = result.data;
 
   return (
-    <main aria-label='commits page' className='frame w-full flex flex-col gap-5'>
+    <main aria-label='commits page' className='flex-1 frame w-full flex flex-col gap-5'>
       <h1 className='text-2xl font-bold text-slate-700'>Commits({totalCount})</h1>
       <RecordLists records={commits} />
       <div className='flex flex-row justify-center'>

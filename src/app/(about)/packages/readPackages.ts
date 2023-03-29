@@ -79,7 +79,7 @@ const packages = [
   {
     name: "Codemirror",
     package: {
-      category: "dependencies",
+      category: "devDependencies",
       name: "@uiw/react-codemirror",
     },
     img: codemirror,

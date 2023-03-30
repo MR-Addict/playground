@@ -120,9 +120,11 @@ export default async function readPackages() {
 
   const result = packages.map((item) => {
     const img = item.img;
-    const name = item.package.name;
+    const name = item.name;
+
+    const packageName = item.package.name;
     const category = item.package.category;
-    const version: string = packageJson[category][name].replace("^", "");
+    const version: string = packageJson[category][packageName].replace("^", "");
 
     return { name, version, img };
   });

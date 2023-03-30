@@ -7,7 +7,7 @@ interface Props {
   cronitorToken: string | undefined;
 }
 
-export default function CronitorContext({ children, cronitorToken }: Props) {
+export default function CronitorProvider({ children, cronitorToken }: Props) {
   if (!cronitorToken) throw new Error("Please add CRONITOR_TOKEN to env");
 
   useCronitor(cronitorToken, { debug: false });

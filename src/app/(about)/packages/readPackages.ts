@@ -1,10 +1,13 @@
 import path from "path";
 import fsPromises from "fs/promises";
 
+import zod from "./images/zod.png";
+import sharp from "./images/sharp.png";
 import nextjs from "./images/nextjs.png";
 import mongodb from "./images/mongodb.png";
 import reactjs from "./images/reactjs.png";
 import bcryptjs from "./images/bcryptjs.png";
+import reacticons from "./images/reacticons.png";
 import codemirror from "./images/codemirror.png";
 import nodemailer from "./images/nodemailer.png";
 import typescript from "./images/typescript.png";
@@ -61,7 +64,31 @@ const packages = [
     img: tailwindcss,
   },
   {
-    name: "Bcrypt.js",
+    name: "Zod",
+    package: {
+      category: "dependencies",
+      name: "zod",
+    },
+    img: zod,
+  },
+  {
+    name: "Sharp",
+    package: {
+      category: "dependencies",
+      name: "sharp",
+    },
+    img: sharp,
+  },
+  {
+    name: "React Icons",
+    package: {
+      category: "devDependencies",
+      name: "react-icons",
+    },
+    img: reacticons,
+  },
+  {
+    name: "Bcrypt",
     package: {
       category: "dependencies",
       name: "bcryptjs",
@@ -87,14 +114,17 @@ const packages = [
 ];
 
 export default async function readPackages() {
-  const jsonPath = path.join(process.cwd(), "/package.json");
+  const jsonPath = path.join(process.cwd(), "package.json");
   const rawPackageJson = await fsPromises.readFile(jsonPath, "utf8");
   const packageJson = JSON.parse(rawPackageJson);
 
   const result = packages.map((item) => {
-    const category = item.package.category;
+    const img = item.img;
     const name = item.package.name;
-    return { ...item, version: packageJson[category][name].replace("^", "") };
+    const category = item.package.category;
+    const version: string = packageJson[category][name].replace("^", "");
+
+    return { name, version, img };
   });
 
   return result;

@@ -1,4 +1,4 @@
 /* frame */
-.user {
-  @apply hidden w-1/4 bg-slate-700 text-white rounded-l-md p-4 md:flex flex-col justify-between;
+.settings {
+  @apply hidden w-1/4 rounded-l-md md:flex flex-col justify-between;
 }

@@ -8,7 +8,7 @@
 }
 
 .btn:enabled:hover {
-  @apply bg-slate-600;
+  @apply bg-slate-800;
 }
 
 /* input */

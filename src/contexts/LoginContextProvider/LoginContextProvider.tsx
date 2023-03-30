@@ -16,7 +16,7 @@ const LoginContext = createContext<LoginContextProps>({
   setIsLoggingIn: (value: boolean) => {},
 });
 
-export const LoginContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
+export const LoginContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [isOpenForm, setIsOpenForm] = useState(false);
   const [isLoggingIn, setIsLoggingIn] = useState(false);
 

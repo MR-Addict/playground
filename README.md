@@ -51,7 +51,11 @@
 - [x] Client side cannot access server side environment(env in next config accessable globally)
 - [x] `dns not found` error mostly you put server in client component. They even cannot be in the same `index.ts`.
 
-## 6. Tailwindcss Rules
+## 6. TODOs
+
+- [] Add page loading progress bar
+
+## 7. Tailwindcss Rules
 
 | Key      | Value     |
 | :------- | :-------- |
@@ -60,7 +64,7 @@
 | Dark     | gray-700  |
 | Theme    | green-600 |
 
-## 7. Deploy
+## 8. Deploy
 
 add `.env` file:
 
@@ -87,7 +91,7 @@ start project:
 npm start
 ```
 
-## 8. Links
+## 9. Links
 
 Avaliable links:
 

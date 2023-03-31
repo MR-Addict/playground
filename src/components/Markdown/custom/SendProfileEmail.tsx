@@ -46,7 +46,7 @@ export default function SendProfileEmail() {
       />
       <button
         type='submit'
-        disabled={email === "" || isSubmitting}
+        disabled={!email || isSubmitting}
         className={[style.submitbtn, "bg-green-600 border-green-700 text-white"].join(" ")}
       >
         {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Send Me Email</span>}

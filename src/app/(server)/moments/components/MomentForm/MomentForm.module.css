@@ -3,6 +3,16 @@
   @apply duration-200 w-full md:max-w-lg flex flex-col items-center gap-4 rounded-md p-5 md:p-7;
 }
 
+/* inputgroup */
+.inputgroup {
+  @apply flex flex-col w-full gap-1;
+}
+
+/* input */
+.input {
+  @apply w-full p-2 rounded-sm outline-none border border-black text-gray-700;
+}
+
 /* input and label */
 .input {
   @apply outline-none p-2 rounded-sm border border-black text-gray-700;

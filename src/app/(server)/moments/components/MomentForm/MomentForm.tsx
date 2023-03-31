@@ -52,7 +52,7 @@ export default function MomentForm({ isOpenForm }: { isOpenForm: boolean }) {
         <h1 className='font-bold text-3xl text-gray-700 border-b-4 border-b-green-600'>Moment</h1>
 
         <div className='w-full flex flex-col gap-3'>
-          <div className='flex flex-col w-full gap-1'>
+          <div className={style.inputgroup}>
             <label htmlFor='weather' className={style.label}>
               Weather
             </label>
@@ -75,7 +75,7 @@ export default function MomentForm({ isOpenForm }: { isOpenForm: boolean }) {
             </select>
           </div>
 
-          <div className='flex flex-col w-full gap-1'>
+          <div className={style.inputgroup}>
             <label htmlFor='moment' className={style.label}>
               Moment
             </label>
@@ -92,7 +92,7 @@ export default function MomentForm({ isOpenForm }: { isOpenForm: boolean }) {
           </div>
         </div>
 
-        <div className='w-full flex flex-row gap-3 mt-3'>
+        <div className='w-full flex flex-row gap-3 mt-2'>
           <button
             type='button'
             onClick={() => openMomentForm(false)}
@@ -102,7 +102,7 @@ export default function MomentForm({ isOpenForm }: { isOpenForm: boolean }) {
           </button>
           <button
             type='submit'
-            disabled={moment.moment === "" || moment.weather === "" || isSubmitting}
+            disabled={!moment.moment || !moment.weather || isSubmitting}
             className={[style.submitbtn, "bg-green-600"].join(" ")}
           >
             {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>{isInsertMode ? "Submit" : "Update"}</span>}

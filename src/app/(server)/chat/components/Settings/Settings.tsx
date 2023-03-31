@@ -8,7 +8,7 @@ export default function Settings() {
   const { regenerateResponse, options, setOptions, resetMessages, chatgptStatus } = useChatContext();
 
   return (
-    <div className='w-full h-full flex flex-col justify-between text-white gap-4 bg-slate-900 rounded-b-md md:rounded-b-none md:rounded-l-md px-3 py-4'>
+    <div className='w-full h-full flex flex-col justify-between text-white gap-4 bg-slate-700 rounded-b-md md:rounded-b-none md:rounded-l-md px-3 py-4'>
       <div className='flex flex-col gap-0.5'>
         <h1>Settings</h1>
 

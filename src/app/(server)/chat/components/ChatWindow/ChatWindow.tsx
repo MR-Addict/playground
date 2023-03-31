@@ -76,7 +76,7 @@ export default function ChatWindow() {
           <button
             aria-label='send message button'
             onClick={() => setMessages([...messages, { role: "user", content: userInput }])}
-            disabled={userInput === "" || chatgptStatus === "thinking"}
+            disabled={!userInput || chatgptStatus === "thinking"}
             type='submit'
           >
             <MdSend size={23} />

@@ -107,7 +107,7 @@ export default function BcryptForm() {
             <button
               type='submit'
               aria-label='regenerate hashed password'
-              disabled={input.password === "" || isHashing}
+              disabled={!input.password || isHashing}
               className='text-gray-700 disabled:cursor-not-allowed'
             >
               <BiRefresh size={27} />
@@ -116,7 +116,7 @@ export default function BcryptForm() {
               type='button'
               aria-label='copy hashed password'
               onClick={handleCopy}
-              disabled={output === ""}
+              disabled={!output}
               className='disabled:cursor-not-allowed text-gray-700'
             >
               <MdContentCopy size={20} />

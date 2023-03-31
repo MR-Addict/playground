@@ -167,7 +167,7 @@ export default function Generator() {
             <button
               type='button'
               onClick={handleCopy}
-              disabled={output === ""}
+              disabled={!output}
               aria-label='copy password'
               className='disabled:cursor-not-allowed text-gray-700'
             >

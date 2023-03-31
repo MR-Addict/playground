@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { FaUserAlt, FaLock } from "react-icons/fa";
+import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
 
 import style from "./LoginForm.module.css";
 import { LoadingDots, OperationWindow } from "@/components";
 import { usePopupContext, useLoginContext } from "@/contexts";
+import Link from "next/link";
 
 export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
   const { popup } = usePopupContext();
@@ -40,10 +41,11 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
         className={[style.form, "background", isOpenForm ? "scale-100" : "scale-0"].join(" ")}
       >
         <h1 className='font-bold text-4xl text-center'>Login</h1>
+
         <div className='flex flex-col gap-6'>
-          <div className='flex flex-col w-full gap-1'>
-            <label htmlFor='loginUsername' className='flex flex-row items-center gap-2 text-gray-700'>
-              <FaUserAlt />
+          <div className={style.inputgroup}>
+            <label htmlFor='loginUsername' className={style.label}>
+              <AiOutlineUser />
               <span>Username</span>
             </label>
             <input
@@ -58,9 +60,9 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
             />
           </div>
 
-          <div className='flex flex-col w-full gap-1'>
-            <label htmlFor='loginPassword' className='flex flex-row items-center gap-2 text-gray-700'>
-              <FaLock />
+          <div className={style.inputgroup}>
+            <label htmlFor='loginPassword' className={style.label}>
+              <AiOutlineLock />
               <span>Password</span>
             </label>
             <input
@@ -86,10 +88,17 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
             <button
               type='submit'
               className={[style.submitbtn, "bg-green-600"].join(" ")}
-              disabled={formData.username === "" || formData.password === "" || isLoggingIn}
+              disabled={!formData.username || !formData.password || isLoggingIn}
             >
               {isLoggingIn ? <LoadingDots color='white' size={5} /> : <span>Login</span>}
             </button>
+          </div>
+
+          <div className='flex flex-row justify-center gap-2'>
+            <span>Getting started?</span>
+            <Link href='/signup' onClick={() => openLoginForm(false)} className='text-blue-600 hover:underline'>
+              Signup
+            </Link>
           </div>
         </div>
       </form>

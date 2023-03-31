@@ -231,7 +231,7 @@ export default function Capture() {
         <button
           type='submit'
           className={[style.button].join(" ")}
-          disabled={formData.url === "" || result.status === "processing"}
+          disabled={!formData.url || result.status === "processing"}
         >
           Capture
         </button>

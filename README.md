@@ -2,6 +2,8 @@
 
 ## 1. Packages
 
+- [x] Zod
+- [x] Sharp
 - [x] Nextauth
 - [x] Typescript
 - [ ] Turbopack
@@ -9,6 +11,7 @@
 - [x] Nodemailer
 - [x] Tailwindcss
 - [x] Gray Matter
+- [x] React Icons
 - [x] Mongodb Altas
 - [x] Next MDX Remote
 - [x] Bcrypt(Replaced by bcryptjs, only used on server side)
@@ -23,6 +26,7 @@
 - [x] Youtube
 - [x] Codepen
 - [x] Markdown
+- [x] Cronitor
 - [x] ScrollToTop
 
 ## 3. Features
@@ -35,6 +39,7 @@
 - [x] Feedback
 - [x] Add Moments
 - [x] Live timeago
+- [x] Login user group
 - [x] Online HTMl playground
 - [x] Capture website from url
 - [x] Playground(Hidden interactive eggs)
@@ -53,7 +58,7 @@
 
 ## 6. TODOs
 
-- [] Add page loading progress bar
+- [ ] Add page loading progress bar
 
 ## 7. Tailwindcss Rules
 
@@ -71,7 +76,7 @@ add `.env` file:
 ```env
 MAILFROM="your_email"
 MAILPASS="your_email_pass"
-OPENAI_TOKEN="create_a_openai_token
+OPENAI_TOKEN="create_a_openai_token"
 GITHUB_TOKEN="create_a_github_token"
 CRONITOR_TOKEN="create_a_cronitor_token"
 NEXTAUTH_SECRET="create_a_nextauth_secret"

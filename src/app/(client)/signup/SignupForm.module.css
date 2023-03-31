@@ -1,6 +1,6 @@
 /* form */
 .form {
-  @apply duration-200 w-full md:max-w-xs flex flex-col gap-4 rounded-md p-5 md:p-7;
+  @apply w-full md:max-w-xs flex flex-col gap-2;
 }
 
 /* inputgroup */
@@ -24,7 +24,7 @@
 
 /* submit button */
 .submitbtn {
-  @apply w-full py-2 rounded-sm flex flex-col items-center justify-center border border-black duration-300 text-white;
+  @apply w-full h-11 mt-2 rounded-sm flex flex-col items-center justify-center border border-black duration-300 text-white;
 }
 
 .form:valid .submitbtn:enabled:hover {

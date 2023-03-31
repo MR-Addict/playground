@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import classNames from "classnames";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
@@ -7,7 +9,6 @@ import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
 import style from "./LoginForm.module.css";
 import { LoadingDots, OperationWindow } from "@/components";
 import { usePopupContext, useLoginContext } from "@/contexts";
-import Link from "next/link";
 
 export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
   const { popup } = usePopupContext();
@@ -38,7 +39,7 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
     <OperationWindow isOpenWindow={isOpenForm}>
       <form
         onSubmit={handleSubmit}
-        className={[style.form, "background", isOpenForm ? "scale-100" : "scale-0"].join(" ")}
+        className={classNames(style.form, "background", isOpenForm ? "scale-100" : "scale-0")}
       >
         <h1 className='font-bold text-4xl text-center'>Login</h1>
 
@@ -56,7 +57,7 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
               maxLength={10}
               value={formData.username}
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-              className={[style.input, "background"].join(" ")}
+              className={classNames(style.input, "background")}
             />
           </div>
 
@@ -73,7 +74,7 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
               maxLength={100}
               value={formData.password}
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-              className={[style.input, "background"].join(" ")}
+              className={classNames(style.input, "background")}
             />
           </div>
 
@@ -87,7 +88,7 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
             </button>
             <button
               type='submit'
-              className={[style.submitbtn, "bg-green-600"].join(" ")}
+              className={classNames(style.submitbtn, "bg-green-600")}
               disabled={!formData.username || !formData.password || isLoggingIn}
             >
               {isLoggingIn ? <LoadingDots color='white' size={5} /> : <span>Login</span>}

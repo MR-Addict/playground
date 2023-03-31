@@ -1,5 +1,6 @@
 "use client";
 
+import classNames from "classnames";
 import { useState } from "react";
 import { AiOutlineClear } from "react-icons/ai";
 
@@ -17,7 +18,7 @@ export default function MobileSettings() {
         onClick={resetMessages}
         aria-label='clear history'
         disabled={chatgptStatus === "thinking"}
-        className={[style.btn].join(" ")}
+        className={style.btn}
       >
         <AiOutlineClear size={20} />
       </button>
@@ -25,7 +26,7 @@ export default function MobileSettings() {
       <button
         onClick={() => setOpenSettings(!openSettings)}
         type='button'
-        className={[style.hamburger, openSettings ? style.active : ""].join(" ")}
+        className={classNames(style.hamburger, openSettings ? style.active : "")}
         aria-label='mobile nav button to toggle menu'
       >
         <div></div>

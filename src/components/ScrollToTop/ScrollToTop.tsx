@@ -1,5 +1,6 @@
 "use client";
 
+import classNames from "classnames";
 import { useState, useEffect } from "react";
 import { IoIosArrowUp } from "react-icons/io";
 
@@ -23,7 +24,7 @@ export default function ScrollToTop() {
       type='button'
       aria-label='scroll to top'
       onClick={() => window.scroll({ top: 0, behavior: "smooth" })}
-      className={[isVisiable ? "scale-100" : "scale-0", "bg-green-600", style.btn].join(" ")}
+      className={classNames(isVisiable ? "scale-100" : "scale-0", "bg-green-600", style.btn)}
     >
       <IoIosArrowUp size={30} />
     </button>

@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import classNames from "classnames";
 import { useState } from "react";
 import { Session } from "next-auth";
 import { signOut } from "next-auth/react";
 import { AiOutlineUser } from "react-icons/ai";
 
 import style from "./Usericon.module.css";
-
 import { useWindowSize } from "@/hooks";
 import { LoadingDots } from "@/components";
 
@@ -21,7 +21,7 @@ export default function Usericon({ session }: { session: Session }) {
       <button disabled={windowSize.width > 768} onClick={() => setIsActive(!isActive)} type='button'>
         <AiOutlineUser size={20} />
       </button>
-      <div className={[style.dropmenu, "background", isActive ? style.active : ""].join(" ")}>
+      <div className={classNames(style.dropmenu, "background", isActive ? style.active : "")}>
         <div>
           <p>Hello, {session.user.username}.</p>
           <p className='text-sm text-gray-500'>{session.user.email}</p>

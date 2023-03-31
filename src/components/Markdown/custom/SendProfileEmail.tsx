@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import classNames from "classnames";
+import { useState } from "react";
 
 import style from "./custom.module.css";
 import { LoadingDots } from "@/components";
@@ -47,7 +48,7 @@ export default function SendProfileEmail() {
       <button
         type='submit'
         disabled={!email || isSubmitting}
-        className={[style.submitbtn, "bg-green-600 border-green-700 text-white"].join(" ")}
+        className={classNames(style.submitbtn, "bg-green-600 border-green-700 text-white")}
       >
         {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Send Me Email</span>}
       </button>

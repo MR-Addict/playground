@@ -1,5 +1,6 @@
 "use client";
 
+import classNames from "classnames";
 import { MdSend } from "react-icons/md";
 import { MdErrorOutline } from "react-icons/md";
 
@@ -69,7 +70,7 @@ export default function ChatWindow() {
               maxLength={2000}
               onChange={handleInput}
               placeholder='Ask anything!'
-              className={[style.input, "background"].join(" ")}
+              className={classNames(style.input, "background")}
             />
           </div>
 

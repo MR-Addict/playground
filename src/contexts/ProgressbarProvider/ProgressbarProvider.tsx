@@ -20,16 +20,13 @@ interface ProgressbarContextProviderProps {
 export const ProgressbarContextProvider = ({
   children,
   height = 2,
-  color = "#2563eb",
+  color = "#16a34a",
 }: ProgressbarContextProviderProps) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    const fullPath = (pathname || "") + searchParams?.toString();
-  }, []);
+  useEffect(() => setIsLoading(false), [pathname, searchParams]);
 
   return (
     <ProgressbarContext.Provider value={{ setIsLoading }}>

@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { AiOutlineClear } from "react-icons/ai";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 
@@ -21,7 +22,7 @@ export default function Settings() {
               name='model'
               value={options.model}
               onChange={(e) => setOptions({ ...options, [e.target.name]: e.target.value })}
-              className={[style.input].join(" ")}
+              className={style.input}
             >
               <option value='gpt-3.5-turbo'>gpt-3.5-turbo</option>
             </select>
@@ -83,7 +84,7 @@ export default function Settings() {
             type='button'
             onClick={regenerateResponse}
             disabled={chatgptStatus === "thinking"}
-            className={[style.btn, "border border-gray-500"].join(" ")}
+            className={classNames(style.btn, "border border-gray-500")}
           >
             <IoChatbubbleEllipsesOutline size={18} />
             <span>Regnerate</span>
@@ -92,7 +93,7 @@ export default function Settings() {
           <button
             onClick={resetMessages}
             disabled={chatgptStatus === "thinking"}
-            className={[style.btn, "border border-gray-500"].join(" ")}
+            className={classNames(style.btn, "border border-gray-500")}
           >
             <AiOutlineClear size={20} />
             <span>Clear prompts</span>

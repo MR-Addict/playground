@@ -5,7 +5,7 @@ import { NormalSettings, ChatWindow, MobileSettings } from "./components";
 
 export default function Chat() {
   return (
-    <section aria-label='chat window' className={[style.window].join(" ")}>
+    <section aria-label='chat window' className={style.window}>
       <NormalSettings />
       <MobileSettings />
       <ChatWindow />

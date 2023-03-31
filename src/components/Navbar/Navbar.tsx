@@ -8,7 +8,8 @@ export default function Navbar() {
       <Link href='/' className='text-green-600 text-xl md:text-2xl font-bold'>
         Playground
       </Link>
-      <div className='flex flex-row items-center gap-5 md:gap-7'>
+
+      <div className='flex flex-row items-center gap-4'>
         <NormalNavbar />
         <Login />
         <MobileNavbar />

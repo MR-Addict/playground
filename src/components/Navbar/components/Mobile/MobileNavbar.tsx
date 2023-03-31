@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import classNames from "classnames";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
@@ -18,7 +19,7 @@ export default function MobileNavbar() {
     <div className='lg:hidden flex flex-row items-center'>
       <button
         type='button'
-        className={[style.hamburger, isExpand ? style.active : ""].join(" ")}
+        className={classNames(style.hamburger, isExpand ? style.active : "")}
         onClick={() => setIsExpand(!isExpand)}
         aria-label='mobile nav button to toggle menu'
       >

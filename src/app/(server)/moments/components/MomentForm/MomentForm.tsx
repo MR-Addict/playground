@@ -1,5 +1,6 @@
 "use client";
 
+import classNames from "classnames";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -47,7 +48,7 @@ export default function MomentForm({ isOpenForm }: { isOpenForm: boolean }) {
     <OperationWindow isOpenWindow={isOpenForm}>
       <form
         onSubmit={handleSubmit}
-        className={[style.form, "background", isOpenForm ? "scale-100" : "scale-0"].join(" ")}
+        className={classNames(style.form, "background", isOpenForm ? "scale-100" : "scale-0")}
       >
         <h1 className='font-bold text-3xl text-gray-700 border-b-4 border-b-green-600'>Moment</h1>
 
@@ -62,7 +63,7 @@ export default function MomentForm({ isOpenForm }: { isOpenForm: boolean }) {
               name='weather'
               value={moment.weather}
               onChange={(e) => setMoment({ ...moment, [e.target.name]: e.target.value })}
-              className={[style.input, "background"].join(" ")}
+              className={classNames(style.input, "background")}
             >
               <option disabled value=''>
                 -- select an option --
@@ -87,7 +88,7 @@ export default function MomentForm({ isOpenForm }: { isOpenForm: boolean }) {
               placeholder='Write something'
               value={moment.moment}
               onChange={(e) => setMoment({ ...moment, [e.target.name]: e.target.value })}
-              className={[style.input, "h-48", "background"].join(" ")}
+              className={classNames(style.input, "h-48", "background")}
             />
           </div>
         </div>
@@ -103,7 +104,7 @@ export default function MomentForm({ isOpenForm }: { isOpenForm: boolean }) {
           <button
             type='submit'
             disabled={!moment.moment || !moment.weather || isSubmitting}
-            className={[style.submitbtn, "bg-green-600"].join(" ")}
+            className={classNames(style.submitbtn, "bg-green-600")}
           >
             {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>{isInsertMode ? "Submit" : "Update"}</span>}
           </button>

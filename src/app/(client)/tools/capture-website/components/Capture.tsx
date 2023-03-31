@@ -1,9 +1,10 @@
 "use client";
 
+import classNames from "classnames";
 import { useState } from "react";
-import style from "./Capture.module.css";
 import { ImInfo } from "react-icons/im";
 
+import style from "./Capture.module.css";
 import { Tooltip } from "@/components";
 import { useCaptureContext } from "./CaptureContextProvider";
 
@@ -48,7 +49,7 @@ export default function Capture() {
   }
 
   return (
-    <form aria-label='capture website form' onSubmit={handleSubmit} className={[style.form, "background"].join(" ")}>
+    <form aria-label='capture website form' onSubmit={handleSubmit} className={classNames(style.form, "background")}>
       <div className={style.element}>
         <label htmlFor='url'>
           <p>Website URL</p>
@@ -228,16 +229,12 @@ export default function Capture() {
       </div>
 
       <div className='w-full flex flex-row gap-3'>
-        <button
-          type='submit'
-          className={[style.button].join(" ")}
-          disabled={!formData.url || result.status === "processing"}
-        >
+        <button type='submit' className={style.button} disabled={!formData.url || result.status === "processing"}>
           Capture
         </button>
         <button
           type='button'
-          className={[style.button].join(" ")}
+          className={style.button}
           disabled={result.status === "processing"}
           onClick={() => {
             setFormData(defaultFormData);

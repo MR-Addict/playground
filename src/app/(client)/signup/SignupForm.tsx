@@ -1,11 +1,11 @@
 "use client";
 
-import style from "./SignupForm.module.css";
-
+import classNames from "classnames";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { AiOutlineMail, AiOutlineUser, AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
 
+import style from "./SignupForm.module.css";
 import { LoadingDots } from "@/components";
 import { usePopupContext } from "@/contexts";
 
@@ -49,7 +49,7 @@ export default function SignupForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={[style.form, "background"].join(" ")}>
+    <form onSubmit={handleSubmit} className={classNames(style.form, "background")}>
       <h1 className='font-bold text-4xl text-center text-gray-700'>Signup</h1>
 
       <div className='flex flex-col gap-2'>
@@ -67,7 +67,7 @@ export default function SignupForm() {
             maxLength={10}
             value={formData.username}
             onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-            className={[style.input, "background"].join(" ")}
+            className={classNames(style.input, "background")}
           />
         </div>
 
@@ -85,7 +85,7 @@ export default function SignupForm() {
             maxLength={100}
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-            className={[style.input, "background"].join(" ")}
+            className={classNames(style.input, "background")}
           />
         </div>
 
@@ -104,7 +104,7 @@ export default function SignupForm() {
             maxLength={100}
             value={formData.password}
             onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-            className={[style.input, "background"].join(" ")}
+            className={classNames(style.input, "background")}
           />
         </div>
 
@@ -123,13 +123,13 @@ export default function SignupForm() {
             maxLength={100}
             value={formData.confirmPassword}
             onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-            className={[style.input, "background"].join(" ")}
+            className={classNames(style.input, "background")}
           />
         </div>
 
         <button
           type='submit'
-          className={[style.submitbtn, "bg-green-600"].join(" ")}
+          className={classNames(style.submitbtn, "bg-green-600")}
           disabled={
             !formData.username || !formData.password || !formData.email || !formData.confirmPassword || isSubmitting
           }

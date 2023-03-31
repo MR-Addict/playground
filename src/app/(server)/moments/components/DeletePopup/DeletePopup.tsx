@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import classNames from "classnames";
 import style from "./DeletePopup.module.css";
 import { usePopupContext } from "@/contexts";
 import { LoadingDots, OperationWindow } from "@/components";
@@ -38,7 +39,7 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
 
   return (
     <OperationWindow isOpenWindow={isOpenForm}>
-      <div className={[style.popup, "background", isOpenForm ? "scale-100" : "scale-0"].join(" ")}>
+      <div className={classNames(style.popup, "background", isOpenForm ? "scale-100" : "scale-0")}>
         <h1 className='font-bold text-3xl text-center text-gray-700'>Delete Moment?</h1>
 
         <div className='w-full flex flex-row gap-3 mt-3'>
@@ -49,7 +50,7 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
           >
             Cancel
           </button>
-          <button type='button' onClick={() => handleClick()} className={[style.submitbtn, "bg-green-600"].join(" ")}>
+          <button type='button' onClick={() => handleClick()} className={classNames(style.submitbtn, "bg-green-600")}>
             {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Delete</span>}
           </button>
         </div>

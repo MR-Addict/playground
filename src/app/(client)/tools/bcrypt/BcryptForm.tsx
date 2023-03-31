@@ -1,5 +1,6 @@
 "use client";
 
+import classNames from "classnames";
 import { hash } from "bcryptjs";
 import { useState } from "react";
 import { BiRefresh } from "react-icons/bi";
@@ -64,7 +65,7 @@ export default function BcryptForm() {
               placeholder='passowrd'
               value={input.password}
               onChange={(e) => setInput({ ...input, [e.target.name]: e.target.value })}
-              className={[style.input, "background"].join(" ")}
+              className={classNames(style.input, "background")}
             />
           </div>
 
@@ -87,7 +88,7 @@ export default function BcryptForm() {
               value={input.saltRound}
               placeholder='Salt round'
               onChange={(e) => setInput({ ...input, [e.target.name]: Number(e.target.value) })}
-              className={[style.input, "background"].join(" ")}
+              className={classNames(style.input, "background")}
             />
           </div>
         </div>

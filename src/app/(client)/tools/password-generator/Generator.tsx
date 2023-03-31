@@ -1,16 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
+import classNames from "classnames";
+import { useState } from "react";
 import { BiRefresh } from "react-icons/bi";
 import { MdContentCopy } from "react-icons/md";
 import { ImInfo, ImArrowDown } from "react-icons/im";
 
 import characters from "./characters";
-import { Tooltip } from "@/components";
 import style from "./Generator.module.css";
+import generatePasswords from "./generatePasswords";
+
+import { Tooltip } from "@/components";
 import { usePopupContext } from "@/contexts";
 import { copyToClipboard } from "@/lib/utils";
-import generatePasswords from "./generatePasswords";
 
 export default function Generator() {
   const { popup } = usePopupContext();
@@ -144,7 +146,7 @@ export default function Generator() {
               value={input.length}
               placeholder='Password length'
               onChange={(e) => setInput({ ...input, [e.target.name]: Number(e.target.value) })}
-              className={[style.input, "background"].join(" ")}
+              className={classNames(style.input, "background")}
             />
           </div>
         </div>

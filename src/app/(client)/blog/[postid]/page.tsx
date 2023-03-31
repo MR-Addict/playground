@@ -8,7 +8,6 @@ import { getPostContent, getAllPostsProps } from "@/lib/blog";
 
 export default async function Page({ params: { postid } }: { params: { postid: string } }) {
   const decodedPostid = decodeURIComponent(postid);
-
   const isPostExists = getAllPostsProps().find((item) => item.id == decodedPostid);
   if (isPostExists === undefined) notFound();
 

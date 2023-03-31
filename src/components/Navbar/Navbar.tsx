@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { NormalNavbar, MobileNavbar, LoginButton } from "./components";
+import { NormalNavbar, MobileNavbar, Login } from "./components";
 
 export default function Navbar() {
   return (
@@ -10,7 +10,7 @@ export default function Navbar() {
       </Link>
       <div className='flex flex-row items-center gap-5 md:gap-7'>
         <NormalNavbar />
-        <LoginButton />
+        <Login />
         <MobileNavbar />
       </div>
     </nav>

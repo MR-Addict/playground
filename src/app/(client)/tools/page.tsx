@@ -1,13 +1,14 @@
 import Link from "next/link";
 
 import tools from "./config";
+import { PageWrapper } from "@/components";
 import { colorfulColors, setMetadata } from "@/lib/utils";
 
 export const metadata = setMetadata("Tools");
 
 export default function Page() {
   return (
-    <main aria-label='tools page' className='frame w-full flex flex-col items-center gap-10'>
+    <PageWrapper aria-label='tools page' className='frame w-full flex flex-col items-center gap-10'>
       <header aria-label='title' className='flex flex-col items-center gap-3'>
         <h1 className='text-3xl text-center text-gray-700 font-bold'>Available Tools</h1>
         <p className='text-center w-full max-w-xl text-xl text-gray-500'>
@@ -38,6 +39,6 @@ export default function Page() {
           </li>
         ))}
       </ul>
-    </main>
+    </PageWrapper>
   );
 }

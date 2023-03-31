@@ -6,6 +6,7 @@ import { SiHtml5, SiCss3, SiJavascript } from "react-icons/si";
 
 import style from "./page.module.css";
 import { Editor } from "./components";
+import { PageWrapper } from "@/components";
 import { defaultIframeStyle, defaultInput } from "./config";
 
 import "./style.css";
@@ -46,7 +47,7 @@ export default function Client() {
   }, [input]);
 
   return (
-    <main aria-label='html playground' className='frame w-full flex flex-col'>
+    <PageWrapper aria-label='html playground' className='frame w-full flex flex-col'>
       <header className={style.header}>
         <div>
           <button type='button' onClick={() => handleClickTab("html")} tab-active={String(activeTab.html)}>
@@ -90,6 +91,6 @@ export default function Client() {
         />
         <iframe srcDoc={srcDoc} title='html playground' style={{ display: activeTab.result ? "block" : "none" }} />
       </section>
-    </main>
+    </PageWrapper>
   );
 }

@@ -2,8 +2,8 @@ import { notFound } from "next/navigation";
 import { FaRegClock } from "react-icons/fa";
 
 import { setMetadata } from "@/lib/utils";
-import { Markdown, TimeAgo } from "@/components";
 import { colorfulColors, formatDate } from "@/lib/utils";
+import { Markdown, TimeAgo, PageWrapper } from "@/components";
 import { getPostContent, getAllPostsProps } from "@/lib/blog";
 
 export default async function Page({ params: { postid } }: { params: { postid: string } }) {
@@ -15,7 +15,7 @@ export default async function Page({ params: { postid } }: { params: { postid: s
   const result = await getPostContent(decodedPostid);
 
   return (
-    <main aria-label='blog content page' className='frame w-full flex flex-col items-center gap-5'>
+    <PageWrapper aria-label='blog content page' className='frame w-full flex flex-col items-center gap-5'>
       <header aria-label='blog title' className='flex flex-col items-center gap-5'>
         <h1 className='text-3xl md:text-4xl font-bold text-gray-700 text-center'>{result.title}</h1>
         <div className='flex flex-col md:flex-row items-center gap-2 text-gray-500'>
@@ -38,7 +38,7 @@ export default async function Page({ params: { postid } }: { params: { postid: s
       <article aria-label='markdown' className='w-full max-w-3xl markdown' style={{ scrollBehavior: "smooth" }}>
         <Markdown serializedMDX={result.serializedMDX} />
       </article>
-    </main>
+    </PageWrapper>
   );
 }
 

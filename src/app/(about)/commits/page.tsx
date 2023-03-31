@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import style from "./page.module.css";
 import fetchOnePage from "./fetchOnePage";
+import { PageWrapper } from "@/components";
 import { RecordLists } from "../components";
 import { setMetadata, groupBy } from "@/lib/utils";
-
-import style from "./page.module.css";
 
 export const revalidate = 0;
 
@@ -22,7 +22,7 @@ export default async function Page({ searchParams: { page } }: { searchParams: {
   const commits = result.data;
 
   return (
-    <main aria-label='commits page' className='flex-1 frame w-full flex flex-col gap-5'>
+    <PageWrapper aria-label='commits page' className='flex-1 frame w-full flex flex-col gap-5'>
       <h1 className='text-2xl font-bold text-slate-700'>Commits({totalCount})</h1>
       <RecordLists records={commits} />
       <div className='flex flex-row justify-center'>
@@ -41,6 +41,6 @@ export default async function Page({ searchParams: { page } }: { searchParams: {
           Next
         </Link>
       </div>
-    </main>
+    </PageWrapper>
   );
 }

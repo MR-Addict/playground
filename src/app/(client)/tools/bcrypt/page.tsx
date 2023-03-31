@@ -1,15 +1,15 @@
-import { Back } from "@/components";
 import BcryptForm from "./BcryptForm";
 import { setMetadata } from "@/lib/utils";
+import { Back, PageWrapper } from "@/components";
 
 export const metadata = setMetadata("Tools • Bcrypt");
 
 export default function Page() {
   return (
-    <main aria-label='bcrypt page' className='frame w-full'>
+    <PageWrapper aria-label='bcrypt page' className='frame w-full'>
       <Back link='/tools'>
         <BcryptForm />
       </Back>
-    </main>
+    </PageWrapper>
   );
 }

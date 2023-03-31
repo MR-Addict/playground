@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FaRegClock } from "react-icons/fa";
 
-import { TimeAgo } from "@/components";
+import { TimeAgo, PageWrapper } from "@/components";
 import { getAllPostsProps } from "@/lib/blog";
 import { colorfulColors, formatDate, setMetadata } from "@/lib/utils";
 
@@ -11,7 +11,7 @@ export default function Page() {
   const posts = getAllPostsProps();
 
   return (
-    <main aria-label='blog page' className='frame w-full flex flex-col items-center gap-10'>
+    <PageWrapper aria-label='blog page' className='frame w-full flex flex-col items-center gap-10'>
       <header aria-label='title' className='flex flex-col items-center gap-3'>
         <h1 className='text-gray-700 font-bold text-3xl'>Blog</h1>
         <p className='w-full max-w-xl text-center text-xl text-gray-500'>
@@ -50,6 +50,6 @@ export default function Page() {
           ))}
         </ul>
       </section>
-    </main>
+    </PageWrapper>
   );
 }

@@ -1,5 +1,5 @@
 import SignupForm from "./SignupForm";
-import { Back } from "@/components";
+import { Back, PageWrapper } from "@/components";
 import { redirect } from "next/navigation";
 import { setMetadata } from "@/lib/utils";
 
@@ -12,10 +12,10 @@ export default async function Page() {
   if (session) redirect("/");
 
   return (
-    <main className='frame w-full'>
+    <PageWrapper className='frame w-full'>
       <Back link='/'>
         <SignupForm />
       </Back>
-    </main>
+    </PageWrapper>
   );
 }

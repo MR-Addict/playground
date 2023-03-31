@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import readPackages from "./readPackages";
 import { setMetadata } from "@/lib/utils";
+import { PageWrapper } from "@/components";
 
 export const metadata = setMetadata("Packages");
 
@@ -9,7 +10,7 @@ export default async function Page() {
   const packages = await readPackages();
 
   return (
-    <main aria-label='packages page' className='frame w-full flex flex-col gap-5'>
+    <PageWrapper aria-label='packages page' className='frame w-full flex flex-col gap-5'>
       <h1 className='text-slate-700 font-bold text-2xl'>Packages({packages.length})</h1>
       <ul aria-label='packges body' className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
         {packages.map((item, index) => (
@@ -27,6 +28,6 @@ export default async function Page() {
           </li>
         ))}
       </ul>
-    </main>
+    </PageWrapper>
   );
 }

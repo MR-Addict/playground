@@ -13,6 +13,7 @@
 - [x] Gray Matter
 - [x] React Icons
 - [x] Mongodb Altas
+- [x] Framer Motion
 - [x] Next MDX Remote
 - [x] Bcrypt(Replaced by bcryptjs, only used on server side)
 

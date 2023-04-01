@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import readPackages from "./readPackages";
 import { setMetadata } from "@/lib/utils";
-import { PageWrapper } from "@/components";
+import { PageWrapper } from "@/components/client";
 
 export const metadata = setMetadata("Packages");
 

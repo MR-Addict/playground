@@ -6,7 +6,7 @@ import { SiHtml5, SiCss3, SiJavascript } from "react-icons/si";
 
 import style from "./page.module.css";
 import { Editor } from "./components";
-import { PageWrapper } from "@/components";
+import { PageWrapper } from "@/components/client";
 import { defaultIframeStyle, defaultInput } from "./config";
 
 import "./style.css";

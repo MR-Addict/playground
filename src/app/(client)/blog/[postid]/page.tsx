@@ -2,8 +2,9 @@ import { notFound } from "next/navigation";
 import { FaRegClock } from "react-icons/fa";
 
 import { setMetadata } from "@/lib/utils";
+import { Markdown } from "@/components/server";
 import { colorfulColors, formatDate } from "@/lib/utils";
-import { Markdown, TimeAgo, PageWrapper } from "@/components";
+import { TimeAgo, PageWrapper } from "@/components/client";
 import { getPostContent, getAllPostsProps } from "@/lib/blog";
 
 export default async function Page({ params: { postid } }: { params: { postid: string } }) {

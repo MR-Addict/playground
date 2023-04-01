@@ -7,8 +7,8 @@ import { signIn } from "next-auth/react";
 import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
 
 import style from "./LoginForm.module.css";
-import { LoadingDots, OperationWindow } from "@/components";
 import { usePopupContext, useLoginContext } from "@/contexts";
+import { LoadingDots, OperationWindow } from "@/components/server";
 
 export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
   const { popup } = usePopupContext();

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import classNames from "classnames";
 import style from "./DeletePopup.module.css";
 import { usePopupContext } from "@/contexts";
-import { LoadingDots, OperationWindow } from "@/components";
+import { LoadingDots, OperationWindow } from "@/components/server";
 import { useDeletePopupContext } from "./DeletePopupContextProvider";
 
 export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {

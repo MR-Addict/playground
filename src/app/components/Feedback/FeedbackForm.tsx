@@ -4,9 +4,9 @@ import classNames from "classnames";
 import { useState } from "react";
 import { MdSend } from "react-icons/md";
 
-import { LoadingDots } from "@/components";
-import { usePopupContext } from "@/contexts";
 import style from "./FeedbackForm.module.css";
+import { usePopupContext } from "@/contexts";
+import { LoadingDots } from "@/components/server";
 
 export default function FeedbackForm() {
   const { popup } = usePopupContext();

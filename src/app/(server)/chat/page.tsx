@@ -3,16 +3,16 @@ import { redirect } from "next/navigation";
 import Chat from "./Chat";
 import { env } from "@/types/env";
 import { setMetadata } from "@/lib/utils";
-import { PageWrapper } from "@/components";
+import { checkPerm } from "@/lib/auth/checkPerm";
+import { PageWrapper } from "@/components/client";
 import { ChatContextProvider } from "./components";
 import { pageSession } from "@/lib/auth/serverSession";
-import { checkUserPermission } from "@/lib/auth/checkUserPermission";
 
 export const metadata = setMetadata("Chat");
 
 export default async function Page() {
   const session = await pageSession();
-  const userPermission = checkUserPermission(session?.user.role || "vistor", "contributor");
+  const userPermission = checkPerm(session?.user.role || "vistor", "contributor");
   if (!userPermission) redirect("/");
 
   return (

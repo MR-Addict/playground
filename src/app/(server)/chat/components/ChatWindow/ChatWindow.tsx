@@ -5,8 +5,8 @@ import { MdSend } from "react-icons/md";
 import { MdErrorOutline } from "react-icons/md";
 
 import style from "./ChatWindow.module.css";
-import { LoadingDots } from "@/components";
 import { useChatContext } from "./ChatProvider";
+import { LoadingDots } from "@/components/server";
 
 export default function ChatWindow() {
   const { userInput, setUserInput, messages, setMessages, chatgptStatus, generateResponse } = useChatContext();

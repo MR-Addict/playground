@@ -1,7 +1,8 @@
 import "./globals.css";
 
 import { env } from "@/types/env";
-import { ScrollToTop, Footer, Navbar, Cronitor } from "@/components";
+import { Footer, Navbar } from "@/components/server";
+import { ScrollToTop, Cronitor } from "@/components/client";
 import { NextauthProvider, PopupContextProvider, LoginContextProvider, ProgressbarContextProvider } from "@/contexts";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

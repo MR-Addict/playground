@@ -2,7 +2,7 @@
 
 import { AiOutlineDelete } from "react-icons/ai";
 
-import { Tooltip } from "@/components";
+import { Tooltip } from "@/components/server";
 import { useDeletePopupContext } from "./DeletePopup/DeletePopupContextProvider";
 
 export default function DeleteButton({ _id }: { _id: string }) {

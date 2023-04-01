@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 import { AiOutlineMail, AiOutlineUser, AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
 
 import style from "./SignupForm.module.css";
-import { LoadingDots } from "@/components";
 import { usePopupContext } from "@/contexts";
+import { LoadingDots } from "@/components/server";
 
 const defaultFormData = { username: "", password: "", email: "", confirmPassword: "" };
 

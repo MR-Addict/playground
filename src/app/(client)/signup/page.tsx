@@ -1,9 +1,9 @@
-import SignupForm from "./SignupForm";
-import { Back, PageWrapper } from "@/components";
 import { redirect } from "next/navigation";
-import { setMetadata } from "@/lib/utils";
 
+import SignupForm from "./SignupForm";
+import { setMetadata } from "@/lib/utils";
 import { pageSession } from "@/lib/auth/serverSession";
+import { Back, PageWrapper } from "@/components/client";
 
 export const metadata = setMetadata("Signup");
 

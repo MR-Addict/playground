@@ -7,7 +7,7 @@ const RolePermissions = {
   vistor: 4,
 };
 
-export function checkUserPermission(user: UserRoleType, permission: UserRoleType) {
+export function checkPerm(user: UserRoleType, permission: UserRoleType) {
   const userPermission = RolePermissions[user];
   return userPermission <= RolePermissions[permission];
 }

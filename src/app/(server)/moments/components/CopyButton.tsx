@@ -2,7 +2,7 @@
 
 import { MdContentCopy } from "react-icons/md";
 
-import { Tooltip } from "@/components";
+import { Tooltip } from "@/components/server";
 import { copyToClipboard } from "@/lib/utils";
 import { usePopupContext } from "@/contexts";
 

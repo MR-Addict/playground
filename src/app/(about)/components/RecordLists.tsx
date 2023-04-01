@@ -1,7 +1,7 @@
 import { FaRegClock } from "react-icons/fa";
 import { HiOutlineChatBubbleOvalLeftEllipsis } from "react-icons/hi2";
 
-import { TimeAgo } from "@/components";
+import { TimeAgo } from "@/components/client";
 
 interface RecordsType {
   category: string;

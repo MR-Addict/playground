@@ -3,8 +3,8 @@
 import classNames from "classnames";
 
 import style from "./LoginButton.module.css";
-import { LoadingDots } from "@/components";
 import { useLoginContext } from "@/contexts";
+import { LoadingDots } from "@/components/server";
 
 export default function LoginButton() {
   const { openLoginForm, isLoggingIn } = useLoginContext();

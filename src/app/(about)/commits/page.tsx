@@ -4,9 +4,9 @@ import { notFound } from "next/navigation";
 
 import style from "./page.module.css";
 import fetchOnePage from "./fetchOnePage";
-import { PageWrapper, ClientLink } from "@/components";
 import { RecordLists } from "../components";
 import { setMetadata, groupBy } from "@/lib/utils";
+import { PageWrapper, ClientLink } from "@/components/client";
 
 export const revalidate = 0;
 

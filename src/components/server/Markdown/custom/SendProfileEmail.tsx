@@ -2,8 +2,8 @@ import classNames from "classnames";
 import { useState } from "react";
 
 import style from "./custom.module.css";
-import { LoadingDots } from "@/components";
 import { usePopupContext } from "@/contexts";
+import { LoadingDots } from "@/components/server";
 
 export default function SendProfileEmail() {
   const { popup } = usePopupContext();

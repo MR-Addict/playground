@@ -6,9 +6,9 @@ import { useRouter } from "next/navigation";
 
 import style from "./MomentForm.module.css";
 import { allWeathers } from "../../config";
-import { LoadingDots, OperationWindow } from "@/components";
 import { usePopupContext } from "@/contexts";
 import { useMomentContext } from "./MomentContextProvider";
+import { LoadingDots, OperationWindow } from "@/components/server";
 
 export default function MomentForm({ isOpenForm }: { isOpenForm: boolean }) {
   const router = useRouter();

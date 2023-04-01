@@ -6,7 +6,7 @@ import "./style/prism-line-numbers.css";
 
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 
-import { Youtube, Codepen } from "@/components";
+import { Youtube, Codepen } from "@/components/server";
 import { KeyButton, SendProfileEmail } from "./custom";
 import { Heading, Paragraph, List, Anchor, Code, Blockquote, Pre, Img } from "./components";
 

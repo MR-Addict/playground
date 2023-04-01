@@ -3,7 +3,7 @@
 import { ImInfo } from "react-icons/im";
 
 import style from "./Capture.module.css";
-import { SpinLoader } from "@/components";
+import { SpinLoader } from "@/components/server";
 import { ResultType, useCaptureContext } from "./CaptureContextProvider";
 
 export default function Result() {

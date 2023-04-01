@@ -10,7 +10,7 @@ import characters from "./characters";
 import style from "./Generator.module.css";
 import generatePasswords from "./generatePasswords";
 
-import { Tooltip } from "@/components";
+import { Tooltip } from "@/components/server";
 import { usePopupContext } from "@/contexts";
 import { copyToClipboard } from "@/lib/utils";
 

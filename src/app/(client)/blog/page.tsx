@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { FaRegClock } from "react-icons/fa";
 
-import { TimeAgo, PageWrapper } from "@/components";
 import { getAllPostsProps } from "@/lib/blog";
+import { TimeAgo, PageWrapper } from "@/components/client";
 import { colorfulColors, formatDate, setMetadata } from "@/lib/utils";
 
 export const metadata = setMetadata("Blog");

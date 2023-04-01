@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 
 import navbarData from "../../config";
 import style from "./Hamburger.module.css";
-import { checkUserPermission } from "@/lib/auth/checkUserPermission";
+import { checkPerm } from "@/lib/auth/checkPerm";
 
 export default function MobileNavbar() {
   const { data: session } = useSession();
@@ -32,7 +32,7 @@ export default function MobileNavbar() {
       >
         <ul className='w-full flex flex-col gap-1'>
           {navbarData
-            .filter((item) => checkUserPermission(session?.user.role || "vistor", item.visibility))
+            .filter((item) => checkPerm(session?.user.role || "vistor", item.visibility))
             .map((item, index) => (
               <li key={index}>
                 <Link

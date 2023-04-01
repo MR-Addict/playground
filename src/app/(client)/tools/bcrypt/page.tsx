@@ -1,6 +1,6 @@
 import BcryptForm from "./BcryptForm";
 import { setMetadata } from "@/lib/utils";
-import { Back, PageWrapper } from "@/components";
+import { Back, PageWrapper } from "@/components/client";
 
 export const metadata = setMetadata("Tools • Bcrypt");
 

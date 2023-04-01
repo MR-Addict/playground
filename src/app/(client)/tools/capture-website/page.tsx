@@ -1,5 +1,5 @@
-import { Back, PageWrapper } from "@/components";
 import { setMetadata } from "@/lib/utils";
+import { Back, PageWrapper } from "@/components/client";
 import { Capture, Result, CaptureContextProvider } from "./components";
 
 export const metadata = setMetadata("Tools • Capture Website");

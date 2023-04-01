@@ -8,7 +8,7 @@ import { MdContentCopy } from "react-icons/md";
 import { ImInfo, ImArrowDown } from "react-icons/im";
 
 import style from "./BcryptForm.module.css";
-import { Tooltip } from "@/components";
+import { Tooltip } from "@/components/server";
 import { copyToClipboard } from "@/lib/utils";
 import { usePopupContext } from "@/contexts";
 

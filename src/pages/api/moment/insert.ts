@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import { moment } from "@/lib/mongodb";
+import { checkPerm } from "@/lib/auth/checkPerm";
 import { routerSession } from "@/lib/auth/serverSession";
-import { checkUserPermission } from "@/lib/auth/checkUserPermission";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST")
@@ -11,8 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const session = await routerSession(req, res);
   if (!session) return res.status(401).json({ status: false, message: "Unauthorized" });
 
-  if (!checkUserPermission(session.user.role, "admin"))
-    return res.status(403).json({ status: false, message: "Forbidden" });
+  if (!checkPerm(session.user.role, "admin")) return res.status(403).json({ status: false, message: "Forbidden" });
 
   if (!req.body?.weather || !req.body?.moment) return res.status(400).json({ status: false, message: "Bad request" });
 

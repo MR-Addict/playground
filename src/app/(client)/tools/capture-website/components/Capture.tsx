@@ -5,7 +5,7 @@ import { useState } from "react";
 import { ImInfo } from "react-icons/im";
 
 import style from "./Capture.module.css";
-import { Tooltip } from "@/components";
+import { Tooltip } from "@/components/server";
 import { useCaptureContext } from "./CaptureContextProvider";
 
 export default function Capture() {

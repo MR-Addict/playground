@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import tools from "./config";
-import { PageWrapper } from "@/components";
+import { PageWrapper } from "@/components/client";
 import { colorfulColors, setMetadata } from "@/lib/utils";
 
 export const metadata = setMetadata("Tools");

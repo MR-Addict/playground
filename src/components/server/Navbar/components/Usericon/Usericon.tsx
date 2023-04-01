@@ -9,7 +9,7 @@ import { AiOutlineUser } from "react-icons/ai";
 
 import style from "./Usericon.module.css";
 import { useWindowSize } from "@/hooks";
-import { LoadingDots } from "@/components";
+import { LoadingDots } from "@/components/server";
 
 export default function Usericon({ session }: { session: Session }) {
   const windowSize = useWindowSize();

@@ -1,7 +1,7 @@
 import fetchFeedbacks from "./fetchFeedbacks";
 import { setMetadata } from "@/lib/utils";
 import { RecordLists } from "../components";
-import { PageWrapper } from "@/components";
+import { PageWrapper } from "@/components/client";
 
 export const metadata = setMetadata("Feedback");
 

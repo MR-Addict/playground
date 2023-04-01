@@ -3,7 +3,8 @@ import { FaRegClock } from "react-icons/fa";
 import style from "./page.module.css";
 import fetchMoments from "./fetchMoments";
 import { setMetadata } from "@/lib/utils";
-import { Tooltip, TimeAgo } from "@/components";
+import { Tooltip } from "@/components/server";
+import { TimeAgo } from "@/components/client";
 import { AddButton, CopyButton, EditButton, DeleteButton, GetWeatherIcon } from "./components";
 
 export const metadata = setMetadata("Moments");

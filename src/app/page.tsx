@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 
 import { Welcome } from "./components";
 import { setMetadata } from "@/lib/utils";
-import { PageWrapper } from "@/components";
+import { PageWrapper } from "@/components/client";
 
 const Timer = dynamic(() => import("./components/Timer/Timer"));
 const Projects = dynamic(() => import("./components/Projects/Projects"));

@@ -22,9 +22,8 @@ export const PopupContextProvider = ({ children }: { children: React.ReactNode }
   }
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsPopup(false);
-    }, 3000);
+    const timer = setTimeout(() => setIsPopup(false), 3000);
+
     return () => clearTimeout(timer);
   }, [popupData]);
 

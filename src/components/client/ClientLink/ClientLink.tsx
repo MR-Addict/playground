@@ -9,12 +9,12 @@ type Props = {
 } & React.ComponentProps<typeof Link>;
 
 export default function ClientLink({ href, disabled, children, onClick, ...rest }: Props) {
-  const { setIsLoading } = useProgressbarContext();
+  const { startProgress } = useProgressbarContext();
 
   function handleClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
     if (disabled) return;
     const { pathname, search, hash } = window.location;
-    if (href !== pathname + search + hash) setIsLoading(true);
+    if (href !== pathname + search + hash) startProgress();
     if (onClick) onClick(event);
   }
 

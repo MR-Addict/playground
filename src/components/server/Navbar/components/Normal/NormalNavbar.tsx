@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 
@@ -22,12 +21,6 @@ export default function NormalNavbar() {
               href={item.link}
               className={`${rootPath === item.link ? "text-green-600" : "text-gray-700 hover:text-green-600"} relative`}
             >
-              {rootPath === item.link && (
-                <motion.span
-                  layoutId='normallink-underline'
-                  className='absolute left-0 w-full block h-0.5 top-full bg-green-600'
-                />
-              )}
               {item.title}
             </ClientLink>
           </li>

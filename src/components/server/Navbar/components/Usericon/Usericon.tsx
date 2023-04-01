@@ -1,23 +1,26 @@
 "use client";
 
 import classNames from "classnames";
-import { useState } from "react";
 import { Session } from "next-auth";
+import { useState, useRef } from "react";
 import { signOut } from "next-auth/react";
 import { AiOutlineUser } from "react-icons/ai";
 
 import style from "./Usericon.module.css";
-import { useWindowSize } from "@/hooks";
 import { ClientLink } from "@/components/client";
 import { LoadingDots } from "@/components/server";
+import { useWindowSize, useClickOutside } from "@/hooks";
 
 export default function Usericon({ session }: { session: Session }) {
   const windowSize = useWindowSize();
+  const dropmenuRef = useRef<HTMLDivElement>(null);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
+  useClickOutside(dropmenuRef, () => setIsActive(false));
+
   return (
-    <div className={style.usericon}>
+    <div ref={dropmenuRef} className={style.usericon}>
       <button disabled={windowSize.width > 768} onClick={() => setIsActive(!isActive)} type='button'>
         <AiOutlineUser size={20} />
       </button>

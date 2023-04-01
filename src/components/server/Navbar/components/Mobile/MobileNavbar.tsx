@@ -1,22 +1,26 @@
 "use client";
 
 import classNames from "classnames";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 
 import navbarData from "../../config";
 import style from "./Hamburger.module.css";
+import { useClickOutside } from "@/hooks";
 import { ClientLink } from "@/components/client";
 import { checkPerm } from "@/lib/auth/checkPerm";
 
 export default function MobileNavbar() {
+  const menuRef = useRef<HTMLDivElement>(null);
   const { data: session } = useSession();
   const [isExpand, setIsExpand] = useState(false);
   const rootPath = (usePathname() || "/").split("/").slice(0, 2).join("/");
 
+  useClickOutside(menuRef, () => setIsExpand(false));
+
   return (
-    <div className='lg:hidden flex flex-row items-center'>
+    <div ref={menuRef} className='lg:hidden flex flex-row items-center'>
       <button
         type='button'
         className={classNames(style.hamburger, isExpand ? style.active : "")}

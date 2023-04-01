@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { FaShare } from "react-icons/fa";
 
 import { linkItemType } from "../../config";
+import { ClientLink } from "@/components/client";
 
 export default function LinkCard({ link }: { link: linkItemType }) {
   if (link.external) {
@@ -18,8 +18,8 @@ export default function LinkCard({ link }: { link: linkItemType }) {
   }
 
   return (
-    <Link href={link.link} className='text-gray-500 hover:text-gray-700 flex flex-row gap-1 items-center w-fit'>
+    <ClientLink href={link.link} className='text-gray-500 hover:text-gray-700 flex flex-row gap-1 items-center w-fit'>
       <h1>{link.title}</h1>
-    </Link>
+    </ClientLink>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import classNames from "classnames";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
@@ -8,6 +7,7 @@ import { usePathname } from "next/navigation";
 
 import navbarData from "../../config";
 import style from "./Hamburger.module.css";
+import { ClientLink } from "@/components/client";
 import { checkPerm } from "@/lib/auth/checkPerm";
 
 export default function MobileNavbar() {
@@ -35,7 +35,7 @@ export default function MobileNavbar() {
             .filter((item) => checkPerm(session?.user.role || "vistor", item.visibility))
             .map((item, index) => (
               <li key={index}>
-                <Link
+                <ClientLink
                   href={item.link}
                   onClick={() => setIsExpand(false)}
                   className={`w-full flex flex-row gap-2 items-center justify-start border-b-2 p-2 rounded-md ${
@@ -43,7 +43,7 @@ export default function MobileNavbar() {
                   }`}
                 >
                   {item.title}
-                </Link>
+                </ClientLink>
               </li>
             ))}
         </ul>

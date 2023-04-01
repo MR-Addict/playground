@@ -1,7 +1,5 @@
-import Link from "next/link";
-
 import tools from "./config";
-import { PageWrapper } from "@/components/client";
+import { PageWrapper, ClientLink } from "@/components/client";
 import { colorfulColors, setMetadata } from "@/lib/utils";
 
 export const metadata = setMetadata("Tools");
@@ -27,13 +25,13 @@ export default function Page() {
               <span className='text-xl text-gray-500'>{item.intro}</span>
             </div>
             <div className='flex flex-row items-center justify-between'>
-              <Link
+              <ClientLink
                 href={item.link}
                 style={{ backgroundColor: colorfulColors[index % colorfulColors.length] }}
                 className='rounded-md py-3 px-7 text-xl font-bold text-white shadow-lg md:translate-y-7 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 duration-500 transform-gpu'
               >
                 Have a try
-              </Link>
+              </ClientLink>
               <span style={{ color: colorfulColors[index % colorfulColors.length] }}>{<item.icon size={70} />}</span>
             </div>
           </li>

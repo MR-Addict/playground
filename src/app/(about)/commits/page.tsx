@@ -1,4 +1,3 @@
-import Link from "next/link";
 import classNames from "classnames";
 import { notFound } from "next/navigation";
 
@@ -6,7 +5,7 @@ import style from "./page.module.css";
 import fetchOnePage from "./fetchOnePage";
 import { RecordLists } from "../components";
 import { setMetadata, groupBy } from "@/lib/utils";
-import { PageWrapper, ClientLink } from "@/components/client";
+import { ClientLink, PageWrapper } from "@/components/client";
 
 export const revalidate = 0;
 
@@ -28,6 +27,7 @@ export default async function Page({ searchParams: { page } }: { searchParams: {
       <RecordLists records={commits} />
       <div className='flex flex-row justify-center'>
         <ClientLink
+          disabled={!res.isPrev}
           style={{ cursor: res.isPrev ? "pointer" : "not-allowed" }}
           className={classNames(style.link, style.prev, res.isPrev ? style.active : style.deactive)}
           href={{ pathname: "/commits", query: { page: currentPage - (res.isPrev ? 1 : 0) } }}
@@ -35,6 +35,7 @@ export default async function Page({ searchParams: { page } }: { searchParams: {
           Prev
         </ClientLink>
         <ClientLink
+          disabled={!res.isNext}
           style={{ cursor: res.isNext ? "pointer" : "not-allowed" }}
           className={classNames(style.link, style.next, res.isNext ? style.active : style.deactive)}
           href={{ pathname: "/commits", query: { page: currentPage + (res.isNext ? 1 : 0) } }}

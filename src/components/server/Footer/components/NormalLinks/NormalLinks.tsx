@@ -1,7 +1,6 @@
-import Link from "next/link";
-
-import { links } from "../../config";
 import LinkCard from "../LinkCard/LinkCard";
+import { links } from "../../config";
+import { ClientLink } from "@/components/client";
 
 export default function NormalLinks() {
   return (
@@ -19,9 +18,9 @@ export default function NormalLinks() {
         ))}
       </ul>
 
-      <Link href='/' className='text-green-600 text-2xl font-bold italic w-1/2 text-end'>
+      <ClientLink href='/' className='text-green-600 text-2xl font-bold italic w-1/2 text-end'>
         Playground
-      </Link>
+      </ClientLink>
     </section>
   );
 }

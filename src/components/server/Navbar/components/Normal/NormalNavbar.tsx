@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 
 import navbarData from "../../config";
 import { checkPerm } from "@/lib/auth/checkPerm";
+import { ClientLink } from "@/components/client";
 
 export default function NormalNavbar() {
   const { data: session } = useSession();
@@ -18,7 +18,7 @@ export default function NormalNavbar() {
         .filter((item) => checkPerm(session?.user.role || "vistor", item.visibility))
         .map((item, index) => (
           <li key={index}>
-            <Link
+            <ClientLink
               href={item.link}
               className={`${rootPath === item.link ? "text-green-600" : "text-gray-700 hover:text-green-600"} relative`}
             >
@@ -29,7 +29,7 @@ export default function NormalNavbar() {
                 />
               )}
               {item.title}
-            </Link>
+            </ClientLink>
           </li>
         ))}
     </ul>

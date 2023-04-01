@@ -1,9 +1,8 @@
-import Link from "next/link";
 import { FaRegClock } from "react-icons/fa";
 
 import { getAllPostsProps } from "@/lib/blog";
-import { TimeAgo, PageWrapper } from "@/components/client";
 import { colorfulColors, formatDate, setMetadata } from "@/lib/utils";
+import { TimeAgo, PageWrapper, ClientLink } from "@/components/client";
 
 export const metadata = setMetadata("Blog");
 
@@ -26,9 +25,9 @@ export default function Page() {
               key={index}
               className='flex flex-col items-start gap-2 background drop-shadow-md border border-gray-300 p-3 rounded-md md:hover:drop-shadow-xl cursor-pointer md:hover:translate-y-1 duration-300'
             >
-              <Link href={`/blog/${item.id}`} className='text-xl text-blue-600 hover:underline'>
+              <ClientLink href={`/blog/${item.id}`} className='text-xl text-blue-600 hover:underline'>
                 {item.title}
-              </Link>
+              </ClientLink>
               <div className='flex text-sm flex-col md:flex-row md:items-center md:gap-2 text-gray-500'>
                 <div className='flex flex-row gap-2'>
                   <div className='flex flex-row items-center gap-[1px]'>

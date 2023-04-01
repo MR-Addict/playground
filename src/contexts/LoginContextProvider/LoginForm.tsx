@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import classNames from "classnames";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
 
 import style from "./LoginForm.module.css";
+import { ClientLink } from "@/components/client";
 import { usePopupContext, useLoginContext } from "@/contexts";
 import { LoadingDots, OperationWindow } from "@/components/server";
 
@@ -97,9 +97,9 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
 
           <div className='flex flex-row justify-center gap-2'>
             <span>Getting started?</span>
-            <Link href='/signup' onClick={() => openLoginForm(false)} className='text-blue-600 hover:underline'>
+            <ClientLink href='/signup' onClick={() => openLoginForm(false)} className='text-blue-600 hover:underline'>
               Signup
-            </Link>
+            </ClientLink>
           </div>
         </div>
       </form>

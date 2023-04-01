@@ -1,28 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { UrlObject } from "url";
 
 import { useProgressbarContext } from "@/contexts";
 
-interface Props {
-  href: string | UrlObject;
-  children: React.ReactNode;
-  [key: string]: any;
-}
+type Props = {
+  disabled?: boolean;
+} & React.ComponentProps<typeof Link>;
 
-export default function ClientLink({ href, children, ...rest }: Props) {
+export default function ClientLink({ href, disabled, children, onClick, ...rest }: Props) {
   const { setIsLoading } = useProgressbarContext();
 
+  function handleClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+    if (disabled) return;
+    const { pathname, search, hash } = window.location;
+    if (href !== pathname + search + hash) setIsLoading(true);
+    if (onClick) onClick(event);
+  }
+
   return (
-    <Link
-      href={href}
-      onClick={() => {
-        const { pathname, search, hash } = window.location;
-        if (href !== pathname + search + hash) setIsLoading(true);
-      }}
-      {...rest}
-    >
+    <Link href={href} onClick={handleClick} {...rest}>
       {children}
     </Link>
   );

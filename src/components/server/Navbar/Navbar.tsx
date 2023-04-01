@@ -1,13 +1,12 @@
-import Link from "next/link";
-
+import { ClientLink } from "@/components/client";
 import { NormalNavbar, MobileNavbar, Login } from "./components";
 
 export default function Navbar() {
   return (
     <nav aria-label='navbar' className='py-5 px-5 md:px-48 w-full flex flex-row items-center justify-between'>
-      <Link href='/' className='text-green-600 text-xl md:text-2xl font-bold'>
+      <ClientLink href='/' className='text-green-600 text-xl md:text-2xl font-bold'>
         Playground
-      </Link>
+      </ClientLink>
 
       <div className='flex flex-row items-center gap-4'>
         <NormalNavbar />

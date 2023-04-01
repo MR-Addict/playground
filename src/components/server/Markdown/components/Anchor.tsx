@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { ClientLink } from "@/components/client";
 
 export default function Anchor(
   props: React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
@@ -12,9 +12,9 @@ export default function Anchor(
     );
   } else if (props.href?.startsWith("/")) {
     return (
-      <Link href={props.href} className='text-lg text-blue-600 hover:underline'>
+      <ClientLink href={props.href} className='text-lg text-blue-600 hover:underline'>
         {props.children}
-      </Link>
+      </ClientLink>
     );
   }
 

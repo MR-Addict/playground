@@ -59,7 +59,7 @@
 
 ## 6. TODOs
 
-- [ ] Add page loading progress bar
+- [x] Add page loading progress bar(2023.4.1 Tricky way to solve it)
 
 ## 7. Tailwindcss Rules
 

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import classNames from "classnames";
 import { useState } from "react";
 import { Session } from "next-auth";
@@ -9,6 +8,7 @@ import { AiOutlineUser } from "react-icons/ai";
 
 import style from "./Usericon.module.css";
 import { useWindowSize } from "@/hooks";
+import { ClientLink } from "@/components/client";
 import { LoadingDots } from "@/components/server";
 
 export default function Usericon({ session }: { session: Session }) {
@@ -27,9 +27,9 @@ export default function Usericon({ session }: { session: Session }) {
           <p className='text-sm text-gray-500'>{session.user.email}</p>
         </div>
         <hr />
-        <Link href='/' className='w-full hover:text-green-600'>
+        <ClientLink href='/' className='w-full hover:text-green-600'>
           Dashboard
-        </Link>
+        </ClientLink>
         <hr />
         <button
           type='button'

@@ -1,6 +1,5 @@
 import { StaticImageData } from "next/image";
 
-import signup from "./images/signup.png";
 import vistalab from "./images/vistalab.png";
 import linktree from "./images/linktree.png";
 import publicapi from "./images/publicapi.png";
@@ -33,13 +32,6 @@ const projects: projectType[] = [
     link: "https://github.com/MR-Addict/linktree",
     intro:
       "In this project, I begin to use vercel to host my website, authenticate with next auth, and use mongodb as my database. Also this time, I begin to deeply love these stacks. I appreciate vercel team creates a so good, neat, convenient but also powerful framework. I love what next.js features, especially the giant break after version 13. I think it's the best frontend framework ever.",
-  },
-  {
-    title: "Vistalab Lego activity",
-    img: signup,
-    link: "https://github.com/MR-Addict/signup-form",
-    intro:
-      "Our Lego activity is designed for everyone, regardless of age, background, or experience level. The goal of the activity is to work together to build a structure using Lego blocks, while also learning about the principles of engineering and design. We believe that this activity will be a fun and creative way to spend time with others. And I'm glad to be the frontend development of this project.",
   },
 ];
 

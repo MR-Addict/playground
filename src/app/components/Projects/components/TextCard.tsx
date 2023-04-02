@@ -11,7 +11,7 @@ export default function TextCard({ project, isEven }: { project: projectType; is
         <a
           href={project.link}
           target='_blank'
-          className='flex flex-row items-center gap-1 text-lg py-2 px-4 bg-black text-white rounded-xl duration-300 hover:shadow-xl'
+          className='flex flex-row items-center gap-1 text-lg py-2 px-4 bg-green-600 text-white rounded-xl duration-300 hover:bg-green-700'
         >
           Have a Look
           <RiShareBoxLine />

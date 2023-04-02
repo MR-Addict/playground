@@ -19,3 +19,12 @@
 .hamburger.active div:last-of-type {
   rotate: -17deg;
 }
+
+/* settings */
+.settings {
+  @apply absolute left-0 w-full -bottom-[28.5rem] z-10 text-white duration-300 opacity-0 origin-top scale-y-95 invisible;
+}
+
+.settings.active {
+  @apply visible opacity-100 scale-y-100;
+}

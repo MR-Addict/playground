@@ -1,19 +1,23 @@
 "use client";
 
 import classNames from "classnames";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { AiOutlineClear } from "react-icons/ai";
 
 import Settings from "../Settings/Settings";
 import style from "./MobileSettings.module.css";
+import { useClickOutside } from "@/hooks";
 import { useChatContext } from "../ChatWindow/ChatProvider";
 
 export default function MobileSettings() {
+  const settingsRef = useRef<HTMLElement>(null);
   const { resetMessages, chatgptStatus } = useChatContext();
   const [openSettings, setOpenSettings] = useState(false);
 
+  useClickOutside(settingsRef, () => setOpenSettings(false));
+
   return (
-    <section aria-label='mobile setting' className={style.user}>
+    <section ref={settingsRef} aria-label='mobile setting' className={style.user}>
       <button
         onClick={resetMessages}
         aria-label='clear history'
@@ -33,11 +37,9 @@ export default function MobileSettings() {
         <div></div>
       </button>
 
-      {openSettings && (
-        <div className='absolute left-0 w-full -bottom-[28.5rem] z-10 text-white'>
-          <Settings />
-        </div>
-      )}
+      <div className={classNames(style.settings, openSettings ? style.active : "")}>
+        <Settings />
+      </div>
     </section>
   );
 }

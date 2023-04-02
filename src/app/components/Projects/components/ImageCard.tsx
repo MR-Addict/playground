@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { MdRefresh } from "react-icons/md";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 
@@ -9,13 +6,7 @@ import { projectType } from "../config";
 
 export default function ImageCard({ project }: { project: projectType }) {
   return (
-    <motion.div
-      transition={{ delay: 0.5 }}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className='bg-white shadow-md rounded-md flex flex-col flex-1'
-    >
+    <div className='bg-white shadow-md rounded-md flex flex-col flex-1'>
       <div className='w-full flex flex-row items-center justify-between px-5 py-2 border-b border-b-gray-300'>
         <div className='flex flex-row gap-1 w-fit'>
           <span className='bg-red-600 rounded-full w-3 h-3'></span>
@@ -35,6 +26,6 @@ export default function ImageCard({ project }: { project: projectType }) {
         placeholder='blur'
         className='w-full object-left-top aspect-video object-cover rounded-b-md'
       />
-    </motion.div>
+    </div>
   );
 }

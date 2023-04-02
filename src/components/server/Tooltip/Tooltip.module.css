@@ -1,13 +1,15 @@
 .tip {
-  @apply relative flex items-center justify-center;
+  @apply relative flex items-center justify-center isolate;
 }
 
 .tip:hover::before {
-  @apply md:block;
+  @apply md:visible md:opacity-100;
 }
 
 .tip::before {
-  @apply border border-green-600 drop-shadow-xl z-10 absolute w-max max-w-lg rounded-lg bg-gradient-to-br from-blue-50 to-purple-50 px-2 py-1.5 text-gray-700 content-[attr(tip-data)] hidden;
+  content: attr(tip-data);
+  box-shadow: 0 0 5px gray;
+  @apply duration-100 z-10 absolute w-max max-w-lg rounded-md px-2 py-1.5 text-white bg-slate-700 opacity-0 invisible;
 }
 
 .top::before {

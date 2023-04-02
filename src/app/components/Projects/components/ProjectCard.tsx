@@ -1,5 +1,7 @@
-import { projectType } from "./config";
-import { TextCard, ImageCard, SplitLine } from "./components";
+import TextCard from "./TextCard";
+import SplitLine from "./SplitLine";
+import ImageCard from "./ImageCard";
+import { projectType } from "../config";
 
 export default function ProjectCard({ project, isEven }: { project: projectType; isEven: boolean }) {
   if (isEven) {

@@ -4,6 +4,7 @@ import fsPromises from "fs/promises";
 import zod from "./images/zod.png";
 import sharp from "./images/sharp.png";
 import nextjs from "./images/nextjs.png";
+import framer from "./images/framer.svg";
 import mongodb from "./images/mongodb.png";
 import reactjs from "./images/reactjs.png";
 import bcryptjs from "./images/bcryptjs.png";
@@ -110,6 +111,14 @@ const packages = [
       name: "@uiw/react-codemirror",
     },
     img: codemirror,
+  },
+  {
+    name: "Framer Motion",
+    package: {
+      category: "devDependencies",
+      name: "framer-motion",
+    },
+    img: framer,
   },
 ];
 

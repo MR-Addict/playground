@@ -68,3 +68,7 @@ Or a swinging smile:
 Even more, you can create a very cool animated gradient border card:
 
 <Codepen id="NWBOqKw" height="600px"/>
+
+## 4. Usefule links
+
+- [MDN @Property link](https://developer.mozilla.org/en-US/docs/Web/CSS/@property)

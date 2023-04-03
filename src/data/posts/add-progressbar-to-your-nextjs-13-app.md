@@ -1,5 +1,5 @@
 ---
-title: "Implement Progressbar to Your Next.js 13 App"
+title: "Add Progressbar to Your Next.js 13 App"
 date: "2023-04-3 13:15"
 tags: ["next.js-13", "progressbar", "nprogress"]
 intro: "Solve the problem that unable use nextjs-progressbar"
@@ -7,9 +7,16 @@ intro: "Solve the problem that unable use nextjs-progressbar"
 
 ## 1. What's the problem
 
-There is an npm package called [nextjs-progressbar](https://www.npmjs.com/package/nextjs-progressbar) that you can use easily used in your **next.js 12** project. But if you're like me using next.js 13, this package won't work.
+Due to next.js **SSR** is not that fast, and when you click a link that needs SSR, the page could be still for a long time. So I managed to make it after a ton of research.
 
-The reason is that the original package is using **router.events.on** to listen to router events:
+The solution I will use is inspired by this github repository, and there is also a dem you can have a try:
+
+- [https://github.com/joulev/nextjs13-appdir-router-events](https://github.com/joulev/nextjs13-appdir-router-events)
+- [https://nextjs13-router-events.vercel.app](https://nextjs13-router-events.vercel.app)
+
+Actually, there is an npm package called [nextjs-progressbar](https://www.npmjs.com/package/nextjs-progressbar) that you can use easily used in your **next.js 12** project. But if you're like me using next.js 13, this package won't work.
+
+The reason is that the original package is using **router.events.on** to listen to router events.
 
 ```tsx:useRouter.tsx
 const router = useRouter();
@@ -25,17 +32,13 @@ useEffect(() => {
 }, []);
 ```
 
-However, if you router.events.on in next.js 13, it will throw `NextRouter was not mounted` error:
-
-You can find more information about this problem on this github discussion:
+However, if you use router.events.on in next.js 13, it will throw `NextRouter was not mounted` error. You can find more information about this problem on this github discussion:
 
 - [https://github.com/vercel/next.js/discussions/46478](https://github.com/vercel/next.js/discussions/46478)
 
-Due to next.js **SSR** is not that fast, after you click a link that needs SSR, the page could be still for a long. This could be a big UX problem. So I managed to make it after a ton of research.
+I don't know whether next.js team will solve this issue, but I need this feature to improve my website UX in some pages:
 
-The solution I will use is inspired by this github repository:
-
-- [https://github.com/joulev/nextjs13-appdir-router-events](https://github.com/joulev/nextjs13-appdir-router-events)
+- [commits page](/commits)
 
 ## 2. Principle
 

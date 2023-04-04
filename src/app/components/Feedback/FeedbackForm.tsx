@@ -27,18 +27,18 @@ export default function FeedbackForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const backupFeedback = feedback;
-    setFeedback("");
     fetch("/api/feedback/insert", {
       method: "POST",
-      body: new URLSearchParams({ feedback: backupFeedback }),
+      body: new URLSearchParams({ feedback }),
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
     })
       .then((res) => res.json())
       .then((result) => {
         popup(result);
-        if (result.status) revalidatePage();
-        else console.error(result.message);
+        if (result.status) {
+          setFeedback("");
+          revalidatePage();
+        } else console.error(result.message);
       })
       .catch((error) => {
         console.error(error);

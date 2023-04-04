@@ -4,7 +4,7 @@ import { BiEditAlt } from "react-icons/bi";
 
 import { MomentType } from "../config";
 import { Tooltip } from "@/components/server";
-import { useMomentContext } from "./MomentForm/MomentContextProvider";
+import { useMomentContext } from "../MomentForm/MomentContextProvider";
 
 export default function EditButton({ moment }: { moment: MomentType }) {
   const { setMoment, openMomentForm, setIsInsertMode } = useMomentContext();

@@ -32,7 +32,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const postsDir = path.join(process.cwd(), "src/data/posts");
+const postsDir = path.join(process.cwd(), "src/assets/posts");
 
 interface blogType {
   id: string;
@@ -73,7 +73,7 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 import serializeMDX from "./serializeMDX";
 
-const postsDir = path.join(process.cwd(), "src/data/posts");
+const postsDir = path.join(process.cwd(), "src/assets/posts");
 
 export default async function getPostContent(id: string) {
   const filePath = path.join(postsDir, `${id}.md`);
@@ -365,7 +365,7 @@ I find one useful youtube video that may be helpful.
 
 ## 11. Useful Links
 
-- [MDX blog with Next.js 13](https://blog.kfirfitousi.com/posts/web-dev/mdx-nextjs-13)
+- [MDX blog with Next.js 13](https://blog.kfirfitousi.com/postsweb-dev/mdx-nextjs-13)
 - [Nexjs official markdown tutorial](https://nextjs.org/blog/markdown)
 - [EasonChang blog about adding copy button to markdown](https://ithelp.ithome.com.tw/articles/10302397)
 - [Philstainer blog about how to add copy button to code block](https://philstainer.io/blog/copy-code-button-markdown)

@@ -26,9 +26,10 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
       .then((res) => res.json())
       .then((result) => {
         popup(result);
-        if (result.status) router.refresh();
-        else console.error(result.message);
-        if (result.status) openDeletePopup(false);
+        if (result.status) {
+          openDeletePopup(false);
+          router.refresh();
+        } else console.error(result.message);
       })
       .catch((error) => {
         console.error(error);

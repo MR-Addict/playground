@@ -1,10 +1,17 @@
+import classNames from "classnames";
 import { useEffect, useRef, useState } from "react";
 
+import style from "./Pre.module.css";
 import { copyToClipboard } from "@/lib/utils";
+import { HiOutlineChevronDoubleDown } from "react-icons/hi2";
 
-export default function Pre(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLPreElement>, HTMLPreElement>) {
+export default function Pre(props: React.ComponentProps<"pre">) {
   const preRef = useRef<HTMLPreElement>(null);
   const [copied, setCopied] = useState(false);
+  const [isSpand, setIsSpand] = useState(false);
+  const [showSpandBtn, setShowSpandBtn] = useState(false);
+
+  useEffect(() => setShowSpandBtn((preRef.current?.getElementsByClassName("code-line").length || 0) > 30), []);
 
   useEffect(() => {
     const timer = setTimeout(() => setCopied(false), 2000);
@@ -19,14 +26,14 @@ export default function Pre(props: React.DetailedHTMLProps<React.HTMLAttributes<
   }
 
   return (
-    <div className='relative group mb-4'>
+    <div className={classNames(style.container, isSpand ? style.active : "")}>
       <pre {...props} ref={preRef}>
         <button
           type='button'
           disabled={copied}
           onClick={handleClick}
           aria-label='Copy to Clipboard'
-          className='absolute space-x-2 top-0 right-0 m-2 hidden transition bg-transparent border rounded-md p-2 focus:outline-none group-hover:flex disabled:flex fade-in'
+          className={style["copy-btn"]}
         >
           <svg
             fill='none'
@@ -47,6 +54,17 @@ export default function Pre(props: React.DetailedHTMLProps<React.HTMLAttributes<
             )}
           </svg>
         </button>
+
+        {showSpandBtn && (
+          <button
+            type='button'
+            onClick={() => setIsSpand(!isSpand)}
+            aria-label='spand code button'
+            className={style["spand-btn"]}
+          >
+            <HiOutlineChevronDoubleDown />
+          </button>
+        )}
         {props.children}
       </pre>
     </div>

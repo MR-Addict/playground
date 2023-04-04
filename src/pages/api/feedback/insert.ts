@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import { env } from "@/types/env";
-import { sendEmail } from "@/lib/blog";
 import { feedback } from "@/lib/mongodb";
+import { sendEmail } from "@/lib/nodemailer";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST")

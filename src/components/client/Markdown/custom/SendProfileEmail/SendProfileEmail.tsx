@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { useState } from "react";
 
-import style from "./custom.module.css";
+import style from "./SendProfileEmail.module.css";
 import { usePopupContext } from "@/contexts";
 import { LoadingDots } from "@/components/server";
 
@@ -14,17 +14,16 @@ export default function SendProfileEmail() {
     event.preventDefault();
     setIsSubmitting(true);
 
-    const backupEmail = email;
-    setEmail("");
     fetch("/api/blog/sendprofileemail", {
       method: "POST",
-      body: new URLSearchParams({ email: backupEmail }),
+      body: new URLSearchParams({ email }),
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
     })
       .then((res) => res.json())
       .then((result) => {
-        if (result.status) console.error(result.message);
         popup(result);
+        if (result.status) setEmail("");
+        else console.error(result.message);
       })
       .catch((error) => {
         console.error(error);

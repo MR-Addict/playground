@@ -1,4 +1,4 @@
-export default function List(props: React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>) {
+export default function List(props: React.ComponentProps<"li">) {
   // input
   if (props.className === "task-list-item") {
     return (

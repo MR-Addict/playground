@@ -5,7 +5,7 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 import serializeMDX from "./serializeMDX";
 
-const postsDir = path.join(process.cwd(), "src/data/posts");
+const postsDir = path.join(process.cwd(), "src/assets/posts");
 
 export default async function getPostContent(id: string) {
   const filePath = path.join(postsDir, `${id}.md`);

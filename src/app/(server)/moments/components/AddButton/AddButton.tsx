@@ -3,7 +3,7 @@
 import { BiPlusCircle } from "react-icons/bi";
 
 import { Tooltip } from "@/components/server";
-import { useMomentContext, defaultMoment } from "./MomentForm/MomentContextProvider";
+import { useMomentContext, defaultMoment } from "../MomentForm/MomentContextProvider";
 
 export default function AddButton() {
   const { setMoment, openMomentForm, setIsInsertMode } = useMomentContext();

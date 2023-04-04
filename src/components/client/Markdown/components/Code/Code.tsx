@@ -1,4 +1,4 @@
-export default function Code(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>) {
+export default function Code(props: React.ComponentProps<"code">) {
   // normal code block
   if (props.className) {
     return <code {...props}>{props.children}</code>;

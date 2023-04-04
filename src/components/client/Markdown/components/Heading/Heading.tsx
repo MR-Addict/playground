@@ -1,4 +1,4 @@
-function H1(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
+function H1(props: React.ComponentProps<"h1">) {
   return (
     <h1 {...props} className='text-3xl font-bold py-3 my-4 text-gray-900 border-b-2 border-gray-200'>
       {props.children}
@@ -6,7 +6,7 @@ function H1(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingEleme
   );
 }
 
-function H2(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
+function H2(props: React.ComponentProps<"h2">) {
   return (
     <h2 {...props} className='text-2xl font-bold py-3 my-4 text-gray-800 border-b-2 border-gray-200'>
       {props.children}
@@ -14,7 +14,7 @@ function H2(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingEleme
   );
 }
 
-function H3(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
+function H3(props: React.ComponentProps<"h3">) {
   return (
     <h3 {...props} className='text-xl font-semibold py-3 my-4 text-gray-700'>
       {props.children}
@@ -22,7 +22,7 @@ function H3(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingEleme
   );
 }
 
-function H4(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
+function H4(props: React.ComponentProps<"h4">) {
   return (
     <h4 {...props} className='text-lg font-semibold py-3 my-4 text-gray-700'>
       {props.children}
@@ -30,7 +30,7 @@ function H4(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingEleme
   );
 }
 
-function H5(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
+function H5(props: React.ComponentProps<"h5">) {
   return (
     <h5 {...props} className='text-base font-semibold py-3 my-4 text-gray-700'>
       {props.children}
@@ -38,7 +38,7 @@ function H5(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingEleme
   );
 }
 
-function H6(props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) {
+function H6(props: React.ComponentProps<"h6">) {
   return (
     <h6 {...props} className='text-base font-semibold py-3 my-4 text-gray-700'>
       {props.children}

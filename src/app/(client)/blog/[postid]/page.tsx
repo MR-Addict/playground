@@ -2,10 +2,9 @@ import { notFound } from "next/navigation";
 import { FaRegClock } from "react-icons/fa";
 
 import { setMetadata } from "@/lib/utils";
-import { Markdown } from "@/components/server";
 import { colorfulColors, formatDate } from "@/lib/utils";
-import { TimeAgo, PageWrapper } from "@/components/client";
 import { getPostContent, getAllPostsProps } from "@/lib/blog";
+import { Markdown, TimeAgo, PageWrapper } from "@/components/client";
 
 export default async function Page({ params: { postid } }: { params: { postid: string } }) {
   const decodedPostid = decodeURIComponent(postid);
@@ -35,9 +34,19 @@ export default async function Page({ params: { postid } }: { params: { postid: s
           </div>
         </div>
       </header>
-      <article aria-label='markdown' className='w-full max-w-3xl markdown' style={{ scrollBehavior: "smooth" }}>
-        <Markdown serializedMDX={result.serializedMDX} />
-      </article>
+      <div className='w-full flex flex-row justify-between gap-3'>
+        <article aria-label='markdown' className='w-full max-w-3xl markdown' style={{ scrollBehavior: "smooth" }}>
+          <Markdown serializedMDX={result.serializedMDX} />
+        </article>
+        <div>
+          <ul className='h-fit sticky'>
+            <li>Hello world</li>
+            <li>Hello world</li>
+            <li>Hello world</li>
+            <li>Hello world</li>
+          </ul>
+        </div>
+      </div>
     </PageWrapper>
   );
 }

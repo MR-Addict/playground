@@ -23,9 +23,9 @@ const mailTransport = nodemailer.createTransport({
 export default async function sendEmail({ from, to, subject, text, html }: mailOptionsType) {
   try {
     await mailTransport.sendMail({ from, to, subject, text, html });
-    return { status: true, message: "Sending email succeeded" };
+    return { status: true, message: "Send email succeeded" };
   } catch (error) {
     console.error(error);
-    return { status: false, message: "Sending email failed" };
+    return { status: false, message: "Fail to send email" };
   }
 }

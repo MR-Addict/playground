@@ -1,7 +1,7 @@
 "use client";
 
 import MomentForm from "./MomentForm";
-import { MomentType } from "../../config";
+import { MomentType } from "../config";
 import { createContext, useContext, useState } from "react";
 
 export const defaultMoment = { _id: "", date: "", weather: "", moment: "" };

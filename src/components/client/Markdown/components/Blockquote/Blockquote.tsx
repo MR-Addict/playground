@@ -1,6 +1,4 @@
-export default function Blockquote(
-  props: React.DetailedHTMLProps<React.BlockquoteHTMLAttributes<HTMLQuoteElement>, HTMLQuoteElement>
-) {
+export default function Blockquote(props: React.ComponentProps<"blockquote">) {
   return (
     <blockquote
       {...props}

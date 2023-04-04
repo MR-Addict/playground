@@ -26,6 +26,7 @@ export default function Capture() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
     setResult({ ...result, status: "processing" });
     fetch("https://api.mraddict.one/screenshot", {
       method: "POST",

@@ -1,8 +1,6 @@
 import { ClientLink } from "@/components/client";
 
-export default function Anchor(
-  props: React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
-) {
+export default function Anchor(props: React.ComponentProps<"a">) {
   // heading anchor
   if (props.href?.startsWith("#")) {
     return (

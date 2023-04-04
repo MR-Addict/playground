@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const postsDir = path.join(process.cwd(), "src/data/posts");
+const postsDir = path.join(process.cwd(), "src/assets/posts");
 
 interface blogType {
   id: string;

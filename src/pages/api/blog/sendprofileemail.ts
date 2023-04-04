@@ -3,10 +3,10 @@ import path from "path";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import { env } from "@/types/env";
-import { sendEmail } from "@/lib/blog";
+import { sendEmail } from "@/lib/nodemailer";
 
 function readProfileHtml() {
-  const filePath = path.join(process.cwd(), "src/data/blog/profile.html");
+  const filePath = path.join(process.cwd(), "src/assets/utils/profile.html");
   const fileContent = fs.readFileSync(filePath, "utf8");
   return fileContent;
 }

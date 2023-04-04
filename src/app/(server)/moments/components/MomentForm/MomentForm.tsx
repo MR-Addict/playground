@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import style from "./MomentForm.module.css";
-import { allWeathers } from "../../config";
+import { allWeathers } from "../config";
 import { usePopupContext } from "@/contexts";
 import { useMomentContext } from "./MomentContextProvider";
 import { LoadingDots, OperationWindow } from "@/components/server";

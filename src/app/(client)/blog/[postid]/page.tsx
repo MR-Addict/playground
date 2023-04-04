@@ -34,19 +34,9 @@ export default async function Page({ params: { postid } }: { params: { postid: s
           </div>
         </div>
       </header>
-      <div className='w-full flex flex-row justify-between gap-3'>
-        <article aria-label='markdown' className='w-full max-w-3xl markdown' style={{ scrollBehavior: "smooth" }}>
-          <Markdown serializedMDX={result.serializedMDX} />
-        </article>
-        <div>
-          <ul className='h-fit sticky'>
-            <li>Hello world</li>
-            <li>Hello world</li>
-            <li>Hello world</li>
-            <li>Hello world</li>
-          </ul>
-        </div>
-      </div>
+      <article aria-label='markdown' className='w-full max-w-3xl markdown'>
+        <Markdown serializedMDX={result.serializedMDX} />
+      </article>
     </PageWrapper>
   );
 }

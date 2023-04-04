@@ -9,7 +9,7 @@
 .tip::before {
   content: attr(tip-data);
   box-shadow: 0 0 5px gray;
-  @apply duration-100 z-10 absolute w-max max-w-lg rounded-md px-2 py-1.5 text-white bg-slate-700 opacity-0 invisible;
+  @apply duration-100 z-10 absolute w-max max-w-lg rounded-md px-2 py-1.5 text-white bg-slate-700/90 opacity-0 invisible;
 }
 
 .top::before {

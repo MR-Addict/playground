@@ -1,5 +1,0 @@
-.window {
-  height: 75vh;
-  box-shadow: 0 0 10px #b9b9b9;
-  @apply w-full rounded-md flex flex-col md:flex-row;
-}

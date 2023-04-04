@@ -6,7 +6,6 @@ const Env = z.object({
   MAILPASS: z.string(),
   MAILFROM: z.string(),
   MONGODB_URI: z.string(),
-  OPENAI_TOKEN: z.string(),
   GITHUB_TOKEN: z.string(),
   CRONITOR_TOKEN: z.string(),
   NEXTAUTH_SECRET: z.string(),

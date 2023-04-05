@@ -5,12 +5,12 @@ import clientPromise from "./clientPromise";
 import { Project } from "@/types/project";
 import { fetchOneRepo } from "../project";
 
-async function insert(user: string, repo: string) {
+async function insert(owner: string, name: string) {
   try {
     const client = await clientPromise;
     const db = client.db("playground");
 
-    const data = await fetchOneRepo(user, repo);
+    const data = await fetchOneRepo(owner, name);
     const result = await db.collection("project").insertOne(data);
     if (result.insertedId) return { status: true, message: "Insert succeeded" };
     else return { status: false, message: "Insert failed" };
@@ -20,12 +20,12 @@ async function insert(user: string, repo: string) {
   }
 }
 
-async function update(_id: string, user: string, repo: string) {
+async function update(_id: string, owner: string, name: string) {
   try {
     const client = await clientPromise;
     const db = client.db("playground");
 
-    const data = await fetchOneRepo(user, repo);
+    const data = await fetchOneRepo(owner, name);
     const result = await db.collection("project").updateOne({ _id: new ObjectId(_id) }, { $set: data });
     if (result.modifiedCount) return { status: true, message: "Update succeeded" };
     else return { status: true, message: "Nothing changed" };

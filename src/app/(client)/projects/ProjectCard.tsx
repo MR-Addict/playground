@@ -1,22 +1,31 @@
-import { Session } from "next-auth";
 import { GrBook } from "react-icons/gr";
 import { FaRegClock } from "react-icons/fa";
 import { AiOutlineStar, AiOutlineFork } from "react-icons/ai";
 
 import style from "./ProjectCard.module.css";
-import { DeleteButton } from "./components";
 import { ProjectType } from "@/types/project";
 import { TimeAgo } from "@/components/client";
+import { DeleteButton, EditButton, UpdateButton } from "./components";
+import classNames from "classnames";
 
 export default function ProjectCard({ project, permission }: { project: ProjectType; permission: boolean }) {
   return (
     <li className={style.card}>
-      <div className={style["flex-row-1"]}>
-        <GrBook size={13} />
-        <a href={project.url} target='_blank' className='text-blue-600 text-lg hover:underline'>
-          {project.name}
-        </a>
-        {permission && <DeleteButton _id={project._id.toString()} />}
+      <div className='flex flex-row gap-3'>
+        <div className={style["flex-row-1"]}>
+          <GrBook size={13} />
+          <a href={project.url} target='_blank' className='text-blue-600 text-lg hover:underline'>
+            {project.name}
+          </a>
+        </div>
+
+        {permission && (
+          <div className={style["flex-row-1"]}>
+            <EditButton project={{ _id: project._id.toString(), owner: project.owner, name: project.name }} />
+            <UpdateButton project={{ _id: project._id.toString(), owner: project.owner, name: project.name }} />
+            <DeleteButton _id={project._id.toString()} />
+          </div>
+        )}
       </div>
 
       {project.intro && <div className='text-gray-500 text-sm'>{project.intro}</div>}
@@ -30,7 +39,7 @@ export default function ProjectCard({ project, permission }: { project: ProjectT
       )}
 
       {project.topics.length !== 0 && (
-        <ul className={style["flex-row-1"]}>
+        <ul className={classNames(style["flex-row-1"], "flex-wrap")}>
           {project.topics.map((topic) => (
             <li key={topic}>
               <a

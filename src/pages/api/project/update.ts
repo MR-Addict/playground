@@ -13,9 +13,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   if (!checkPerm(session.user.role, "admin")) return res.status(403).json({ status: false, message: "Forbidden" });
 
-  if (!req.body?._id || !req.body?.user || !req.body?.repo)
+  if (!req.body?._id || !req.body?.owner || !req.body?.name)
     return res.status(400).json({ status: false, message: "Bad request" });
 
-  const result = await project.update(req.body._id, req.body.user, req.body.repo);
+  const result = await project.update(req.body._id, req.body.owner, req.body.name);
   return res.status(result.status ? 200 : 500).json(result);
 }

@@ -21,7 +21,12 @@ export default function Usericon({ session }: { session: Session }) {
 
   return (
     <div ref={dropmenuRef} className={style.usericon}>
-      <button disabled={windowSize.width > 768} onClick={() => setIsActive(!isActive)} type='button'>
+      <button
+        aria-label='user icon button'
+        disabled={windowSize.width > 768}
+        onClick={() => setIsActive(!isActive)}
+        type='button'
+      >
         <AiOutlineUser size={20} />
       </button>
       <div className={classNames(style.dropmenu, "background", isActive ? style.active : "")}>

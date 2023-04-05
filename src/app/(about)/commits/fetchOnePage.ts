@@ -25,6 +25,7 @@ function pairHeader(headers: Headers) {
 export default async function fetchOnePage(page: number) {
   const res = await fetch(`https://api.github.com/repos/MR-Addict/playground/commits?per_page=30&page=${page}`, {
     headers: { Authorization: "Basic " + Buffer.from(`MR-Addict:${env.GITHUB_TOKEN}`).toString("base64") },
+    cache: "no-store",
   });
   if (!res.ok) throw new Error("Failed to fetch data");
   const result = await res.json();

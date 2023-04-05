@@ -7,8 +7,6 @@ import { RecordLists } from "../components";
 import { setMetadata, groupBy } from "@/lib/utils";
 import { ClientLink, PageWrapper } from "@/components/client";
 
-export const revalidate = 0;
-
 export const metadata = setMetadata("Commits");
 
 export default async function Page({ searchParams: { page } }: { searchParams: { page: string | undefined } }) {

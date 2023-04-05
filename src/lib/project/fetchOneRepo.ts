@@ -9,6 +9,7 @@ export default async function fetchOneRepo(user: string, repo: string) {
       method: "POST",
       headers: { Authorization: `Bearer ${env.GITHUB_TOKEN}`, "Content-Type": "application/json" },
       body: JSON.stringify({ query: query(user, repo) }),
+      cache: "no-store",
     });
 
     if (!res.ok) throw new Error("Failed to fetch data");

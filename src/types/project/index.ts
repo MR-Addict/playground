@@ -1,8 +1,12 @@
 import z from "zod";
-import { ObjectId } from "mongodb";
 
-const Project = z.object({
-  _id: z.custom<ObjectId>(),
+const DatabaseProject = z.object({
+  _id: z.string(),
+  owner: z.string(),
+  name: z.string(),
+});
+
+const ProjectWithoutId = z.object({
   owner: z.string(),
   name: z.string(),
   url: z.string(),
@@ -17,7 +21,11 @@ const Project = z.object({
   topics: z.array(z.union([z.string(), z.null()])),
 });
 
-type ProjectType = z.TypeOf<typeof Project>;
+const Project = ProjectWithoutId.merge(z.object({ _id: z.string() }));
 
-export { Project };
-export type { ProjectType };
+type ProjectType = z.TypeOf<typeof Project>;
+type DatabaseProjectType = z.TypeOf<typeof DatabaseProject>;
+type ProjectWithoutIdType = z.TypeOf<typeof ProjectWithoutId>;
+
+export { Project, DatabaseProject };
+export type { ProjectType, DatabaseProjectType, ProjectWithoutIdType };

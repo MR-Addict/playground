@@ -1,34 +1,29 @@
 "use client";
 
 import ProjectForm from "./ProjectForm";
+import { DatabaseProjectType } from "@/types/project";
 import { createContext, useContext, useState } from "react";
-
-export interface ProjectType {
-  _id: string;
-  owner: string;
-  name: string;
-}
 
 export const defaultProject = { _id: "", owner: "", name: "" };
 
 interface ProjectContextProps {
-  project: ProjectType;
+  project: DatabaseProjectType;
   isInsertMode: boolean;
   openProjectForm: (value: boolean) => void;
-  setProject: (project: ProjectType) => void;
+  setProject: (project: DatabaseProjectType) => void;
   setIsInsertMode: (value: boolean) => void;
 }
 
 const ProjectContext = createContext<ProjectContextProps>({
   isInsertMode: false,
   project: defaultProject,
-  setProject: (project: ProjectType) => {},
+  setProject: (project: DatabaseProjectType) => {},
   setIsInsertMode: (value: boolean) => {},
   openProjectForm: (value: boolean) => {},
 });
 
 export const ProjectContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
-  const [project, setProject] = useState<ProjectType>(defaultProject);
+  const [project, setProject] = useState<DatabaseProjectType>(defaultProject);
   const [isOpenForm, setIsOpenForm] = useState(false);
   const [isInsertMode, setIsInsertMode] = useState(false);
 

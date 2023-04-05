@@ -1,2 +1,2 @@
-export { default as revalidate } from "./revalidate";
+export { default as fetchAllRepos } from "./fetchAllRepos";
 export { default as fetchOneRepo } from "./fetchOneRepo";

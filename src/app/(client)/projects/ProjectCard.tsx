@@ -4,9 +4,9 @@ import { FaRegClock } from "react-icons/fa";
 import { AiOutlineStar, AiOutlineFork } from "react-icons/ai";
 
 import style from "./ProjectCard.module.css";
-import { ProjectType } from "@/types/project";
 import { TimeAgo } from "@/components/client";
-import { DeleteButton, EditButton, UpdateButton } from "./components";
+import { ProjectType } from "@/types/project";
+import { DeleteButton, EditButton } from "./components";
 
 export default function ProjectCard({ project, permission }: { project: ProjectType; permission: boolean }) {
   return (
@@ -21,9 +21,8 @@ export default function ProjectCard({ project, permission }: { project: ProjectT
 
         {permission && (
           <div className={style["flex-row-1"]}>
-            <EditButton project={{ _id: project._id.toString(), owner: project.owner, name: project.name }} />
-            <DeleteButton _id={project._id.toString()} />
-            <UpdateButton project={{ _id: project._id.toString(), owner: project.owner, name: project.name }} />
+            <EditButton project={{ _id: project._id, owner: project.owner, name: project.name }} />
+            <DeleteButton _id={project._id} />
           </div>
         )}
       </div>

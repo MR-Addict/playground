@@ -3,9 +3,10 @@
 import { BiEditAlt } from "react-icons/bi";
 
 import { Tooltip } from "@/components/server";
-import { useProjectContext, ProjectType } from "../ProjectForm/ProjectContextProvider";
+import { DatabaseProjectType } from "@/types/project";
+import { useProjectContext } from "../ProjectForm/ProjectContextProvider";
 
-export default function EditButton({ project }: { project: ProjectType }) {
+export default function EditButton({ project }: { project: DatabaseProjectType }) {
   const { setProject, openProjectForm, setIsInsertMode } = useProjectContext();
 
   return (

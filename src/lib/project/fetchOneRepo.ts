@@ -1,6 +1,6 @@
 import query from "./query";
 import { env } from "@/types/env";
-import { ProjectType } from "@/types/project";
+import { ProjectWithoutIdType } from "@/types/project";
 import { languageColors } from "./languageColors";
 
 export default async function fetchOneRepo(user: string, repo: string) {
@@ -40,7 +40,7 @@ export default async function fetchOneRepo(user: string, repo: string) {
       createdAt: new Date(createdAt),
       lastUpdate: new Date(ref.target.history.edges[0].node.committedDate),
       topics: repositoryTopics.edges.map((item: any) => item.node.topic.name),
-    } as ProjectType;
+    } as ProjectWithoutIdType;
   } catch (error) {
     console.error(error);
     throw new Error("Failed to fetch data");

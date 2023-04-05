@@ -2,7 +2,7 @@ import z from "zod";
 import { ObjectId } from "mongodb";
 
 const Project = z.object({
-  _id: z.custom<ObjectId>().optional(),
+  _id: z.custom<ObjectId>(),
   owner: z.string(),
   name: z.string(),
   url: z.string(),

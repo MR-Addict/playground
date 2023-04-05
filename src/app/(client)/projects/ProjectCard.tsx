@@ -1,12 +1,14 @@
+import { Session } from "next-auth";
 import { GrBook } from "react-icons/gr";
 import { FaRegClock } from "react-icons/fa";
 import { AiOutlineStar, AiOutlineFork } from "react-icons/ai";
 
 import style from "./ProjectCard.module.css";
+import { DeleteButton } from "./components";
 import { ProjectType } from "@/types/project";
 import { TimeAgo } from "@/components/client";
 
-export default function ProjectCard({ project }: { project: ProjectType }) {
+export default function ProjectCard({ project, permission }: { project: ProjectType; permission: boolean }) {
   return (
     <li className={style.card}>
       <div className={style["flex-row-1"]}>
@@ -14,6 +16,7 @@ export default function ProjectCard({ project }: { project: ProjectType }) {
         <a href={project.url} target='_blank' className='text-blue-600 text-lg hover:underline'>
           {project.name}
         </a>
+        {permission && <DeleteButton _id={project._id.toString()} />}
       </div>
 
       {project.intro && <div className='text-gray-500 text-sm'>{project.intro}</div>}

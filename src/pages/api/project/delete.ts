@@ -8,10 +8,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method !== "DELETE")
     return res.status(405).setHeader("Allow", ["DELETE"]).end(`Method ${req.method} is not allowed`);
 
-  // const session = await routerSession(req, res);
-  // if (!session) return res.status(401).json({ status: false, message: "Unauthorized" });
+  const session = await routerSession(req, res);
+  if (!session) return res.status(401).json({ status: false, message: "Unauthorized" });
 
-  // if (!checkPerm(session.user.role, "admin")) return res.status(403).json({ status: false, message: "Forbidden" });
+  if (!checkPerm(session.user.role, "admin")) return res.status(403).json({ status: false, message: "Forbidden" });
 
   if (!req.body?._id) return res.status(400).json({ status: false, message: "Bad request" });
 

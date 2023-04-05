@@ -11,13 +11,13 @@ function useInterval(callback: Function, delay: number) {
   }, [callback, delay]);
 }
 
-export default function TimeAgo({ date }: { date: string }) {
+export default function TimeAgo({ date, ...rest }: { date: string } & React.ComponentProps<"span">) {
   const [result, setResult] = useState(timeAgo(date).timeago);
 
   useInterval(() => setResult(timeAgo(date).timeago), 1000);
 
   return (
-    <span>
+    <span {...rest}>
       {result.value}
       {result.key} ago
     </span>

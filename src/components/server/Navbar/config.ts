@@ -23,6 +23,11 @@ const navbarData: Props[] = [
     visibility: "vistor",
   },
   {
+    title: "Projects",
+    link: "/projects",
+    visibility: "vistor",
+  },
+  {
     title: "Moments",
     link: "/moments",
     visibility: "admin",

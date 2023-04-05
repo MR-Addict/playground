@@ -12,6 +12,7 @@ async function insert(feedback: string) {
     if (result.acknowledged) return { status: true, message: "Insert succeeded" };
     else return { status: false, message: "Insert failed" };
   } catch (error) {
+    console.error(error);
     return { status: false, message: "Error occurred while communicate with mongodb" };
   }
 }
@@ -26,6 +27,7 @@ async function read() {
 
     return { status: true, data: feedbacks };
   } catch (error) {
+    console.error(error);
     return { status: false, message: "Error occurred while communicate with mongodb" };
   }
 }

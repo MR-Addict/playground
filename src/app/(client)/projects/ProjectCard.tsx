@@ -66,7 +66,7 @@ export default function ProjectCard({ project, permission }: { project: ProjectT
           <a
             target='_blank'
             href={`https://github.com/${project.owner}/${project.name}/stargazers`}
-            className={classNames(style["flex-row-1"], "hover:text-blue-600 duration-100")}
+            className={classNames(style["flex-row-1"], "hover:text-blue-600 duration-100 text-sm")}
           >
             <AiOutlineStar />
             <span>{project.stars}</span>
@@ -77,7 +77,7 @@ export default function ProjectCard({ project, permission }: { project: ProjectT
           <a
             target='_blank'
             href={`https://github.com/${project.owner}/${project.name}/forks`}
-            className={classNames(style["flex-row-1"], "hover:text-blue-600 duration-100")}
+            className={classNames(style["flex-row-1"], "hover:text-blue-600 duration-100 text-sm")}
           >
             <AiOutlineFork />
             <span>{project.forks}</span>
@@ -85,10 +85,14 @@ export default function ProjectCard({ project, permission }: { project: ProjectT
         )}
 
         {project.lastUpdate && (
-          <div className={style["flex-row-1"]}>
-            <FaRegClock size={13} />
+          <a
+            target='_blank'
+            href={`https://github.com/${project.owner}/${project.name}/commits/main`}
+            className={classNames(style["flex-row-1"], "hover:text-blue-600 duration-100")}
+          >
+            <FaRegClock size={12} />
             <TimeAgo className='text-sm' date={project.lastUpdate.toString()} />
-          </div>
+          </a>
         )}
       </div>
     </li>

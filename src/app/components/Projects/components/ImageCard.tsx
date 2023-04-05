@@ -13,7 +13,7 @@ export default function ImageCard({ project }: { project: projectType }) {
           <span className='bg-yellow-600 rounded-full w-3 h-3'></span>
           <span className='bg-green-600 rounded-full w-3 h-3'></span>
         </div>
-        <div className='flex flex-row items-center gap-2 text-gray-500 border border-gray-200 rounded-md px-2'>
+        <div className='flex flex-row items-center gap-2 text-gray-500 border border-gray-300 rounded-md px-2'>
           <IoIosInformationCircleOutline />
           <h1>localhost:3000</h1>
           <MdRefresh />

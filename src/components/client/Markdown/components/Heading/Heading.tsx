@@ -1,6 +1,6 @@
 function H1(props: React.ComponentProps<"h1">) {
   return (
-    <h1 {...props} className='text-3xl font-bold py-3 my-4 text-gray-900 border-b-2 border-gray-200'>
+    <h1 {...props} className='text-3xl font-bold py-3 my-4 text-gray-900 border-b-2 border-gray-300'>
       {props.children}
     </h1>
   );
@@ -8,7 +8,7 @@ function H1(props: React.ComponentProps<"h1">) {
 
 function H2(props: React.ComponentProps<"h2">) {
   return (
-    <h2 {...props} className='text-2xl font-bold py-3 my-4 text-gray-800 border-b-2 border-gray-200'>
+    <h2 {...props} className='text-2xl font-bold py-3 my-4 text-gray-800 border-b-2 border-gray-300'>
       {props.children}
     </h2>
   );

@@ -18,7 +18,7 @@ export default function AddButton() {
       }}
       className='flex flex-row items-center text-sm gap-0.5 text-gray-700'
     >
-      <span>添加</span>
+      <span>Add</span>
       <BiPlusCircle />
     </button>
   );

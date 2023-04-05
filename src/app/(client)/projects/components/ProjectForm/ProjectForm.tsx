@@ -38,7 +38,7 @@ export default function ProjectForm({ isOpenForm }: { isOpenForm: boolean }) {
       })
       .catch((error) => {
         console.error(error);
-        popup({ status: false, message: "Failed to insert project" });
+        popup({ status: false, message: `Failed to ${isInsertMode ? "insert" : "update"} project` });
       })
       .finally(() => setIsSubmitting(false));
   }

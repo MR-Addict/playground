@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { GrBook } from "react-icons/gr";
 import { FaRegClock } from "react-icons/fa";
 import { AiOutlineStar, AiOutlineFork } from "react-icons/ai";
@@ -6,7 +7,6 @@ import style from "./ProjectCard.module.css";
 import { ProjectType } from "@/types/project";
 import { TimeAgo } from "@/components/client";
 import { DeleteButton, EditButton, UpdateButton } from "./components";
-import classNames from "classnames";
 
 export default function ProjectCard({ project, permission }: { project: ProjectType; permission: boolean }) {
   return (
@@ -22,8 +22,8 @@ export default function ProjectCard({ project, permission }: { project: ProjectT
         {permission && (
           <div className={style["flex-row-1"]}>
             <EditButton project={{ _id: project._id.toString(), owner: project.owner, name: project.name }} />
-            <UpdateButton project={{ _id: project._id.toString(), owner: project.owner, name: project.name }} />
             <DeleteButton _id={project._id.toString()} />
+            <UpdateButton project={{ _id: project._id.toString(), owner: project.owner, name: project.name }} />
           </div>
         )}
       </div>
@@ -45,7 +45,7 @@ export default function ProjectCard({ project, permission }: { project: ProjectT
               <a
                 target='_blank'
                 href={`https://github.com/topics/${topic}`}
-                className='block text-xs bg-blue-100 text-blue-600 py-0.5 px-1.5 rounded-md hover:text-white hover:bg-blue-600'
+                className='block text-xs bg-blue-100 text-blue-600 py-0.5 px-1.5 rounded-md hover:text-white hover:bg-blue-600 duration-100'
               >
                 {topic}
               </a>
@@ -62,30 +62,32 @@ export default function ProjectCard({ project, permission }: { project: ProjectT
           </div>
         )}
 
-        {project.lastUpdate && (
-          <div className={style["flex-row-1"]}>
-            <span>
-              <FaRegClock size={13} />
-            </span>
-            <TimeAgo className='text-sm' date={project.lastUpdate.toString()} />
-          </div>
-        )}
-
         {project.stars !== 0 && (
-          <div className={style["flex-row-1"]}>
-            <span>
-              <AiOutlineStar />
-            </span>
+          <a
+            target='_blank'
+            href={`https://github.com/${project.owner}/${project.name}/stargazers`}
+            className={classNames(style["flex-row-1"], "hover:text-blue-600 duration-100")}
+          >
+            <AiOutlineStar />
             <span>{project.stars}</span>
-          </div>
+          </a>
         )}
 
         {project.forks !== 0 && (
-          <div className={style["flex-row-1"]}>
-            <span>
-              <AiOutlineFork />
-            </span>
+          <a
+            target='_blank'
+            href={`https://github.com/${project.owner}/${project.name}/forks`}
+            className={classNames(style["flex-row-1"], "hover:text-blue-600 duration-100")}
+          >
+            <AiOutlineFork />
             <span>{project.forks}</span>
+          </a>
+        )}
+
+        {project.lastUpdate && (
+          <div className={style["flex-row-1"]}>
+            <FaRegClock size={13} />
+            <TimeAgo className='text-sm' date={project.lastUpdate.toString()} />
           </div>
         )}
       </div>

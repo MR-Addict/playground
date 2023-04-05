@@ -39,7 +39,7 @@ export default function MomentForm({ isOpenForm }: { isOpenForm: boolean }) {
       })
       .catch((error) => {
         console.error(error);
-        popup({ status: false, message: "Failed to insert moment" });
+        popup({ status: false, message: `Failed to ${isInsertMode ? "insert" : "update"} moment` });
       })
       .finally(() => setIsSubmitting(false));
   }

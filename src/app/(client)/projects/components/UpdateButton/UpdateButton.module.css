@@ -1,0 +1,7 @@
+.btn {
+  @apply rotate-0 duration-300;
+}
+
+.btn.active {
+  @apply rotate-180 cursor-not-allowed;
+}

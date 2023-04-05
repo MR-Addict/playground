@@ -11,7 +11,7 @@ import { DeleteButton, EditButton } from "./components";
 export default function ProjectCard({ project, permission }: { project: ProjectType; permission: boolean }) {
   return (
     <li className={style.card}>
-      <div className='flex flex-row gap-3'>
+      <div className={classNames(style["flex-row-1"], "flex-wrap")}>
         <div className={style["flex-row-1"]}>
           <GrBook size={13} />
           <a href={project.url} target='_blank' className='text-blue-600 text-lg hover:underline'>
@@ -27,15 +27,15 @@ export default function ProjectCard({ project, permission }: { project: ProjectT
         )}
       </div>
 
-      {project.intro && <div className='text-gray-500 text-sm'>{project.intro}</div>}
-
       {project.homepageUrl && (
         <div className={style["flex-row-1"]}>
-          <a href={project.homepageUrl} target='_blank' className='text-blue-600 text-sm hover:underline'>
+          <a href={project.homepageUrl} target='_blank' className='text-blue-600 hover:underline'>
             {project.homepageUrl}
           </a>
         </div>
       )}
+
+      {project.intro && <div className='text-gray-500 text-sm'>{project.intro}</div>}
 
       {project.topics.length !== 0 && (
         <ul className={classNames(style["flex-row-1"], "flex-wrap")}>

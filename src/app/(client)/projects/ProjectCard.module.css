@@ -5,3 +5,25 @@
 .flex-row-1 {
   @apply flex flex-row items-center gap-1 text-gray-700;
 }
+
+/* three dots */
+.dots {
+  @apply relative flex flex-col items-center justify-center;
+}
+
+.dots-container {
+  box-shadow: 0 0 5px gray;
+  @apply absolute right-1 -bottom-14 flex flex-col text-sm opacity-0 invisible duration-300;
+}
+
+.dots-container > button {
+  @apply px-1.5 py-0.5 text-right;
+}
+
+.dots-container > button:hover {
+  @apply bg-gray-200;
+}
+
+.dots:hover .dots-container {
+  @apply opacity-100 visible;
+}

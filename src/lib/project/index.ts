@@ -1,2 +1,1 @@
-export { default as fetchAllRepos } from "./fetchAllRepos";
-export { default as fetchOneRepo } from "./fetchOneRepo";
+export { default as fetchProjects } from "./fetchProjects";

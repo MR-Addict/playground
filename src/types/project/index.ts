@@ -6,7 +6,8 @@ const DatabaseProject = z.object({
   name: z.string(),
 });
 
-const ProjectWithoutId = z.object({
+const Project = z.object({
+  _id: z.string(),
   owner: z.string(),
   name: z.string(),
   url: z.string(),
@@ -21,11 +22,8 @@ const ProjectWithoutId = z.object({
   topics: z.array(z.union([z.string(), z.null()])),
 });
 
-const Project = ProjectWithoutId.merge(z.object({ _id: z.string() }));
-
 type ProjectType = z.TypeOf<typeof Project>;
 type DatabaseProjectType = z.TypeOf<typeof DatabaseProject>;
-type ProjectWithoutIdType = z.TypeOf<typeof ProjectWithoutId>;
 
 export { Project, DatabaseProject };
-export type { ProjectType, DatabaseProjectType, ProjectWithoutIdType };
+export type { ProjectType, DatabaseProjectType };

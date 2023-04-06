@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { GrBook } from "react-icons/gr";
 import { FaRegClock } from "react-icons/fa";
+import { HiOutlineDotsVertical } from "react-icons/hi";
 import { AiOutlineStar, AiOutlineFork } from "react-icons/ai";
 
 import style from "./ProjectCard.module.css";
@@ -11,7 +12,7 @@ import { DeleteButton, EditButton } from "./components";
 export default function ProjectCard({ project, permission }: { project: ProjectType; permission: boolean }) {
   return (
     <li className={style.card}>
-      <div className={classNames(style["flex-row-1"], "flex-wrap")}>
+      <div className={classNames(style["flex-row-1"], "flex-wrap justify-between")}>
         <div className={style["flex-row-1"]}>
           <GrBook size={13} />
           <a href={project.url} target='_blank' className='text-blue-600 text-lg hover:underline'>
@@ -20,17 +21,20 @@ export default function ProjectCard({ project, permission }: { project: ProjectT
         </div>
 
         {permission && (
-          <div className={style["flex-row-1"]}>
-            <EditButton project={{ _id: project._id, owner: project.owner, name: project.name }} />
-            <DeleteButton _id={project._id} />
-          </div>
+          <button className={style.dots}>
+            <HiOutlineDotsVertical />
+            <div className={style["dots-container"]}>
+              <EditButton project={{ _id: project._id, owner: project.owner, name: project.name }} />
+              <DeleteButton _id={project._id} />
+            </div>
+          </button>
         )}
       </div>
 
       {project.homepageUrl && (
         <div className={style["flex-row-1"]}>
-          <a href={project.homepageUrl} target='_blank' className='text-blue-600 hover:underline'>
-            {project.homepageUrl}
+          <a href={project.homepageUrl} target='_blank' className='text-blue-600 hover:underline whitespace-pre-wrap'>
+            {project.homepageUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}
           </a>
         </div>
       )}

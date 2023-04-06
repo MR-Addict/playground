@@ -1,6 +1,6 @@
 import ProjectCard from "./ProjectCard";
 import { setMetadata } from "@/lib/utils";
-import { fetchAllRepos } from "@/lib/project";
+import { fetchProjects } from "@/lib/project";
 import { checkPerm } from "@/lib/auth/checkPerm";
 import { pageSession } from "@/lib/auth/serverSession";
 
@@ -8,7 +8,7 @@ export const metadata = setMetadata("Projects");
 
 export default async function Page() {
   const session = await pageSession();
-  const projects = await fetchAllRepos();
+  const projects = await fetchProjects();
   const permission = checkPerm(session?.user.role || "vistor", "admin");
 
   return (

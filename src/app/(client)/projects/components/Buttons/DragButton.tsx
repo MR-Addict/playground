@@ -3,11 +3,11 @@
 import { useProjectContext } from "../ProjectForm/ProjectContextProvider";
 
 export default function DragButton() {
-  const { setIsDragMode } = useProjectContext();
+  const { openDragPopup } = useProjectContext();
 
   return (
-    <button type='button' onClick={() => setIsDragMode(true)}>
-      Layout
+    <button type='button' onClick={() => openDragPopup(true)}>
+      Reorder
     </button>
   );
 }

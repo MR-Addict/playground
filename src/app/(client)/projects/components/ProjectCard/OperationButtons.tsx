@@ -14,7 +14,7 @@ export default function OperationButtons({ project }: { project: DatabaseProject
 
       <div className={classNames(style["dots-container"], "background")}>
         <EditButton project={project} />
-        <DeleteButton _id={project._id} />
+        <DeleteButton project={project} />
       </div>
     </div>
   );

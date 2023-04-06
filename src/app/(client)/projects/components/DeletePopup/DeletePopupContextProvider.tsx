@@ -1,22 +1,24 @@
 "use client";
 
 import DeletePopup from "./DeletePopup";
+import { DatabaseProjectType } from "@/types/project";
 import { createContext, useContext, useState } from "react";
+import { defaultProject } from "../ProjectForm/ProjectContextProvider";
 
 interface DeletePopupContextProps {
-  projectId: string;
-  setProjectId: (value: string) => void;
+  project: DatabaseProjectType;
+  setProject: (value: DatabaseProjectType) => void;
   openDeletePopup: (value: boolean) => void;
 }
 
 const DeletePopupContext = createContext<DeletePopupContextProps>({
-  projectId: "",
-  setProjectId: (value: string) => {},
+  project: defaultProject,
+  setProject: (value: DatabaseProjectType) => {},
   openDeletePopup: (value: boolean) => {},
 });
 
 export const DeletePopupContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
-  const [projectId, setProjectId] = useState("");
+  const [project, setProject] = useState<DatabaseProjectType>(defaultProject);
   const [isOpenForm, setIsOpenForm] = useState(false);
 
   function openDeletePopup(status: boolean) {
@@ -25,7 +27,7 @@ export const DeletePopupContextProvider: React.FC<React.PropsWithChildren<{}>> =
   }
 
   return (
-    <DeletePopupContext.Provider value={{ projectId, setProjectId, openDeletePopup }}>
+    <DeletePopupContext.Provider value={{ project, setProject, openDeletePopup }}>
       <DeletePopup isOpenForm={isOpenForm} />
       {children}
     </DeletePopupContext.Provider>

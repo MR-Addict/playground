@@ -1,9 +1,9 @@
 "use client";
 
+import classNames from "classnames";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import classNames from "classnames";
 import style from "./DeletePopup.module.css";
 import { usePopupContext } from "@/contexts";
 import { LoadingDots, OperationWindow } from "@/components/server";
@@ -12,7 +12,7 @@ import { useDeletePopupContext } from "./DeletePopupContextProvider";
 export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
   const router = useRouter();
   const { popup } = usePopupContext();
-  const { projectId, openDeletePopup } = useDeletePopupContext();
+  const { project, openDeletePopup } = useDeletePopupContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   function handleClick() {
@@ -20,8 +20,8 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
 
     fetch("/api/project/delete", {
       method: "DELETE",
-      body: new URLSearchParams({ _id: projectId }),
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: JSON.stringify(project),
+      headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
       .then((result) => {
@@ -51,7 +51,12 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
           >
             Cancel
           </button>
-          <button type='button' onClick={() => handleClick()} className={classNames(style.submitbtn, "bg-green-600")}>
+          <button
+            type='button'
+            disabled={isSubmitting}
+            onClick={() => handleClick()}
+            className={classNames(style.submitbtn, "bg-green-600")}
+          >
             {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Delete</span>}
           </button>
         </div>

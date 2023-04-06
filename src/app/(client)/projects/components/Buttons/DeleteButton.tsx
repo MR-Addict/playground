@@ -1,15 +1,16 @@
 "use client";
 
+import { DatabaseProjectType } from "@/types/project";
 import { useDeletePopupContext } from "../DeletePopup/DeletePopupContextProvider";
 
-export default function DeleteButton({ _id }: { _id: string }) {
-  const { openDeletePopup, setProjectId } = useDeletePopupContext();
+export default function DeleteButton({ project }: { project: DatabaseProjectType }) {
+  const { openDeletePopup, setProject } = useDeletePopupContext();
 
   return (
     <button
       type='button'
       onClick={() => {
-        setProjectId(_id);
+        setProject(project);
         openDeletePopup(true);
       }}
     >

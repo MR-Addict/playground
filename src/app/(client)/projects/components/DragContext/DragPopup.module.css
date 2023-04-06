@@ -1,0 +1,48 @@
+/* delete popup size */
+.form {
+  max-height: 70vh;
+  @apply duration-200 w-full md:max-w-sm flex flex-col items-center justify-between gap-4 rounded-md p-5 md:p-7;
+}
+
+/* drag wrapper */
+.dragWrapper {
+  @apply w-full flex-1 overflow-y-auto pr-1;
+}
+
+/* drag item */
+.drag-item {
+  @apply w-full flex flex-row gap-2 justify-between items-center py-1 border-b border-b-gray-300;
+}
+
+/* submit button */
+.btn {
+  @apply w-full py-2 rounded-sm flex flex-col items-center justify-center border border-black;
+}
+
+.submitbtn {
+  @apply duration-300 text-white;
+}
+
+.form:valid .submitbtn:enabled:hover {
+  @apply bg-green-700;
+}
+
+.form:invalid .submitbtn:hover,
+.submitbtn:disabled:hover {
+  @apply cursor-not-allowed;
+}
+
+/* scroll bar */
+.dragWrapper::-webkit-scrollbar {
+  width: 0.3em;
+  height: 0.3rem;
+}
+
+.dragWrapper::-webkit-scrollbar-thumb {
+  background-color: #d9d9db;
+  border-radius: 0.2rem;
+}
+
+.dragWrapper::-webkit-scrollbar-corner {
+  display: none;
+}

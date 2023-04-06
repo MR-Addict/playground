@@ -10,7 +10,7 @@ interface ProjectContextProps {
   project: DatabaseProjectType;
   isDragMode: boolean;
   isInsertMode: boolean;
-  setIsDragMode: (value: boolean) => void;
+  openDragPopup: (value: boolean) => void;
   setIsInsertMode: (value: boolean) => void;
   openProjectForm: (value: boolean) => void;
   setProject: (project: DatabaseProjectType) => void;
@@ -20,7 +20,7 @@ const ProjectContext = createContext<ProjectContextProps>({
   isDragMode: false,
   isInsertMode: false,
   project: defaultProject,
-  setIsDragMode: (value: boolean) => {},
+  openDragPopup: (value: boolean) => {},
   setIsInsertMode: (value: boolean) => {},
   openProjectForm: (value: boolean) => {},
   setProject: (project: DatabaseProjectType) => {},
@@ -37,9 +37,14 @@ export const ProjectContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ 
     document.body.style.overflow = status ? "hidden" : "auto";
   }
 
+  function openDragPopup(status: boolean) {
+    setIsDragMode(status);
+    document.body.style.overflow = status ? "hidden" : "auto";
+  }
+
   return (
     <ProjectContext.Provider
-      value={{ project, isDragMode, isInsertMode, setProject, setIsDragMode, openProjectForm, setIsInsertMode }}
+      value={{ project, isDragMode, isInsertMode, setProject, openDragPopup, openProjectForm, setIsInsertMode }}
     >
       <ProjectForm isOpenForm={isOpenForm} />
       {children}

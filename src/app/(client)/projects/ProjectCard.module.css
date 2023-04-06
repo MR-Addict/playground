@@ -13,11 +13,19 @@
 
 .dots-container {
   box-shadow: 0 0 5px gray;
-  @apply absolute right-1 -bottom-14 flex flex-col text-sm opacity-0 invisible duration-300;
+  @apply absolute right-2 top-5 flex flex-col text-sm opacity-0 invisible duration-300 rounded-sm;
 }
 
 .dots-container > button {
-  @apply px-1.5 py-0.5 text-right;
+  @apply px-3 py-1 text-right;
+}
+
+.dots-container > button:first-of-type {
+  @apply rounded-t-sm;
+}
+
+.dots-container > button:last-of-type {
+  @apply rounded-b-sm;
 }
 
 .dots-container > button:hover {

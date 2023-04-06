@@ -13,18 +13,10 @@
 }
 
 .dropmenu {
-  box-shadow: 0 0 5px #a5a5a5;
-  @apply origin-top absolute z-10 right-0 w-48 mt-1 p-5 rounded-md flex flex-col gap-2 duration-300 delay-100 scale-95 opacity-0 invisible;
+  box-shadow: 0 0 5px gray;
+  @apply origin-top absolute z-10 right-0 w-48 mt-1 p-5 rounded-md flex flex-col gap-2 duration-300 delay-100 opacity-0 invisible;
 }
 
-@media screen and (max-width: 768px) {
-  .dropmenu.active {
-    @apply scale-y-100 opacity-100 visible;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .usericon:hover .dropmenu {
-    @apply scale-100 opacity-100 visible;
-  }
+.usericon:hover .dropmenu {
+  @apply opacity-100 visible;
 }

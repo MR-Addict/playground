@@ -6,9 +6,9 @@ import { User, UserRoleType } from "@/types/user";
 async function compare(username: string, password: string) {
   try {
     const client = await clientPromise;
-    const db = client.db("user");
+    const collection = client.db("user").collection("home");
 
-    const user = await db.collection("home").find({ username }).next();
+    const user = await collection.find({ username }).next();
     if (!user) return { status: false, message: "User not exists" };
 
     const isMatched = await bcryptjsCompare(password, user.password);
@@ -28,14 +28,19 @@ async function signup(username: string, password: string, email: string, role: U
 
   try {
     const client = await clientPromise;
-    const db = client.db("user");
+    const collection = client.db("user").collection("home");
 
-    const duplicatedUser = await db.collection("home").find({ username }).next();
+    const duplicatedUser = await collection.find({ username }).next();
     if (duplicatedUser) return { status: false, message: `Username ${username} has been used` };
 
-    const result = await db
-      .collection("home")
-      .insertOne({ username, password: hashedPassword, email, role, create_time: now, update_time: now });
+    const result = await collection.insertOne({
+      username,
+      password: hashedPassword,
+      email,
+      role,
+      create_time: now,
+      update_time: now,
+    });
 
     if (result.insertedId) return { status: true, message: "Signup succeeded" };
     else return { status: false, message: "Failed to signup" };

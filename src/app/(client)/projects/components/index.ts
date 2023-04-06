@@ -1,6 +1,5 @@
-export { default as AddButton } from "./AddButton/AddButton";
-export { default as EditButton } from "./EditButton/EditButton";
-export { default as DeleteButton } from "./DeleteButton/DeleteButton";
+export { default as Header } from "./Header/Header";
+export { default as ProjectCard } from "./ProjectCard/ProjectCard";
 
 export { DeletePopupContextProvider, useDeletePopupContext } from "./DeletePopup/DeletePopupContextProvider";
 export { ProjectContextProvider, useProjectContext, defaultProject } from "./ProjectForm/ProjectContextProvider";

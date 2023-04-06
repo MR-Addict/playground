@@ -7,9 +7,9 @@ import { DatabaseProject } from "@/types/project";
 async function insert(owner: string, name: string) {
   try {
     const client = await clientPromise;
-    const db = client.db("playground");
+    const collection = client.db("playground").collection("project");
 
-    const result = await db.collection("project").insertOne({ owner, name });
+    const result = await collection.insertOne({ owner, name, index: 0 });
     if (result.insertedId) return { status: true, message: "Insert succeeded" };
     else return { status: false, message: "Insert failed" };
   } catch (error) {
@@ -21,9 +21,9 @@ async function insert(owner: string, name: string) {
 async function update(_id: string, owner: string, name: string) {
   try {
     const client = await clientPromise;
-    const db = client.db("playground");
+    const collection = client.db("playground").collection("project");
 
-    const result = await db.collection("project").updateOne({ _id: new ObjectId(_id) }, { $set: { owner, name } });
+    const result = await collection.updateOne({ _id: new ObjectId(_id) }, { $set: { owner, name } });
     if (result.modifiedCount) return { status: true, message: "Update succeeded" };
     else return { status: true, message: "Nothing changed" };
   } catch (error) {
@@ -35,11 +35,11 @@ async function update(_id: string, owner: string, name: string) {
 async function read() {
   try {
     const client = await clientPromise;
-    const db = client.db("playground");
+    const collection = client.db("playground").collection("project");
 
-    const result = await db
-      .collection("project")
+    const result = await collection
       .find({})
+      .sort({ index: 1 })
       .map((item) => {
         return { ...item, _id: item._id.toString() };
       })
@@ -55,8 +55,9 @@ async function read() {
 async function remove(_id: string) {
   try {
     const client = await clientPromise;
-    const db = client.db("playground");
-    const result = await db.collection("project").deleteOne({ _id: new ObjectId(_id) });
+    const collection = client.db("playground").collection("project");
+
+    const result = await collection.deleteOne({ _id: new ObjectId(_id) });
     if (result.deletedCount > 0) return { status: true, message: "Delete succeeded" };
     else return { status: false, message: "Delete failed" };
   } catch (error) {

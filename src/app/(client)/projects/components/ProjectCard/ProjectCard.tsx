@@ -1,15 +1,16 @@
 import classNames from "classnames";
 import { GrBook } from "react-icons/gr";
 import { FaRegClock } from "react-icons/fa";
-import { HiOutlineDotsVertical } from "react-icons/hi";
 import { AiOutlineStar, AiOutlineFork } from "react-icons/ai";
 
 import style from "./ProjectCard.module.css";
+import OperationButtons from "./OperationButtons";
 import { TimeAgo } from "@/components/client";
-import { ProjectType } from "@/types/project";
-import { DeleteButton, EditButton } from "./components";
+import { ProjectType, DatabaseProject } from "@/types/project";
 
 export default function ProjectCard({ project, permission }: { project: ProjectType; permission: boolean }) {
+  const databaseProject = DatabaseProject.parse(project);
+
   return (
     <li className={style.card}>
       <div className={classNames(style["flex-row-1"], "flex-wrap justify-between")}>
@@ -20,18 +21,7 @@ export default function ProjectCard({ project, permission }: { project: ProjectT
           </a>
         </div>
 
-        {permission && (
-          <div className={style.dots}>
-            <button className='p-1 rounded-full'>
-              <HiOutlineDotsVertical />
-            </button>
-
-            <div className={classNames(style["dots-container"], "background")}>
-              <EditButton project={{ _id: project._id, owner: project.owner, name: project.name }} />
-              <DeleteButton _id={project._id} />
-            </div>
-          </div>
-        )}
+        {permission && <OperationButtons project={databaseProject} />}
       </div>
 
       {project.homepageUrl && (

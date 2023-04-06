@@ -1,11 +1,3 @@
-.card {
-  @apply p-3 rounded-md border border-gray-300 flex flex-col gap-1;
-}
-
-.flex-row-1 {
-  @apply flex flex-row items-center gap-1 text-gray-700;
-}
-
 /* three dots */
 .dots {
   @apply relative flex flex-col items-center justify-center;
@@ -17,7 +9,7 @@
 }
 
 .dots-container > button {
-  @apply px-5 py-1 text-right;
+  @apply px-5 py-1 text-right whitespace-nowrap;
 }
 
 .dots-container > button:first-of-type {

@@ -21,13 +21,16 @@ export default function ProjectCard({ project, permission }: { project: ProjectT
         </div>
 
         {permission && (
-          <button className={style.dots}>
-            <HiOutlineDotsVertical />
+          <div className={style.dots}>
+            <button className='p-1 rounded-full'>
+              <HiOutlineDotsVertical />
+            </button>
+
             <div className={style["dots-container"]}>
               <EditButton project={{ _id: project._id, owner: project.owner, name: project.name }} />
               <DeleteButton _id={project._id} />
             </div>
-          </button>
+          </div>
         )}
       </div>
 

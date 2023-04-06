@@ -26,7 +26,7 @@ export default function ProjectCard({ project, permission }: { project: ProjectT
               <HiOutlineDotsVertical />
             </button>
 
-            <div className={style["dots-container"]}>
+            <div className={classNames(style["dots-container"], "background")}>
               <EditButton project={{ _id: project._id, owner: project.owner, name: project.name }} />
               <DeleteButton _id={project._id} />
             </div>

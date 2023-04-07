@@ -1,39 +1,41 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 import classNames from "classnames";
 import style from "./DeletePopup.module.css";
 import { usePopupContext } from "@/contexts";
 import { LoadingDots, OperationWindow } from "@/components/server";
-import { useDeletePopupContext } from "./DeletePopupContextProvider";
 
-export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
-  const router = useRouter();
+export default function DeletePopup({
+  _id,
+  isOpenForm,
+  openDeletePopup,
+}: {
+  _id: string;
+  isOpenForm: boolean;
+  openDeletePopup: Function;
+}) {
   const { popup } = usePopupContext();
-  const { momentId, openDeletePopup } = useDeletePopupContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  function handleClick() {
+  async function handleClick() {
     setIsSubmitting(true);
 
-    fetch("/api/moment/delete", {
+    fetch("/api/user/delete", {
       method: "DELETE",
-      body: JSON.stringify({ _id: momentId }),
+      body: JSON.stringify({ _id }),
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
       .then((result) => {
-        popup(result);
-        if (result.status) {
-          openDeletePopup(false);
-          router.refresh();
-        } else console.error(result.message);
+        if (result.status) signOut();
+        else console.error(result.message);
       })
       .catch((error) => {
         console.error(error);
-        popup({ status: false, message: "Failed to delete moment" });
+        popup({ status: false, message: "Failed to delete your account" });
       })
       .finally(() => setIsSubmitting(false));
   }
@@ -41,7 +43,7 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
   return (
     <OperationWindow aria-label='delete popup window' isOpenWindow={isOpenForm}>
       <div className={classNames(style.popup, "background", isOpenForm ? "scale-100" : "scale-0")}>
-        <h1 className='font-bold text-3xl text-center text-gray-700'>Delete Moment?</h1>
+        <h1 className='font-bold text-3xl text-center text-gray-700'>Delete your account?</h1>
 
         <div className='w-full flex flex-row gap-3 mt-3'>
           <button
@@ -51,7 +53,7 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
           >
             Cancel
           </button>
-          <button type='button' onClick={() => handleClick()} className={classNames(style.submitbtn, "bg-green-600")}>
+          <button type='button' onClick={handleClick} className={classNames(style.submitbtn, "bg-green-600")}>
             {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Delete</span>}
           </button>
         </div>

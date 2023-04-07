@@ -27,8 +27,8 @@ export default function MomentForm({ isOpenForm }: { isOpenForm: boolean }) {
 
     fetch(isInsertMode ? "/api/moment/insert" : "/api/moment/update", {
       method: isInsertMode ? "POST" : "PUT",
-      body: new URLSearchParams(backupFormData),
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: JSON.stringify(backupFormData),
+      headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
       .then((result) => {

@@ -11,6 +11,7 @@ const User = z.object({
   username: z.string().max(100).optional(),
   email: z.string().max(100).optional(),
   role: UserRole.optional(),
+  password: z.string().optional(),
 });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -30,6 +31,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     email: parsedUser.email,
     username: parsedUser.username,
     role: parsedUser.role,
+    password: parsedUser.password,
   });
   return res.status(result.status ? 200 : 500).json(result);
 }

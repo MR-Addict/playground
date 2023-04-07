@@ -29,8 +29,8 @@ export default function FeedbackForm() {
 
     fetch("/api/feedback/insert", {
       method: "POST",
-      body: new URLSearchParams({ feedback }),
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: JSON.stringify({ feedback }),
+      headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
       .then((result) => {

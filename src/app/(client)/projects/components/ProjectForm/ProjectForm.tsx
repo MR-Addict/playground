@@ -26,8 +26,8 @@ export default function ProjectForm({ isOpenForm }: { isOpenForm: boolean }) {
 
     fetch(isInsertMode ? "/api/project/insert" : "/api/project/update", {
       method: isInsertMode ? "POST" : "PUT",
-      body: new URLSearchParams(backupFormData),
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: JSON.stringify(backupFormData),
+      headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
       .then((result) => {

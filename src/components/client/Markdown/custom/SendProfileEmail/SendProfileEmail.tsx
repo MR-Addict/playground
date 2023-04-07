@@ -16,8 +16,8 @@ export default function SendProfileEmail() {
 
     fetch("/api/blog/sendprofileemail", {
       method: "POST",
-      body: new URLSearchParams({ email }),
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: JSON.stringify({ email }),
+      headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
       .then((result) => {

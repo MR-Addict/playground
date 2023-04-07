@@ -38,7 +38,7 @@ export default function UsernameForm({ session }: { session: Session }) {
       })
       .catch((error) => {
         console.error(error);
-        popup({ status: false, message: "Failed to update profile" });
+        popup({ status: false, message: "Failed to update your username" });
       })
       .finally(() => setIsSubmitting(false));
   }
@@ -46,7 +46,7 @@ export default function UsernameForm({ session }: { session: Session }) {
   return (
     <form onSubmit={handleSubmit} className={style["input-element"]}>
       <label htmlFor='accountUsername' className={style.label}>
-        Username
+        Your Username
       </label>
 
       <div className='w-full flex flex-row'>
@@ -63,7 +63,7 @@ export default function UsernameForm({ session }: { session: Session }) {
         />
         <button
           type='submit'
-          disabled={!formData.username}
+          disabled={!formData.username || isSubmitting}
           className={classNames(style.submitbtn, "bg-black text-white")}
         >
           {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Update</span>}

@@ -30,8 +30,8 @@ export default function SignupForm() {
 
     fetch("/api/user/signup", {
       method: "POST",
-      body: new URLSearchParams(formData),
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: JSON.stringify(formData),
+      headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
       .then((result) => {

@@ -51,8 +51,12 @@ async function signup(password: string, email: string, role: UserRoleType) {
   }
 }
 
-async function update(_id: string, data: { username?: string; email?: string; role?: UserRoleType }) {
+async function update(
+  _id: string,
+  data: { username?: string; email?: string; role?: UserRoleType; password?: string }
+) {
   try {
+    let hashedPassword = undefined;
     const client = await clientPromise;
     const collection = client.db("user").collection("home");
 
@@ -62,9 +66,11 @@ async function update(_id: string, data: { username?: string; email?: string; ro
         return { status: false, message: `Email ${data.email} has been used` };
     }
 
+    if (data.password) hashedPassword = await hash(data.password, 10);
+
     const result = await collection.updateOne(
       { _id: new ObjectId(_id) },
-      { $set: { ...JSON.parse(JSON.stringify(data)), update_time: new Date() } }
+      { $set: { ...JSON.parse(JSON.stringify({ ...data, password: hashedPassword })), update_time: new Date() } }
     );
     if (result.modifiedCount) return { status: true, message: "Update succeeded" };
     else return { status: true, message: "Nothing changed" };
@@ -74,10 +80,25 @@ async function update(_id: string, data: { username?: string; email?: string; ro
   }
 }
 
+async function remove(_id: string) {
+  try {
+    const client = await clientPromise;
+    const collection = client.db("user").collection("home");
+
+    const result = await collection.deleteOne({ _id: new ObjectId(_id) });
+    if (result.deletedCount > 0) return { status: true, message: "Delete succeeded" };
+    else return { status: false, message: "Delete failed" };
+  } catch (error) {
+    console.error(error);
+    return { status: false, message: "Cannot establish connection with mongodb" };
+  }
+}
+
 const user = {
   compare,
   signup,
   update,
+  remove,
 };
 
 export default user;

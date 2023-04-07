@@ -60,6 +60,7 @@
 ## 6. TODOs
 
 - [x] Add page loading progress bar(2023.4.1 Tricky way to solve it)
+- [ ] Update user session flawlessly
 
 ## 7. Tailwindcss Rules
 
@@ -72,7 +73,7 @@
 
 ## 8. Deploy
 
-add `.env` file:
+Add `.env` file:
 
 ```env
 MAILFROM="your_email"
@@ -85,21 +86,19 @@ NEXTAUTH_URL="https://your.website.domain.com/"
 MONGODB_URI="mongodb://username:password@mongodb0.example.com:27017/"
 ```
 
-build project:
+Build project:
 
 ```bash
 npm run build
 ```
 
-start project:
+Start project:
 
 ```bash
 npm start
 ```
 
-## 9. Links
-
-Avaliable links:
+## 9. Avaliable links
 
 - [https://mraddict.one](https://mraddict.one)
 - [https://playground.mraddict.vercel.app](https://playground.mraddict.vercel.app)

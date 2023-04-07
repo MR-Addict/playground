@@ -20,7 +20,7 @@ export default async function Page() {
 
   return (
     <section aria-label='manager user page' className='w-full flex flex-col gap-2'>
-      <h1 className='text-xl font-semibold text-gray-700'>Manage users</h1>
+      <h1 className='text-xl font-semibold text-gray-700'>Manage Users</h1>
 
       <UsersTable users={users} />
     </section>

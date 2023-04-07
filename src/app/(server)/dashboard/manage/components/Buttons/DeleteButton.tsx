@@ -16,7 +16,7 @@ export default function DeleteButton({ _id }: { _id: string }) {
   return (
     <>
       <DeletePopup isOpenForm={isOpenForm} openDeletePopup={openDeletePopup} _id={_id} />
-      <button aria-label='delete button' type='button' onClick={() => openDeletePopup(true)}>
+      <button aria-label='delete user button' type='button' onClick={() => openDeletePopup(true)}>
         <AiOutlineDelete size={15} />
       </button>
     </>

@@ -1,5 +1,5 @@
 .hamburger {
-  @apply flex flex-col gap-1.5;
+  @apply flex flex-col gap-1.5 h-5 items-center justify-center;
 }
 
 .hamburger div {

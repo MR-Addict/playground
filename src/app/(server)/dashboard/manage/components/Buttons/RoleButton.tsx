@@ -17,7 +17,7 @@ export default function RoleButton({ _id, role }: { _id: string; role: UserRoleT
   return (
     <>
       <RolePopup isOpenForm={isOpenForm} _id={_id} role={role} openRolePopup={openRolePopup} />
-      <button type='button' onClick={() => openRolePopup(true)}>
+      <button aria-label='update user role button' type='button' onClick={() => openRolePopup(true)}>
         <BiEditAlt size={15} />
       </button>
     </>

@@ -21,7 +21,7 @@ export default function Usericon({ session }: { session: Session }) {
       </button>
       <div className={classNames(style.dropmenu, "background")}>
         <div>
-          <p>Hello, {session.user.username}.</p>
+          <p>Hello, {session.user.username}</p>
           <p className='text-sm text-gray-500'>{session.user.email}</p>
         </div>
         <hr />

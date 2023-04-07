@@ -20,7 +20,7 @@ export default function UserRoleForm({ session }: { session: Session }) {
         <input disabled id='accountRole' value={session.user.role} className={classNames(style.input, "background")} />
         <button
           type='button'
-          className={classNames(style.submitbtn, "bg-black text-white")}
+          className={classNames(style.submitbtn, "bg-green-600 text-white")}
           onClick={() => {
             copyToClipboard(session.user.role);
             popup({ status: true, message: "Your role copied" });

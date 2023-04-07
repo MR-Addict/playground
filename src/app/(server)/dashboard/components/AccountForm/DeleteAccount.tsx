@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Session } from "next-auth";
 
 import style from "./AccountForm.module.css";
-import DeletePopup from "./DeletePopup";
+import DeletePopup from "../DeletePopup/DeletePopup";
 
 export default function DeleteAccount({ session }: { session: Session }) {
   const [isOpenForm, setIsOpenForm] = useState(false);
@@ -21,16 +21,16 @@ export default function DeleteAccount({ session }: { session: Session }) {
 
       <p className={style.label}>Delete Your Account</p>
 
-      <div className='w-full flex flex-col items-end gap-1'>
-        <p className='text-lg'>
-          Permanently remove your Personal Account and all of its contents. This action is not reversible, so please
+      <div className='w-full flex flex-col items-end gap-3'>
+        <p className='text-lg text-gray-500'>
+          Permanently remove your personal account and all of its contents. This action is not reversible, so please
           continue with caution.
         </p>
 
         <button
           type='button'
           onClick={() => openDeletePopup(true)}
-          className={classNames(style.submitbtn, "bg-black text-white")}
+          className={classNames(style.submitbtn, "text-white")}
         >
           Delete
         </button>

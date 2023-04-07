@@ -1,0 +1,23 @@
+.table {
+  @apply w-full h-full;
+}
+
+.table thead tr {
+  @apply bg-green-600 text-white;
+}
+
+.table thead tr th {
+  @apply font-normal;
+}
+
+.table tr {
+  @apply text-left;
+}
+
+.table :is(th, td) {
+  @apply py-3 px-2 whitespace-nowrap;
+}
+
+.table tbody tr:nth-of-type(even) {
+  @apply bg-gray-200;
+}

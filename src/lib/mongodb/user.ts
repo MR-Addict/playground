@@ -1,3 +1,4 @@
+import z from "zod";
 import { ObjectId } from "mongodb";
 import { compare as bcryptjsCompare, hash } from "bcryptjs";
 
@@ -94,11 +95,26 @@ async function remove(_id: string) {
   }
 }
 
+async function read() {
+  try {
+    const client = await clientPromise;
+    const collection = client.db("user").collection("home");
+
+    const result = await collection.find({}).sort({ create_time: 1 }).toArray();
+    const users = z.array(User).parse(result);
+    return { status: true, data: users };
+  } catch (error) {
+    console.error(error);
+    return { status: false, message: "Error occurred while communicate with mongodb" };
+  }
+}
+
 const user = {
   compare,
   signup,
   update,
   remove,
+  read,
 };
 
 export default user;

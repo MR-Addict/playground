@@ -1,5 +1,5 @@
 .link {
-  @apply md:w-full text-gray-500 duration-100 rounded-md;
+  @apply md:w-full text-gray-500 text-lg duration-100 rounded-md flex flex-row items-center gap-1;
 }
 
 .link:hover,

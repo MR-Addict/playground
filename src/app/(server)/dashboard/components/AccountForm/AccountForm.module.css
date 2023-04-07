@@ -40,15 +40,19 @@
 
 /* submit button */
 .submitbtn {
-  @apply w-16 md:w-20 rounded-r-md py-2 border-l-0 border border-black duration-300 flex flex-col items-center justify-center;
+  @apply w-16 md:w-20 rounded-r-md py-2 border-l-0 duration-300 flex flex-col items-center justify-center;
 }
 
 .element-group.danger .submitbtn {
   @apply h-10 rounded-md bg-red-600 text-white border-0;
 }
 
-.submitbtn:valid:hover {
-  @apply shadow-lg;
+.submitbtn:not(:disabled):hover {
+  @apply bg-green-700;
+}
+
+.element-group.danger .submitbtn:hover {
+  @apply bg-red-700;
 }
 
 .input:invalid ~ .submitbtn:hover {

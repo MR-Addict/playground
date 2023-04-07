@@ -25,7 +25,7 @@ export default function IDForm({ session }: { session: Session }) {
         />
         <button
           type='button'
-          className={classNames(style.submitbtn, "bg-black text-white")}
+          className={classNames(style.submitbtn, "bg-green-600 text-white")}
           onClick={() => {
             copyToClipboard(session.user._id.toString());
             popup({ status: true, message: "Your ID copied" });

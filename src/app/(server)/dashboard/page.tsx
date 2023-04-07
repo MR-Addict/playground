@@ -10,9 +10,5 @@ export default async function Page() {
   const session = await pageSession();
   if (!session) redirect("/");
 
-  return (
-    <section aria-label='account page' className='w-full'>
-      <AccountForm session={session} />
-    </section>
-  );
+  return <AccountForm session={session} />;
 }

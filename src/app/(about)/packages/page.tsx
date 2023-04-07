@@ -22,7 +22,7 @@ export default async function Page() {
               {item.name}
             </span>
             <div className='w-full flex flex-col items-center gap-3 py-7'>
-              <Image src={item.img} alt='icon' placeholder='blur' className='w-2/3 sm:w-1/2 aspect-square' />
+              <Image src={item.img} alt='logo' placeholder='blur' className='w-2/3 sm:w-1/2 aspect-square' />
               <span className='text-2xl text-center text-green-700'>{item.version}</span>
             </div>
           </li>

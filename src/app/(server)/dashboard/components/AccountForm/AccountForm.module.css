@@ -1,0 +1,30 @@
+.input-element {
+  @apply w-full p-3 md:p-5 rounded-md border border-gray-500 flex flex-col gap-2;
+}
+
+/* label */
+.label {
+  @apply text-lg text-gray-700 font-semibold;
+}
+
+/* input */
+.input {
+  @apply flex-1 p-2 border border-black rounded-l-md outline-none;
+}
+
+.input:focus {
+  @apply border-blue-600;
+}
+
+/* submit button */
+.submitbtn {
+  @apply w-16 rounded-r-md py-2 md:w-20 border-l-0 border border-black duration-300 flex flex-col items-center justify-center;
+}
+
+.submitbtn:valid:hover {
+  @apply shadow-lg;
+}
+
+.input:invalid ~ .submitbtn:hover {
+  @apply cursor-not-allowed;
+}

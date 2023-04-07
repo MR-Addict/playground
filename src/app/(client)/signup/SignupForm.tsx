@@ -3,13 +3,13 @@
 import classNames from "classnames";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { AiOutlineMail, AiOutlineUser, AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
+import { AiOutlineMail, AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
 
 import style from "./SignupForm.module.css";
 import { usePopupContext } from "@/contexts";
 import { LoadingDots } from "@/components/server";
 
-const defaultFormData = { username: "", password: "", email: "", confirmPassword: "" };
+const defaultFormData = { email: "", password: "", confirmPassword: "" };
 
 export default function SignupForm() {
   const router = useRouter();
@@ -53,24 +53,6 @@ export default function SignupForm() {
       <h1 className='font-bold text-4xl text-center text-gray-700'>Signup</h1>
 
       <div className='flex flex-col gap-2'>
-        <div className={style.inputgroup}>
-          <label htmlFor='signupUsername' className={style.label}>
-            <AiOutlineUser />
-            <span>Username</span>
-          </label>
-          <input
-            required
-            type='text'
-            id='signupUsername'
-            name='username'
-            autoComplete='off'
-            maxLength={10}
-            value={formData.username}
-            onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-            className={classNames(style.input, "background")}
-          />
-        </div>
-
         <div className={style.inputgroup}>
           <label htmlFor='signupEmail' className={style.label}>
             <AiOutlineMail />
@@ -130,9 +112,7 @@ export default function SignupForm() {
         <button
           type='submit'
           className={classNames(style.submitbtn, "bg-green-600")}
-          disabled={
-            !formData.username || !formData.password || !formData.email || !formData.confirmPassword || isSubmitting
-          }
+          disabled={!formData.password || !formData.email || !formData.confirmPassword || isSubmitting}
         >
           {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Signup</span>}
         </button>

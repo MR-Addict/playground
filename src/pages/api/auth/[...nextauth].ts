@@ -15,15 +15,17 @@ export const authOptions: NextAuthOptions = {
       name: "credentials",
 
       credentials: {
-        username: { label: "Username", type: "text", placeholder: "Username" },
+        username: { label: "Email", type: "email", placeholder: "Email" },
         password: { label: "Password", type: "password", placeholder: "Password" },
       },
 
       async authorize(credentials, req) {
         const { username, password } = credentials as { username: string; password: string };
         const result = await user.compare(username, password);
-        if (!result.status) return null;
-        else return result.user as any;
+        if (!result.status) {
+          console.error(result.message);
+          return null;
+        } else return result.user as any;
       },
     }),
   ],

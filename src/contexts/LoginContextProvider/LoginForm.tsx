@@ -3,7 +3,7 @@
 import classNames from "classnames";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { AiOutlineUser, AiOutlineLock } from "react-icons/ai";
+import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 
 import style from "./LoginForm.module.css";
 import { ClientLink } from "@/components/client";
@@ -13,14 +13,14 @@ import { LoadingDots, OperationWindow } from "@/components/server";
 export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
   const { popup } = usePopupContext();
   const { openLoginForm, isLoggingIn, setIsLoggingIn } = useLoginContext();
-  const [formData, setFormData] = useState({ username: "", password: "" });
+  const [formData, setFormData] = useState({ email: "", password: "" });
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoggingIn(true);
 
     await signIn("credentials", {
-      username: formData.username,
+      username: formData.email,
       password: formData.password,
       redirect: false,
     })
@@ -45,17 +45,17 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
 
         <div className='flex flex-col gap-6'>
           <div className={style.inputgroup}>
-            <label htmlFor='loginUsername' className={style.label}>
-              <AiOutlineUser />
-              <span>Username</span>
+            <label htmlFor='loginEmail' className={style.label}>
+              <AiOutlineMail />
+              <span>Email</span>
             </label>
             <input
               required
-              type='text'
-              id='loginUsername'
-              name='username'
-              maxLength={10}
-              value={formData.username}
+              type='email'
+              id='loginEmail'
+              name='email'
+              maxLength={100}
+              value={formData.email}
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
               className={classNames(style.input, "background")}
             />
@@ -89,7 +89,7 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
             <button
               type='submit'
               className={classNames(style.submitbtn, "bg-green-600")}
-              disabled={!formData.username || !formData.password || isLoggingIn}
+              disabled={!formData.email || !formData.password || isLoggingIn}
             >
               {isLoggingIn ? <LoadingDots color='white' size={5} /> : <span>Login</span>}
             </button>

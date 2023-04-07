@@ -4,7 +4,7 @@ export default function Anchor(props: React.ComponentProps<"a">) {
   // heading anchor
   if (props.href?.startsWith("#")) {
     return (
-      <a {...props} className='my-1'>
+      <a {...props} className='my-1 break-words'>
         {props.children}
       </a>
     );
@@ -18,7 +18,7 @@ export default function Anchor(props: React.ComponentProps<"a">) {
 
   // normal anchor
   return (
-    <a {...props} target='_blank' className='text-lg text-blue-600 hover:underline'>
+    <a {...props} target='_blank' className='text-lg text-blue-600 hover:underline break-words'>
       {props.children}
     </a>
   );

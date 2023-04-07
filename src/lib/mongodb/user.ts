@@ -1,14 +1,15 @@
+import { ObjectId } from "mongodb";
 import { compare as bcryptjsCompare, hash } from "bcryptjs";
 
 import clientPromise from "./clientPromise";
 import { User, UserRoleType } from "@/types/user";
 
-async function compare(username: string, password: string) {
+async function compare(email: string, password: string) {
   try {
     const client = await clientPromise;
     const collection = client.db("user").collection("home");
 
-    const user = await collection.find({ username }).next();
+    const user = await collection.find({ email }).next();
     if (!user) return { status: false, message: "User not exists" };
 
     const isMatched = await bcryptjsCompare(password, user.password);
@@ -22,7 +23,7 @@ async function compare(username: string, password: string) {
   }
 }
 
-async function signup(username: string, password: string, email: string, role: UserRoleType) {
+async function signup(password: string, email: string, role: UserRoleType) {
   const hashedPassword = await hash(password, 10);
   const now = new Date();
 
@@ -30,11 +31,11 @@ async function signup(username: string, password: string, email: string, role: U
     const client = await clientPromise;
     const collection = client.db("user").collection("home");
 
-    const duplicatedUser = await collection.find({ username }).next();
-    if (duplicatedUser) return { status: false, message: `Username ${username} has been used` };
+    const duplicatedUser = await collection.find({ email }).next();
+    if (duplicatedUser) return { status: false, message: `Email ${email} has been used` };
 
     const result = await collection.insertOne({
-      username,
+      username: email.split("@")[0],
       password: hashedPassword,
       email,
       role,
@@ -50,9 +51,33 @@ async function signup(username: string, password: string, email: string, role: U
   }
 }
 
+async function update(_id: string, data: { username?: string; email?: string; role?: UserRoleType }) {
+  try {
+    const client = await clientPromise;
+    const collection = client.db("user").collection("home");
+
+    if (data.email) {
+      const duplicatedUser = await collection.find({ email: data.email }).next();
+      if (duplicatedUser?._id.toString() !== _id)
+        return { status: false, message: `Email ${data.email} has been used` };
+    }
+
+    const result = await collection.updateOne(
+      { _id: new ObjectId(_id) },
+      { $set: { ...JSON.parse(JSON.stringify(data)), update_time: new Date() } }
+    );
+    if (result.modifiedCount) return { status: true, message: "Update succeeded" };
+    else return { status: true, message: "Nothing changed" };
+  } catch (error) {
+    console.error(error);
+    return { status: false, message: "Error occurred while communicate with mongodb" };
+  }
+}
+
 const user = {
   compare,
   signup,
+  update,
 };
 
 export default user;

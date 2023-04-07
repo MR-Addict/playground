@@ -25,7 +25,7 @@ export default function Usericon({ session }: { session: Session }) {
           <p className='text-sm text-gray-500'>{session.user.email}</p>
         </div>
         <hr />
-        <ClientLink href='/' className='w-full hover:text-green-600'>
+        <ClientLink href='/dashboard' className='w-full hover:text-green-600'>
           Dashboard
         </ClientLink>
         <hr />

@@ -26,7 +26,7 @@ export default function ProjectCard({ project, permission }: { project: ProjectT
 
       {project.homepageUrl && (
         <div className={style["flex-row-1"]}>
-          <a href={project.homepageUrl} target='_blank' className='text-blue-600 hover:underline whitespace-pre-wrap'>
+          <a href={project.homepageUrl} target='_blank' className='text-blue-600 hover:underline break-words'>
             {project.homepageUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")}
           </a>
         </div>

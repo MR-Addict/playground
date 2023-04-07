@@ -1,7 +1,10 @@
 import { redirect } from "next/navigation";
 
+import { setMetadata } from "@/lib/utils";
 import { checkPerm } from "@/lib/auth/checkPerm";
 import { pageSession } from "@/lib/auth/serverSession";
+
+export const metadata = setMetadata("Dashboard • Users");
 
 export default async function Page() {
   const session = await pageSession();

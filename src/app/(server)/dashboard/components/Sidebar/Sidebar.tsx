@@ -14,7 +14,7 @@ export default function Sidebar({ session }: { session: Session }) {
 
   return (
     <section aria-label='sidebar' className='md:w-1/6 h-full'>
-      <ul className='flex flex-row md:flex-col'>
+      <ul className='flex flex-row md:flex-col gap-2 md:gap-1'>
         {links
           .filter((item) => checkPerm(session?.user.role || "vistor", item.visibility))
           .map((link) => (

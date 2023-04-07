@@ -1,24 +1,28 @@
 "use client";
 
 import classNames from "classnames";
-import { useState } from "react";
 import { Reorder } from "framer-motion";
 import { GrBook } from "react-icons/gr";
 import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 import { RxDragHandleDots2 } from "react-icons/rx";
 
 import style from "./DragPopup.module.css";
 import { usePopupContext } from "@/contexts";
-import { useDragContext } from "./DragContext";
+import { DatabaseProjectType } from "@/types/project";
 import { LoadingDots, OperationWindow } from "@/components/server";
 import { useProjectContext } from "../ProjectForm/ProjectContextProvider";
 
-export default function DragPopup() {
+export default function DragPopup({ databaseProjects }: { databaseProjects: DatabaseProjectType[] }) {
   const router = useRouter();
   const { popup } = usePopupContext();
-  const { projects, setProjects } = useDragContext();
   const { isDragMode, openDragPopup } = useProjectContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [projects, setProjects] = useState(databaseProjects);
+
+  useEffect(() => {
+    if (!isDragMode) setProjects(databaseProjects);
+  }, [databaseProjects, isDragMode]);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -38,7 +42,6 @@ export default function DragPopup() {
         if (result.status) {
           openDragPopup(false);
           router.refresh();
-          setProjects(newProjects);
         } else console.error(result.message);
       })
       .catch((error) => {
@@ -49,7 +52,7 @@ export default function DragPopup() {
   }
 
   return (
-    <OperationWindow aria-label='drag popup' isOpenWindow={isDragMode}>
+    <OperationWindow aria-label='drag popup window' isOpenWindow={isDragMode}>
       <form
         onSubmit={handleSubmit}
         className={classNames(style.form, "background", isDragMode ? "scale-100" : "scale-0")}

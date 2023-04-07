@@ -39,7 +39,7 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
   }
 
   return (
-    <OperationWindow isOpenWindow={isOpenForm}>
+    <OperationWindow aria-label='delete popup window' isOpenWindow={isOpenForm}>
       <div className={classNames(style.popup, "background", isOpenForm ? "scale-100" : "scale-0")}>
         <h1 className='font-bold text-3xl text-center text-gray-700'>Delete Moment?</h1>
 

@@ -1,17 +1,13 @@
 import classNames from "classnames";
 import style from "./OperationWindow.module.css";
 
-interface Props {
-  children: React.ReactNode;
+type Props = {
   isOpenWindow: boolean;
-}
+} & React.ComponentProps<"section">;
 
-export default function OperationWindow({ children, isOpenWindow }: Props) {
+export default function OperationWindow({ children, isOpenWindow, ...rest }: Props) {
   return (
-    <section
-      aria-label='operation window'
-      className={classNames(style.window, "frame", isOpenWindow ? style.active : "")}
-    >
+    <section {...rest} className={classNames(style.window, "frame", isOpenWindow ? style.active : "")}>
       {children}
     </section>
   );

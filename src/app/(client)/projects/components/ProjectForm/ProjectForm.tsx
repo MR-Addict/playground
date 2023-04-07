@@ -44,7 +44,7 @@ export default function ProjectForm({ isOpenForm }: { isOpenForm: boolean }) {
   }
 
   return (
-    <OperationWindow isOpenWindow={isOpenForm}>
+    <OperationWindow aria-label='project form window' isOpenWindow={isOpenForm}>
       <form
         onSubmit={handleSubmit}
         className={classNames(style.form, "background", isOpenForm ? "scale-100" : "scale-0")}

@@ -36,7 +36,7 @@ export default function LoginForm({ isOpenForm }: { isOpenForm: boolean }) {
   };
 
   return (
-    <OperationWindow isOpenWindow={isOpenForm}>
+    <OperationWindow aria-label='login form window' isOpenWindow={isOpenForm}>
       <form
         onSubmit={handleSubmit}
         className={classNames(style.form, "background", isOpenForm ? "scale-100" : "scale-0")}

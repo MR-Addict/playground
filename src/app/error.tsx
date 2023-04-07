@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { IoMdRefresh } from "react-icons/io";
 
-export default function Error({ error, reset }: { error: Error; reset: () => void }) {
+export default function Error({ error }: { error: Error }) {
   useEffect(() => {
     console.error(error);
   }, [error]);
@@ -13,7 +13,7 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
       <button
         type='button'
         aria-label='reset button'
-        onClick={() => reset()}
+        onClick={() => location.reload()}
         className='text-green-600 shadow-md hover:shadow-xl rounded-full'
       >
         <IoMdRefresh size={40} />

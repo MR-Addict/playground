@@ -8,7 +8,7 @@ import { DatabaseProjectType } from "@/types/project";
 export default function OperationButtons({ project }: { project: DatabaseProjectType }) {
   return (
     <div className={style.dots}>
-      <button className='p-1 rounded-full'>
+      <button aria-label='three dots button' type='button' className='p-1 rounded-full'>
         <HiOutlineDotsVertical />
       </button>
 

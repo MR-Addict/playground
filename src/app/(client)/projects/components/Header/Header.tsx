@@ -10,7 +10,7 @@ export default function Header() {
       <h1 className='text-gray-700 font-bold text-3xl'>Projects</h1>
 
       <div className={style.dots}>
-        <button className='p-1 rounded-full'>
+        <button aria-label='menu button' type='button' className='p-1 rounded-full'>
           <AiOutlineUnorderedList />
         </button>
 

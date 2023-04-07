@@ -66,7 +66,7 @@ export default function DragPopup({ databaseProjects }: { databaseProjects: Data
                   <span>{project.name}</span>
                 </span>
 
-                <button type='button' className='cursor-grab'>
+                <button type='button' aria-label='drag button' className='cursor-grab'>
                   <RxDragHandleDots2 />
                 </button>
               </Reorder.Item>

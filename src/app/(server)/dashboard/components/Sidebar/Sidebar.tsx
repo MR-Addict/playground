@@ -18,13 +18,15 @@ export default function Sidebar({ session }: { session: Session }) {
         {links
           .filter((item) => checkPerm(session?.user.role || "vistor", item.visibility))
           .map((link) => (
-            <ClientLink
-              key={link.path}
-              href={link.path}
-              className={classNames(style.link, rootPath === link.path ? style.active : "")}
-            >
-              {link.name}
-            </ClientLink>
+            <li>
+              <ClientLink
+                key={link.path}
+                href={link.path}
+                className={classNames(style.link, rootPath === link.path ? style.active : "")}
+              >
+                {link.name}
+              </ClientLink>
+            </li>
           ))}
       </ul>
     </section>

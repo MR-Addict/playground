@@ -27,7 +27,7 @@
 
 /* input */
 .input {
-  @apply flex-1 p-2 border border-black rounded-l-md outline-none;
+  @apply flex-1 p-2 border border-r-0 border-black rounded-l-md outline-none;
 }
 
 .input:disabled {

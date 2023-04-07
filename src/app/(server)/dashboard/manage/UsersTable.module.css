@@ -19,5 +19,5 @@
 }
 
 .table tbody tr:nth-of-type(even) {
-  @apply bg-gray-200;
+  @apply bg-gray-100;
 }

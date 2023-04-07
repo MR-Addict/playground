@@ -1,6 +1,6 @@
 /* delete popup size */
 .popup {
-  @apply duration-200 w-full md:max-w-sm flex flex-col items-center gap-4 rounded-md p-5 md:p-7;
+  @apply duration-200 w-full md:max-w-xs flex flex-col items-center gap-4 rounded-md p-5 md:p-7;
 }
 
 /* submit button */

@@ -5,24 +5,15 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import style from "./RolePopup.module.css";
-import { UserRoleType, roles } from "@/types/user";
+import { roles } from "@/types/user";
 import { usePopupContext } from "@/contexts";
 import { LoadingDots, OperationWindow } from "@/components/server";
+import { useRolePopupContext } from "./RolePopupContextProvider";
 
-export default function RolePopup({
-  _id,
-  role,
-  isOpenForm,
-  openRolePopup,
-}: {
-  _id: string;
-  role: UserRoleType;
-  isOpenForm: boolean;
-  openRolePopup: Function;
-}) {
+export default function RolePopup({ isOpenForm }: { isOpenForm: boolean }) {
   const router = useRouter();
   const { popup } = usePopupContext();
-  const [formData, setFormData] = useState(role);
+  const { userIDRole, setUserIDRole, openRolePopup } = useRolePopupContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -31,7 +22,7 @@ export default function RolePopup({
 
     fetch("/api/user/update", {
       method: "PUT",
-      body: JSON.stringify({ _id: _id, role: formData }),
+      body: JSON.stringify(userIDRole),
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
@@ -60,9 +51,10 @@ export default function RolePopup({
         <select
           required
           id='manageRole'
-          value={formData}
+          name='role'
+          value={userIDRole.role}
           className={classNames(style.input, "background")}
-          onChange={(e) => setFormData(e.target.value as UserRoleType)}
+          onChange={(e) => setUserIDRole({ ...userIDRole, [e.target.name]: e.target.value })}
         >
           {roles.map((role) => (
             <option value={role}>{role}</option>
@@ -77,11 +69,7 @@ export default function RolePopup({
           >
             Cancel
           </button>
-          <button
-            type='submit'
-            className={classNames(style.submitbtn, "bg-green-600")}
-            disabled={!formData || isSubmitting}
-          >
+          <button type='submit' className={classNames(style.submitbtn, "bg-green-600")} disabled={isSubmitting}>
             {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Update</span>}
           </button>
         </div>

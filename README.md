@@ -64,12 +64,13 @@
 
 ## 7. Tailwindcss Rules
 
-| Key      | Value     |
-| :------- | :-------- |
-| Duration | 300       |
-| Light    | gray-500  |
-| Dark     | gray-700  |
-| Theme    | green-600 |
+| Key       | Value     |
+| :-------- | :-------- |
+| Max width | sm        |
+| Duration  | 300       |
+| Light     | gray-500  |
+| Dark      | gray-700  |
+| Theme     | green-600 |
 
 ## 8. Deploy
 

@@ -3,23 +3,22 @@
 import { useState } from "react";
 import { BiEditAlt } from "react-icons/bi";
 
-import RolePopup from "../RolePopup/RolePopup";
 import { UserRoleType } from "@/types/user";
+import { useRolePopupContext } from "../RolePopup/RolePopupContextProvider";
 
 export default function RoleButton({ _id, role }: { _id: string; role: UserRoleType }) {
-  const [isOpenForm, setIsOpenForm] = useState(false);
-
-  function openRolePopup(status: boolean) {
-    setIsOpenForm(status);
-    document.body.style.overflow = status ? "hidden" : "auto";
-  }
+  const { openRolePopup, setUserIDRole } = useRolePopupContext();
 
   return (
-    <>
-      <RolePopup isOpenForm={isOpenForm} _id={_id} role={role} openRolePopup={openRolePopup} />
-      <button aria-label='update user role button' type='button' onClick={() => openRolePopup(true)}>
-        <BiEditAlt size={15} />
-      </button>
-    </>
+    <button
+      aria-label='update user role button'
+      type='button'
+      onClick={() => {
+        setUserIDRole({ _id, role });
+        openRolePopup(true);
+      }}
+    >
+      <BiEditAlt size={15} />
+    </button>
   );
 }

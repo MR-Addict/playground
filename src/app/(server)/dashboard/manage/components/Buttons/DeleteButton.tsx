@@ -1,24 +1,22 @@
 "use client";
 
-import { useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 
-import { DeletePopup } from "../../../components";
+import { useDeletePopupContext } from "../DeletePopup/DeletePopupContextProvider";
 
 export default function DeleteButton({ _id }: { _id: string }) {
-  const [isOpenForm, setIsOpenForm] = useState(false);
-
-  function openDeletePopup(status: boolean) {
-    setIsOpenForm(status);
-    document.body.style.overflow = status ? "hidden" : "auto";
-  }
+  const { openDeletePopup, setUserId } = useDeletePopupContext();
 
   return (
-    <>
-      <DeletePopup isOpenForm={isOpenForm} openDeletePopup={openDeletePopup} _id={_id} />
-      <button aria-label='delete user button' type='button' onClick={() => openDeletePopup(true)}>
-        <AiOutlineDelete size={15} />
-      </button>
-    </>
+    <button
+      aria-label='delete user button'
+      type='button'
+      onClick={() => {
+        setUserId(_id);
+        openDeletePopup(true);
+      }}
+    >
+      <AiOutlineDelete size={15} />
+    </button>
   );
 }

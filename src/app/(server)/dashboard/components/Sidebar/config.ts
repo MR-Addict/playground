@@ -13,8 +13,8 @@ export const links: Props[] = [
     visibility: "current",
   },
   {
-    name: "Notification",
-    path: "/dashboard/notification",
+    name: "Users",
+    path: "/dashboard/users",
     visibility: "admin",
   },
 ];

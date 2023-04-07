@@ -10,7 +10,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
 
   return (
     <PageWrapper aria-label='account page' className='w-full flex-1 frame background flex flex-col md:flex-row gap-2'>
-      <Sidebar />
+      <Sidebar session={session} />
       {children}
     </PageWrapper>
   );

@@ -23,8 +23,8 @@ export default function UsernameForm({ session }: { session: Session }) {
 
     const backupSession = { ...session };
     backupSession.user.username = formData.username;
-    console.log(backupSession);
     updateSession.update(backupSession);
+
     fetch("/api/user/update", {
       method: "PUT",
       body: JSON.stringify({ _id: formData._id, username: formData.username }),

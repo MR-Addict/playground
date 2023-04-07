@@ -1,31 +1,30 @@
 "use client";
 
-import Link from "next/link";
 import classNames from "classnames";
-import { useSession } from "next-auth/react";
+import { Session } from "next-auth";
 import { usePathname } from "next/navigation";
 
 import style from "./Sidebar.module.css";
 import { links } from "./config";
 import { checkPerm } from "@/lib/auth/checkPerm";
+import { ClientLink } from "@/components/client";
 
-export default function Sidebar() {
-  const { data: session } = useSession();
-  const rootPath = (usePathname() || "/").split("/").slice(0, 2).join("/");
+export default function Sidebar({ session }: { session: Session }) {
+  const rootPath = (usePathname() || "/").split("/").slice(0, 3).join("/");
 
   return (
-    <section aria-label='sidebar' className='w-1/6 h-full'>
-      <ul className='flex flex-col'>
+    <section aria-label='sidebar' className='md:w-1/6 h-full'>
+      <ul className='flex flex-row md:flex-col'>
         {links
           .filter((item) => checkPerm(session?.user.role || "vistor", item.visibility))
           .map((link) => (
-            <Link
+            <ClientLink
               key={link.path}
               href={link.path}
               className={classNames(style.link, rootPath === link.path ? style.active : "")}
             >
               {link.name}
-            </Link>
+            </ClientLink>
           ))}
       </ul>
     </section>

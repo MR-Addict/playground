@@ -29,7 +29,7 @@ export default function UsersTable({ users }: { users: UserType[] }) {
               <td>{formatDate(user.update_time)}</td>
               <td className='flex flex-row gap-1.5 items-center h-full'>
                 <RoleButton _id={user._id.toString()} role={user.role} />
-                <DeleteButton _id={user._id.toString()} />
+                <DeleteButton _id={user._id.toString()} role={user.role} />
               </td>
             </tr>
           ))}

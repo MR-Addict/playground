@@ -30,6 +30,7 @@ export default function DeletePopup({
     })
       .then((res) => res.json())
       .then((result) => {
+        popup(result);
         if (result.status) signOut();
         else console.error(result.message);
       })

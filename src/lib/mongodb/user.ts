@@ -86,6 +86,9 @@ async function remove(_id: string) {
     const client = await clientPromise;
     const collection = client.db("user").collection("home");
 
+    const user = await collection.find({ _id: new ObjectId(_id) }).next();
+    if (user?.role === "admin") return { status: false, message: `Administrator cannot be deleted` };
+
     const result = await collection.deleteOne({ _id: new ObjectId(_id) });
     if (result.deletedCount > 0) return { status: true, message: "Delete succeeded" };
     else return { status: false, message: "Delete failed" };

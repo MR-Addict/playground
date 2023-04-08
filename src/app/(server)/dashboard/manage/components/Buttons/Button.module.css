@@ -1,0 +1,7 @@
+.btn {
+  @apply py-0.5 px-2 rounded-sm text-white text-sm duration-300;
+}
+
+.btn:hover {
+  @apply shadow-lg;
+}

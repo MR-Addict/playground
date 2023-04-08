@@ -25,12 +25,13 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
     })
       .then((res) => res.json())
       .then((result) => {
+        popup(result);
         if (result.status) router.refresh();
         else console.error(result.message);
       })
       .catch((error) => {
         console.error(error);
-        popup({ status: false, message: "Failed to delete your account" });
+        popup({ status: false, message: "Failed to delete this user" });
       })
       .finally(() => setIsSubmitting(false));
   }
@@ -38,7 +39,7 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
   return (
     <OperationWindow aria-label='delete popup window' isOpenWindow={isOpenForm}>
       <div className={classNames(style.popup, "background", isOpenForm ? "scale-100" : "scale-0")}>
-        <h1 className='font-bold text-3xl text-center text-gray-700'>Delete account?</h1>
+        <h1 className='font-bold text-3xl text-center text-gray-700'>Delete user?</h1>
 
         <div className='w-full flex flex-row gap-3 mt-3'>
           <button

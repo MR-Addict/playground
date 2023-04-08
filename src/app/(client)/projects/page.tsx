@@ -18,7 +18,7 @@ export default async function Page() {
   return (
     <>
       {permission && <DragPopup databaseProjects={databaseProjects} />}
-      <ol aria-label='projects' className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+      <ol aria-label='projects' className='grid grid-cols-1 md:grid-cols-2 gap-5'>
         {projects.map((project) => (
           <ProjectCard key={project._id} permission={permission} project={project} />
         ))}

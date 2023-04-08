@@ -25,7 +25,7 @@ export default async function Page() {
             {item1.data.map((item2) => (
               <li
                 key={item2._id}
-                className='background flex flex-col gap-1 p-3 rounded-md shadow-md border border-green-600 group'
+                className='background flex flex-col gap-1 p-3 rounded-md shadow-sm border border-green-600 group'
               >
                 <div className='flex flex-row items-center gap-2'>
                   <Tooltip title={item2.date}>

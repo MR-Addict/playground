@@ -8,10 +8,10 @@ export default async function Layout({ children }: { children: React.ReactNode }
   const permission = checkPerm(session?.user.role || "vistor", "admin");
 
   return (
-    <PageWrapper className='w-full frame flex flex-col gap-3 isolate'>
+    <PageWrapper className='w-full frame flex flex-col gap-5 isolate'>
       <ProjectContextProvider>
         <DeletePopupContextProvider>
-          {permission && <Header />}
+          <Header permission={permission} />
           {children}
         </DeletePopupContextProvider>
       </ProjectContextProvider>

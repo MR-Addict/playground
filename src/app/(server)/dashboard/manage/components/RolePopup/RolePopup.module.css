@@ -1,6 +1,6 @@
 /* form */
 .form {
-  @apply duration-200 w-full md:max-w-xs flex flex-col gap-4 rounded-md p-5 md:p-7;
+  @apply duration-200 w-full md:max-w-xs flex flex-col gap-6 rounded-md p-5 md:p-7;
 }
 
 /* label */

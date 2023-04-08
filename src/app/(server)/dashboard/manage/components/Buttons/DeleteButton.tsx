@@ -9,8 +9,8 @@ export default function DeleteButton({ _id }: { _id: string }) {
 
   return (
     <button
-      aria-label='delete user button'
       type='button'
+      aria-label='delete user button'
       onClick={() => {
         setUserId(_id);
         openDeletePopup(true);

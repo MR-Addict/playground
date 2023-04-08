@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { BiEditAlt } from "react-icons/bi";
 
 import { UserRoleType } from "@/types/user";
@@ -11,8 +10,8 @@ export default function RoleButton({ _id, role }: { _id: string; role: UserRoleT
 
   return (
     <button
-      aria-label='update user role button'
       type='button'
+      aria-label='update user role button'
       onClick={() => {
         setUserIDRole({ _id, role });
         openRolePopup(true);

@@ -28,8 +28,8 @@ export default function AccountForm({ session }: { session: Session }) {
 
         <div className={style["inner-group"]}>
           <UserRoleForm session={session} />
-          <CreateTimeForm session={session} />
           <IDForm session={session} />
+          <CreateTimeForm session={session} />
         </div>
       </div>
 

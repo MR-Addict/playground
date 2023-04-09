@@ -60,7 +60,7 @@
 ## 6. TODOs
 
 - [x] Add page loading progress bar(2023.4.1 Tricky way to solve it)
-- [ ] Update user session flawlessly
+- [ ] Better way to update user session whenever user first open page
 
 ## 7. Tailwindcss Rules
 

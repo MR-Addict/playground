@@ -15,32 +15,20 @@ export default function UsernameForm({ session }: { session: Session }) {
   const updateSession = useSession();
   const { popup } = usePopupContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState(session.user);
+  const [formData, setFormData] = useState(session.user.username);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsSubmitting(true);
 
     const backupSession = { ...session };
-    backupSession.user.username = formData.username;
-    updateSession.update(backupSession);
+    backupSession.user.username = formData;
+    const result = await updateSession.update(backupSession);
 
-    fetch("/api/user/update", {
-      method: "PUT",
-      body: JSON.stringify({ _id: formData._id, username: formData.username }),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        popup(result);
-        if (result.status) router.refresh();
-        else console.error(result.message);
-      })
-      .catch((error) => {
-        console.error(error);
-        popup({ status: false, message: "Failed to update your username" });
-      })
-      .finally(() => setIsSubmitting(false));
+    // TODO:
+    // Implement better way to check update result.
+
+    setIsSubmitting(false);
   }
 
   return (
@@ -56,14 +44,14 @@ export default function UsernameForm({ session }: { session: Session }) {
           name='username'
           id='accountUsername'
           placeholder='Username'
-          value={formData.username}
+          value={formData}
           maxLength={100}
           className={classNames(style.input, "background")}
-          onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
+          onChange={(e) => setFormData(e.target.value)}
         />
         <button
           type='submit'
-          disabled={!formData.username || isSubmitting}
+          disabled={!formData || isSubmitting}
           className={classNames(style.submitbtn, "bg-green-600 text-white")}
         >
           {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Update</span>}

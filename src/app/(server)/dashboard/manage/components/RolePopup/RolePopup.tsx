@@ -3,15 +3,18 @@
 import classNames from "classnames";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 import style from "./RolePopup.module.css";
 import { roles } from "@/types/user";
 import { usePopupContext } from "@/contexts";
 import { LoadingDots, OperationWindow } from "@/components/server";
 import { useRolePopupContext } from "./RolePopupContextProvider";
+import { Session } from "next-auth";
 
-export default function RolePopup({ isOpenForm }: { isOpenForm: boolean }) {
+export default function RolePopup({ isOpenForm, session }: { isOpenForm: boolean; session: Session }) {
   const router = useRouter();
+  const updateSession = useSession();
   const { popup } = usePopupContext();
   const { userIDRole, setUserIDRole, openRolePopup } = useRolePopupContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -20,22 +23,14 @@ export default function RolePopup({ isOpenForm }: { isOpenForm: boolean }) {
     event.preventDefault();
     setIsSubmitting(true);
 
-    fetch("/api/user/update", {
-      method: "PUT",
-      body: JSON.stringify(userIDRole),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        popup(result);
-        if (result.status) router.refresh();
-        else console.error(result.message);
-      })
-      .catch((error) => {
-        console.error(error);
-        popup({ status: false, message: "Failed to update user role" });
-      })
-      .finally(() => setIsSubmitting(false));
+    const backupSession = { ...session };
+    backupSession.user.role = userIDRole.role;
+    const result = await updateSession.update(backupSession);
+
+    // TODO:
+    // Implement better way to check update result.
+
+    setIsSubmitting(false);
   }
 
   return (
@@ -57,7 +52,9 @@ export default function RolePopup({ isOpenForm }: { isOpenForm: boolean }) {
           onChange={(e) => setUserIDRole({ ...userIDRole, [e.target.name]: e.target.value })}
         >
           {roles.map((role) => (
-            <option value={role}>{role}</option>
+            <option key={role} value={role}>
+              {role}
+            </option>
           ))}
         </select>
 

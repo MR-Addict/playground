@@ -3,12 +3,14 @@
 import classNames from "classnames";
 import { useState } from "react";
 import { Session } from "next-auth";
+import { useSession } from "next-auth/react";
 
 import style from "./AccountForm.module.css";
 import { LoadingDots } from "@/components/server";
 import { usePopupContext } from "@/contexts";
 
 export default function PasswordForm({ session }: { session: Session }) {
+  const updateSession = useSession();
   const { popup } = usePopupContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState("");
@@ -17,22 +19,14 @@ export default function PasswordForm({ session }: { session: Session }) {
     event.preventDefault();
     setIsSubmitting(true);
 
-    fetch("/api/user/update", {
-      method: "PUT",
-      body: JSON.stringify({ _id: session.user._id, password: formData }),
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        popup(result);
-        if (result.status) setFormData("");
-        else console.error(result.message);
-      })
-      .catch((error) => {
-        console.error(error);
-        popup({ status: false, message: "Failed to update your password" });
-      })
-      .finally(() => setIsSubmitting(false));
+    const backupSession = { ...session };
+    backupSession.user.password = formData;
+    const result = await updateSession.update(backupSession);
+
+    // TODO:
+    // Implement better way to check update result.
+
+    setIsSubmitting(false);
   }
 
   return (

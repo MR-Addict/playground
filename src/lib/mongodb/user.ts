@@ -63,7 +63,7 @@ async function update(
 
     if (data.email) {
       const duplicatedUser = await collection.find({ email: data.email }).next();
-      if (duplicatedUser?._id.toString() !== _id)
+      if (duplicatedUser && duplicatedUser?._id.toString() !== _id)
         return { status: false, message: `Email ${data.email} has been used` };
     }
 

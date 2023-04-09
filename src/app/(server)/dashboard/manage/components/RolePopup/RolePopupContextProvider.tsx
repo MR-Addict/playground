@@ -3,6 +3,7 @@
 import { UserRoleType } from "@/types/user";
 import RolePopup from "./RolePopup";
 import { createContext, useContext, useState } from "react";
+import { Session } from "next-auth";
 
 interface UserIDRoleType {
   _id: string;
@@ -23,7 +24,7 @@ const RolePopupContext = createContext<RolePopupContextProps>({
   openRolePopup: (value: boolean) => {},
 });
 
-export const RolePopupContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
+export const RolePopupContextProvider = ({ children, session }: { children: React.ReactNode; session: Session }) => {
   const [isOpenForm, setIsOpenForm] = useState(false);
   const [userIDRole, setUserIDRole] = useState(defaultUserIDRole);
 
@@ -34,7 +35,7 @@ export const RolePopupContextProvider: React.FC<React.PropsWithChildren<{}>> = (
 
   return (
     <RolePopupContext.Provider value={{ userIDRole, setUserIDRole, openRolePopup }}>
-      <RolePopup isOpenForm={isOpenForm} />
+      <RolePopup isOpenForm={isOpenForm} session={session} />
       {children}
     </RolePopupContext.Provider>
   );

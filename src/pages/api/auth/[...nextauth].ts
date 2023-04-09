@@ -1,9 +1,38 @@
+import z from "zod";
 import NextAuth from "next-auth";
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 import { env } from "@/types/env";
 import { user } from "@/lib/mongodb";
+import { UserRole } from "@/types/user";
+
+async function updateSession(req: any) {
+  const User = z.object({
+    _id: z.string(),
+    username: z.string().max(100).optional(),
+    email: z.string().max(100).optional(),
+    role: UserRole.optional(),
+    password: z.string().optional(),
+  });
+
+  const parsedResult = User.safeParse(req);
+  if (!parsedResult.success) return false;
+
+  const parsedUser = parsedResult.data;
+  const result = await user.update(parsedUser._id, {
+    email: parsedUser.email,
+    username: parsedUser.username,
+    role: parsedUser.role,
+    password: parsedUser.password,
+  });
+
+  if (result.status) return true;
+  else {
+    console.error(result.message);
+    return false;
+  }
+}
 
 export const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },
@@ -31,11 +60,16 @@ export const authOptions: NextAuthOptions = {
   ],
 
   callbacks: {
-    async jwt({ token, user }) {
-      user && (token.user = user);
+    async jwt({ token, user, trigger, session }) {
+      if (trigger === "update" && session?.user) {
+        const success = await updateSession(session.user);
+        if (success) token.user = session.user;
+      } else if (user) token.user = user;
+
       return token;
     },
-    session({ session, token }) {
+
+    async session({ session, token }) {
       // @ts-expect-error
       session.user = token.user;
       return session;

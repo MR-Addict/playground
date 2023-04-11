@@ -1,4 +1,5 @@
 export { default as Back } from "./Back/Back";
+export { default as Gist } from "./Gist/Gist";
 export { default as TimeAgo } from "./TimeAgo/TimeAgo";
 export { default as Cronitor } from "./Cronitor/Cronitor";
 export { default as Markdown } from "./Markdown/Markdown";

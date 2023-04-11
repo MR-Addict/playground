@@ -3,6 +3,7 @@
 ## 1. Packages
 
 - [x] Zod
+- [x] Sass
 - [x] Sharp
 - [x] Nextauth
 - [x] Typescript
@@ -61,6 +62,7 @@
 
 - [x] Add page loading progress bar(2023.4.1 Tricky way to solve it)
 - [ ] Better way to update user session whenever user first open page
+- [ ] Gist page add add and delete button
 
 ## 7. Tailwindcss Rules
 

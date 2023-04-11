@@ -4,7 +4,7 @@
 
 /* copy button */
 .copy-btn {
-  @apply absolute space-x-2 top-0 right-0 m-2 hidden transition bg-transparent border rounded-md p-2 outline-none;
+  @apply absolute -top-[30px] right-3 text-gray-300;
 }
 
 .container:hover .copy-btn,

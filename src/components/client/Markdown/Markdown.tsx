@@ -1,8 +1,8 @@
 "use client";
 
-import "./style/customCss.css";
-import "./style/prism-atom-dark.css";
-import "./style/prism-line-numbers.css";
+import "./style/custom.scss";
+import "./style/prism-atom-dark.scss";
+import "./style/prism-line-numbers.scss";
 
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 
@@ -29,5 +29,9 @@ export default function Markdown({ serializedMDX }: { serializedMDX: MDXRemoteSe
     img: Img,
   };
 
-  return <MDXRemote {...serializedMDX} components={{ ...components, ...customComponents }} />;
+  return (
+    <section className='w-full blog-markdown-container'>
+      <MDXRemote {...serializedMDX} components={{ ...components, ...customComponents }} />
+    </section>
+  );
 }

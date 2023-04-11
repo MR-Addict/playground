@@ -2,6 +2,7 @@ import path from "path";
 import fsPromises from "fs/promises";
 
 import zod from "./images/zod.png";
+import sass from "./images/sass.png";
 import sharp from "./images/sharp.png";
 import nextjs from "./images/nextjs.png";
 import framer from "./images/framer.svg";
@@ -119,6 +120,14 @@ const packages = [
       name: "framer-motion",
     },
     img: framer,
+  },
+  {
+    name: "Sass",
+    package: {
+      category: "devDependencies",
+      name: "sass",
+    },
+    img: sass,
   },
 ];
 

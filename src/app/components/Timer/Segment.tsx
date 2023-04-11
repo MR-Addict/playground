@@ -18,7 +18,7 @@ function OneSegment({ count }: { count: number }) {
 }
 
 export default function Segment({ title, number }: { title: string; number: number }) {
-  const segments = (number < 10 ? "0" + number : String(number)).split("");
+  const segments = (number < 10 ? "0" + number : String(number)).split("").map((item) => Number(item));
 
   return (
     <div className='flex flex-col w-fit bg-yellow-500 rounded-xl drop-shadow-xl'>
@@ -29,7 +29,7 @@ export default function Segment({ title, number }: { title: string; number: numb
       </div>
       <div className='flex flex-row justify-center gap-4 p-5'>
         {segments.map((item, index) => (
-          <OneSegment key={index} count={Number(item)} />
+          <OneSegment key={index} count={item} />
         ))}
       </div>
       <h1 className='bg-green-600 text-center py-3 w-full rounded-b-xl text-white text-2xl md:text-3xl font-bold'>

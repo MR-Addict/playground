@@ -1,16 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import Segment from "./Segment";
+import { useInterval } from "@/hooks";
 import { formatDate, timeAgo } from "@/lib/utils";
-
-function useInterval(callback: Function, delay: number) {
-  useEffect(() => {
-    const interval = setInterval(() => callback(), delay || 0);
-    return () => clearInterval(interval);
-  }, [callback, delay]);
-}
 
 export default function Timer() {
   const runtimeStart = "2023-01-17T07:00:19Z";

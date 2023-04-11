@@ -10,7 +10,7 @@
   content: attr(tip-data);
   box-shadow: 0 0 5px gray;
   @apply bg-gradient-to-br from-blue-50 to-purple-50;
-  @apply duration-100 z-10 absolute w-max max-w-lg rounded-md px-2 py-1.5 text-gray-700 border border-green-600 opacity-0 invisible;
+  @apply duration-100 z-10 hidden md:block absolute w-max max-w-lg rounded-md px-2 py-1.5 text-gray-700 border border-green-600 opacity-0 invisible;
 }
 
 .top::before {

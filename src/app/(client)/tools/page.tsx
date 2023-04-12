@@ -7,9 +7,9 @@ export const metadata = setMetadata("Tools");
 export default function Page() {
   return (
     <PageWrapper aria-label='tools page' className='frame w-full flex flex-col items-center gap-10'>
-      <header aria-label='title' className='flex flex-col items-center gap-3'>
-        <h1 className='text-3xl text-center text-gray-700 font-bold'>Available Tools</h1>
-        <p className='text-center w-full max-w-xl text-xl text-gray-500'>
+      <header aria-label='title' className='text-center flex flex-col items-center gap-3'>
+        <h1 className='text-3xl text-gray-700 font-bold'>Available Tools</h1>
+        <p className='w-full max-w-xl text-xl text-gray-500'>
           These are all kinds of tools that I may use in my daily life. Hope they can be helpful to you too.
         </p>
       </header>

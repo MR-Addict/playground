@@ -11,9 +11,9 @@ export default function Page() {
 
   return (
     <PageWrapper aria-label='blog page' className='frame w-full flex flex-col items-center gap-10'>
-      <header aria-label='title' className='flex flex-col items-center gap-3'>
+      <header aria-label='title' className='text-center flex flex-col items-center gap-3'>
         <h1 className='text-gray-700 font-bold text-3xl'>Blog</h1>
-        <p className='w-full max-w-xl text-center text-xl text-gray-500'>
+        <p className='w-full max-w-xl text-xl text-gray-500'>
           This blog page includes posts I wrote about my stacks or my experience. Hope you like it.
         </p>
       </header>

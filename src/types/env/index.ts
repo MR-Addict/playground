@@ -10,6 +10,7 @@ const Env = z.object({
   CRONITOR_TOKEN: z.string(),
   NEXTAUTH_SECRET: z.string(),
   SANITY_PROJECT_ID: z.string(),
+  VERCEL_URL: z.string().optional(),
   NODE_ENV: NodeEnv,
 });
 

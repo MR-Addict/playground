@@ -14,7 +14,7 @@ const PopupContext = createContext<PopupContextProps>({
 
 export const PopupContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [isPopup, setIsPopup] = useState(false);
-  const [popupData, setPopupData] = useState({ status: false, message: "" });
+  const [popupData, setPopupData] = useState({ status: true, message: "" });
 
   function popup(data: { status: boolean; message: string }) {
     setPopupData(data);

@@ -17,6 +17,7 @@ export default function Page() {
           This blog page includes posts I wrote about my stacks or my experience. Hope you like it.
         </p>
       </header>
+
       <section aria-label='all blogs' className='flex flex-col w-full max-w-3xl gap-3'>
         <h1 className='text-gray-700 font-bold text-2xl ml-3'>All Posts</h1>
         <ul className='flex flex-col w-full gap-5'>

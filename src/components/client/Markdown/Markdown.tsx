@@ -30,8 +30,8 @@ export default function Markdown({ serializedMDX }: { serializedMDX: MDXRemoteSe
   };
 
   return (
-    <section className='w-full blog-markdown-container'>
+    <article className='w-full blog-markdown-container max-w-3xl'>
       <MDXRemote {...serializedMDX} components={{ ...components, ...customComponents }} />
-    </section>
+    </article>
   );
 }

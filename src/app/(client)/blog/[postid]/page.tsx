@@ -34,9 +34,8 @@ export default async function Page({ params: { postid } }: { params: { postid: s
           </div>
         </div>
       </header>
-      <article aria-label='markdown' className='w-full max-w-3xl markdown'>
-        <Markdown serializedMDX={result.serializedMDX} />
-      </article>
+
+      <Markdown serializedMDX={result.serializedMDX} />
     </PageWrapper>
   );
 }

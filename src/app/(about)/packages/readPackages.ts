@@ -4,6 +4,7 @@ import fsPromises from "fs/promises";
 import zod from "./images/zod.png";
 import sass from "./images/sass.png";
 import sharp from "./images/sharp.png";
+import sanity from "./images/sanity.png";
 import nextjs from "./images/nextjs.png";
 import framer from "./images/framer.svg";
 import mongodb from "./images/mongodb.png";
@@ -128,6 +129,14 @@ const packages = [
       name: "sass",
     },
     img: sass,
+  },
+  {
+    name: "Sanity",
+    package: {
+      category: "dependencies",
+      name: "next-sanity-client",
+    },
+    img: sanity,
   },
 ];
 

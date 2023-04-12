@@ -5,6 +5,7 @@
 - [x] Zod
 - [x] Sass
 - [x] Sharp
+- [x] Sanity
 - [x] Nextauth
 - [x] Typescript
 - [ ] Turbopack
@@ -85,6 +86,7 @@ OPENAI_TOKEN="create_a_openai_token"
 GITHUB_TOKEN="create_a_github_token"
 CRONITOR_TOKEN="create_a_cronitor_token"
 NEXTAUTH_SECRET="create_a_nextauth_secret"
+SANITY_PROJECT_ID="create_a_sanity_project_id"
 NEXTAUTH_URL="https://your.website.domain.com/"
 MONGODB_URI="mongodb://username:password@mongodb0.example.com:27017/"
 ```

@@ -11,8 +11,7 @@ import { ProjectCard, DragPopup } from "./components";
 export const metadata = setMetadata("Projects");
 
 export default async function Page() {
-  const session = await pageSession();
-  const projects = await fetchProjects();
+  const [session, projects] = await Promise.all([pageSession(), fetchProjects()]);
   const permission = checkPerm(session?.user.role || "vistor", "admin");
   const databaseProjects = z.array(DatabaseProject).parse(projects);
 

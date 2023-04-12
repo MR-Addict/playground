@@ -1,45 +1,43 @@
 import { HiOutlineCodeBracketSquare } from "react-icons/hi2";
 
-import gists from "./config";
-import serializeGist from "@/lib/gist";
 import { setMetadata } from "@/lib/utils";
-import { Gist, TimeAgo, PageWrapper } from "@/components/client";
+import { checkPerm } from "@/lib/auth/checkPerm";
+import { fetchAndSerializeGists } from "@/lib/gist";
+import { Gist, TimeAgo } from "@/components/client";
+import { pageSession } from "@/lib/auth/serverSession";
 
 export const metadata = setMetadata("Gists");
 
 export default async function Page() {
-  const data = await Promise.all(gists.map((gist) => serializeGist(gist)));
+  const [session, gists] = await Promise.all([pageSession(), fetchAndSerializeGists()]);
+  const permission = checkPerm(session?.user.role || "vistor", "admin");
 
   return (
-    <PageWrapper className='frame w-full flex flex-col gap-7'>
-      <header className='text-center flex flex-col items-center gap-3'>
-        <h1 className='text-gray-700 font-bold text-3xl'>Gists</h1>
-        <p className='w-full max-w-xl text-xl text-gray-500'>
-          Here is some useful gists I think I may easily forget. So I put theme there for quick look.
-        </p>
-      </header>
-
-      <div className='w-full flex flex-col gap-10'>
-        {data.map((gist) => (
-          <div key={gist.id}>
+    <div className='w-full flex flex-col gap-10'>
+      {gists
+        .filter((gist) => gist.public || permission)
+        .map((gist) => (
+          <div key={gist._id}>
             <div className='flex items-start flex-row gap-1'>
               <div className='w-3 h-3 border-4 border-green-600 rounded-full mt-2'></div>
 
               <div className='flex flex-col md:flex-row md:items-center md:gap-1'>
-                <h1 className='text-lg text-gray-700'>{gist.description}</h1>
+                <h1 className='text-lg text-gray-700'>{gist.title}</h1>
 
-                <div className='flex flex-row items-center gap-0.5'>
+                <div className='flex flex-row items-center gap-1'>
                   <p className='text-sm text-gray-500'>
-                    Last update <TimeAgo date={gist.updated_at} />
+                    Last update <TimeAgo date={gist._updatedAt} />
                   </p>
-                  <a
-                    href={gist.html_url}
-                    target='_blank'
-                    aria-label='gist link'
-                    className='text-gray-500 mt-1 hover:text-blue-600'
-                  >
-                    <HiOutlineCodeBracketSquare size={15} />
-                  </a>
+                  {permission && (
+                    <a
+                      href='https://mraddict.sanity.studio'
+                      target='_blank'
+                      aria-label='studio link'
+                      className='text-gray-500 mt-1 hover:text-blue-600'
+                    >
+                      <HiOutlineCodeBracketSquare size={15} />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -51,7 +49,6 @@ export default async function Page() {
             </div>
           </div>
         ))}
-      </div>
-    </PageWrapper>
+    </div>
   );
 }

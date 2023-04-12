@@ -10,11 +10,10 @@ import { DeletePopupContextProvider, RolePopupContextProvider } from "./componen
 export const metadata = setMetadata("Dashboard • Manage");
 
 export default async function Page() {
-  const session = await pageSession();
+  const [session, result] = await Promise.all([pageSession(), user.read()]);
   const userPermission = checkPerm(session?.user.role || "vistor", "admin");
-  if (!session || !userPermission) redirect("/");
 
-  const result = await user.read();
+  if (!session || !userPermission) redirect("/");
   if (!result.status || !result.data) throw new Error(result.message);
 
   const users = result.data;

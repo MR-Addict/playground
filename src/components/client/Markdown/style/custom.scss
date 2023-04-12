@@ -10,13 +10,13 @@
   }
 
   /* table */
-  .markdown table {
+  table {
     margin: 12px 0;
     border-collapse: collapse;
   }
 
-  .markdown table td,
-  .markdown table th {
+  table td,
+  table th {
     border: 1px solid #ddd;
     padding: 0.5em 1em;
     color: #494949;

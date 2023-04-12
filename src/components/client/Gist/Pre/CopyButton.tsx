@@ -21,6 +21,7 @@ export default function CopyButton({ text, ...rest }: Props) {
   function handleClick() {
     if (typeof text === "string") copyToClipboard(text);
     else copyToClipboard(text.current?.innerText || "");
+
     setCopied(true);
   }
 

@@ -28,5 +28,9 @@ export default async function fetchAndSerializeGists() {
     gists.push({ ...gist, files });
   }
 
-  return gists;
+  return gists.sort(({ _createdAt: a }, { _createdAt: b }) => {
+    if (a < b) return 1;
+    else if (a > b) return -1;
+    else return 0;
+  });
 }

@@ -42,7 +42,7 @@ export default async function Page() {
               </div>
             </div>
 
-            <div className='flex flex-col gap-3'>
+            <div className='flex flex-col gap-5'>
               {gist.files.map((item) => (
                 <Gist key={item.filename} serializedMDX={item.serializedMDX} />
               ))}

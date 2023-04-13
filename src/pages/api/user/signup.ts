@@ -16,5 +16,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const parsedUser = parsedResult.data;
   const result = await user.signup(parsedUser.password, parsedUser.email, "subscriber");
-  return res.status(result.status ? 200 : 500).json(result);
+  return res.status(result.status ? 201 : 500).json(result);
 }

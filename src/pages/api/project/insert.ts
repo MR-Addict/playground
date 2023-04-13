@@ -16,5 +16,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (!req.body?.owner || !req.body?.name) return res.status(400).json({ status: false, message: "Bad request" });
 
   const result = await project.insert(req.body.owner, req.body.name);
-  return res.status(result.status ? 200 : 500).json(result);
+  return res.status(result.status ? 201 : 500).json(result);
 }

@@ -16,5 +16,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (!req.body?.weather || !req.body?.moment) return res.status(400).json({ status: false, message: "Bad request" });
 
   const result = await moment.insert(req.body.moment, req.body.weather);
-  return res.status(result.status ? 200 : 500).json(result);
+  return res.status(result.status ? 201 : 500).json(result);
 }

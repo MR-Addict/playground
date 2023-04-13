@@ -18,5 +18,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   });
 
   const result = await feedback.insert(req.body.feedback);
-  return res.status(result.status ? 200 : 500).json(result);
+  return res.status(result.status ? 201 : 500).json(result);
 }

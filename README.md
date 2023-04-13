@@ -63,17 +63,18 @@
 
 - [x] Add page loading progress bar(2023.4.1 Tricky way to solve it)
 - [ ] Better way to update user session whenever user first open page
-- [ ] Gist page add add and delete button
+- [x] Gist page add add and delete button(2023.4.12 Solved by using sanity studio)
 
 ## 7. Tailwindcss Rules
 
-| Key       | Value     |
-| :-------- | :-------- |
-| Max width | sm        |
-| Duration  | 300       |
-| Light     | gray-500  |
-| Dark      | gray-700  |
-| Theme     | green-600 |
+| Key         | Value     |
+| :---------- | :-------- |
+| Max width   | sm        |
+| Break point | md        |
+| Duration    | 300       |
+| Light       | gray-500  |
+| Dark        | gray-700  |
+| Theme       | green-600 |
 
 ## 8. Deploy
 

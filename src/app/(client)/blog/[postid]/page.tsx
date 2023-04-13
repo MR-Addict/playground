@@ -25,7 +25,7 @@ export default async function Page({ params: { postid } }: { params: { postid: s
             </div>
             <TimeAgo date={result.date} />
           </div>
-          <div className='flex flex-row gap-2'>
+          <div className='flex flex-row gap-2 flex-wrap'>
             {result.tags.map((tag, index) => (
               <div key={index} style={{ color: colorfulColors[index], fontWeight: "bold" }}>
                 #{tag}

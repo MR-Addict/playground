@@ -37,7 +37,8 @@ export default function Page() {
                   </div>
                   <TimeAgo date={item.date.toISOString()} />
                 </div>
-                <div className='flex flex-row gap-2'>
+
+                <div className='flex flex-row gap-2 flex-wrap'>
                   {item.tags.map((tag, index) => (
                     <div key={index} style={{ color: colorfulColors[index], fontWeight: "bold" }}>
                       #{tag}

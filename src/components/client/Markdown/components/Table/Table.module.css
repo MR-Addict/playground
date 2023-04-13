@@ -1,6 +1,6 @@
 /* table */
 .table {
-  @apply my-4 text-lg text-gray-700 border-collapse;
+  @apply text-lg text-gray-700;
 }
 
 .table :is(td, th) {

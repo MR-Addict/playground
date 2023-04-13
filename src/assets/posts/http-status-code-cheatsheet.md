@@ -1,7 +1,7 @@
 ---
 title: "HTTP Status Code Cheatsheet"
-date: "2023-04-13 15:50"
-tags: ["status-code", "http", "web"]
+date: "2023-04-13T07:50:00.000Z"
+tags: ["status-code", "http", "web", "cheatsheet"]
 intro: "Use correct http status code for your API"
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Improve Your Website Accessibility"
-date: "2023-01-29 13:08"
+date: "2023-01-29T05:08:00.000Z"
 tags: ["ADA", "WCAG", "accessibility"]
 intro: "Keep your website accessibility in mind."
 ---

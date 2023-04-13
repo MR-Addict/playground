@@ -1,6 +1,6 @@
 ---
 title: "CSS New @property Rule"
-date: "2023-01-31 18:46"
+date: "2023-01-31T10:46:00.000Z"
 tags: ["css", "@property", "animation"]
 intro: "CSS new @property rule makes it more powerful"
 ---

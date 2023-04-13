@@ -1,6 +1,6 @@
 "use client";
 
-import "./style/custom.scss";
+import "./style/rehype-code-title.scss";
 import "./style/prism-atom-dark.scss";
 import "./style/prism-line-numbers.scss";
 
@@ -8,7 +8,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 
 import { Youtube, Codepen } from "@/components/server";
 import { KeyButton, SendProfileEmail } from "./custom";
-import { Heading, Paragraph, List, Anchor, Code, Blockquote, Pre, Img } from "./components";
+import { Heading, Paragraph, List, Table, Anchor, Code, Blockquote, Pre, Img } from "./components";
 
 export default function Markdown({ serializedMDX }: { serializedMDX: MDXRemoteSerializeResult }) {
   const customComponents = { KeyButton, Youtube, SendProfileEmail, Codepen };
@@ -27,6 +27,7 @@ export default function Markdown({ serializedMDX }: { serializedMDX: MDXRemoteSe
     blockquote: Blockquote,
     pre: Pre,
     img: Img,
+    table: Table,
   };
 
   return (

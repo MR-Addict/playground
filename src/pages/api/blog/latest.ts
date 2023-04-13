@@ -9,5 +9,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const url = "https://mraddict.one/blog/" + post.id;
     return { ...post, url };
   });
-  return res.status(200).json(result.slice(0, 6));
+  return res.status(200).json(result.slice(0, 4));
 }

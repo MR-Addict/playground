@@ -1,0 +1,10 @@
+/* table */
+.table {
+  @apply my-4 text-lg text-gray-700 border-collapse;
+}
+
+.table :is(td, th) {
+  border: 1px solid #ddd;
+  padding: 0.5em 1em;
+  color: #494949;
+}

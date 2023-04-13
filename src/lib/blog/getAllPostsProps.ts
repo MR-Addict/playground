@@ -7,7 +7,7 @@ const postsDir = path.join(process.cwd(), "src/assets/posts");
 interface blogType {
   id: string;
   title: string;
-  date: string;
+  date: Date;
   tags: string[];
   intro: string;
 }
@@ -20,7 +20,7 @@ export default function getAllPostsProps() {
     const fileContent = fs.readFileSync(filePath, "utf8");
     const { data } = matter(fileContent);
 
-    return { id: fileName.replace(/\.md$/, ""), ...data } as blogType;
+    return { id: fileName.replace(/\.md$/, ""), ...data, date: new Date(data.date) } as blogType;
   });
 
   return allPostsProps.sort(({ date: a }, { date: b }) => {

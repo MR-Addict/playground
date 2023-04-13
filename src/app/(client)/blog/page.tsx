@@ -35,7 +35,7 @@ export default function Page() {
                     <FaRegClock size={13} />
                     <p>{formatDate(item.date).split(" ")[0]}</p>
                   </div>
-                  <TimeAgo date={item.date} />
+                  <TimeAgo date={item.date.toISOString()} />
                 </div>
                 <div className='flex flex-row gap-2'>
                   {item.tags.map((tag, index) => (

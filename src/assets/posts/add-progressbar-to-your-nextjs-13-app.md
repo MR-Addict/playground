@@ -46,7 +46,7 @@ The basis of this solution is that first, we click a **Link** Component, then we
 
 It seems not right, but it's working and working well you can trust me on this.
 
-## 3. Trigger start signal
+## 3. Trigger Start Signal
 
 But how to trigger a start signal? There is a problem with this, the click event should be on the client side, so we need to create a custom **ClientLink** that extends the origin Link and is used on the client side.
 
@@ -114,7 +114,7 @@ export default function Navbar() {
 }
 ```
 
-## 4. Listen finish signal
+## 4. Listen Finish Signal
 
 You can use useEffect to listen to router changes like pathname searchParams from next.js.
 
@@ -250,7 +250,7 @@ You can have a try on my website:
 
 - [https://mraddict.one](/)
 
-## 5. Useful links
+## 5. Useful Links
 
 - [nextjs-progressbar](https://www.npmjs.com/package/nextjs-progressbar)
 - [https://github.com/vercel/next.js/discussions/46478](https://github.com/vercel/next.js/discussions/46478)

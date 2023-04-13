@@ -260,7 +260,7 @@ export default function Markdown({ serializedMDX }: { serializedMDX: MDXRemoteSe
 >
 > - [https://github.com/MR-Addict/playground](https://github.com/MR-Addict/playground)
 
-## 9. Copy button
+## 9. Copy Button
 
 It would be great if there was copy button on our code block, I found a solution on [this blog](https://ithelp.ithome.com.tw/articles/10302397).
 

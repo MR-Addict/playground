@@ -4,5 +4,5 @@
 
 /* copy button */
 .copy-btn {
-  @apply absolute -top-[30px] right-3;
+  @apply absolute -top-[30px] right-3 text-gray-300;
 }

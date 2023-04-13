@@ -1,12 +1,11 @@
 .gist-pre-container {
   /* code title */
   .rehype-code-title {
-    background: #f3f4f6;
+    margin-top: 16px;
+    background: #2e3134;
     padding: 0.6em 1.4em;
+    color: #fff;
     border-radius: 0.3em 0.3em 0 0;
     overflow: hidden;
-    border: solid 1px rgb(209 213 219);
-    border-bottom: none;
-    color: black;
   }
 }

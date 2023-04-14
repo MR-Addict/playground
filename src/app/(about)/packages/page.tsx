@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import readPackages from "./readPackages";
+import LatestVersion from "./LatestVersion";
 import { setMetadata } from "@/lib/utils";
 import { PageWrapper } from "@/components/client";
 
@@ -23,7 +24,10 @@ export default async function Page() {
             </span>
             <div className='w-full flex flex-col items-center gap-3 py-7'>
               <Image src={item.img} alt='logo' placeholder='blur' className='w-2/3 sm:w-1/2 aspect-square' />
-              <span className='text-2xl text-center text-green-700'>{item.version}</span>
+              <span className='text-2xl text-center text-green-700 relative'>
+                {item.version}
+                <LatestVersion name={item.packageName} currentVersion={item.version} />
+              </span>
             </div>
           </li>
         ))}

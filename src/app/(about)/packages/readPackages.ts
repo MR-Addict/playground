@@ -6,7 +6,7 @@ import sass from "./images/sass.png";
 import sharp from "./images/sharp.png";
 import sanity from "./images/sanity.png";
 import nextjs from "./images/nextjs.png";
-import framer from "./images/framer.svg";
+import framer from "./images/framer.png";
 import mongodb from "./images/mongodb.png";
 import reactjs from "./images/reactjs.png";
 import bcryptjs from "./images/bcryptjs.png";
@@ -20,122 +20,92 @@ import tailwindcss from "./images/tailwindcss.png";
 const packages = [
   {
     name: "Next.js",
-    package: {
-      category: "dependencies",
-      name: "next",
-    },
+    packageName: "next",
+    devDependency: false,
     img: nextjs,
   },
   {
     name: "React.js",
-    package: {
-      category: "dependencies",
-      name: "react",
-    },
+    packageName: "react",
+    devDependency: false,
     img: reactjs,
   },
   {
     name: "NextAuth.js",
-    package: {
-      category: "dependencies",
-      name: "next-auth",
-    },
+    packageName: "next-auth",
+    devDependency: false,
     img: nextauthjs,
   },
   {
     name: "Typescript",
-    package: {
-      category: "devDependencies",
-      name: "typescript",
-    },
+    packageName: "typescript",
+    devDependency: true,
     img: typescript,
   },
   {
     name: "Mongodb",
-    package: {
-      category: "dependencies",
-      name: "mongodb",
-    },
+    packageName: "mongodb",
+    devDependency: false,
     img: mongodb,
   },
   {
     name: "Tailwindcss",
-    package: {
-      category: "devDependencies",
-      name: "tailwindcss",
-    },
+    packageName: "tailwindcss",
+    devDependency: true,
     img: tailwindcss,
   },
   {
     name: "Zod",
-    package: {
-      category: "dependencies",
-      name: "zod",
-    },
+    packageName: "zod",
+    devDependency: false,
     img: zod,
   },
   {
     name: "Sharp",
-    package: {
-      category: "dependencies",
-      name: "sharp",
-    },
+    packageName: "sharp",
+    devDependency: false,
     img: sharp,
   },
   {
     name: "React Icons",
-    package: {
-      category: "devDependencies",
-      name: "react-icons",
-    },
+    packageName: "react-icons",
+    devDependency: true,
     img: reacticons,
   },
   {
     name: "Bcrypt",
-    package: {
-      category: "dependencies",
-      name: "bcryptjs",
-    },
+    packageName: "bcryptjs",
+    devDependency: false,
     img: bcryptjs,
   },
   {
     name: "Nodemailer",
-    package: {
-      category: "dependencies",
-      name: "nodemailer",
-    },
+    packageName: "nodemailer",
+    devDependency: false,
     img: nodemailer,
   },
   {
     name: "Codemirror",
-    package: {
-      category: "devDependencies",
-      name: "@uiw/react-codemirror",
-    },
+    packageName: "@uiw/react-codemirror",
+    devDependency: true,
     img: codemirror,
   },
   {
     name: "Framer Motion",
-    package: {
-      category: "devDependencies",
-      name: "framer-motion",
-    },
+    packageName: "framer-motion",
+    devDependency: true,
     img: framer,
   },
   {
     name: "Sass",
-    package: {
-      category: "devDependencies",
-      name: "sass",
-    },
+    packageName: "sass",
+    devDependency: true,
     img: sass,
   },
   {
     name: "Sanity",
-    package: {
-      category: "dependencies",
-      name: "next-sanity-client",
-    },
+    packageName: "next-sanity-client",
+    devDependency: false,
     img: sanity,
   },
 ];
@@ -149,11 +119,11 @@ export default async function readPackages() {
     const img = item.img;
     const name = item.name;
 
-    const packageName = item.package.name;
-    const category = item.package.category;
+    const packageName = item.packageName;
+    const category = item.devDependency ? "devDependencies" : "dependencies";
     const version: string = packageJson[category][packageName].replace("^", "");
 
-    return { name, version, img };
+    return { name, version, img, packageName, devDependency: item.devDependency };
   });
 
   return result;

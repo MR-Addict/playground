@@ -2,7 +2,7 @@
 title: "Add Progressbar to Your Next.js 13 App"
 date: "2023-04-03T05:15:00.000Z"
 tags: ["next.js-13", "progressbar", "nprogress"]
-intro: "Solve the problem that unable use nextjs-progressbar"
+intro: "Solve the problem that unable to use nextjs-progressbar"
 ---
 
 ## 1. What's the problem

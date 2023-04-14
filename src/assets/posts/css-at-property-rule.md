@@ -2,7 +2,7 @@
 title: "CSS New @property Rule"
 date: "2023-01-31T10:46:00.000Z"
 tags: ["css", "@property", "animation"]
-intro: "CSS new @property rule makes it more powerful"
+intro: "CSS new @property rule makes css more powerful"
 ---
 
 ## 1. What's @property

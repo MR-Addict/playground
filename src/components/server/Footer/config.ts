@@ -68,7 +68,7 @@ export const links: {
       },
       {
         title: "Commits",
-        link: "/commits",
+        link: "/commits/1",
         external: false,
       },
       {

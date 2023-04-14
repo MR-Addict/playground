@@ -1,4 +1,3 @@
-import z from "zod";
 import SanityClient from "next-sanity-client";
 
 import { env } from "@/types/env";

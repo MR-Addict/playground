@@ -7,7 +7,10 @@ import { Gist } from "@/types/gist";
 import sanityClient from "@/lib/sanity";
 
 export default async function fetchAndSerializeGists() {
-  const result = await sanityClient.fetch({ query: '*[_type == "gist"]', config: { cache: "no-store" } });
+  const result = await sanityClient.fetch({
+    query: '*[_type == "gist"]',
+    config: { cache: "force-cache", next: { revalidate: 60 } },
+  });
   const parsedResult = z.array(Gist).parse(result);
 
   const gists = [];

@@ -1,3 +1,4 @@
+/* container */
 .container {
   @apply relative mb-4;
 }
@@ -10,36 +11,4 @@
 .container:hover .copy-btn,
 .copy-btn:disabled {
   @apply flex;
-}
-
-/* spand button */
-.spand-btn {
-  @apply flex flex-row justify-center w-full py-2 absolute left-0 bottom-4 isolate;
-}
-
-.spand-btn::before {
-  content: "";
-  @apply absolute w-full h-full bg-[#1d1f21f0] left-0 top-0 -z-10;
-}
-
-/* arrow rotate */
-.spand-btn svg {
-  @apply rotate-0 duration-300;
-}
-
-.container.active .spand-btn svg {
-  @apply rotate-180;
-}
-
-/* hide long code */
-.container pre span:nth-child(n + 30) {
-  display: none;
-}
-
-.container.active pre span:nth-child(n + 30) {
-  display: inline;
-}
-
-.container.active pre code {
-  @apply pb-8;
 }

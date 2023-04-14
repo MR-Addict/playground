@@ -3,19 +3,21 @@ import { notFound } from "next/navigation";
 
 import style from "./page.module.css";
 import fetchOnePage from "./fetchOnePage";
+import fetchTotalCommitsPages from "./fetchTotalCommitsPages";
+
 import { RecordLists } from "../../components";
 import { setMetadata, groupBy } from "@/lib/utils";
-import { fetchTotalCommitsCount } from "@/lib/project";
 import { ClientLink, PageWrapper } from "@/components/client";
 
 export const metadata = setMetadata("Commits");
 
 export default async function Page({ params: { pageid } }: { params: { pageid: string } }) {
   const currentPage = Number(pageid);
-  if (!Number.isInteger(currentPage) || isNaN(currentPage) || currentPage < 1) notFound();
+  const totalPages = await fetchTotalCommitsPages();
+
+  if (!Number.isInteger(currentPage) || isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) notFound();
 
   const res = await fetchOnePage(currentPage);
-
   const result = groupBy(res.data, (commit) => commit.date.split(" ")[0]);
   const totalCount = result.totalCount;
   const commits = result.data;
@@ -47,6 +49,6 @@ export default async function Page({ params: { pageid } }: { params: { pageid: s
 }
 
 export async function generateStaticParams() {
-  const pages = await fetchTotalCommitsCount();
+  const pages = await fetchTotalCommitsPages();
   return Array.from(Array(pages)).map((item, index) => ({ pageid: String(index + 1) }));
 }

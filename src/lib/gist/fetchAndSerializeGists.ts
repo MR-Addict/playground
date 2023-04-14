@@ -9,7 +9,7 @@ import sanityClient from "@/lib/sanity";
 export default async function fetchAndSerializeGists() {
   const result = await sanityClient.fetch({
     query: '*[_type == "gist"]',
-    config: { cache: "force-cache", next: { revalidate: 60 } },
+    config: { cache: "no-store" },
   });
   const parsedResult = z.array(Gist).parse(result);
 

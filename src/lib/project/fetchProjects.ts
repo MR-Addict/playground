@@ -20,6 +20,7 @@ export default async function fetchProjects() {
     cache: "force-cache",
     next: { revalidate: 60 },
   });
+
   if (!res.ok) throw new Error("Failed to fetch data");
 
   const data = await res.json();

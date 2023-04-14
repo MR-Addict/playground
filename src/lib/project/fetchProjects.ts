@@ -17,7 +17,6 @@ export default async function fetchProjects() {
     method: "POST",
     headers: { Authorization: `Bearer ${env.GITHUB_TOKEN}`, "Content-Type": "application/json" },
     body: JSON.stringify({ query: queries }),
-    cache: "force-cache",
     next: { revalidate: 60 },
   });
 

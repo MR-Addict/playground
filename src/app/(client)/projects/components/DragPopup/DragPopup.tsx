@@ -28,9 +28,7 @@ export default function DragPopup({ databaseProjects }: { databaseProjects: Data
     event.preventDefault();
     setIsSubmitting(true);
 
-    const newProjects = projects.map((project, index) => {
-      return { ...project, index };
-    });
+    const newProjects = projects.map((project, index) => ({ ...project, index }));
     fetch("/api/project/reorder", {
       method: "PUT",
       body: JSON.stringify(newProjects),

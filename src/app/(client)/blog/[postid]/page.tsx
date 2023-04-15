@@ -4,7 +4,7 @@ import { FaRegClock } from "react-icons/fa";
 import { setMetadata } from "@/lib/utils";
 import { colorfulColors, formatDate } from "@/lib/utils";
 import { getPostContent, getAllPostsProps } from "@/lib/blog";
-import { Markdown, TimeAgo, PageWrapper } from "@/components/client";
+import { Markdown, TimeAgo, PageWrapper, ClientLink } from "@/components/client";
 
 export default async function Page({ params: { postid } }: { params: { postid: string } }) {
   const decodedPostid = decodeURIComponent(postid);
@@ -36,6 +36,12 @@ export default async function Page({ params: { postid } }: { params: { postid: s
       </header>
 
       <Markdown serializedMDX={result.serializedMDX} />
+
+      <div className='w-full max-w-3xl'>
+        <ClientLink href='/blog' className='text-blue-600 text-lg hover:underline'>
+          ← Back to blog
+        </ClientLink>
+      </div>
     </PageWrapper>
   );
 }

@@ -57,9 +57,7 @@ async function read() {
     const result = await collection
       .find({})
       .sort({ index: 1 })
-      .map((item) => {
-        return { ...item, _id: item._id.toString() };
-      })
+      .map((item) => ({ ...item, _id: item._id.toString() }))
       .toArray();
     const data = z.array(DatabaseProject).parse(result);
     return { status: true, data };

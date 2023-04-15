@@ -7,12 +7,8 @@ import { languageColors } from "./languageColors";
 export default async function fetchProjects() {
   const result = await project.read();
   if (!result.data) throw new Error(result.message);
-  const queries = query(
-    result.data.map((item) => {
-      return { owner: item.owner, name: item.name };
-    })
-  );
 
+  const queries = query(result.data.map((item) => ({ owner: item.owner, name: item.name })));
   const res = await fetch("https://api.github.com/graphql", {
     method: "POST",
     headers: { Authorization: `Bearer ${env.GITHUB_TOKEN}`, "Content-Type": "application/json" },

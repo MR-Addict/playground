@@ -20,5 +20,5 @@ export default async function fetchTotalCommitsPages() {
     cache: "force-cache",
   });
 
-  return Math.ceil(pairHeader(res.headers) / 30);
+  return Math.ceil(pairHeader(res.headers) / 50);
 }

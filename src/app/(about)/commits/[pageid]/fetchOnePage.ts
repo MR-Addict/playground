@@ -23,7 +23,7 @@ function pairHeader(headers: Headers) {
 }
 
 export default async function fetchOnePage(page: number) {
-  const res = await fetch(`https://api.github.com/repos/MR-Addict/playground/commits?per_page=30&page=${page}`, {
+  const res = await fetch(`https://api.github.com/repos/MR-Addict/playground/commits?per_page=50&page=${page}`, {
     headers: { Authorization: `Bearer ${env.GITHUB_TOKEN}`, "Content-Type": "application/json" },
     cache: "force-cache",
   });

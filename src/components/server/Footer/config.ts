@@ -42,8 +42,8 @@ export const links: {
         external: true,
       },
       {
-        title: "Turbopack",
-        link: "https://turbo.build/",
+        title: "Resume",
+        link: "/resume.pdf",
         external: true,
       },
       {
@@ -61,11 +61,6 @@ export const links: {
   {
     head: "About",
     data: [
-      {
-        title: "Resume",
-        link: "/resume.pdf",
-        external: false,
-      },
       {
         title: "Feedback",
         link: "/feedback",

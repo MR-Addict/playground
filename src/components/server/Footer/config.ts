@@ -62,6 +62,11 @@ export const links: {
     head: "About",
     data: [
       {
+        title: "Resume",
+        link: "/resume.pdf",
+        external: false,
+      },
+      {
         title: "Feedback",
         link: "/feedback",
         external: false,

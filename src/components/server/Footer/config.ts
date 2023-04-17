@@ -37,13 +37,13 @@ export const links: {
     head: "Resources",
     data: [
       {
-        title: "Vercel",
-        link: "https://vercel.com/",
+        title: "Turbo",
+        link: "https://turbo.build/",
         external: true,
       },
       {
-        title: "Resume",
-        link: "/resume.pdf",
+        title: "Vercel",
+        link: "https://vercel.com/",
         external: true,
       },
       {
@@ -61,6 +61,11 @@ export const links: {
   {
     head: "About",
     data: [
+      {
+        title: "Resume",
+        link: "/resume.pdf",
+        external: false,
+      },
       {
         title: "Feedback",
         link: "/feedback",

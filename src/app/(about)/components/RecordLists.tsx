@@ -31,7 +31,7 @@ export default function RecordLists({ records }: { records: RecordsType[] }) {
                   index2 === item1.count - 1 ? "border-b-0" : "border-b"
                 }`}
               >
-                <div className='flex flex-row'>
+                <div className='text-slate-700 flex flex-row'>
                   <span className='pr-1 pt-[6px]'>
                     <FaRegClock size={14} />
                   </span>
@@ -40,7 +40,7 @@ export default function RecordLists({ records }: { records: RecordsType[] }) {
                     (<TimeAgo date={item2.date} />)
                   </p>
                 </div>
-                <div className=' text-slate-700 flex flex-row'>
+                <div className='flex flex-row'>
                   <span className='pr-[2px] pt-1'>
                     <HiOutlineChatBubbleOvalLeftEllipsis size={17} />
                   </span>

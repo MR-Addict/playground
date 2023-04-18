@@ -2,7 +2,7 @@
 title: "Write Beautiful Emails With React"
 date: "2023-01-26T17:27:00.000Z"
 tags: ["react", "email", "beautiful"]
-intro: "Write a beautiful and professional email using react."
+intro: "Write a beautiful and professional email using react"
 ---
 
 ## 1. Introduction

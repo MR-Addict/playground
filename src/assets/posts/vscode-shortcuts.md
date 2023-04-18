@@ -2,7 +2,7 @@
 title: "Useful Vscode Shortcut"
 date: "2023-01-26T07:08:00.000Z"
 tags: ["vsocde", "shortcut"]
-intro: "Improve your daily workflow using vscode shortcuts."
+intro: "Improve your daily workflow using vscode shortcuts"
 ---
 
 ## 1. General

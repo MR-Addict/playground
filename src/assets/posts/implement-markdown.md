@@ -2,7 +2,7 @@
 title: "Implement Markdown to Your Project"
 date: "2023-01-25T08:02:00.000Z"
 tags: ["markdown", "mdx", "prism", "plugins"]
-intro: "Teach you how to implement markdown to your project."
+intro: "Teach you how to implement markdown to your project"
 ---
 
 ## 1. Introduction

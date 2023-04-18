@@ -2,14 +2,14 @@
 title: "HTTP Status Code Cheatsheet"
 date: "2023-04-13T07:50:00.000Z"
 tags: ["status-code", "http", "web", "cheatsheet"]
-intro: "Use correct http status code for your API"
+intro: "Use the correct HTTP status code for your API"
 ---
 
 ## 1. Preview
 
-If you write backend API, **using correct http status code** is important. Correct https status code give more information instead of general 200 code. You should avoid that.
+If you write backend API, **using the correct HTTP status code** is important. Correct HTTP status code gives more information instead of the general 200 code. You should avoid that.
 
-But you may always need to look up some http status code. So do I. So I spend some time taking some notes and make a summary below.
+But you may always need to look up some HTTP status code. So do I. So I spend some time taking some notes and make a summary below.
 
 ## 2. Cheatsheet
 
@@ -28,4 +28,4 @@ But you may always need to look up some http status code. So do I. So I spend so
 ## 3. Use Links
 
 - [Http status code cheatsheet](https://www.restapitutorial.com/httpstatuscodes.html)
-- [Youtube https status code explained video](https://www.youtube.com/watch?v=wJa5CTIFj7U)
+- [Youtube HTTP status code explained video](https://www.youtube.com/watch?v=wJa5CTIFj7U)

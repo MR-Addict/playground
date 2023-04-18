@@ -55,14 +55,14 @@
 
 ## 5. Traps
 
-- [x] Server side cannot access client side api route
-- [x] Client side cannot access server side environment(env in next config accessable globally)
-- [x] `dns not found` error mostly you put server in client component. They even cannot be in the same `index.ts`.
+- [x] Server side cannot access client-side api route
+- [x] Client side cannot access server-side environment(env in next config accessible globally)
+- [x] `dns not found` error mostly you put server component in client component. They even cannot be in the same `index.ts`.
 
 ## 6. TODOs
 
 - [x] Add page loading progress bar(2023.4.1 Tricky way to solve it)
-- [ ] Better way to update user session whenever user first open page
+- [ ] Better way to update user session whenever a user first opens page
 - [x] Gist page add add and delete button(2023.4.12 Solved by using sanity studio)
 
 ## 7. Tailwindcss Rules
@@ -104,7 +104,7 @@ Start project:
 npm start
 ```
 
-## 9. Avaliable links
+## 9. Available links
 
 - [https://mraddict.one](https://mraddict.one)
 - [https://playground.mraddict.vercel.app](https://playground.mraddict.vercel.app)

@@ -2,22 +2,22 @@
 title: "Live Stream on Raspberry Pi"
 date: "2023-04-18T11:39:37.527Z"
 tags: ["Raspberry-Pi", "Stream", "Webcam", "Telegram"]
-intro: "Easily live streamming on your raspberry pi with webcam"
+intro: "Easily live streaming on your raspberry pi with webcam"
 ---
 
 ## 1. Preview
 
-If you got a raspberry pi, you may want to use your USE webcam on your raspberry pi as a WiFi webcam. Here is the full process about how to setup one yourself.
+If you got a raspberry pi, you may want to use the webcam on your raspberry pi as a WiFi webcam. Here is the full process about how to set up yourself.
 
-Here I'm using MJPG-Streamer as live stram service. After many research, though this is a very old project and may have been archived, but it's working very well.
+I'm using MJPG-Streamer as a live-stream service. After much research, though this is a very old project and may have been archived, it's still working very well.
 
-After install MJPG-Streamer, I also setup a telegramBot, so that I can easily access the snapshot. I also put it on my [home assistant](https://home-assistant.io), but that's more easier than this.
+After installing MJPG-Streamer, I also set up a telegramBot on raspberry pi. And I also implement it on my [home assistant](https://home-assistant.io), but that's much easier than a telegram bot.
 
-After all, you can do so many things with MJPT-Stramer as you like.
+After all, you can do as many things with MJPT-Stramer as you like.
 
 ## 2. Install and Setup MJPG-Streamer
 
-Install dependcies on your raspberry pi for building:
+Install dependencies on your raspberry pi for building:
 
 ```sh:install-dependencies.sh
 sudo apt-get install cmake libjpeg9-dev
@@ -36,15 +36,15 @@ unzip master.zip && cd mjpg-streamer-master/mjpg-streamer-experimental
 make && sudo make install
 ```
 
-After this, your raspbery pi has successfully installed MJPG-Stremer, you can use below command for testing:
+After this, your raspberry pi has successfully installed MJPG-Streamer, you can use the below command for testing:
 
 ```sh:test-command.sh
 /usr/local/bin/mjpg_streamer -i "/usr/local/lib/mjpg-streamer/input_uvc.so -n -f 10 -r 1280x720" -o "/usr/local/lib/mjpg-streamer/output_http.so -p 8084 -w /usr/local/share/mjpg-streamer/www
 ```
 
-After that you can visit [http://localhost:8084](http://localhost:8084) on your raspberry pi local network.
+After that, you can visit [http://localhost:8084](http://localhost:8084) on your raspberry pi local network.
 
-But you may want to setup a service that auto start your service when your raspberry pi reboot. You can add a mjpg-stramer script on your local bin directory like this:
+But you may want to set up a service that auto starts your service when your raspberry pi reboot. You can add an mjpg-streamer script on your local bin directory like this:
 
 ```sh:~/.local/bin/mjpg-streamer
 #!/bin/bash
@@ -139,15 +139,15 @@ Add script to your crontab:
 
 Reboot and visit [http://localhost:8084](http://localhost:8084) again for testing.
 
-## 2. Setup telegram bot
+## 2. Build and Set up Telegram bot
 
-You can clone my github respotiry if you want to setup a telegramBot on your raspbery pi:
+You can clone my github repository if you want to set up a telegram bot on your raspberry pi:
 
 ```sh:clone-repository.sh
 git clone https://github.com/510Lab/510lab-webcam.git
 ```
 
-After cloning, you may want to change `your_telegram_bot_token` the with your own bot token:
+After cloning, you may want to change `your_telegram_bot_token` with your own bot token:
 
 ```py:telegramBot.py
 #! /usr/bin/python
@@ -185,7 +185,7 @@ Install needed requirements:
 pip install -r requirements.txt
 ```
 
-Build exectuable binary:
+Build executable binary:
 
 ```sh:build-binary.sh
 pyinstaller --onefile --distpath . telegramBot.py

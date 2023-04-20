@@ -1,7 +1,7 @@
 ---
 title: "Live Stream on Raspberry Pi"
 date: "2023-04-18T11:39:37.527Z"
-tags: ["Raspberry-Pi", "Stream", "Webcam", "Telegram"]
+tags: ["Raspberry-Pi", "Webcam", "Telegram"]
 intro: "Easily live streaming on your raspberry pi with webcam"
 ---
 

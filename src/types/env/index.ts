@@ -7,7 +7,6 @@ const Env = z.object({
   MAILFROM: z.string(),
   MONGODB_URI: z.string(),
   GITHUB_TOKEN: z.string(),
-  CRONITOR_TOKEN: z.string(),
   NEXTAUTH_SECRET: z.string(),
   SANITY_PROJECT_ID: z.string(),
   NODE_ENV: NodeEnv,

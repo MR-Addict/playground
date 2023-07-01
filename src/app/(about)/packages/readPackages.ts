@@ -27,7 +27,7 @@ const packages = [
   {
     name: "React.js",
     packageName: "react",
-    devDependency: false,
+    devDependency: true,
     img: reactjs,
   },
   {

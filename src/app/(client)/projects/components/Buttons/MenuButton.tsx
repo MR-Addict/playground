@@ -7,7 +7,7 @@ import { DragButton, AddButton } from "../Buttons";
 export default function MenuButton() {
   return (
     <div className={classNames(style.dots, "z-10")}>
-      <button aria-label='menu button' type='button' className='p-1 rounded-full'>
+      <button aria-label="menu button" type="button" className="p-1 rounded-full">
         <AiOutlineUnorderedList />
       </button>
 

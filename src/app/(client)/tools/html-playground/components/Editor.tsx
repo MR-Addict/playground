@@ -9,7 +9,7 @@ export default function Editor({
   language,
   value,
   isShowing,
-  onChange,
+  onChange
 }: {
   language: string;
   value: string;
@@ -22,7 +22,7 @@ export default function Editor({
   return (
     <CodeMirror
       value={value}
-      height='100%'
+      height="100%"
       theme={vscodeDark}
       onChange={onChange}
       extensions={[extensions]}

@@ -4,7 +4,7 @@ const DatabaseProject = z.object({
   _id: z.string(),
   index: z.number(),
   owner: z.string(),
-  name: z.string(),
+  name: z.string()
 });
 
 const Project = DatabaseProject.merge(
@@ -18,7 +18,7 @@ const Project = DatabaseProject.merge(
     lang: z.union([z.string(), z.null()]),
     langColor: z.union([z.string(), z.null()]),
     lastUpdate: z.union([z.date(), z.null()]),
-    topics: z.array(z.union([z.string(), z.null()])),
+    topics: z.array(z.union([z.string(), z.null()]))
   })
 );
 

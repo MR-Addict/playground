@@ -5,7 +5,7 @@ import { user } from "@/lib/mongodb";
 
 const User = z.object({
   email: z.string().max(100),
-  password: z.string().min(8).max(100),
+  password: z.string().min(8).max(100)
 });
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

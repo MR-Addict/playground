@@ -10,33 +10,33 @@ const navbarData: Props[] = [
   {
     title: "Home",
     link: "/",
-    visibility: "vistor",
+    visibility: "vistor"
   },
   {
     title: "Blog",
     link: "/blog",
-    visibility: "vistor",
+    visibility: "vistor"
   },
   {
     title: "Tools",
     link: "/tools",
-    visibility: "vistor",
+    visibility: "vistor"
   },
   {
     title: "Gists",
     link: "/gists",
-    visibility: "vistor",
+    visibility: "vistor"
   },
   {
     title: "Projects",
     link: "/projects",
-    visibility: "vistor",
+    visibility: "vistor"
   },
   {
     title: "Moments",
     link: "/moments",
-    visibility: "admin",
-  },
+    visibility: "admin"
+  }
 ];
 
 export default navbarData;

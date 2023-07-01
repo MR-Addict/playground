@@ -22,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     to: req.body.email,
     subject: "MR-Addict's Profile",
     text: "MR-Addict's Profile",
-    html: readProfileHtml(),
+    html: readProfileHtml()
   };
 
   const result = await sendEmail(mailOptions);

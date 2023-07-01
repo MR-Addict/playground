@@ -15,12 +15,12 @@ export const links: Props[] = [
     name: "Account",
     path: "/dashboard",
     visibility: "current",
-    icon: AiOutlineUser,
+    icon: AiOutlineUser
   },
   {
     name: "Manage",
     path: "/dashboard/manage",
     visibility: "admin",
-    icon: AiOutlineDashboard,
-  },
+    icon: AiOutlineDashboard
+  }
 ];

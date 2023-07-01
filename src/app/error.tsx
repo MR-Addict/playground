@@ -9,16 +9,16 @@ export default function Error({ error }: { error: Error }) {
   }, [error]);
 
   return (
-    <main aria-label='error page' className='frame w-full flex flex-col items-center justify-center gap-3'>
+    <main aria-label="error page" className="frame w-full flex flex-col items-center justify-center gap-3">
       <button
-        type='button'
-        aria-label='reset button'
+        type="button"
+        aria-label="reset button"
         onClick={() => location.reload()}
-        className='text-green-600 shadow-md hover:shadow-xl rounded-full'
+        className="text-green-600 shadow-md hover:shadow-xl rounded-full"
       >
         <IoMdRefresh size={40} />
       </button>
-      <p className='text-slate-700 font-semibold text-xl'>Something went wrong!</p>
+      <p className="text-slate-700 font-semibold text-xl">Something went wrong!</p>
     </main>
   );
 }

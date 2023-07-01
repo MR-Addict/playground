@@ -64,7 +64,7 @@ const moment = {
   insert,
   update,
   read,
-  remove,
+  remove
 };
 
 export default moment;

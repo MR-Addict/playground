@@ -7,7 +7,7 @@ export default function AddButton() {
 
   return (
     <button
-      type='button'
+      type="button"
       onClick={() => {
         setProject(defaultProject);
         setIsInsertMode(true);

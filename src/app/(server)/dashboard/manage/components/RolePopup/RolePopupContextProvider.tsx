@@ -21,7 +21,7 @@ interface RolePopupContextProps {
 const RolePopupContext = createContext<RolePopupContextProps>({
   userIDRole: defaultUserIDRole,
   setUserIDRole: (value: UserIDRoleType) => {},
-  openRolePopup: (value: boolean) => {},
+  openRolePopup: (value: boolean) => {}
 });
 
 export const RolePopupContextProvider = ({ children, session }: { children: React.ReactNode; session: Session }) => {

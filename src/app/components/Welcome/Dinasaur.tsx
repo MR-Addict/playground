@@ -20,9 +20,9 @@ export default function Dinosaur() {
   }, []);
 
   return (
-    <div className='relative w-fit hidden md:block'>
-      <span ref={dinoRef} className='absolute top-7 left-32'></span>
-      <Image priority={true} placeholder='blur' src={dinosaur} alt='dinosaur' className='w-full max-w-xs' />
+    <div className="relative w-fit hidden md:block">
+      <span ref={dinoRef} className="absolute top-7 left-32"></span>
+      <Image priority={true} placeholder="blur" src={dinosaur} alt="dinosaur" className="w-full max-w-xs" />
       <span
         style={{ transform: `rotate(${angle}deg)` }}
         className='w-[23px] h-[23px] absolute top-[20px] left-[102px] after:content-[""] after:absolute after:top-[8px] after:left-[15px] after:w-2 after:h-2 after:bg-[#4F4F5A] after:rounded-full rotate-45'

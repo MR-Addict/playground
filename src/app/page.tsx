@@ -12,7 +12,7 @@ export const metadata = setMetadata("Home");
 
 export default function Page() {
   return (
-    <PageWrapper aria-label='home page' className='w-full flex flex-col'>
+    <PageWrapper aria-label="home page" className="w-full flex flex-col">
       <Welcome />
       <Timer />
       <Projects />

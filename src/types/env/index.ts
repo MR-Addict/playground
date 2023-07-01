@@ -9,7 +9,7 @@ const Env = z.object({
   GITHUB_TOKEN: z.string(),
   NEXTAUTH_SECRET: z.string(),
   SANITY_PROJECT_ID: z.string(),
-  NODE_ENV: NodeEnv,
+  NODE_ENV: NodeEnv
 });
 
 type EnvType = z.TypeOf<typeof Env>;

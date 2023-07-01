@@ -6,8 +6,8 @@ export const metadata = setMetadata("Tools • Password Generator");
 
 export default function Page() {
   return (
-    <PageWrapper aria-label='password generator page' className='frame w-full'>
-      <Back link='/tools'>
+    <PageWrapper aria-label="password generator page" className="frame w-full">
+      <Back link="/tools">
         <Generator />
       </Back>
     </PageWrapper>

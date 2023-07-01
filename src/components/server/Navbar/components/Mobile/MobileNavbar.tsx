@@ -20,21 +20,21 @@ export default function MobileNavbar() {
   useClickOutside(menuRef, () => setIsExpand(false));
 
   return (
-    <div ref={menuRef} className='lg:hidden flex flex-row items-center'>
+    <div ref={menuRef} className="lg:hidden flex flex-row items-center">
       <button
-        type='button'
+        type="button"
         className={classNames(style.hamburger, isExpand ? style.active : "")}
         onClick={() => setIsExpand(!isExpand)}
-        aria-label='mobile nav button to toggle menu'
+        aria-label="mobile nav button to toggle menu"
       >
         <div></div>
         <div></div>
       </button>
       <div
         style={{ transform: `translateX(${isExpand ? "0" : "-100%"})` }}
-        className='z-10 w-full flex flex-col items-start gap-4 py-5 px-5 md:px-48 absolute left-0 top-16 rounded-b-lg background shadow-md duration-500'
+        className="z-10 w-full flex flex-col items-start gap-4 py-5 px-5 md:px-48 absolute left-0 top-16 rounded-b-lg background shadow-md duration-500"
       >
-        <ul className='w-full flex flex-col gap-1'>
+        <ul className="w-full flex flex-col gap-1">
           {navbarData
             .filter((item) => checkPerm(session?.user.role || "vistor", item.visibility))
             .map((item, index) => (

@@ -19,7 +19,7 @@ const MomentContext = createContext<MomentContextProps>({
   moment: defaultMoment,
   setMoment: (moment: MomentType) => {},
   setIsInsertMode: (value: boolean) => {},
-  openMomentForm: (value: boolean) => {},
+  openMomentForm: (value: boolean) => {}
 });
 
 export const MomentContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {

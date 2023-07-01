@@ -14,24 +14,24 @@ export const links: {
       {
         title: "Next.js 13",
         link: "https://beta.nextjs.org/docs/",
-        external: true,
+        external: true
       },
       {
         title: "Typescript",
         link: "https://www.typescriptlang.org/",
-        external: true,
+        external: true
       },
       {
         title: "Tailwindcss",
         link: "https://tailwindcss.com/",
-        external: true,
+        external: true
       },
       {
         title: "NextAuth.js",
         link: "https://next-auth.js.org/",
-        external: true,
-      },
-    ],
+        external: true
+      }
+    ]
   },
   {
     head: "Resources",
@@ -39,24 +39,24 @@ export const links: {
       {
         title: "Turbo",
         link: "https://turbo.build/",
-        external: true,
+        external: true
       },
       {
         title: "Vercel",
         link: "https://vercel.com/",
-        external: true,
+        external: true
       },
       {
         title: "Mongodb Atlas",
         link: "https://www.mongodb.com/atlas/database",
-        external: true,
+        external: true
       },
       {
         title: "Github Repository",
         link: "https://github.com/MR-Addict/playground",
-        external: true,
-      },
-    ],
+        external: true
+      }
+    ]
   },
   {
     head: "About",
@@ -64,23 +64,23 @@ export const links: {
       {
         title: "Resume",
         link: "/resume.pdf",
-        external: false,
+        external: false
       },
       {
         title: "Feedback",
         link: "/feedback",
-        external: false,
+        external: false
       },
       {
         title: "Commits",
         link: "/commits/1",
-        external: false,
+        external: false
       },
       {
         title: "Packages",
         link: "/packages",
-        external: false,
-      },
-    ],
-  },
+        external: false
+      }
+    ]
+  }
 ];

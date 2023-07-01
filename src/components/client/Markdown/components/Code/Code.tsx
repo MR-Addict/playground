@@ -6,7 +6,7 @@ export default function Code(props: React.ComponentProps<"code">) {
 
   // inline code
   return (
-    <code {...props} className='px-1 text-gray-800 bg-slate-200 rounded-sm text-base'>
+    <code {...props} className="px-1 text-gray-800 bg-slate-200 rounded-sm text-base">
       {props.children}
     </code>
   );

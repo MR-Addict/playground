@@ -13,8 +13,8 @@ export default async function serializeMDX(markdown: string) {
         rehypeSlug,
         rehypeCodeTitles,
         [rehypePrism, { showLineNumbers: true, ignoreMissing: true }],
-        [rehypeAutolinkHeadings, { behavior: "wrap" }],
-      ],
-    },
+        [rehypeAutolinkHeadings, { behavior: "wrap" }]
+      ]
+    }
   });
 }

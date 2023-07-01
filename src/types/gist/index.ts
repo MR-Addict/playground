@@ -3,7 +3,7 @@ import z from "zod";
 const CodeFile = z.object({
   code: z.string(),
   filename: z.string(),
-  language: z.string(),
+  language: z.string()
 });
 
 const Gist = z.object({
@@ -12,7 +12,7 @@ const Gist = z.object({
   _updatedAt: z.string(),
   title: z.string(),
   public: z.boolean(),
-  files: z.array(CodeFile),
+  files: z.array(CodeFile)
 });
 
 type GistType = z.TypeOf<typeof Gist>;

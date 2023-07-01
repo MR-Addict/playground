@@ -9,10 +9,10 @@ export default function DeleteButton({ _id }: { _id: string }) {
   const { openDeletePopup, setMomentId } = useDeletePopupContext();
 
   return (
-    <Tooltip title='Delete moment'>
+    <Tooltip title="Delete moment">
       <button
-        type='button'
-        aria-label='delete moment button'
+        type="button"
+        aria-label="delete moment button"
         onClick={() => {
           setMomentId(_id);
           openDeletePopup(true);

@@ -12,7 +12,7 @@ import DeleteAccount from "./DeleteAccount";
 
 export default function AccountForm({ session }: { session: Session }) {
   return (
-    <section aria-label='account form' className='w-full flex flex-col gap-7'>
+    <section aria-label="account form" className="w-full flex flex-col gap-7">
       <div className={style["element-group"]}>
         <h1 className={style.title}>General</h1>
 

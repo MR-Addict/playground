@@ -6,8 +6,8 @@ export const metadata = setMetadata("Tools • Bcrypt");
 
 export default function Page() {
   return (
-    <PageWrapper aria-label='bcrypt page' className='frame w-full'>
-      <Back link='/tools'>
+    <PageWrapper aria-label="bcrypt page" className="frame w-full">
+      <Back link="/tools">
         <BcryptForm />
       </Back>
     </PageWrapper>

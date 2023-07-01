@@ -4,7 +4,7 @@ import { ObjectId } from "mongodb";
 const Feedback = z.object({
   _id: z.custom<ObjectId>(),
   date: z.date(),
-  feedback: z.string(),
+  feedback: z.string()
 });
 
 type FeedbackType = z.TypeOf<typeof Feedback>;

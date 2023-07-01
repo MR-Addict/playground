@@ -7,7 +7,7 @@ export default async function fetchFeedbacks() {
 
   const mapData = result.data.map((item) => ({
     date: formatDate(item.date),
-    message: item.feedback,
+    message: item.feedback
   }));
 
   return groupBy(mapData, (feedback) => feedback.date.split(" ")[0]);

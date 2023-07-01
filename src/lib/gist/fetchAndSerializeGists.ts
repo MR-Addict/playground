@@ -9,7 +9,7 @@ import sanityClient from "@/lib/sanity";
 export default async function fetchAndSerializeGists() {
   const result = await sanityClient.fetch({
     query: '*[_type == "gist"]',
-    config: { next: { revalidate: 60 } },
+    config: { next: { revalidate: 60 } }
   });
   const parsedResult = z.array(Gist).parse(result);
 
@@ -22,8 +22,8 @@ export default async function fetchAndSerializeGists() {
 
       const serializedMDX = await serialize(markdown, {
         mdxOptions: {
-          rehypePlugins: [rehypeCodeTitles, [rehypePrism, { showLineNumbers: true, ignoreMissing: true }]],
-        },
+          rehypePlugins: [rehypeCodeTitles, [rehypePrism, { showLineNumbers: true, ignoreMissing: true }]]
+        }
       });
 
       files.push({ ...file, markdown, serializedMDX });

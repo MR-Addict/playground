@@ -41,7 +41,7 @@ async function signup(password: string, email: string, role: UserRoleType) {
       email,
       role,
       create_time: now,
-      update_time: now,
+      update_time: now
     });
 
     if (result.insertedId) return { status: true, message: "Signup succeeded" };
@@ -117,7 +117,7 @@ const user = {
   signup,
   update,
   remove,
-  read,
+  read
 };
 
 export default user;

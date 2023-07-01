@@ -8,7 +8,7 @@ interface ProgressbarContextProps {
 }
 
 const ProgressbarContext = createContext<ProgressbarContextProps>({
-  startProgress: () => {},
+  startProgress: () => {}
 });
 
 interface ProgressbarContextProviderProps {
@@ -20,7 +20,7 @@ interface ProgressbarContextProviderProps {
 export const ProgressbarContextProvider = ({
   children,
   height = 2,
-  color = "#16a34a",
+  color = "#16a34a"
 }: ProgressbarContextProviderProps) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -72,9 +72,9 @@ export const ProgressbarContextProvider = ({
     <ProgressbarContext.Provider value={{ startProgress }}>
       {isLoading && (
         <section
-          aria-label='progress bar'
+          aria-label="progress bar"
           style={{ height, background: color, width: `${progress}%` }}
-          className='fixed top-0 left-0'
+          className="fixed top-0 left-0"
         />
       )}
       {children}

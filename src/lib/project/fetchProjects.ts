@@ -13,7 +13,7 @@ export default async function fetchProjects() {
     method: "POST",
     headers: { Authorization: `Bearer ${env.GITHUB_TOKEN}`, "Content-Type": "application/json" },
     body: JSON.stringify({ query: queries }),
-    next: { revalidate: 60 },
+    next: { revalidate: 60 }
   });
 
   if (!res.ok) throw new Error("Failed to fetch data");
@@ -31,7 +31,7 @@ export default async function fetchProjects() {
       forks,
       primaryLanguage,
       repositoryTopics,
-      ref,
+      ref
     } = item;
 
     return {
@@ -46,7 +46,7 @@ export default async function fetchProjects() {
       intro: description,
       createdAt: new Date(createdAt),
       lastUpdate: new Date(ref.target.history.edges[0].node.committedDate),
-      topics: repositoryTopics.edges.map((item: any) => item.node.topic.name),
+      topics: repositoryTopics.edges.map((item: any) => item.node.topic.name)
     } as ProjectType;
   });
 }

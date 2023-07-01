@@ -22,92 +22,92 @@ const packages = [
     name: "Next.js",
     packageName: "next",
     devDependency: false,
-    img: nextjs,
+    img: nextjs
   },
   {
     name: "React.js",
     packageName: "react",
     devDependency: true,
-    img: reactjs,
+    img: reactjs
   },
   {
     name: "NextAuth.js",
     packageName: "next-auth",
     devDependency: false,
-    img: nextauthjs,
+    img: nextauthjs
   },
   {
     name: "Typescript",
     packageName: "typescript",
     devDependency: true,
-    img: typescript,
+    img: typescript
   },
   {
     name: "Mongodb",
     packageName: "mongodb",
     devDependency: false,
-    img: mongodb,
+    img: mongodb
   },
   {
     name: "Tailwindcss",
     packageName: "tailwindcss",
     devDependency: true,
-    img: tailwindcss,
+    img: tailwindcss
   },
   {
     name: "Zod",
     packageName: "zod",
     devDependency: false,
-    img: zod,
+    img: zod
   },
   {
     name: "Sharp",
     packageName: "sharp",
     devDependency: false,
-    img: sharp,
+    img: sharp
   },
   {
     name: "React Icons",
     packageName: "react-icons",
     devDependency: true,
-    img: reacticons,
+    img: reacticons
   },
   {
     name: "Bcrypt",
     packageName: "bcryptjs",
     devDependency: false,
-    img: bcryptjs,
+    img: bcryptjs
   },
   {
     name: "Nodemailer",
     packageName: "nodemailer",
     devDependency: false,
-    img: nodemailer,
+    img: nodemailer
   },
   {
     name: "Codemirror",
     packageName: "@uiw/react-codemirror",
     devDependency: true,
-    img: codemirror,
+    img: codemirror
   },
   {
     name: "Framer Motion",
     packageName: "framer-motion",
     devDependency: true,
-    img: framer,
+    img: framer
   },
   {
     name: "Sass",
     packageName: "sass",
     devDependency: true,
-    img: sass,
+    img: sass
   },
   {
     name: "Sanity",
     packageName: "next-sanity-client",
     devDependency: false,
-    img: sanity,
-  },
+    img: sanity
+  }
 ];
 
 export default async function readPackages() {

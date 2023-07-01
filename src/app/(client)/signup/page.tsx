@@ -12,8 +12,8 @@ export default async function Page() {
   if (session) redirect("/");
 
   return (
-    <PageWrapper className='frame w-full'>
-      <Back link='/'>
+    <PageWrapper className="frame w-full">
+      <Back link="/">
         <SignupForm />
       </Back>
     </PageWrapper>

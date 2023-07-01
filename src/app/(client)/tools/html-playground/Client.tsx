@@ -47,49 +47,49 @@ export default function Client() {
   }, [input]);
 
   return (
-    <PageWrapper aria-label='html playground' className='frame w-full flex flex-col'>
+    <PageWrapper aria-label="html playground" className="frame w-full flex flex-col">
       <header className={style.header}>
         <div>
-          <button type='button' onClick={() => handleClickTab("html")} tab-active={String(activeTab.html)}>
+          <button type="button" onClick={() => handleClickTab("html")} tab-active={String(activeTab.html)}>
             <SiHtml5 />
             HTML
           </button>
-          <button type='button' onClick={() => handleClickTab("css")} tab-active={String(activeTab.css)}>
+          <button type="button" onClick={() => handleClickTab("css")} tab-active={String(activeTab.css)}>
             <SiCss3 />
             CSS
           </button>
-          <button type='button' onClick={() => handleClickTab("js")} tab-active={String(activeTab.js)}>
+          <button type="button" onClick={() => handleClickTab("js")} tab-active={String(activeTab.js)}>
             <SiJavascript />
             Js
           </button>
         </div>
         <div>
-          <button type='button' onClick={() => handleClickTab("result")} tab-active={String(activeTab.result)}>
+          <button type="button" onClick={() => handleClickTab("result")} tab-active={String(activeTab.result)}>
             <RiWindow2Fill />
             Result
           </button>
         </div>
       </header>
-      <section id='html-playground' className={style.output}>
+      <section id="html-playground" className={style.output}>
         <Editor
           value={input.html}
-          language='html'
+          language="html"
           isShowing={activeTab.html}
           onChange={(value) => setInput({ ...input, html: value })}
         />
         <Editor
           value={input.css}
-          language='css'
+          language="css"
           isShowing={activeTab.css}
           onChange={(value) => setInput({ ...input, css: value })}
         />
         <Editor
           value={input.js}
-          language='js'
+          language="js"
           isShowing={activeTab.js}
           onChange={(value) => setInput({ ...input, js: value })}
         />
-        <iframe srcDoc={srcDoc} title='html playground' style={{ display: activeTab.result ? "block" : "none" }} />
+        <iframe srcDoc={srcDoc} title="html playground" style={{ display: activeTab.result ? "block" : "none" }} />
       </section>
     </PageWrapper>
   );

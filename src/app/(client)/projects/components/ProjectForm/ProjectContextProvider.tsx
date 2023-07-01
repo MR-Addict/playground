@@ -23,7 +23,7 @@ const ProjectContext = createContext<ProjectContextProps>({
   openDragPopup: (value: boolean) => {},
   setIsInsertMode: (value: boolean) => {},
   openProjectForm: (value: boolean) => {},
-  setProject: (project: DatabaseProjectType) => {},
+  setProject: (project: DatabaseProjectType) => {}
 });
 
 export const ProjectContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {

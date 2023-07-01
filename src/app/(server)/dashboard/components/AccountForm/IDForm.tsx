@@ -12,19 +12,19 @@ export default function IDForm({ session }: { session: Session }) {
 
   return (
     <section className={style["input-element"]}>
-      <label htmlFor='accountID' className={style.label}>
+      <label htmlFor="accountID" className={style.label}>
         Your ID
       </label>
 
-      <div className='w-full flex flex-row'>
+      <div className="w-full flex flex-row">
         <input
           disabled
-          id='accountID'
+          id="accountID"
           value={session.user._id.toString()}
           className={classNames(style.input, "background")}
         />
         <button
-          type='button'
+          type="button"
           className={classNames(style.submitbtn, "bg-green-600 text-white")}
           onClick={() => {
             copyToClipboard(session.user._id.toString());

@@ -13,7 +13,7 @@ interface LoginContextProps {
 const LoginContext = createContext<LoginContextProps>({
   isLoggingIn: false,
   openLoginForm: (value: boolean) => {},
-  setIsLoggingIn: (value: boolean) => {},
+  setIsLoggingIn: (value: boolean) => {}
 });
 
 export const LoginContextProvider = ({ children }: { children: React.ReactNode }) => {

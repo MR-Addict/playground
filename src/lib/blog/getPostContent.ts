@@ -19,7 +19,7 @@ export default async function getPostContent(id: string) {
     date: data.date,
     tags: data.tags,
     markdown: content,
-    serializedMDX,
+    serializedMDX
   } as {
     title: string;
     date: string;

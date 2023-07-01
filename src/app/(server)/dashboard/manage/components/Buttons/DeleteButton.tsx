@@ -11,8 +11,8 @@ export default function DeleteButton({ _id, role }: { _id: string; role: UserRol
 
   return (
     <button
-      type='button'
-      aria-label='delete user button'
+      type="button"
+      aria-label="delete user button"
       className={classNames(style.btn, "bg-red-600")}
       onClick={() => {
         setUserId(_id);

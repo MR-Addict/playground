@@ -14,7 +14,7 @@ interface DeletePopupContextProps {
 const DeletePopupContext = createContext<DeletePopupContextProps>({
   project: defaultProject,
   setProject: (value: DatabaseProjectType) => {},
-  openDeletePopup: (value: boolean) => {},
+  openDeletePopup: (value: boolean) => {}
 });
 
 export const DeletePopupContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {

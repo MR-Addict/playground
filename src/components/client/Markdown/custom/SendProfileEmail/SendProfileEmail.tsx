@@ -17,7 +17,7 @@ export default function SendProfileEmail() {
     fetch("/api/blog/sendprofileemail", {
       method: "POST",
       body: JSON.stringify({ email }),
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" }
     })
       .then((res) => res.json())
       .then((result) => {
@@ -36,20 +36,20 @@ export default function SendProfileEmail() {
     <form onSubmit={handleSubmit} className={style.form}>
       <input
         required
-        type='email'
-        name='email'
+        type="email"
+        name="email"
         value={email}
         maxLength={100}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder='Your email address'
-        className='w-full max-w-xs background p-2 h-fit rounded-md background outline-none border border-black focus:border-blue-600'
+        placeholder="Your email address"
+        className="w-full max-w-xs background p-2 h-fit rounded-md background outline-none border border-black focus:border-blue-600"
       />
       <button
-        type='submit'
+        type="submit"
         disabled={!email || isSubmitting}
         className={classNames(style.submitbtn, "bg-green-600 border-green-700 text-white")}
       >
-        {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Send Me Email</span>}
+        {isSubmitting ? <LoadingDots color="white" size={5} /> : <span>Send Me Email</span>}
       </button>
     </form>
   );

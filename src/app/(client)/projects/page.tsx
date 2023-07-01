@@ -16,11 +16,11 @@ export default async function Page() {
   const databaseProjects = z.array(DatabaseProject).parse(projects);
 
   return (
-    <section className='w-full flex flex-col items-end gap-1'>
+    <section className="w-full flex flex-col items-end gap-1">
       {permission && <MenuButton />}
       {permission && <DragPopup databaseProjects={databaseProjects} />}
 
-      <ol aria-label='projects' className='w-full grid grid-cols-1 md:grid-cols-2 gap-5'>
+      <ol aria-label="projects" className="w-full grid grid-cols-1 md:grid-cols-2 gap-5">
         {projects.map((project) => (
           <ProjectCard key={project._id} permission={permission} project={project} />
         ))}

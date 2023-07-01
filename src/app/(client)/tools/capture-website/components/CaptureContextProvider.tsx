@@ -17,7 +17,7 @@ interface CaptureContextProps {
 
 const CaptureContext = createContext<CaptureContextProps>({
   result: { base64: "", type: "webp", url: "", runtime: 0, status: "idle" },
-  setResult: (result: ResultType) => {},
+  setResult: (result: ResultType) => {}
 });
 
 export const CaptureContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {

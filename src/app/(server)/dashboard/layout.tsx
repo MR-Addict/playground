@@ -9,7 +9,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
   if (!session) redirect("/");
 
   return (
-    <PageWrapper aria-label='account page' className='w-full flex-1 frame background flex flex-col md:flex-row gap-2'>
+    <PageWrapper aria-label="account page" className="w-full flex-1 frame background flex flex-col md:flex-row gap-2">
       <Sidebar session={session} />
       {children}
     </PageWrapper>

@@ -10,12 +10,12 @@ interface Props {
 
 export default function Codepen({ id, height, theme = "dark", editable = false, author = "MR-Addict" }: Props) {
   return (
-    <section aria-label='codepen iframe' style={{ height }} className={style.container}>
+    <section aria-label="codepen iframe" style={{ height }} className={style.container}>
       <iframe
-        loading='lazy'
+        loading="lazy"
         allowFullScreen
-        title='Codepen iframe'
-        className='absolute top-0 left-0 w-full h-full rounded-md'
+        title="Codepen iframe"
+        className="absolute top-0 left-0 w-full h-full rounded-md"
         src={`https://codepen.io/${author}/embed/${id}?default-tab=result&editable=${editable}&theme-id=${theme}`}
       ></iframe>
     </section>

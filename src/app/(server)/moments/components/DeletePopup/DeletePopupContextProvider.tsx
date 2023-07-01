@@ -12,7 +12,7 @@ interface DeletePopupContextProps {
 const DeletePopupContext = createContext<DeletePopupContextProps>({
   momentId: "",
   setMomentId: (value: string) => {},
-  openDeletePopup: (value: boolean) => {},
+  openDeletePopup: (value: boolean) => {}
 });
 
 export const DeletePopupContextProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {

@@ -6,7 +6,7 @@ export default function DragButton() {
   const { openDragPopup } = useProjectContext();
 
   return (
-    <button type='button' onClick={() => openDragPopup(true)}>
+    <button type="button" onClick={() => openDragPopup(true)}>
       Reorder
     </button>
   );

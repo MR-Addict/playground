@@ -21,7 +21,7 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
     fetch("/api/project/delete", {
       method: "DELETE",
       body: JSON.stringify(project),
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" }
     })
       .then((res) => res.json())
       .then((result) => {
@@ -39,25 +39,25 @@ export default function DeletePopup({ isOpenForm }: { isOpenForm: boolean }) {
   }
 
   return (
-    <OperationWindow aria-label='delete popup window' isOpenWindow={isOpenForm}>
+    <OperationWindow aria-label="delete popup window" isOpenWindow={isOpenForm}>
       <div className={classNames(style.popup, "background", isOpenForm ? "scale-100" : "scale-0")}>
-        <h1 className='font-bold text-3xl text-center text-gray-700'>Delete Project?</h1>
+        <h1 className="font-bold text-3xl text-center text-gray-700">Delete Project?</h1>
 
-        <div className='w-full flex flex-row gap-3 mt-3'>
+        <div className="w-full flex flex-row gap-3 mt-3">
           <button
-            type='button'
+            type="button"
             onClick={() => openDeletePopup(false)}
-            className='w-full py-2 rounded-sm background border border-black duration-300 hover:shadow-md'
+            className="w-full py-2 rounded-sm background border border-black duration-300 hover:shadow-md"
           >
             Cancel
           </button>
           <button
-            type='button'
+            type="button"
             disabled={isSubmitting}
             onClick={() => handleClick()}
             className={classNames(style.submitbtn, "bg-green-600")}
           >
-            {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Delete</span>}
+            {isSubmitting ? <LoadingDots color="white" size={5} /> : <span>Delete</span>}
           </button>
         </div>
       </div>

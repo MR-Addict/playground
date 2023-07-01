@@ -11,12 +11,12 @@ export default function LoginButton() {
 
   return (
     <button
-      type='button'
+      type="button"
       disabled={isLoggingIn}
       onClick={() => openLoginForm(true)}
       className={classNames(style.btn, "bg-green-600")}
     >
-      {isLoggingIn ? <LoadingDots color='white' size={5} /> : <span>Login</span>}
+      {isLoggingIn ? <LoadingDots color="white" size={5} /> : <span>Login</span>}
     </button>
   );
 }

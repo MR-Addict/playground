@@ -33,28 +33,28 @@ export default function UsernameForm({ session }: { session: Session }) {
 
   return (
     <form onSubmit={handleSubmit} className={style["input-element"]}>
-      <label htmlFor='accountEmail' className={style.label}>
+      <label htmlFor="accountEmail" className={style.label}>
         Your Email
       </label>
 
-      <div className='w-full flex flex-row'>
+      <div className="w-full flex flex-row">
         <input
           required
-          type='email'
-          name='email'
-          id='accountEmail'
-          placeholder='Email'
+          type="email"
+          name="email"
+          id="accountEmail"
+          placeholder="Email"
           value={formData}
           maxLength={100}
           className={classNames(style.input, "background")}
           onChange={(e) => setFormData(e.target.value)}
         />
         <button
-          type='submit'
+          type="submit"
           disabled={!formData || isSubmitting}
           className={classNames(style.submitbtn, "bg-green-600 text-white")}
         >
-          {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Update</span>}
+          {isSubmitting ? <LoadingDots color="white" size={5} /> : <span>Update</span>}
         </button>
       </div>
     </form>

@@ -11,8 +11,8 @@ export default function RoleButton({ _id, role }: { _id: string; role: UserRoleT
 
   return (
     <button
-      type='button'
-      aria-label='update user role button'
+      type="button"
+      aria-label="update user role button"
       className={classNames(style.btn, "bg-blue-600")}
       onClick={() => {
         setUserIDRole({ _id, role });

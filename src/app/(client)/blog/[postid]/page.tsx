@@ -14,18 +14,18 @@ export default async function Page({ params: { postid } }: { params: { postid: s
   const result = await getPostContent(decodedPostid);
 
   return (
-    <PageWrapper aria-label='blog content page' className='frame w-full flex flex-col items-center gap-5'>
-      <header aria-label='blog title' className='flex flex-col items-center gap-5'>
-        <h1 className='text-3xl md:text-4xl font-bold text-gray-700 text-center'>{result.title}</h1>
-        <div className='flex flex-col md:flex-row items-center gap-2 text-gray-500'>
-          <div className='flex flex-row items-center gap-1'>
-            <div className='flex flex-row items-center gap-[1px]'>
+    <PageWrapper aria-label="blog content page" className="frame w-full flex flex-col items-center gap-5">
+      <header aria-label="blog title" className="flex flex-col items-center gap-5">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-700 text-center">{result.title}</h1>
+        <div className="flex flex-col md:flex-row items-center gap-2 text-gray-500">
+          <div className="flex flex-row items-center gap-1">
+            <div className="flex flex-row items-center gap-[1px]">
               <FaRegClock size={13} />
               <p>{formatDate(result.date).split(" ")[0]}</p>
             </div>
             <TimeAgo date={result.date} />
           </div>
-          <div className='flex flex-row gap-2 flex-wrap'>
+          <div className="flex flex-row gap-2 flex-wrap">
             {result.tags.map((tag, index) => (
               <div key={index} style={{ color: colorfulColors[index], fontWeight: "bold" }}>
                 #{tag}
@@ -37,8 +37,8 @@ export default async function Page({ params: { postid } }: { params: { postid: s
 
       <Markdown serializedMDX={result.serializedMDX} />
 
-      <div className='w-full max-w-3xl'>
-        <ClientLink href='/blog' className='text-blue-600 text-lg hover:underline'>
+      <div className="w-full max-w-3xl">
+        <ClientLink href="/blog" className="text-blue-600 text-lg hover:underline">
           ← Back to blog
         </ClientLink>
       </div>

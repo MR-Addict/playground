@@ -10,10 +10,10 @@ export default function EditButton({ moment }: { moment: MomentType }) {
   const { setMoment, openMomentForm, setIsInsertMode } = useMomentContext();
 
   return (
-    <Tooltip title='Edit moment'>
+    <Tooltip title="Edit moment">
       <button
-        type='button'
-        aria-label='edit moment button'
+        type="button"
+        aria-label="edit moment button"
         onClick={() => {
           setMoment(moment);
           setIsInsertMode(false);

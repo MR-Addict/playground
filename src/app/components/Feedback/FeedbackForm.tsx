@@ -30,7 +30,7 @@ export default function FeedbackForm() {
     fetch("/api/feedback/insert", {
       method: "POST",
       body: JSON.stringify({ feedback }),
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" }
     })
       .then((res) => res.json())
       .then((result) => {
@@ -51,17 +51,17 @@ export default function FeedbackForm() {
     <form onSubmit={handleSubmit} className={style.form}>
       <input
         required
-        type='text'
-        name='feedback'
+        type="text"
+        name="feedback"
         maxLength={1000}
         value={feedback}
-        placeholder='Thanks for your feedback'
+        placeholder="Thanks for your feedback"
         onChange={(e) => setFeedback(e.target.value)}
-        className='w-full background outline-none border p-3 flex-1 border-green-600 rounded-l-md'
+        className="w-full background outline-none border p-3 flex-1 border-green-600 rounded-l-md"
       />
-      <button type='submit' disabled={!feedback || isSubmitting} className={classNames(style.btn, "bg-green-600")}>
+      <button type="submit" disabled={!feedback || isSubmitting} className={classNames(style.btn, "bg-green-600")}>
         {isSubmitting ? (
-          <LoadingDots color='white' size={5} />
+          <LoadingDots color="white" size={5} />
         ) : (
           <>
             <span className={style.btntext}>Submit</span>

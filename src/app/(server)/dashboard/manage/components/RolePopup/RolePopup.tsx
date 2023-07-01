@@ -34,19 +34,19 @@ export default function RolePopup({ isOpenForm, session }: { isOpenForm: boolean
   }
 
   return (
-    <OperationWindow aria-label='role popup window' isOpenWindow={isOpenForm}>
+    <OperationWindow aria-label="role popup window" isOpenWindow={isOpenForm}>
       <form
         onSubmit={handleSubmit}
         className={classNames(style.form, "background", isOpenForm ? "scale-100" : "scale-0")}
       >
-        <label htmlFor='manageRole' className={style.label}>
+        <label htmlFor="manageRole" className={style.label}>
           Update Role
         </label>
 
         <select
           required
-          id='manageRole'
-          name='role'
+          id="manageRole"
+          name="role"
           value={userIDRole.role}
           className={classNames(style.input, "background")}
           onChange={(e) => setUserIDRole({ ...userIDRole, [e.target.name]: e.target.value })}
@@ -58,16 +58,16 @@ export default function RolePopup({ isOpenForm, session }: { isOpenForm: boolean
           ))}
         </select>
 
-        <div className='w-full flex flex-row gap-3'>
+        <div className="w-full flex flex-row gap-3">
           <button
-            type='button'
+            type="button"
             onClick={() => openRolePopup(false)}
-            className='w-full py-2 rounded-sm border border-black duration-300 hover:shadow-md'
+            className="w-full py-2 rounded-sm border border-black duration-300 hover:shadow-md"
           >
             Cancel
           </button>
-          <button type='submit' className={classNames(style.submitbtn, "bg-green-600")} disabled={isSubmitting}>
-            {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Update</span>}
+          <button type="submit" className={classNames(style.submitbtn, "bg-green-600")} disabled={isSubmitting}>
+            {isSubmitting ? <LoadingDots color="white" size={5} /> : <span>Update</span>}
           </button>
         </div>
       </form>

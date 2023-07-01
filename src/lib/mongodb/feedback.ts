@@ -34,7 +34,7 @@ async function read() {
 
 const feedbcak = {
   insert,
-  read,
+  read
 };
 
 export default feedbcak;

@@ -31,28 +31,28 @@ export default function PasswordForm({ session }: { session: Session }) {
 
   return (
     <form onSubmit={handleSubmit} className={style["input-element"]}>
-      <label htmlFor='accountPassword' className={style.label}>
+      <label htmlFor="accountPassword" className={style.label}>
         New Password
       </label>
 
-      <div className='w-full flex flex-row'>
+      <div className="w-full flex flex-row">
         <input
           required
-          type='password'
-          name='password'
-          id='accountPassword'
-          placeholder='***************'
+          type="password"
+          name="password"
+          id="accountPassword"
+          placeholder="***************"
           value={formData}
           maxLength={100}
           className={classNames(style.input, "background")}
           onChange={(e) => setFormData(e.target.value)}
         />
         <button
-          type='submit'
+          type="submit"
           disabled={!formData || isSubmitting}
           className={classNames(style.submitbtn, "bg-green-600 text-white")}
         >
-          {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Update</span>}
+          {isSubmitting ? <LoadingDots color="white" size={5} /> : <span>Update</span>}
         </button>
       </div>
     </form>

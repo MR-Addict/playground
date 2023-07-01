@@ -5,7 +5,7 @@ import { DeleteButton, RoleButton } from "./components";
 
 export default function UsersTable({ users }: { users: UserType[] }) {
   return (
-    <section aria-label='users table' className='w-full overflow-x-auto bg-white rounded-md shadow-lg'>
+    <section aria-label="users table" className="w-full overflow-x-auto bg-white rounded-md shadow-lg">
       <table className={style.table}>
         <thead>
           <tr>
@@ -27,7 +27,7 @@ export default function UsersTable({ users }: { users: UserType[] }) {
               <td>{user.email}</td>
               <td>{formatDate(user.create_time)}</td>
               <td>{formatDate(user.update_time)}</td>
-              <td className='flex flex-row gap-1.5 items-center h-full'>
+              <td className="flex flex-row gap-1.5 items-center h-full">
                 <RoleButton _id={user._id.toString()} role={user.role} />
                 <DeleteButton _id={user._id.toString()} role={user.role} />
               </td>

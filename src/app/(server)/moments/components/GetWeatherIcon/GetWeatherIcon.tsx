@@ -7,7 +7,7 @@ import {
   TiWeatherDownpour,
   TiWeatherStormy,
   TiWeatherSnow,
-  TiWeatherNight,
+  TiWeatherNight
 } from "react-icons/ti";
 
 export default function GetWeatherIcon({ weather }: { weather: string }) {

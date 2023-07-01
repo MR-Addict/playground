@@ -2,7 +2,7 @@ export default function List(props: React.ComponentProps<"li">) {
   // input
   if (props.className === "task-list-item") {
     return (
-      <li {...props} className='my-1 text-lg text-gray-700'>
+      <li {...props} className="my-1 text-lg text-gray-700">
         {props.children}
       </li>
     );
@@ -10,7 +10,7 @@ export default function List(props: React.ComponentProps<"li">) {
 
   // normal list
   return (
-    <li {...props} className='my-1 text-lg text-gray-700 list-disc ml-5'>
+    <li {...props} className="my-1 text-lg text-gray-700 list-disc ml-5">
       {props.children}
     </li>
   );

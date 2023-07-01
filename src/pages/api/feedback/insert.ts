@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     from: env.MAILFROM,
     to: env.MAILFROM,
     subject: "New feedback",
-    text: req.body.feedback,
+    text: req.body.feedback
   });
 
   const result = await feedback.insert(req.body.feedback);

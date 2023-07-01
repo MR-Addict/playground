@@ -32,7 +32,7 @@ export default function DragPopup({ databaseProjects }: { databaseProjects: Data
     fetch("/api/project/reorder", {
       method: "PUT",
       body: JSON.stringify(newProjects),
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" }
     })
       .then((res) => res.json())
       .then((result) => {
@@ -50,21 +50,21 @@ export default function DragPopup({ databaseProjects }: { databaseProjects: Data
   }
 
   return (
-    <OperationWindow aria-label='drag popup window' isOpenWindow={isDragMode}>
+    <OperationWindow aria-label="drag popup window" isOpenWindow={isDragMode}>
       <form
         onSubmit={handleSubmit}
         className={classNames(style.form, "background", isDragMode ? "scale-100" : "scale-0")}
       >
         <div className={style.dragWrapper}>
-          <Reorder.Group as='ol' axis='y' values={projects} onReorder={setProjects} className='w-full'>
+          <Reorder.Group as="ol" axis="y" values={projects} onReorder={setProjects} className="w-full">
             {projects.map((project) => (
               <Reorder.Item value={project} key={project._id} className={style["drag-item"]}>
-                <span className='flex flex-row items-center gap-1'>
+                <span className="flex flex-row items-center gap-1">
                   <GrBook size={13} />
                   <span>{project.name}</span>
                 </span>
 
-                <button type='button' aria-label='drag button' className='cursor-grab'>
+                <button type="button" aria-label="drag button" className="cursor-grab">
                   <RxDragHandleDots2 />
                 </button>
               </Reorder.Item>
@@ -72,17 +72,17 @@ export default function DragPopup({ databaseProjects }: { databaseProjects: Data
           </Reorder.Group>
         </div>
 
-        <div className='w-full flex flex-row gap-2'>
-          <button type='button' className={style.btn} onClick={() => openDragPopup(false)}>
+        <div className="w-full flex flex-row gap-2">
+          <button type="button" className={style.btn} onClick={() => openDragPopup(false)}>
             Cancel
           </button>
 
           <button
-            type='submit'
+            type="submit"
             disabled={isSubmitting}
             className={classNames(style.btn, style.submitbtn, "bg-green-600")}
           >
-            {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>Reorder</span>}
+            {isSubmitting ? <LoadingDots color="white" size={5} /> : <span>Reorder</span>}
           </button>
         </div>
       </form>

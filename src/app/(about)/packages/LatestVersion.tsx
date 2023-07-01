@@ -18,7 +18,7 @@ export default function LatestVersion({ name, currentVersion }: { name: string; 
   return (
     <>
       {version && version !== currentVersion && (
-        <p className='absolute top-0 left-[110%] bg-green-600 text-white py-0.5 px-1 rounded-[4px] text-xs'>
+        <p className="absolute top-0 left-[110%] bg-green-600 text-white py-0.5 px-1 rounded-[4px] text-xs">
           {version}
         </p>
       )}

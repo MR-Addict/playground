@@ -21,13 +21,13 @@ export default function ProjectForm({ isOpenForm }: { isOpenForm: boolean }) {
 
     const backupFormData = {
       ...(isInsertMode ? {} : { _id: project._id }),
-      ...{ owner: project.owner, name: project.name },
+      ...{ owner: project.owner, name: project.name }
     };
 
     fetch(isInsertMode ? "/api/project/insert" : "/api/project/update", {
       method: isInsertMode ? "POST" : "PUT",
       body: JSON.stringify(backupFormData),
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" }
     })
       .then((res) => res.json())
       .then((result) => {
@@ -44,24 +44,24 @@ export default function ProjectForm({ isOpenForm }: { isOpenForm: boolean }) {
   }
 
   return (
-    <OperationWindow aria-label='project form window' isOpenWindow={isOpenForm}>
+    <OperationWindow aria-label="project form window" isOpenWindow={isOpenForm}>
       <form
         onSubmit={handleSubmit}
         className={classNames(style.form, "background", isOpenForm ? "scale-100" : "scale-0")}
       >
-        <h1 className='font-bold text-3xl text-gray-700 border-b-4 border-b-green-600'>Project</h1>
+        <h1 className="font-bold text-3xl text-gray-700 border-b-4 border-b-green-600">Project</h1>
 
-        <div className='w-full flex flex-col gap-3'>
+        <div className="w-full flex flex-col gap-3">
           <div className={style.inputgroup}>
-            <label htmlFor='owner' className={style.label}>
+            <label htmlFor="owner" className={style.label}>
               Owner
             </label>
             <input
               required
-              id='owner'
-              name='owner'
+              id="owner"
+              name="owner"
               maxLength={100}
-              placeholder='Repository owner'
+              placeholder="Repository owner"
               value={project.owner}
               onChange={(e) => setProject({ ...project, [e.target.name]: e.target.value })}
               className={classNames(style.input, "background")}
@@ -69,15 +69,15 @@ export default function ProjectForm({ isOpenForm }: { isOpenForm: boolean }) {
           </div>
 
           <div className={style.inputgroup}>
-            <label htmlFor='name' className={style.label}>
+            <label htmlFor="name" className={style.label}>
               Name
             </label>
             <input
               required
-              id='name'
-              name='name'
+              id="name"
+              name="name"
               maxLength={100}
-              placeholder='Repository name'
+              placeholder="Repository name"
               value={project.name}
               onChange={(e) => setProject({ ...project, [e.target.name]: e.target.value })}
               className={classNames(style.input, "background")}
@@ -85,20 +85,20 @@ export default function ProjectForm({ isOpenForm }: { isOpenForm: boolean }) {
           </div>
         </div>
 
-        <div className='w-full flex flex-row gap-3 mt-2'>
+        <div className="w-full flex flex-row gap-3 mt-2">
           <button
-            type='button'
+            type="button"
             onClick={() => openProjectForm(false)}
-            className='w-full py-2 rounded-sm background border border-black duration-300 hover:shadow-md'
+            className="w-full py-2 rounded-sm background border border-black duration-300 hover:shadow-md"
           >
             Cancel
           </button>
           <button
-            type='submit'
+            type="submit"
             disabled={!project.name || !project.owner || isSubmitting}
             className={classNames(style.submitbtn, "bg-green-600")}
           >
-            {isSubmitting ? <LoadingDots color='white' size={5} /> : <span>{isInsertMode ? "Submit" : "Update"}</span>}
+            {isSubmitting ? <LoadingDots color="white" size={5} /> : <span>{isInsertMode ? "Submit" : "Update"}</span>}
           </button>
         </div>
       </form>

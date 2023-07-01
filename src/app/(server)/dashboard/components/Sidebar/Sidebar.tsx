@@ -13,8 +13,8 @@ export default function Sidebar({ session }: { session: Session }) {
   const rootPath = (usePathname() || "/").split("/").slice(0, 3).join("/");
 
   return (
-    <section aria-label='sidebar' className='md:w-48 h-full md:top-0 md:sticky'>
-      <ul className='flex flex-row md:flex-col gap-2 md:gap-1'>
+    <section aria-label="sidebar" className="md:w-48 h-full md:top-0 md:sticky">
+      <ul className="flex flex-row md:flex-col gap-2 md:gap-1">
         {links
           .filter((item) => checkPerm(session?.user.role || "vistor", item.visibility))
           .map((link) => (

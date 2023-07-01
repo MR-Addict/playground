@@ -8,7 +8,7 @@ export default function EditButton({ project }: { project: DatabaseProjectType }
 
   return (
     <button
-      type='button'
+      type="button"
       onClick={() => {
         setProject(project);
         setIsInsertMode(false);

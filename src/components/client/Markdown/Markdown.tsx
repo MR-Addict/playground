@@ -27,11 +27,11 @@ export default function Markdown({ serializedMDX }: { serializedMDX: MDXRemoteSe
     blockquote: Blockquote,
     pre: Pre,
     img: Img,
-    table: Table,
+    table: Table
   };
 
   return (
-    <article className='w-full blog-markdown-container max-w-3xl'>
+    <article className="w-full blog-markdown-container max-w-3xl">
       <MDXRemote {...serializedMDX} components={{ ...components, ...customComponents }} />
     </article>
   );

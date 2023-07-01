@@ -19,7 +19,7 @@ export default function Capture() {
     delay: 0,
     timeout: 30,
     fullPage: false,
-    disableAnimations: false,
+    disableAnimations: false
   };
 
   const [formData, setFormData] = useState(defaultFormData);
@@ -32,7 +32,7 @@ export default function Capture() {
       method: "POST",
       //@ts-expect-error
       body: new URLSearchParams(formData),
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      headers: { "Content-Type": "application/x-www-form-urlencoded" }
     })
       .then((res) => res.json())
       .then((result) => {
@@ -50,11 +50,11 @@ export default function Capture() {
   }
 
   return (
-    <form aria-label='capture website form' onSubmit={handleSubmit} className={classNames(style.form, "background")}>
+    <form aria-label="capture website form" onSubmit={handleSubmit} className={classNames(style.form, "background")}>
       <div className={style.element}>
-        <label htmlFor='url'>
+        <label htmlFor="url">
           <p>Website URL</p>
-          <Tooltip title='Input valid URL'>
+          <Tooltip title="Input valid URL">
             <span>
               <ImInfo />
             </span>
@@ -62,21 +62,21 @@ export default function Capture() {
         </label>
         <input
           required
-          id='url'
-          name='url'
-          type='url'
+          id="url"
+          name="url"
+          type="url"
           value={formData.url}
-          className='background'
-          placeholder='Website URL'
+          className="background"
+          placeholder="Website URL"
           onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
         />
       </div>
 
-      <div className='w-full grid grid-cols-2 md:grid-cols-4 gap-5'>
+      <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-5">
         <div className={style.element}>
-          <label htmlFor='width'>
+          <label htmlFor="width">
             <p>Width</p>
-            <Tooltip title='Range from 320~3840'>
+            <Tooltip title="Range from 320~3840">
               <span>
                 <ImInfo />
               </span>
@@ -86,20 +86,20 @@ export default function Capture() {
             required
             min={320}
             max={3840}
-            id='width'
-            name='width'
-            type='number'
-            className='background'
+            id="width"
+            name="width"
+            type="number"
+            className="background"
             value={formData.width}
-            placeholder='Width'
+            placeholder="Width"
             onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
           />
         </div>
 
         <div className={style.element}>
-          <label htmlFor='height'>
+          <label htmlFor="height">
             <p>Height</p>
-            <Tooltip title='Range from 240~2160'>
+            <Tooltip title="Range from 240~2160">
               <span>
                 <ImInfo />
               </span>
@@ -109,20 +109,20 @@ export default function Capture() {
             required
             min={240}
             max={2160}
-            id='height'
-            name='height'
-            type='number'
-            className='background'
+            id="height"
+            name="height"
+            type="number"
+            className="background"
             value={formData.height}
-            placeholder='height'
+            placeholder="height"
             onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
           />
         </div>
 
         <div className={style.element}>
-          <label htmlFor='delay'>
+          <label htmlFor="delay">
             <p>Delay</p>
-            <Tooltip title='Delay before capture, range from 0~10'>
+            <Tooltip title="Delay before capture, range from 0~10">
               <span>
                 <ImInfo />
               </span>
@@ -132,20 +132,20 @@ export default function Capture() {
             required
             min={0}
             max={10}
-            id='delay'
-            name='delay'
-            type='number'
-            className='background'
+            id="delay"
+            name="delay"
+            type="number"
+            className="background"
             value={formData.delay}
-            placeholder='delay'
+            placeholder="delay"
             onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
           />
         </div>
 
         <div className={style.element}>
-          <label htmlFor='timeout'>
+          <label htmlFor="timeout">
             <p>Timeout</p>
-            <Tooltip title='Timeout for loading page, range from 10~60'>
+            <Tooltip title="Timeout for loading page, range from 10~60">
               <span>
                 <ImInfo />
               </span>
@@ -155,50 +155,50 @@ export default function Capture() {
             required
             min={10}
             max={60}
-            id='timeout'
-            name='timeout'
-            type='number'
-            className='background'
+            id="timeout"
+            name="timeout"
+            type="number"
+            className="background"
             value={formData.timeout}
-            placeholder='timeout'
+            placeholder="timeout"
             onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
           />
         </div>
       </div>
 
-      <div className='w-full flex flex-col md:flex-row items-center gap-5 mt-2'>
-        <div className='flex flex-row gap-5'>
+      <div className="w-full flex flex-col md:flex-row items-center gap-5 mt-2">
+        <div className="flex flex-row gap-5">
           <div className={style.select}>
-            <label htmlFor='fullPage'>
+            <label htmlFor="fullPage">
               <p>Full Page</p>
-              <Tooltip title='Capture full screen page'>
+              <Tooltip title="Capture full screen page">
                 <span>
                   <ImInfo />
                 </span>
               </Tooltip>
             </label>
             <input
-              type='checkbox'
-              id='fullPage'
-              name='fullPage'
+              type="checkbox"
+              id="fullPage"
+              name="fullPage"
               checked={formData.fullPage}
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.checked })}
             />
           </div>
 
           <div className={style.select}>
-            <label htmlFor='disableAnimations'>
+            <label htmlFor="disableAnimations">
               <p>Disable Animation</p>
-              <Tooltip title='Disable Any CSS Animation'>
+              <Tooltip title="Disable Any CSS Animation">
                 <span>
                   <ImInfo />
                 </span>
               </Tooltip>
             </label>
             <input
-              type='checkbox'
-              id='disableAnimations'
-              name='disableAnimations'
+              type="checkbox"
+              id="disableAnimations"
+              name="disableAnimations"
               checked={formData.disableAnimations}
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.checked })}
             />
@@ -206,9 +206,9 @@ export default function Capture() {
         </div>
 
         <div className={style.select}>
-          <label htmlFor='type'>
+          <label htmlFor="type">
             <p>Image Type</p>
-            <Tooltip title='Only support png, jpeg and webp'>
+            <Tooltip title="Only support png, jpeg and webp">
               <span>
                 <ImInfo />
               </span>
@@ -216,25 +216,25 @@ export default function Capture() {
           </label>
           <select
             required
-            id='type'
-            name='type'
-            className='background px-2 pb-1 rounded-[0.3rem] outline-none border border-black'
+            id="type"
+            name="type"
+            className="background px-2 pb-1 rounded-[0.3rem] outline-none border border-black"
             value={formData.type}
             onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
           >
-            <option value='png'>png</option>
-            <option value='jpeg'>jpeg</option>
-            <option value='webp'>webp</option>
+            <option value="png">png</option>
+            <option value="jpeg">jpeg</option>
+            <option value="webp">webp</option>
           </select>
         </div>
       </div>
 
-      <div className='w-full flex flex-row gap-3'>
-        <button type='submit' className={style.button} disabled={!formData.url || result.status === "processing"}>
+      <div className="w-full flex flex-row gap-3">
+        <button type="submit" className={style.button} disabled={!formData.url || result.status === "processing"}>
           Capture
         </button>
         <button
-          type='button'
+          type="button"
           className={style.button}
           disabled={result.status === "processing"}
           onClick={() => {

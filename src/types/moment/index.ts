@@ -5,7 +5,7 @@ const Moment = z.object({
   _id: z.custom<ObjectId>(),
   date: z.date(),
   weather: z.string(),
-  moment: z.string(),
+  moment: z.string()
 });
 
 type MomentType = z.TypeOf<typeof Moment>;

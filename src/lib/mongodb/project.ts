@@ -88,7 +88,7 @@ const project = {
   update,
   read,
   remove,
-  reorder,
+  reorder
 };
 
 export default project;

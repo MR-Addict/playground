@@ -9,7 +9,7 @@ export default function groupBy<T>(array: T[], predicate: (value: T, index: numb
   const groupArrays = Object.keys(groups).map((category) => ({
     category,
     count: groups[category].length,
-    data: groups[category],
+    data: groups[category]
   }));
   return { totalCount: totalCount, data: groupArrays };
 }

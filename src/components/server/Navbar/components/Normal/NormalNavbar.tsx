@@ -12,7 +12,7 @@ export default function NormalNavbar() {
   const rootPath = (usePathname() || "/").split("/").slice(0, 2).join("/");
 
   return (
-    <ul className='hidden lg:flex flex-row gap-4'>
+    <ul className="hidden lg:flex flex-row gap-4">
       {navbarData
         .filter((item) => checkPerm(session?.user.role || "vistor", item.visibility))
         .map((item, index) => (

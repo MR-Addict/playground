@@ -10,7 +10,7 @@ const User = z.object({
   email: z.string().max(100),
   role: UserRole,
   create_time: z.date(),
-  update_time: z.date(),
+  update_time: z.date()
 });
 
 type UserType = z.TypeOf<typeof User>;

@@ -23,10 +23,10 @@ export default async function Page({ params: { pageid } }: { params: { pageid: s
   const commits = result.data;
 
   return (
-    <PageWrapper aria-label='commits page' className='flex-1 frame w-full flex flex-col gap-5'>
-      <h1 className='text-2xl font-bold text-slate-700'>Commits({totalCount})</h1>
+    <PageWrapper aria-label="commits page" className="flex-1 frame w-full flex flex-col gap-5">
+      <h1 className="text-2xl font-bold text-slate-700">Commits({totalCount})</h1>
       <RecordLists records={commits} />
-      <div className='flex flex-row justify-center'>
+      <div className="flex flex-row justify-center">
         <ClientLink
           disabled={!res.isPrev}
           style={{ cursor: res.isPrev ? "pointer" : "not-allowed" }}

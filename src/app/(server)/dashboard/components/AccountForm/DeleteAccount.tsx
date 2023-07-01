@@ -21,14 +21,14 @@ export default function DeleteAccount({ session }: { session: Session }) {
 
       <p className={style.label}>Delete Your Account</p>
 
-      <div className='w-full flex flex-col items-end gap-3'>
-        <p className='text-lg text-gray-500'>
+      <div className="w-full flex flex-col items-end gap-3">
+        <p className="text-lg text-gray-500">
           Permanently remove your personal account and all of its contents. This action is not reversible, so please
           continue with caution.
         </p>
 
         <button
-          type='button'
+          type="button"
           onClick={() => openDeletePopup(true)}
           className={classNames(style.submitbtn, "text-white")}
         >

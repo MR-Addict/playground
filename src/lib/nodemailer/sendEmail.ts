@@ -16,8 +16,8 @@ const mailTransport = nodemailer.createTransport({
   secure: true,
   auth: {
     user: env.MAILFROM,
-    pass: env.MAILPASS,
-  },
+    pass: env.MAILPASS
+  }
 });
 
 export default async function sendEmail({ from, to, subject, text, html }: mailOptionsType) {

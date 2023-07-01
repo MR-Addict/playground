@@ -13,7 +13,7 @@ async function updateSession(req: any) {
     username: z.string().max(100).optional(),
     email: z.string().max(100).optional(),
     role: UserRole.optional(),
-    password: z.string().optional(),
+    password: z.string().optional()
   });
 
   const parsedResult = User.safeParse(req);
@@ -24,7 +24,7 @@ async function updateSession(req: any) {
     email: parsedUser.email,
     username: parsedUser.username,
     role: parsedUser.role,
-    password: parsedUser.password,
+    password: parsedUser.password
   });
 
   if (result.status) return true;
@@ -45,7 +45,7 @@ export const authOptions: NextAuthOptions = {
 
       credentials: {
         username: { label: "Email", type: "email", placeholder: "Email" },
-        password: { label: "Password", type: "password", placeholder: "Password" },
+        password: { label: "Password", type: "password", placeholder: "Password" }
       },
 
       async authorize(credentials, req) {
@@ -55,8 +55,8 @@ export const authOptions: NextAuthOptions = {
           console.error(result.message);
           return null;
         } else return result.user as any;
-      },
-    }),
+      }
+    })
   ],
 
   callbacks: {
@@ -73,8 +73,8 @@ export const authOptions: NextAuthOptions = {
       // @ts-expect-error
       session.user = token.user;
       return session;
-    },
-  },
+    }
+  }
 };
 
 export default NextAuth(authOptions);

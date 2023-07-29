@@ -1,6 +1,5 @@
 import "./globals.css";
 
-import Script from "next/script";
 import { Suspense } from "react";
 
 import { ScrollToTop } from "@/components/client";
@@ -27,7 +26,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </NextauthProvider>
         </Suspense>
       </body>
-      <Script async src="https://umami.mraddict.one/script.js" data-website-id="6d377f25-c6bd-458d-8c65-ffeb3f4a7b36" />
     </html>
   );
 }

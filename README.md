@@ -1,4 +1,4 @@
-# Next.js Playground [![Website](https://cronitor.io/badges/lpgpAc/production/psXmQTVKv7rYLXnKsHcevoF8H6c.svg)](https://playground.cronitorstatus.com/)
+# Next.js Playground
 
 ## 1. Packages
 
@@ -102,10 +102,3 @@ Start project:
 ```bash
 npm start
 ```
-
-## 9. Available links
-
-- [https://mraddict.one](https://mraddict.one)
-- [https://playground.mraddict.vercel.app](https://playground.mraddict.vercel.app)
-
-> Powered by [vercel](https://vercel.com) and [mongodb](https://www.mongodb.com/atlas/database).

@@ -26,6 +26,19 @@ export default function Welcome() {
             </a>
             in one place. Hope you will like it after have a visit.
           </div>
+
+          <div className="py-4 px-4 bg-red-600 text-white">
+            <p className="font-semibold text-lg flex flex-col gap-1">
+              <span>Next.js Sucks!</span>
+              <span>Don't use it!</span>
+            </p>
+
+            <p className="w-fit ml-auto text-sm">
+              <span>Mr.Addict</span>
+              <span> -- 2024.11.28</span>
+            </p>
+          </div>
+
           <div className="flex flex-row items-center gap-3">
             <a href="mailto:mr-addict@qq.com" aria-label="email to me" target="_blank">
               <MdEmail size={30} className="text-gray-700 drop-shadow-lg m-1 hover:drop-shadow-2xl" />
